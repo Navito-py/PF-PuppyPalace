@@ -26,4 +26,19 @@ fs.readdirSync(path.join(__dirname, '/models'))
 modelDefiners.forEach(m => m(sequelize));
 
 // En las siguientes lineas requerimos todos los modelos y capitalizamos (ponemos en mayusculas) la inicial del nombre del modelo/tabla en la DB \\
-let 
+let caps = Object.caps(sequelize.models);
+let capsCap = caps.map((d) => [d[0][0].toUpperCase() + caps[0].slice(1), caps[1]]);
+sequelize.models = Object.fromEntries(capsCap);
+
+const {Pet , Clinic, Rate, User } = sequelize.models;
+
+Pet.hasOne(User, {through: "User_Pet"});
+User.hasMany(Pet, {through: "User_Pet"});
+Clinic.hasOne(Rate, {through: "Clinic_Rate"});
+Rate.hasMany(Clinic, {through: "Clinic_Rate"});
+
+
+module.exports = {
+    ...sequelize.models,
+    conn : sequelize,
+}
