@@ -68,10 +68,20 @@ module.exports = (sequelize) => {
             }
         },
 
-        adress: {
+        address: {
             type: DataTypes.TEXT,
             allowNull: true,
             
+        },
+
+        province: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         image: {

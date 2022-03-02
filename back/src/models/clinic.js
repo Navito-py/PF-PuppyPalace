@@ -19,9 +19,19 @@ module.exports = (sequelize) => {
             }
         },
 
-        location: {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+
+        province: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         activeHours:{
@@ -57,9 +67,6 @@ module.exports = (sequelize) => {
                 isUrl: true
             }
         }
-
-
-
 
     }, {timestamps: false})
 };
