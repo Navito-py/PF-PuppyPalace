@@ -1,77 +1,27 @@
 const {DataTypes} = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define ('user', {
-        id: {
+    sequelize.define('clinic', {
+        id:{
             type: DataTypes.UUID,
-            allowNull: false,
             unique: true,
-            primaryKey: true,
-            defaultValue: DataTypes.UUIDV4
-        },
-
-        userName: {
-            type: DataTypes.STRING,
             allowNull: false,
-            unique: true, 
-            validate: {
-                isAlphanumeric: true,
-                notEmpty: true
-            }
-        } ,
+            primaryKey: true,
+            defaulValue: DataTypes.UUIDV4
+        },
 
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                is: ["^[a-z]+$",'i'],
-                notEmpty: true
-            }
-        },
-
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                is: ["^[a-z]+$",'i'],
-                notEmpty: true
-            }
-        },
-
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
-            validate : {
-                isEmail: true,
-                notEmpty: true,
-            }
-        }, 
-
-        password: {
-            type: DataTypes.TEXT,
-            allowNull: false,
             validate: {
-                len: [8, 20], // longitud contraseña: sólo válida entre 8 y 20 caracteres 
-                notEmpty: true,
-            }
-        },
-
-        phone: {
-            type: DataTypes.INTEGER,
-            unique: true,
-            allowNull: false,
-            validate: {
-                isNumeric: true,
-                isInt: true,
-                len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
+                isAlphanumeric: true
             }
         },
 
         address: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-            
+            type: DataTypes.STRING,
+            allowNull: false,
         },
 
         province: {
@@ -84,14 +34,39 @@ module.exports = (sequelize) => {
             allowNull: false
         },
 
+        activeHours:{
+            type: DataTypes.RANGE(DataTypes.DATE),
+            allowNull: false
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate : {
+                isEmail: true,
+                notEmpty: true,
+            }
+        }, 
+
+        phone: {
+            type: DataTypes.INTEGER,
+            unique: true,
+            allowNull: false,
+            validate: {
+                isNumeric: true,
+                isInt: true,
+                len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
+            }
+        },
+
         image: {
             type: DataTypes.STRING,
-            allowNull: true,
             defaultValue: "https://www.segurmaniazurekin.eus/a/2020/11/segurmania_mascotas_destacada-320x240.jpg",
             validate: {
                 isUrl: true
             }
-        },
+        }
 
-    })
-}
+    }, {timestamps: false})
+};
