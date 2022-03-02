@@ -48,7 +48,16 @@ module.exports = (sequelize) => {
                 isInt: true,
                 len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
             }
+        },
+
+        image: {
+            type: DataTypes.STRING,
+            defaultValue: "https://www.segurmaniazurekin.eus/a/2020/11/segurmania_mascotas_destacada-320x240.jpg",
+            validate: {
+                isUrl: true
+            }
         }
+
 
 
 
