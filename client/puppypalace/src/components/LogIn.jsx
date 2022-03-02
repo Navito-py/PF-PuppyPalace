@@ -22,7 +22,7 @@ export default function LogIn() {
     return (
         <div>
             <input onChange={(e) => hanleOnChange(e)} placeholder='Email' type="text" name="email"/>
-            <input onChange={(e) => hanleOnChange(e)} placeholder='Password' type="text" name="password"/>
+            <input onChange={(e) => hanleOnChange(e)} placeholder='Password' type="password" name="password"/>
             <button onClick={(e) => handleSubmit(e)}>Log in</button>
         </div>
     )
