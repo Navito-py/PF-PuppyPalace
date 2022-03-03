@@ -5,6 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
 
+
 export default function Home() {
   return (
     <div>
