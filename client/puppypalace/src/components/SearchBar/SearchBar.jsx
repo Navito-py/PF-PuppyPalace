@@ -23,12 +23,13 @@ export default function SearchBar() {
         <div>
             <input
             type= "text"
-            placeholder="Search Clinics..."
+            placeholder="Buscar Clinicas..."
             value= {name}
             autoComplete= "off"
             onChange={(e) => handleInputChange(e)}
             />
-            <button type= "submit" onClick={(e) => handleSubmit(e)}>Search</button>
+            <button type= "submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+
         </div>
     )
 
