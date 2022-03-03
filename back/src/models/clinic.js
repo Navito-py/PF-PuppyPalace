@@ -41,7 +41,7 @@ module.exports = (sequelize) => {
 
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             unique: true,
             validate : {
                 isEmail: true,
@@ -66,6 +66,16 @@ module.exports = (sequelize) => {
             validate: {
                 isUrl: true
             }
+        },
+
+        emergency: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+
+        hospitalization : {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
         }
 
     }, {timestamps: false})

@@ -53,5 +53,15 @@ module.exports = (sequelize) => {
             }
         },
 
+        history: {
+            type : DataTypes.TEXT,
+            allowNull: true,
+        }, 
+
+        status: {
+            type: DataTypes.ENUM("Alive", "Deceased", "Lost"),
+            allowNull: false,
+        }
+
     }, {timestamps: false})
 }
