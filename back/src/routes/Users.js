@@ -7,10 +7,10 @@ const Pets = require ('./Pets.js');
 const router = Router();
 
 
-
 router.use('/login', Login);
 router.use('/register', Register);
 router.use('/pets', Pets);
+
 
 module.exports = router;
 

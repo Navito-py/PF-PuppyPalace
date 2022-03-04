@@ -30,7 +30,8 @@ function rootReducer(state = initialState, action) {
       };
     case "FILTER_CITY":
       const cities = state.allClinics;
-      let citiesFiltered = cities;
+
+      let citiesFiltered;
       if (action.payload === "mendoza") {
         citiesFiltered = cities.filter((e) => e.city === "Mendoza");
       } else if (action.payload === "rosario") {
