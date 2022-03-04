@@ -11,6 +11,7 @@ import { getClinics } from "../../redux/actions/index"
 import { useEffect } from "react";
 import { filterCity } from "../../redux/actions"
 
+
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export function getNameClinic(name) {
   return async function (dispatch) {
     try {
@@ -15,6 +16,7 @@ export function getNameClinic(name) {
     }
   };
 }
+
 
 export function getClinics() {
   return async function (dispatch) {

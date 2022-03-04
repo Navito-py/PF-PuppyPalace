@@ -4,6 +4,7 @@ import { getDetail, cleanDetails } from '../../redux/actions'
 import { useParams } from 'react-router-dom'
 import vipets from "../../media/logoVIPetsTransparent.png";
 
+
 export default function Detail(props) {
     const dispatch = useDispatch()
     const { id } = useParams()

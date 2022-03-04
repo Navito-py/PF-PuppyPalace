@@ -17,6 +17,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+
     case "RESET":
       return {
         ...state,
