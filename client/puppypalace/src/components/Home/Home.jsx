@@ -9,7 +9,7 @@ import vipets from "../../media/logoVIPetsTransparent.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
 import { useEffect } from "react";
-
+import { filterCity } from "../../redux/actions"
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -18,6 +18,12 @@ export default function Home() {
   useEffect(() => {
     dispatch(getClinics());
   }, [dispatch]);
+
+  const handleCitySort = (e) => {
+    e.preventDefault()
+    dispatch(filterCity(e.target.id))
+  }
+
 
   return (
     <div>
@@ -53,12 +59,13 @@ export default function Home() {
               <h3>Cordoba</h3>
             </div>
             <div>
-            
               <img
                 src="https://www.serargentino.com/public/images/2020/07/15948461260-EL-arco-de-C%C3%B3rdoba-773x458.jpg"
                 alt="cordoba"
                 width="230px"
                 height="160px"
+                onClick={handleCitySort}
+                id="cordoba"
               />
              
             </div>
@@ -74,6 +81,8 @@ export default function Home() {
                 alt="rosario"
                 width="230px"
                 height="160px"
+                onClick={handleCitySort}
+                id="rosario"
               />
             </div>
           </div>
@@ -88,6 +97,8 @@ export default function Home() {
                 alt="Mendoza"
                 width="230px"
                 height="160px"
+                onClick={handleCitySort}
+                id="mendoza"
               />
             </div>
           </div>
@@ -99,7 +110,7 @@ export default function Home() {
         >
           {allClinics.map((e) => {
             return (
-              <div>
+              <div key={e.id}>
                 <Link to={`clinics/${e.id}`}>
                   <Card
                     name={e.name}

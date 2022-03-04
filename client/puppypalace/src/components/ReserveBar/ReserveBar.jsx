@@ -1,9 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { filterCity } from "../../redux/actions"
 
 export default function ReserveBar() {
-  const dispatch = useDispatch()
   const hours = [
     "8:00",
     "8:30",
@@ -25,20 +22,16 @@ export default function ReserveBar() {
     "16:30",
   ];
 
-  const handleCitySort = (e) => {
-    e.preventDefault()
-    dispatch(filterCity(e.target.value))
-  }
 
   return (
     <div>
       <div className="organizeReserve">
 
-          <select onChange={handleCitySort}>
-            <option value="">- Selecciona la ciudad -</option>
-            <option value="cordoba">Cordoba</option>
-            <option value="mendoza">Mendoza</option>
-            <option value="rosario">Rosario</option>
+          <select >
+            <option >- Selecciona la ciudad -</option>
+            <option >Cordoba</option>
+            <option >Mendoza</option>
+            <option >Rosario</option>
           </select>
 
 
@@ -48,9 +41,9 @@ export default function ReserveBar() {
 
 
           <select>
-            <option value="">- Horarios -</option>
+            <option value="" disabled="">- Horarios -</option>
             {hours?.map((h) => (
-              <option>{h}</option>
+              <option key={h.id}>{h}</option>
             ))}
           </select>
 
