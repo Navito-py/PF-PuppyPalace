@@ -34,7 +34,7 @@ const createUser = async (req, res, next) => {
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba') && province,
                 city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
-                image: image !== ""? image:null 
+                image: image !== ""? image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'
             })
             res.json(newUser);
         } else {
