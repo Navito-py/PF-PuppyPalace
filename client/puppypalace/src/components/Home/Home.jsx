@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
 import { useEffect } from "react";
 
-
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);
