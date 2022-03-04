@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
 import { useEffect } from "react";
 
+
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);
@@ -49,21 +50,23 @@ export default function Home() {
         <div className="all-cities">
           <div>
             <div>
-              <h3>Rosario</h3>
+              <h3>Cordoba</h3>
             </div>
             <div>
+            
               <img
                 src="https://www.serargentino.com/public/images/2020/07/15948461260-EL-arco-de-C%C3%B3rdoba-773x458.jpg"
                 alt="cordoba"
                 width="230px"
                 height="160px"
               />
+             
             </div>
           </div>
 
           <div>
             <div>
-              <h3>Cordoba</h3>
+              <h3>Rosario</h3>
             </div>
             <div>
               <img
@@ -101,7 +104,7 @@ export default function Home() {
                   <Card
                     name={e.name}
                     image={e.image}
-                    schedule={e.address} //cambiamos horarios por direccion
+                    schedule={e.address}
                   />
                 </Link>
               </div>
@@ -112,3 +115,4 @@ export default function Home() {
     </div>
   );
 }
+

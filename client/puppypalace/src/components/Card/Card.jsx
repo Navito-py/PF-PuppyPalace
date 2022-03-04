@@ -1,11 +1,29 @@
-import React from 'react'
+import React from "react";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
-export default function Card({name, image, schedule}) {
-    return (
-        <div>
-            <p>{name}</p>
-            <img src={image} alt='' width='230px' height='160px' />
-            <p>{schedule}</p>
-        </div>
-    )
+export default function Card({ name, image, schedule }) {
+  return (
+    <div>
+      <MDBCard style={{ maxWidth: "22rem" }}>
+        <MDBCardImage src={image} position="top" alt="..." />
+        <MDBCardBody>
+          <MDBCardTitle>{name}</MDBCardTitle>
+          <MDBCardText>{schedule}</MDBCardText>
+        </MDBCardBody>
+      </MDBCard>
+    </div>
+  );
 }
+
+/* 
+
+<p>{name}</p>
+<img src={image} alt='' width='230px' height='160px' />
+<p>{schedule}</p> */
