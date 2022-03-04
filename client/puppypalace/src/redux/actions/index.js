@@ -45,15 +45,16 @@ export function getDetail(id) {
     } catch (error) {
       console.log(error);
     }
+  }
 }
 
-export function PostUser(payload) {
+export function postUser(payload) {
     return async function(dispatch){
         let user = await axios.post('http://localhost:3001/user/register', payload)
         return user
     }
   };
-}
+
 
 export function cleanDetails() {
   return {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { PostUser } from '../../redux/actions'
+import { postUser } from '../../redux/actions'
 
 export default function Register() {
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ export default function Register() {
 
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(PostUser(info))
+        dispatch(postUser(info))
         setInfo({
             userName: "",
             name: "",
