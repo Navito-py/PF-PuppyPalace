@@ -8,7 +8,7 @@ const Pets = require ('./Pets.js');
 
 
 
- router.use('/login', Login);
+/*  router.use('/login', Login); */
  router.use('/register', Register);
  router.use('/pets', Pets);
 
