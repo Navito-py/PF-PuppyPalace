@@ -4,10 +4,10 @@ module.exports = (sequelize) => {
     sequelize.define('clinic', {
         id:{
             type: DataTypes.UUID,
-            unique: true,
+            defaultValue: DataTypes.UUIDV4,
             allowNull: false,
+            unique: true,
             primaryKey: true,
-            defaulValue: DataTypes.UUIDV4
         },
 
         name: {
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
         },
 
         activeHours:{
-            type: DataTypes.RANGE(DataTypes.DATE),
+            type: DataTypes.STRING,
             allowNull: false
         },
 
@@ -50,7 +50,7 @@ module.exports = (sequelize) => {
         }, 
 
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             unique: true,
             allowNull: false,
             validate: {
@@ -70,12 +70,12 @@ module.exports = (sequelize) => {
 
         emergency: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            //allowNull: false,
         },
 
         hospitalization : {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+           // allowNull: false,
         }
 
     }, {timestamps: false})

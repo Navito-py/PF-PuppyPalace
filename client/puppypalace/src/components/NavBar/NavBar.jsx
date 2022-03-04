@@ -18,7 +18,6 @@ export default function NavBar(){
                     Menu
                 </DropdownToggle>
                 <DropdownMenu>
-                    <DropdownItem>Realizar búsqueda</DropdownItem>
                     <DropdownItem>Mi Perfil</DropdownItem>
                     <DropdownItem>Mis Reservas</DropdownItem>
                     <DropdownItem>Ver Mapa</DropdownItem>

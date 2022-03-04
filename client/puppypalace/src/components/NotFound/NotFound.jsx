@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import error404 from "../media/error404.png";
+import error404 from "../../media/error404.png";
 
 
 export default function NotFound() {

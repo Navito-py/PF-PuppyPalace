@@ -3,7 +3,9 @@ const axios = require('axios');
 const { Pet, Vaccine } = require('../db.js');
 const router = require('../routes/Clinics.js');
 
+
 // -------------------------------------- MIDDLEWARES -------------------------------------- \\
+
     // Searching Pets
     
 const petsDb = async () => {
@@ -18,8 +20,10 @@ const petsDb = async () => {
     });
 };
 
+
 // ----------------------------------------- RUTAS ------------------------------------------ \\
 // GET
+
 
 const getPets = async (req, res) => {
     try {
@@ -44,6 +48,7 @@ const postPet = async (req, res) => {
         history,
         status
     } = req.body
+
 // -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
         if (name, type, breed, age, height, weight, image, history, status) {

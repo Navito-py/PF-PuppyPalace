@@ -20,52 +20,17 @@
   height: 20%;
 }
 
- .cordoba-position{
-   position: absolute;
- }
- .cordoba{
-   position: relative;
-   top: 50px;
-   left: 500px;
- }
-
- .img-cordoba{
-  position: relative;
-  top: 70px;
-  left: 750px;
- }
-
- .rosario-position{
-  position: absolute;
-}
-.rosario{
-  position: relative;
-  top: 50px;
-  left: 800px;
-}
-
-.img-rosario{
- position: relative;
- top: 70px;
- left: 450px;
-}
-
-.mendoza-position{
-  position: absolute;
-}
-.mendoza{
-  position: relative;
-  top: 50px;
-  left: 1100px;
-}
-
-.img-mendoza{
- position: relative;
- top: 70px;
- left: 1050px;
-}
-
 .title-cities{
   display: table;
   margin: 0 auto;
+} 
+
+.all-cities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.cards{
+  flex-wrap: wrap;
 }
