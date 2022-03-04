@@ -4,15 +4,15 @@ const Register = require ('./Register.js');
 const Pets = require ('./Pets.js');
 
 
- const router = Router();
+const router = Router();
 
 
 
-/*  router.use('/login', Login); */
- router.use('/register', Register);
- router.use('/pets', Pets);
+router.use('/login', Login);
+router.use('/register', Register);
+router.use('/pets', Pets);
 
- module.exports = router;
+module.exports = router;
 
 //- /user  POST---> /login
 //          GET---> /login
