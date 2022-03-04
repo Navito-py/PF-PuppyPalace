@@ -31,3 +31,10 @@ export function getDetail(id){
         }
     }
 }
+
+export function PostUser(payload) {
+    return async function(dispatch){
+        let user = await axios.post('http://localhost:3001/user/register', payload)
+        return user
+    }
+}
