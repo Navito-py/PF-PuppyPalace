@@ -69,7 +69,7 @@ export default function Register() {
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Apellido' type="text" name="lastName"/>
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Email' type="text" name="email"/>
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Contraseña' type="password" name="password"/>
-                <input onChange={(e) => hanleOnChange(e)} placeholder='Telefono' type="number" name="phone"/>
+                <input onChange={(e) => hanleOnChange(e)} placeholder='Telefono' type="text" name="phone"/>
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Direccion (Calle y Altura)' type="text" name="address"/>
                 <select onChange={e => handleSelectProvice(e)}>
                     <option hidden selected>Provincia</option>
@@ -79,9 +79,9 @@ export default function Register() {
                 </select>
                 <select onChange={e => handleSelectCity(e)}>
                     <option hidden selected>Ciudad</option>
-                    <option value='Mendoza' >Mendoza</option>
-                    <option value='Rosario' >Rosario</option>
-                    <option value='Córdoba' >Córdoba</option>
+                    <option value='Mendoza'>Mendoza</option>
+                    <option value='Rosario'>Rosario</option>
+                    <option value='Córdoba'>Córdoba</option>
                 </select>
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Foto de perfil (opcional)' type="text" name="image"/>
                 <button type='submit'>Register</button>
