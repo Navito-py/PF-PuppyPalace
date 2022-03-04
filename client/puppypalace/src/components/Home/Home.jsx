@@ -60,6 +60,7 @@ export default function Home() {
               <h3>Cordoba</h3>
             </div>
             <div>
+            
               <img
                 src="https://www.serargentino.com/public/images/2020/07/15948461260-EL-arco-de-C%C3%B3rdoba-773x458.jpg"
                 alt="cordoba"

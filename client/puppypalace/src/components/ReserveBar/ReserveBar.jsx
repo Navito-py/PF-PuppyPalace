@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { filterCity } from "../../redux/actions"
 
 export default function ReserveBar() {
+  const dispatch = useDispatch()
   const hours = [
     "8:00",
     "8:30",
@@ -22,10 +25,10 @@ export default function ReserveBar() {
     "16:30",
   ];
 
-
   return (
     <div>
       <div className="organizeReserve">
+
 
           <select >
             <option >- Selecciona la ciudad -</option>
