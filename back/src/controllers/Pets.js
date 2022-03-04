@@ -3,8 +3,7 @@ const axios = require('axios');
 const { Pet, Vaccine } = require('../db.js');
 const router = require('../routes/Clinics.js');
 
-////////////////////////////////////////////////////////////////////////////////////////////
-// Middlewares:
+// -------------------------------------- MIDDLEWARES -------------------------------------- \\
     // Searching Pets
     
 const petsDb = async () => {
@@ -19,9 +18,8 @@ const petsDb = async () => {
     });
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//RUTAS
-    // GET
+// ----------------------------------------- RUTAS ------------------------------------------ \\
+// GET
 
 const getPets = async (req, res) => {
     try {
@@ -46,20 +44,24 @@ const postPet = async (req, res) => {
         history,
         status
     } = req.body
-
+// -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
-        let newPet = await Pet.create({
-            name,
-            type,
-            breed,
-            age,
-            height,
-            weight,
-            image,
-            history,
-            status
-        })
-        res.status(201).json(newPet)
+        if (name, type, breed, age, height, weight, image, history, status) {
+            let newPet = await Pet.create({
+                name: typeof name === "string" && name,
+                type: (type === "Dog" || type === "Cat") && type,
+                breed: typeof breed === "string" && breed,
+                age: typeof age === "number" && age,
+                height: typeof height === "number" && height,
+                weight: typeof weight === "number" && weight,
+                image: typeof image === "string" && image,
+                history: typeof history === "string" && history,
+                status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
+            })
+            res.status(201).json(newPet)
+        } else {
+            res.status(401).send({error: "Complete el formulario correctamente"})
+        }
     } catch (error) {
         console.log(error)
         res.status(400).send(error)
