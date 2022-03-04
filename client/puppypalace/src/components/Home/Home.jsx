@@ -6,47 +6,17 @@ import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
 import Card from "../Card/Card";
 import vipets from "../../media/logoVIPetsTransparent.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getClinics } from "../../redux/actions/index"
+import { useEffect } from "react";
 
 export default function Home() {
-  const info = [
-    {
-      id: "1",
-      name: "Clínica Veterinaria Patagonia",
-      address: "Juan F. Cobos 231",
-      province: "Mendoza",
-      city: "Laprida",
-      activeHours: "Lunes a Viernes 10 a 13 hs // 17 a 20 hs",
-      phone: 2614321309,
-      email: "emailfalso123@hotmail.com",
-      image:
-        "https://institutoferrer.com/wp-content/uploads/2020/08/AUXILIAR-VETERINARIA.jpg",
-    },
+  const dispatch = useDispatch();
+  const allClinics = useSelector((state) => state.clinics);
 
-    {
-      id: "2",
-      name: "Veterinaria San Roque, Hospital Veterinaria",
-      address: "Av. Juan B. Justo 535",
-      province: "Santa Fe",
-      city: "Rosario",
-      activeHours: "Lunes a Viernes 9:30 a 20 hs",
-      phone: 2614233937,
-      email: "emailfalso123@hotmail.com",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe_PVEZ5e0LqLBdbYe7ioLlKZiNIFtv8tmpg&usqp=CAU",
-    },
-    {
-      id: "3",
-      name: "Veterinaria Nachito, amamos el mate amargo",
-      address: "Av. San Martin 678",
-      province: "Cordoba",
-      city: "Cordoba",
-      activeHours: "Lunes a Viernes 8:30 a 21 hs",
-      phone: 2614233937,
-      email: "emailfalso123@hotmail.com",
-      image:
-        "https://i.pinimg.com/originals/33/db/d6/33dbd6db49fe72c3544ee6943231ea85.jpg",
-    },
-  ];
+  useEffect(() => {
+    dispatch(getClinics());
+  }, [dispatch]);
 
   return (
     <div>
@@ -124,14 +94,14 @@ export default function Home() {
           className="cards"
           style={{ display: "flex", justifyContent: "space-around" }}
         >
-          {info.map((e) => {
+          {allClinics.map((e) => {
             return (
               <div>
-                <Link to={`detail/${e.id}`}>
+                <Link to={`clinics/${e.id}`}>
                   <Card
                     name={e.name}
                     image={e.image}
-                    schedule={e.activeHours}
+                    schedule={e.address} //cambiamos horarios por direccion
                   />
                 </Link>
               </div>
