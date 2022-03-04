@@ -12,7 +12,7 @@ const createUser = async (req, res, next) => {
                 province, 
                 city, 
                 image       }=req.body;
-        
+        const parsedphone = parseInt(phone);
         const user = await User.findOne(({
             where: {
                 userName: userName
@@ -30,11 +30,11 @@ const createUser = async (req, res, next) => {
                 lastName: typeof lastName === 'string' && lastName,
                 email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
                 password:password.length>8 && password.length<20 && password,
-                phone: typeof phone === 'number' && phone.toString().length === 10 && phone,
+                phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba') && province,
                 city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
-                image: image
+                image: image !== ""? image:null 
             })
             res.json(newUser);
         } else {
