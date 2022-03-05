@@ -5,10 +5,11 @@ import { useParams } from 'react-router-dom'
 import vipets from "../../media/logoVIPetsTransparent.png";
 
 
-export default function Detail(props) {
+export default function Detail() {
     const dispatch = useDispatch()
     const { id } = useParams()
     const clinicsDetails = useSelector((state) => state.detail)
+    console.log("clinicsDetails", clinicsDetails)
 
     useEffect(() => {
         dispatch(getDetail(id))
@@ -19,10 +20,10 @@ export default function Detail(props) {
 
     return (
         <div>
-            {clinicsDetails.length > 0 ?
+            {clinicsDetails ?
             <div>
                 <p>Nombre: {clinicsDetails.name}</p>
-                <p>Imagen: {clinicsDetails.image}</p>
+                <p>Imagen: <img src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
                 <p>Direccion: {clinicsDetails.address}</p>
                 <p>Provincia: {clinicsDetails.province}</p>
                 <p>Ciudad: {clinicsDetails.city}</p>
