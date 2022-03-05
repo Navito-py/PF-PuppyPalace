@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { postUser } from '../../redux/actions'
+import {Link} from 'react-router-dom'
 
 export default function Register() {
     const dispatch = useDispatch()
@@ -25,7 +26,6 @@ export default function Register() {
             ...info,
             [e.target.name] : e.target.value
         })
-        console.log(info)
     }
 
     function handleSubmit(e){
@@ -86,6 +86,9 @@ export default function Register() {
                 <input onChange={(e) => hanleOnChange(e)} placeholder='Foto de perfil (opcional)' type="text" name="image"/>
                 <button type='submit'>Register</button>
             </form>
+            <Link to='/'>
+            <button>Inicio</button>
+            </Link>
         </div>
     )
 }

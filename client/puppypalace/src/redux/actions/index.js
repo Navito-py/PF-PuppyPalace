@@ -49,11 +49,18 @@ export function getDetail(id) {
 }
 
 export function postUser(payload) {
-    return async function(dispatch){
-        let user = await axios.post('http://localhost:3001/user/register', payload)
-        return user
-    }
-  };
+  return async function(dispatch){
+      let user = await axios.post('http://localhost:3001/user/register', payload)
+      return user
+  }
+};
+
+export function postLogin(payload){
+  return async function(dispatck){
+    let login = await axios.post('http://localhost:3001/user/login', payload)
+    return login
+  }
+}
 
 
 export function cleanDetails() {
