@@ -21,5 +21,10 @@ conn.sync({ force: eraseDataBase }).then(() => {
 
 
 const createClinics = async () =>{
-  await Clinic.bulkCreate(clinicas);
+  try {
+    await Clinic.bulkCreate(clinicas);
+  } catch (error){
+    console.log(error);
+    return (error);
+  }
 }
