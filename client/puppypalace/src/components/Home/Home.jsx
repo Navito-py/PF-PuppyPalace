@@ -27,7 +27,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <div className="blue-backg">
       <div className="barTop">
         <div>
           <img src={vipets} alt="vipetslogo" width="200px" height="200px" />

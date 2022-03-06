@@ -1,6 +1,7 @@
-body{
+.blue-backg{
   background-color: #1761A0;
   color: white;
+  min-height: 100vh
 }
 .barTop {
   display: flex;

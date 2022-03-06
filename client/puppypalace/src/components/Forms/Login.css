@@ -1,0 +1,19 @@
+.color-back{
+    background-color: white;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #1761A0 !important;
+    border-color: #1761A0 !important;
+}
+
+.icon-img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+}
+
+.reset{
+    color: black;
+}
