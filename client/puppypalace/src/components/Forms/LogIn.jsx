@@ -1,13 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import {useDispatch} from 'react-redux'
+import { postLogin } from "../../redux/actions";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
 import uiImg from "../../media/uiImg.png";
 import "./Login.css";
 
 export default function LogIn() {
+
+  const dispatch = useDispatch()
+
   const [data, setData] = useState({
-    email: "",
+    userName: "",
     password: "",
   });
 
@@ -17,10 +22,12 @@ export default function LogIn() {
       ...data,
       [e.target.name]: e.target.value,
     });
+    console.log(data )
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    dispatch(postLogin(data))
   }
 
   return (
@@ -33,9 +40,9 @@ export default function LogIn() {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
-                  type="email"
-                  placeholder="Ingrese el email"
-                  name="email"
+                  type="text"
+                  placeholder="Ingrese el Nombre de usuario"
+                  name="userName"
                 />
               </Form.Group>
 
