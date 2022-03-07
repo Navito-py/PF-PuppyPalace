@@ -130,7 +130,7 @@ export default function Home() {
           {currentElements.map((e) => {
             return (
               <div key={e.id}>
-                <Link to={`clinics/${e.id}`}>
+                <Link to={`/clinics/${e.id}`}>
                   <Card
                     name={e.name}
                     image={e.image}
