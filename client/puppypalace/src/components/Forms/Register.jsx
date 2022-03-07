@@ -132,7 +132,7 @@ export default function Register() {
 
       </form>
       <br /> 
-      <Link to="/">
+      <Link to="/home">
         <button class="btn btn-primary">Inicio</button>
       </Link>
     </div>

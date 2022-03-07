@@ -9,6 +9,9 @@ import NotFound from "./components/NotFound/NotFound"
 import Detail from './components/Detail/Detail';
 import LandingPage from './components/LandingPage/LandingPage';
 import Emergencies from './components/Emergencies/Emergencies';
+import Profile from './components/Profile/Profile'
+import Reserves from './components/Reserves/Reserves';
+import BigMap from './components/Map/BigMap'
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
         <Route path='/formnewuser' element={<Register />}/>
         <Route path="/clinics/:id" element={<Detail />}/>
         <Route path="/emergencies" element={<Emergencies />}/>
+        <Route path='/home/profile' element={<Profile />}/>
+        <Route path='/home/profile/reserves' element={<Reserves/>}/>
+        <Route path='/home/map' element={<BigMap/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>

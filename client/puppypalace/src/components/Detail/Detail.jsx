@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getDetail, cleanDetails } from '../../redux/actions'
 import { useParams } from 'react-router-dom'
 import vipets from "../../media/logoVIPetsTransparent.png";
@@ -19,6 +20,9 @@ export default function Detail() {
 
     return (
         <div>
+            <Link to='/home'>
+                <button>Inicio</button>
+            </Link>
             {clinicsDetails ?
             <div>
                 <p>Nombre: {clinicsDetails.name}</p>
