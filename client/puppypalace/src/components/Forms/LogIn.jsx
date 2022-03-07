@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import {useDispatch} from 'react-redux'
 import { postLogin } from "../../redux/actions";
+import { Link } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
 import uiImg from "../../media/uiImg.png";
@@ -68,9 +69,9 @@ export default function LogIn() {
                   <small className="reset">Olvidaste la Contraseña</small> 
                 </a> 
                 <br /> 
-                <a href="http://localhost:3000/">
+                <Link to='/home'>
                   <small className="reset">Volver a inicio</small>
-                </a>
+                </Link>
               </div>
             </Form>
           </Col>
