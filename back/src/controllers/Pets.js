@@ -39,6 +39,7 @@ const getPets = async (req, res) => {
 const postPet = async (req, res) => {
     let {
         name,
+        gender,
         type,
         breed,
         age,
@@ -51,9 +52,10 @@ const postPet = async (req, res) => {
 
 // -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
-        if (name, type, breed, age, height, weight, image, history, status) {
+        if (name, gender, type, breed, age, height, weight, image, history, status) {
             let newPet = await Pet.create({
                 name: typeof name === "string" && name,
+                gender: (gender === "Female" || gender === "Male") && gender,
                 type: (type === "Dog" || type === "Cat") && type,
                 breed: typeof breed === "string" && breed,
                 age: typeof age === "number" && age,
