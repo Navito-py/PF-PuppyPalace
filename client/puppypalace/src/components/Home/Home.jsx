@@ -5,16 +5,26 @@ import SearchBar from "../SearchBar/SearchBar";
 import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
 import Card from "../Card/Card";
+import Paginate from "../Paginate/Paginate";
 import vipets from "../../media/logoVIPetsTransparent.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { filterCity } from "../../redux/actions"
 
 
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [elementsPerPage] = useState(5)
+  const indexOfLastElement = currentPage * elementsPerPage
+  const indexOfFirstElement = indexOfLastElement - elementsPerPage
+  const currentElements = allClinics.slice(indexOfFirstElement, indexOfLastElement)
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
 
   useEffect(() => {
     dispatch(getClinics());
@@ -106,11 +116,18 @@ export default function Home() {
           </div>
         </div>
         <br />
+        <div>
+          <Paginate 
+            elementsPerPage = {elementsPerPage}
+            allElements = {allClinics.length}
+            paginate = {paginate}
+          />
+        </div>
         <div
           className="cards"
           style={{ display: "flex", justifyContent: "space-around" }}
         >
-          {allClinics.map((e) => {
+          {currentElements.map((e) => {
             return (
               <div key={e.id}>
                 <Link to={`clinics/${e.id}`}>
