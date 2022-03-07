@@ -65,7 +65,11 @@ export default function LogIn() {
 
               <div className="text-left mt-3">
                 <a href="#">
-                  <small className="reset">Olvidaste la Contraseña</small>
+                  <small className="reset">Olvidaste la Contraseña</small> 
+                </a> 
+                <br /> 
+                <a href="http://localhost:3000/">
+                  <small className="reset">Volver a inicio</small>
                 </a>
               </div>
             </Form>
