@@ -26,6 +26,7 @@ export default function Register() {
       ...info,
       [e.target.name]: e.target.value,
     });
+    console.log(info)
   }
 
   function handleSubmit(e) {
@@ -67,7 +68,7 @@ export default function Register() {
       <form onSubmit={(e) => handleSubmit(e)} className="row g-3">
         <div className="col-md-4">
             <label htmlFor="firstName" className="form-label">Nombre</label>
-            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="userName" autoComplete="off"/>
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="name" autoComplete="off"/>
         </div>
 
         <div className="col-md-4">
@@ -77,7 +78,7 @@ export default function Register() {
 
         <div className="col-md-4">
             <label htmlFor="username" className="form-label">UserName</label>
-            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)}  name="username" autoComplete="off"/>
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)}  name="userName" autoComplete="off"/>
         </div>
 
         <div className="col-md-8">
