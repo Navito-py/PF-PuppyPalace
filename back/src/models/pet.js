@@ -14,9 +14,11 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isAlphanumeric: true
-            }
+        },
+
+        gender: {
+            type: DataTypes.ENUM("Female", "Male"),
+            allowNull: false
         },
 
         type: { // Perro o Gato, no puede ser otra cosa
@@ -48,9 +50,6 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: "https://www.segurmaniazurekin.eus/a/2020/11/segurmania_mascotas_destacada-320x240.jpg",
-            validate: {
-                isUrl: true
-            }
         },
 
         history: {
