@@ -15,7 +15,8 @@ export default function SearchBar() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(getNameClinic(name))
+         let replaced = name.split(' ').join('%');
+         dispatch(getNameClinic(replaced))
         setName("")
     }
 

@@ -65,34 +65,39 @@ export default function Register() {
     <div className="container mt-5">
       <h1>Crea una cuenta</h1>
       <form onSubmit={(e) => handleSubmit(e)} className="row g-3">
-        <div className="col-md-6">
+        <div className="col-md-4">
             <label htmlFor="firstName" className="form-label">Nombre</label>
-            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="userName"/>
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="userName" autoComplete="off"/>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-4">
             <label htmlFor="lastName" className="form-label">Apellido</label>
-            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)}  name="lastName"/>
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)}  name="lastName" autoComplete="off"/>
+        </div>
+
+        <div className="col-md-4">
+            <label htmlFor="username" className="form-label">UserName</label>
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)}  name="username" autoComplete="off"/>
         </div>
 
         <div className="col-md-8">
             <label htmlFor="email" className="form-label">E-mail</label>
-            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="email" />
+            <input type="text" className="form-control" required onChange={(e) => hanleOnChange(e)} name="email" autoComplete="off"/>
         </div>
 
         <div className="col-md-4">
             <label htmlFor="password" className="form-label">Password</label>
-            <input type="password" className="form-control" onChange={(e) => hanleOnChange(e)} name="password"/>
+            <input type="password" className="form-control" onChange={(e) => hanleOnChange(e)} name="password" />
         </div>
         
         <div className="col-md-6">
-            <label htmlFor="phone" className="form-label">Numero de telefono</label>
-            <input type="text" className="form-control" onChange={(e) => hanleOnChange(e)} placeHolder="Colocar aca un ejemplo del formato de telefono" name="phone"/>
+            <label htmlFor="phone" className="form-label">Número de teléfono</label>
+            <input type="text" className="form-control" onChange={(e) => hanleOnChange(e)} name="phone" autoComplete="off"/>
         </div>
         
         <div className="col-md-6">
-            <label htmlFor="address" className="form-label">Direccion</label>
-            <input type="text" className="form-control" onChange={(e) => hanleOnChange(e)} placeHolder="Colocar aca un ejemplo del formato direccion" name="address"/>
+            <label htmlFor="address" className="form-label">Dirección</label>
+            <input type="text" className="form-control" onChange={(e) => hanleOnChange(e)} placeHolder="Av. San Martín 524 7A" name="address" autoComplete="off"/>
         </div>
         
         <div className="col-md-6">
