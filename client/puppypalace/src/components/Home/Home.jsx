@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
 import { useEffect, useState } from "react";
 import { filterCity } from "../../redux/actions"
+import LostPets from "../LostPets/LostPets";
+import '../LostPets/LostPets.css'
 
 
 export default function Home() {
@@ -141,6 +143,13 @@ export default function Home() {
             );
           })}
         </div>
+          <br/>
+
+          <div className="carousel">
+            <h2>Estoy perdido, ayudame a volver a casa</h2>
+            <LostPets/>
+          </div>
+
       </div>
     </div>
   );
