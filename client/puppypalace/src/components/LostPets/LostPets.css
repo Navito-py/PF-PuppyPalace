@@ -1,0 +1,7 @@
+.carousel {
+    width:640px;
+    height:360px;
+    display: table;
+    margin: 0 auto;
+    color: #fff;
+  }
