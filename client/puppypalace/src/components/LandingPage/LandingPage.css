@@ -1,0 +1,10 @@
+.landing-back{
+    background:url("../../media/landingPage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
