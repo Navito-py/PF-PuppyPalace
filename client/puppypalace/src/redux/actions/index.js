@@ -76,3 +76,10 @@ export function filterCity(payload){
     payload,
   }
 }
+
+export function PetSubmit (payload){
+  return async function(dispatch){
+    let pet = await axios.post('http://localhost:3001/user/pets', payload)
+    return pet
+  }
+}
