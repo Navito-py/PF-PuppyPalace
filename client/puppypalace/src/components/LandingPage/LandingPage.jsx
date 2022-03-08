@@ -22,6 +22,10 @@ export default function LandingPage() {
       <Link to="/emergencies">
         <button>Emergencias</button>
       </Link>
+
+      <Link to="/qrcreator">
+        <button>Creacion QR</button>
+      </Link>
     </div>
   );
 }

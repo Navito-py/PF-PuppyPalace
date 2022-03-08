@@ -12,6 +12,7 @@ import Emergencies from './components/Emergencies/Emergencies';
 import Profile from './components/Profile/Profile'
 import Reserves from './components/Reserves/Reserves';
 import BigMap from './components/Map/BigMap'
+import QrInformation from './components/QrInformation/QrInformation';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path='/home/profile' element={<Profile />}/>
         <Route path='/home/profile/reserves' element={<Reserves/>}/>
         <Route path='/home/map' element={<BigMap/>}/>
+        <Route path='/qrcreator' element={<QrInformation/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
