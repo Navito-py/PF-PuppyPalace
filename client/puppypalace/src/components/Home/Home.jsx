@@ -147,7 +147,9 @@ export default function Home() {
 
           <div className="carousel">
             <h2>Estoy perdido, ayudame a volver a casa</h2>
+            <Link to="/lostpets">
             <LostPets/>
+            </Link>
           </div>
 
       </div>

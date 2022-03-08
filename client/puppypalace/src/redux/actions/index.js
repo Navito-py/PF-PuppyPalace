@@ -76,3 +76,15 @@ export function filterCity(payload){
     payload,
   }
 }
+
+export function getPets(){
+  return async function(dispatch){
+   const pets = await axios.get("http://localhost:3001/user/pets")
+   return dispatch({
+     type: "GET_PETS",
+     payload: pets.data,
+   })
+  }
+}
+
+ 

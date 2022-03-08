@@ -45,8 +45,10 @@ export default function ReserveBar() {
 
           <select>
             <option value="" disabled="">- Horarios -</option>
-            {hours?.map((h) => (
+            {hours?.map((h,index) => (
+              <div key={index}>
               <option key={h.id}>{h}</option>
+              </div>
             ))}
           </select>
 

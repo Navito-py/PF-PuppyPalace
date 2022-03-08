@@ -13,6 +13,7 @@ import Profile from './components/Profile/Profile'
 import Reserves from './components/Reserves/Reserves';
 import BigMap from './components/Map/BigMap'
 import QrInformation from './components/QrInformation/QrInformation';
+import AllLost from './components/AllLost/AllLost';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path='/home/map' element={<BigMap/>}/>
         <Route path='/qrcreator' element={<QrInformation/>}/>
         <Route path="*" element={<NotFound/>}/>
+        <Route path='/lostpets' element={<AllLost/>}/>
       </Routes>
     </div>
     </BrowserRouter>

@@ -11,9 +11,9 @@ export default function Paginate({elementsPerPage, allElements, paginate}) {
     return (
         <div>
             {
-                pagenumbers?.map(e => {
+                pagenumbers?.map((e,index) => {
                     return (
-                        <button onClick={() => paginate(e)}>{e}</button>
+                        <button key={index}onClick={() => paginate(e)}>{e}</button>
                     )
                 })
             }
