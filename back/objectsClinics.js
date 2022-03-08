@@ -26,7 +26,7 @@ const clinicas = [
     "city": "Rosario",
     "activeHours": "24 hs",
     "phone" : 341155975108,
-    "image" : "https://www.gstatic.com/bfe/apps/website/img/h/3348095-dog-cat-1440.jpg",
+    "image" : "https://media.istockphoto.com/photos/cat-and-dog-sleeping-puppy-and-kitten-sleep-picture-id1168451046?k=20&m=1168451046&s=612x612&w=0&h=a4HrlTv3ZcEtvKB7JdoZBL4f-EFk8OQdySi4QJaM7_c=",
     "emergency": 1
     }, 
  
