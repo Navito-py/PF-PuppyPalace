@@ -1,10 +1,47 @@
-.landing-back{
-    background:url("../../media/landingPage.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+@import url("http://fonts.cdnfonts.com/css/lilly");
+
+.landing-back {
+  background: url("../../media/landingPage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-attachment: fixed;
 }
+
+.welcome-text {
+  color: white;
+  font-size: 3vw;
+  text-align: center;
+  padding: 10px;
+}
+.parent-button {
+  position: relative;
+}
+
+.order-btns {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20%;
+  top: 100px;
+}
+
+.btn-primary{
+    font-family: 'Lilly';
+    background-color: #D7ECFF !important;
+    color: #1761A090 !important;
+    padding: 15px 40px;
+    margin: 15px;
+    text-transform: uppercase !important;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover{
+    padding-right: 70px;
+    background: #D7ECFF !important;
+  }
