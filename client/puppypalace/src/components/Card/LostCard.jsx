@@ -5,7 +5,6 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
-  MDBBtn,
 } from "mdb-react-ui-kit";
 
 export default function LostCard({ name, image, type }) {

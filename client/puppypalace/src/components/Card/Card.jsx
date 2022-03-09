@@ -5,7 +5,6 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
-  MDBBtn,
 } from "mdb-react-ui-kit";
 
 export default function Card({ name, image, schedule }) {
@@ -21,9 +20,3 @@ export default function Card({ name, image, schedule }) {
     </div>
   );
 }
-
-/* 
-
-<p>{name}</p>
-<img src={image} alt='' width='230px' height='160px' />
-<p>{schedule}</p> */

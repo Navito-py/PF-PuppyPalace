@@ -19,6 +19,12 @@ function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
+      case 'LOST_ID':
+        return {
+          ...state,
+          pets: action.payload
+        }
+
     case "RESET":
       return {
         ...state,

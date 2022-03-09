@@ -15,6 +15,7 @@ import BigMap from './components/Map/BigMap'
 import QrInformation from './components/QrInformation/QrInformation';
 import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
+import LostDetail from './components/Detail/LostDetail';
 
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
         <Route path='/home/profile/createPet' element={<CreatePet/>}/>
         <Route path="*" element={<NotFound/>}/>
         <Route path='/lostpets' element={<AllLost/>}/>
+        <Route path='/lostpets/:id' element={<LostDetail/>} />
       </Routes>
     </div>
     </BrowserRouter>
