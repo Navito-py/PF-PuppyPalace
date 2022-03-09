@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Map.css";
+import {Link} from 'react-router-dom'
 
 export default function Map() {
   const [city, setCity] = useState("");
@@ -40,6 +41,9 @@ export default function Map() {
     <div>
       <h1>Selecciona la ciudad para ver las clinicas 24h</h1>
       <div className="container p-5">
+        <Link to='/'>
+        <button>Volver al inicio</button>
+        </Link>
         <select
           class="form-select" 
           aria-label="Default select example"
