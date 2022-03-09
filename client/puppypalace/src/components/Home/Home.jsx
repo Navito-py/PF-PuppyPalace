@@ -40,20 +40,21 @@ export default function Home() {
 
   return (
     <div className="blue-backg">
-      <div className="barTop">
-        <div>
-          <img src={vipets} alt="vipetslogo" width="200px" height="200px" />
+      <nav className="navbar">
+        <div className="brand-title">V.I.Pets</div>
+        <div className="test-hide"><NavBar /></div>
+        <div className="navbar-links">
+          <ul>
+            <li><a href="http://localhost:3000/home">Pagina principal</a></li>
+            <li><a href="http://localhost:3000/formnewuser">Nuevo Usuario</a></li>
+            <li><a href="http://localhost:3000/formlogin">Login</a></li>
+            <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
+          </ul>
         </div>
-        <div className="divnavbar">
-          <NavBar />
-        </div>
-        <Link to="/formnewuser">
-          <button>Crear usuario</button>
-        </Link>
-        <Link to="/formlogin">
-          <button>Ingresar</button>
-        </Link>
-      </div>
+      </nav>
+
+        
+      <img src={vipets} alt="vipetslogo" width="200px" height="200px" />
       <br />
       <div className="barSearch">
         <SearchBar />
