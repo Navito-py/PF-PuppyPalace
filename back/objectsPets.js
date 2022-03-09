@@ -1,14 +1,14 @@
 const pets = [
     {
-        "name": "Lucho",
-        "gender": "Male",
+        "name": "Chiquito",
+        "gender": "Male", // Ponele
         "type": "Dog",
-        "breed": "Alto Perro",
+        "breed": "Mastif",
         "age": 24,
-        "height": 179,
-        "weight": 75,
-        "status": "Alive",
-        "image": "http://i.imgur.com/1H83rl.jpg"
+        "height": 180,
+        "weight": 59,
+        "status": "Alive", // Ta re perdido pobre
+        "image": "https://aperrados.com/wp-content/uploads/2018/04/razas-de-perros-gigantes-300-300.png"
     },
 
     {
@@ -20,7 +20,7 @@ const pets = [
         "height": 170,
         "weight": 65,
         "status": "Lost", // Ta re perdido pobre
-        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwamiz.es%2Fgato%2Fconsejos%2F5702%2Fel-gato-mas-feo-de-instagram-se-hace-rico-y-famoso&psig=AOvVaw1-5cbr5WZT_WWM1nPxNn-I&ust=1646923382071000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMDm8e2hufYCFQAAAAAdAAAAABAJ"
+        "image": "https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/01_%C2%BFQu%C3%A9-puedo-hacer-si-mi-gato-est%C3%A1-triste-.png?itok=w67Nhubc"
     },
 
     {
@@ -44,7 +44,7 @@ const pets = [
         "height": 16,
         "weight": 22,
         "status": "Lost",
-        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mundodeportivo.com%2Funcomo%2Fanimales%2Farticulo%2Fcomo-saber-si-mi-caniche-es-puro-49341.html&psig=AOvVaw2OfOHLwVAP2tbWvjf9K9Jr&ust=1646923236489000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOiazaihufYCFQAAAAAdAAAAABAP"
+        "image": "https://www.hogarmania.com/archivos/201705/mascotas-perros-razas-caniche-XxXx80.jpg"
     },
 
     {
@@ -56,7 +56,7 @@ const pets = [
         "height": 10,
         "weight": 12,
         "status" : "Lost",
-        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elespanol.com%2Fcuriosidades%2Fmascotas%2Fcosas-gatos-mas-temen-odian%2F629437506_0.amp.html&psig=AOvVaw3lMu7W_5X0Kb1f1ItU7MEG&ust=1646923302074000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMD0i8ihufYCFQAAAAAdAAAAABAD"
+        "image": "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
     },
 
     {
@@ -68,7 +68,7 @@ const pets = [
         "height": 7,
         "weight": 10,
         "status" : "Lost",
-        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nationalgeographic.es%2Fanimales%2Fque-piensan-los-gatos-de-nosotros&psig=AOvVaw3lMu7W_5X0Kb1f1ItU7MEG&ust=1646923302074000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMD0i8ihufYCFQAAAAAdAAAAABAK"
+        "image": "https://www.latercera.com/resizer/UvfBPh1sqyoGpgeuWPdVqcZbmfU=/900x600/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/3T6LCQ24TJGTVOZTDHXWLQXGJM.jpg"
     }
 ]
 
