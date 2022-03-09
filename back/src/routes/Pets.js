@@ -5,6 +5,7 @@ const { getPets, postPet } = require('../controllers/Pets.js')
 const router = Router();
 
 router.get('/', getPets);
+router.get('/:id', getPets);
 router.post('/', postPet);
 
 module.exports = router;
