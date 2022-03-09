@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPets } from "../../redux/actions";
 import vipets from "../../media/logoVIPetsTransparent.png";
+import LostCard from "../Card/LostCard";
+import "./AllLost.css";
 
 export default function AllLost() {
   const dispatch = useDispatch();
@@ -15,10 +17,17 @@ export default function AllLost() {
   }, [dispatch]);
   
 return (
-    <div>
+    <div className="lostCards">
         {
-            allPets?
-            <div>
+            allPets.map(e => {
+              return (
+                <div key={e.id} >
+                  <LostCard name={e.name} image={e.image} type={e.type} />
+
+                </div>
+              )
+            })
+          /*   <div>
                 <p>Nombre: {allPets.name}</p>
                 <p>Imagen: <img src={allPets.image} alt="vipetslogo" width="200px" height="200px" /></p>
                 <p>Genero: {allPets.gender}</p>
@@ -28,7 +37,7 @@ return (
                 <p>Altura: {allPets.height}</p>
                 <p>Peso {allPets.weight}</p>
                </div>
-               : <img src={vipets} alt="noInfo" />
+               : <img src={vipets} alt="noInfo" /> */
         }
     </div>
 )
