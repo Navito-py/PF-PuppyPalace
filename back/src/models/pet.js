@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
         },
 
         image: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(1234),
             allowNull: true,
             defaultValue: "https://www.segurmaniazurekin.eus/a/2020/11/segurmania_mascotas_destacada-320x240.jpg",
         },
