@@ -1,7 +1,8 @@
 const server = require('./src/app.js');
-const {Clinic} = require("./src/db.js");
+const { Clinic, Pet } = require("./src/db.js");
 const { conn } = require('./src/db.js');
-const {clinicas} = require("./objectsClinics.js");
+const { clinicas } = require("./objectsClinics.js");
+const { pets } = require('./objectsPets.js')
 
 
 const eraseDataBase = true;
@@ -12,6 +13,7 @@ conn.sync({ force: eraseDataBase }).then(() => {
 
   if(eraseDataBase){
     createClinics();
+    createPets();
   }
 
   server.listen(3001, () => {
@@ -24,6 +26,15 @@ const createClinics = async () =>{
   try {
     await Clinic.bulkCreate(clinicas);
   } catch (error){
+    console.log(error);
+    return (error);
+  }
+}
+
+const createPets = async () => {
+  try {
+    await Pet.bulkCreate(pets);
+  } catch (error) {
     console.log(error);
     return (error);
   }

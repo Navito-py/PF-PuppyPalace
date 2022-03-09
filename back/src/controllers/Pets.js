@@ -20,6 +20,28 @@ const petsDb = async () => {
     });
 };
 
+const idSearch = async(id) => {
+    try {
+        const pet = await Pet.findByPk(id)
+        return pet;
+    } catch (error) {
+        return res.status(404).send(error)
+    }
+}
+
+const getPetsId = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const idPet = await idSearch(id)
+        if(!idPet) {
+            res.status(404).send("No hay mascota con ese ID")
+        }
+        res.status(200).json(idPet)
+    } catch (error) {
+        res.status(404).send(error)
+    }
+}
+
 
 // ----------------------------------------- RUTAS ------------------------------------------ \\
 // GET
@@ -77,5 +99,6 @@ const postPet = async (req, res) => {
 
 module.exports = {
     getPets,
-    postPet
+    postPet,
+    getPetsId
 }
