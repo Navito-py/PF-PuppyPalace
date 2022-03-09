@@ -48,6 +48,20 @@ export function getDetail(id) {
   }
 }
 
+export function getLostDetail(id){
+  return async function (dispatch){
+    try {
+      const lostDetail = await axios.get(`http://localhost:3001/user/pets/${id}`)
+      return dispatch({
+        type: 'LOST_ID',
+        payload: lostDetail.data
+      });
+    } catch(error){
+      console.log(error)
+    }
+  }
+}
+
 export function postUser(payload) {
   return async function(dispatch){
       let user = await axios.post('http://localhost:3001/user/register', payload)

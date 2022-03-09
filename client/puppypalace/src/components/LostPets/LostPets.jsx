@@ -5,14 +5,13 @@ import { getPets } from "../../redux/actions";
 
 export default function LostPets() {
   const dispatch = useDispatch();
-  const allPets = useSelector((state) =>
-    state.pets.filter((e) => e.status === "Lost")
-  );
-
+  const allPets = useSelector((state) => state.pets);
+  const lost = allPets.filter((e)=> e.status === "Lost")
+  
   useEffect(() => {
     dispatch(getPets());
   }, [dispatch]);
-  console.log(allPets);
+
   return (
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
     <div className="carousel-indicators">
@@ -22,24 +21,24 @@ export default function LostPets() {
     </div>
     <div className="carousel-inner">
       <div className="carousel-item active">
-        <img src={allPets[0]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
+        <img src={lost[0]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{allPets[0]?.name}</h5>
-          <p>{allPets[0]?.type}</p>
+          <h5>{lost[0]?.name}</h5>
+          <p>{lost[0]?.type}</p>
         </div>
       </div>
       <div className="carousel-item">
-        <img src={allPets[1]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
+        <img src={lost[1]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{allPets[1]?.name}</h5>
-          <p>{allPets[1]?.type}</p>
+          <h5>{lost[1]?.name}</h5>
+          <p>{lost[1]?.type}</p>
         </div>
       </div>
       <div className="carousel-item">
-        <img src={allPets[2]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
+        <img src={lost[2]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{allPets[2]?.name}</h5>
-          <p>{allPets[2]?.type}</p>
+          <h5>{lost[2]?.name}</h5>
+          <p>{lost[2]?.type}</p>
         </div>
       </div>
      </div>
