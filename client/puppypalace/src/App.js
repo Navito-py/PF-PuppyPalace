@@ -13,7 +13,9 @@ import Profile from './components/Profile/Profile'
 import Reserves from './components/Reserves/Reserves';
 import BigMap from './components/Map/BigMap'
 import QrInformation from './components/QrInformation/QrInformation';
+import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
+
 
 export default function App() {
   return (
@@ -32,6 +34,7 @@ export default function App() {
         <Route path='/qrcreator' element={<QrInformation/>}/>
         <Route path='/home/profile/createPet' element={<CreatePet/>}/>
         <Route path="*" element={<NotFound/>}/>
+        <Route path='/lostpets' element={<AllLost/>}/>
       </Routes>
     </div>
     </BrowserRouter>

@@ -2,6 +2,7 @@ const initialState = {
   clinics: [],
   allClinics: [],
   detail: [],
+  pets: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -43,6 +44,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         clinics: citiesFiltered,
       };
+
+      case "GET_PETS":
+        return{
+          ...state,
+          pets: action.payload,
+        };
+
+      
+
     default:
       return state;
   }

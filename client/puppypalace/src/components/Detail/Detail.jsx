@@ -24,7 +24,8 @@ export default function Detail() {
                 <button>Inicio</button>
             </Link>
             {clinicsDetails ?
-            <div>
+            <div >
+                
                 <p>Nombre: {clinicsDetails.name}</p>
                 <p>Imagen: <img src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
                 <p>Direccion: {clinicsDetails.address}</p>
@@ -35,6 +36,7 @@ export default function Detail() {
                 <p>Correo electronico: {clinicsDetails.email}</p>
                 <p>Emergencia: {clinicsDetails.emergency}</p>
                 <p>Hospitalizacion: {clinicsDetails.hospitalization}</p>
+                
             </div> : <img src={vipets} alt="noInfo" />
         }
         </div>
