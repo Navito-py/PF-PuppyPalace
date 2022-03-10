@@ -18,6 +18,7 @@ import CreatePet from './components/Forms/CreatePet';
 import LostDetail from './components/Detail/LostDetail';
 
 
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="*" element={<NotFound/>}/>
         <Route path='/lostpets' element={<AllLost/>}/>
         <Route path='/lostpets/:id' element={<LostDetail/>} />
+        
       </Routes>
     </div>
     </BrowserRouter>

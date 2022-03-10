@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getDetail, cleanDetails } from '../../redux/actions'
 import { useParams } from 'react-router-dom'
+import Reserves from '../Reserves/Reserves'
 import vipets from "../../media/logoVIPetsTransparent.png";
+
 
 
 export default function Detail() {
@@ -23,6 +25,8 @@ export default function Detail() {
             <Link to='/home'>
                 <button>Inicio</button>
             </Link>
+
+            <Reserves />
             {clinicsDetails ?
             <div >
                 
