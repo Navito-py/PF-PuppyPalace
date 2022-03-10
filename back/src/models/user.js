@@ -93,5 +93,10 @@ module.exports = (sequelize) => {
             }
         },
 
+        refreshToken: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
+
     })
 }
