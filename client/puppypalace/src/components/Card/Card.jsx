@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import {
   MDBCard,
   MDBCardBody,
@@ -16,6 +17,9 @@ export default function Card({ name, image, schedule }) {
           <MDBCardTitle>{name}</MDBCardTitle>
           <MDBCardText>{schedule}</MDBCardText>
         </MDBCardBody>
+        <Link to='/home/reserves'>
+          <button>Reservar</button>
+        </Link>
       </MDBCard>
     </div>
   );

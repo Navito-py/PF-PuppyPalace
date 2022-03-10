@@ -108,3 +108,11 @@ export function PetSubmit (payload){
   }
 }
 
+export function ReserveSubmit (payload){
+  return async function(dispatch){
+    let reserve = await axios.post('http://localhost:3001/clinics/reserve', payload)
+    return reserve
+  }
+}
+
+
