@@ -1,8 +1,8 @@
 //Importaciones
 const axios = require('axios');
-const { Pet, Vaccine } = require('../db.js');
+const { User, Pet, Vaccine } = require('../db.js');
 const router = require('../routes/Clinics.js');
-
+const {isAuthUser} = require ('../Utils/isAuth.js')
 
 // -------------------------------------- MIDDLEWARES -------------------------------------- \\
 
@@ -10,19 +10,31 @@ const router = require('../routes/Clinics.js');
     
 const petsDb = async () => {
     return await Pet.findAll({
+        // include: {
+        //     model: Vaccine,
+        //     attributes: ["name", "date"],
+        //     through: {
+        //         attributes: [],
+        //     }
+      
+        // }
         include: {
-            model: Vaccine,
-            attributes: ["name", "date"],
-            through: {
-                attributes: [],
-            }
+            model: User,
+            attributes: ["name"],
+             through: {
+                 attributes: [],
+             }
         }
-    });
+    } 
+    );
 };
 
 const idSearch = async(id) => {
     try {
-        const pet = await Pet.findByPk(id)
+        const pet = await Pet.findByPk(id, {include:{
+            model: User,
+        }
+        })
         return pet;
     } catch (error) {
         return res.status(404).send(error)
@@ -47,8 +59,9 @@ const getPetsId = async (req, res) => {
 // GET
 
 
-const getPets = async (req, res) => {
+const getPets = async (req, res, next) => {
     try {
+        const user = isAuthUser(req);
         let pets = await petsDb();
         res.status(200).json(pets)
     } catch (error) {
@@ -87,6 +100,12 @@ const postPet = async (req, res) => {
                 history: typeof history === "string" && history,
                 status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
             })
+            const userId = isAuthUser(req);
+
+            const user = await User.findByPk(userId);
+
+            await user.addPets(newPet);
+
             res.status(201).json(newPet)
         } else {
             res.status(401).send({error: "Complete el formulario correctamente"})

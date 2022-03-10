@@ -2,7 +2,7 @@ const {sign} = require('jsonwebtoken');
 
 const createAccessToken = userId => {
     return sign ({userId}, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: '20m'
+        expiresIn: '30m'
     })
 }; 
 
@@ -23,6 +23,8 @@ const sendRefreshToken = (res, refreshToken) => {
   res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
       path: '/refresh_token',
+     // secured: true
+
   })  
 }
 
