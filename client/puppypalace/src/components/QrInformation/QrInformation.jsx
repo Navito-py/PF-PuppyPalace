@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./QrInformation.css"
+import { Link } from "react-router-dom";
 
 export default function QrInformation() {
   const [temp, setTemp] = useState("");
@@ -20,6 +21,9 @@ export default function QrInformation() {
   return (
     <div className="qr-generator">
       <h1>Generador de QR para tu mascota</h1>
+      <Link to='/'>
+      <button>Volver</button>
+      </Link>
       <div className="input-box">
         <div className="gen">
           <input
@@ -27,7 +31,7 @@ export default function QrInformation() {
             onChange={(e) => {
               setTemp(e.target.value);
             }}
-            placeholder="Enter text to encode"
+            placeholder="Ingrese la direccion"
           />
           <button className="qr-btn" onClick={handleClick}>
             Generar
