@@ -1,7 +1,7 @@
 //Importaciones
 // const {Sequelize} = require("sequelize");
 // const axios = require("axios");
-const {Clinic} = require("../db.js");
+const {Clinic, Reserve} = require("../db.js");
 const {Op, Sequelize} = require("sequelize")
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -74,6 +74,43 @@ const postClinics = async (req, res) => {
         }
 }
 
-module.exports = {
- getClinics, postClinics, getClinicsId
-}
+const postReserve = async (req, res) => {
+    let {
+        ammount,
+        date,
+        hourly,
+        description,
+        city,
+        userId,
+        clinicId
+
+    } = req.body;
+  
+    try{
+        if( ammount, date, hourly, description, city ) {
+            let newReserve = await Reserve.create({
+                ammount,
+                date,
+                hourly,
+                description,
+                city,
+                userId,
+                clinicId
+            })
+            res.status(201).json(newReserve)
+        } else {
+            res.status(401).send({error: "Por favor complete todos los campos"})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
+  }
+  
+  module.exports = {
+  getClinics,
+  postClinics,
+  getClinicsId,
+  postReserve,
+  getReserve
+  }
