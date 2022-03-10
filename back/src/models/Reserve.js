@@ -18,13 +18,13 @@ module.exports = (sequelize) => {
         },
 
         date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
         }, 
 
         
         hourly: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.STRING,
             allowNull: false
         },
 

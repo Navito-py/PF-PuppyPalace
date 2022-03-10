@@ -112,5 +112,4 @@ const postReserve = async (req, res) => {
   postClinics,
   getClinicsId,
   postReserve,
-  getReserve
   }
