@@ -96,10 +96,12 @@ const postPet = async (req, res) => {
             })
             const userId = isAuthUser(req);
 
-            const user = await User.findByPk(userId);
-
+            const user = await User.findByPk(userId, {include:{model: Pet}});
+        
+            const pets = [...user.pets, newPet];
            
-            await user.setPets(newPet);
+            
+            await user.setPets(pets);
             await newPet.setUser(user);
 
             res.status(201).json(newPet)
