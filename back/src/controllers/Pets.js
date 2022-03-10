@@ -18,13 +18,7 @@ const petsDb = async () => {
         //     }
       
         // }
-        include: {
-            model: User,
-            attributes: ["name"],
-             through: {
-                 attributes: [],
-             }
-        }
+        include:[{model: Vaccine}, {model: User}] 
     } 
     );
 };
@@ -104,7 +98,9 @@ const postPet = async (req, res) => {
 
             const user = await User.findByPk(userId);
 
-            await user.addPets(newPet);
+           
+            await user.setPets(newPet);
+            await newPet.setUser(user);
 
             res.status(201).json(newPet)
         } else {
