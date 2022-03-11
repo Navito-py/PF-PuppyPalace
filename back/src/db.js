@@ -41,10 +41,14 @@ Clinic.hasOne(Rate, {through: 'clinic_rate'});
 Rate.belongsToMany(Clinic, {through:'clinic_rate'});
 Pet.belongsToMany(Vaccine, {through: 'pet_vaccine'});
 Vaccine.belongsToMany(Pet, {through: 'pet_vaccine'});
-User.belongsToMany(Clinic, {through: Visit});
-Clinic.belongsToMany(User, {through: Visit});
-User.belongsToMany(Clinic, {through: Reserve});
-Clinic.belongsToMany(User, {through: Reserve});
+User.belongsToMany(Reserve, {through: 'user_reserve'});
+Reserve.belongsToMany(User, {through: 'user_reserve'});
+Reserve.belongsToMany(Clinic, {through: 'clinic_reserve'});
+Clinic.belongsToMany(Reserve, {through: 'clinic_reserve'});
+// User.belongsToMany(Clinic, {through: Visit});
+// Clinic.belongsToMany(User, {through: Visit});
+// User.belongsToMany(Clinic, {through: Reserve});
+// Clinic.belongsToMany(User, {through: Reserve});
 
 
 
