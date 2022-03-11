@@ -11,13 +11,13 @@ export default function LandingPage() {
 
       <div className="parent-button">
         <div className="order-btns">
-          <Link to="/formnewuser">
+          <Link to="/register">
             <button type="button" class="btn btn-primary">
               Nuevo Usuario
             </button>
           </Link>
 
-          <Link to="/formlogin">
+          <Link to="/login">
             <button type="button" class="btn btn-primary">
               Login
             </button>

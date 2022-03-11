@@ -27,8 +27,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/formlogin' element={<LogIn />}/>
-        <Route path='/formnewuser' element={<Register />}/>
+        <Route path='/login' element={<LogIn />}/>
+        <Route path='/register' element={<Register />}/>
         <Route path="/clinics/:id" element={<Detail />}/>
         <Route path="/emergencies" element={<Emergencies />}/>
         <Route path='/home/profile' element={<Profile />}/>
