@@ -15,7 +15,9 @@ import BigMap from './components/Map/BigMap'
 import QrInformation from './components/QrInformation/QrInformation';
 import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
+import CreateReserve from './components/Forms/CreateReserve';
 import LostDetail from './components/Detail/LostDetail';
+
 
 
 export default function App() {
@@ -25,8 +27,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/formlogin' element={<LogIn />}/>
-        <Route path='/formnewuser' element={<Register />}/>
+        <Route path='/login' element={<LogIn />}/>
+        <Route path='/register' element={<Register />}/>
         <Route path="/clinics/:id" element={<Detail />}/>
         <Route path="/emergencies" element={<Emergencies />}/>
         <Route path='/home/profile' element={<Profile />}/>
@@ -37,6 +39,7 @@ export default function App() {
         <Route path="*" element={<NotFound/>}/>
         <Route path='/lostpets' element={<AllLost/>}/>
         <Route path='/lostpets/:id' element={<LostDetail/>} />
+        <Route path='/home/reserves' element={<CreateReserve/>} />
       </Routes>
     </div>
     </BrowserRouter>

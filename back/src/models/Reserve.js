@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             unique: true,
-            primaryKey: true,
+            primaryKey: true
         },
         
         ammount: {
@@ -17,13 +17,13 @@ module.exports = (sequelize) => {
         },
 
         date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
         }, 
 
         
         hourly: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.STRING,
             allowNull: false
         },
 
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         },
 
         city: {
-            type: DataTypes.ENUM("Córdoba", "Mendoza", "Rosario"),
+            type: DataTypes.ENUM("Cordoba", "Mendoza", "Rosario"),
             allowNull: false,
         }
 

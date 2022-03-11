@@ -46,13 +46,14 @@ export default function Home() {
         <div className="navbar-links">
           <ul>
             <li><a href="http://localhost:3000/home">Pagina principal</a></li>
-            <li><a href="http://localhost:3000/formnewuser">Nuevo Usuario</a></li>
-            <li><a href="http://localhost:3000/formlogin">Login</a></li>
+            <li><a href="http://localhost:3000/home/profile">Perfil</a></li>
+            <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
+            <li><a href="http://localhost:3000/login">Login</a></li>
             <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
           </ul>
         </div>
       </nav>
-
+       
         
       <img src={vipets} alt="vipetslogo" width="200px" height="200px" />
       <br />

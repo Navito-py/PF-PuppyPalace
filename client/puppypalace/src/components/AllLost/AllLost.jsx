@@ -18,7 +18,13 @@ export default function AllLost() {
   }, [dispatch]); 
   
 return (
+  
     <div className="lostCards">
+      <div>  
+      <Link to='/home'>
+        <button>Volver</button>
+      </Link>
+      </div>
         {
             lost.map(e => {
               return (

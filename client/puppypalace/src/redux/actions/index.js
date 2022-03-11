@@ -63,9 +63,9 @@ export function getLostDetail(id){
 }
 
 export function postUser(payload) {
-  return async function(dispatch){
+  return async function(){
       let user = await axios.post('http://localhost:3001/user/register', payload)
-      return user
+      return user.data
   }
 };
 
@@ -107,4 +107,12 @@ export function PetSubmit (payload){
     return pet
   }
 }
+
+export function ReserveSubmit (payload){
+  return async function(dispatch){
+    let reserve = await axios.post('http://localhost:3001/clinics/reserve', payload)
+    return reserve
+  }
+}
+
 
