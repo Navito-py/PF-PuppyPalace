@@ -3,6 +3,13 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('reserve', {
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            allowNull: false,
+            unique: true,
+            primaryKey: true,
+        },
         
         ammount: {
             type: DataTypes.FLOAT,
