@@ -5,7 +5,7 @@ const getProfile = async (req, res, next) => {
     const userId = isAuthUser(req);
 
     const user = await User.findByPk(userId, {
-        include:[{model: Pet}] 
+        include:[{model: Pet}, {model: Reserve}] 
     });
 
     res.json(user);
