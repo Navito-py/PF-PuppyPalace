@@ -26,7 +26,6 @@ export default function Detail() {
                 <button>Inicio</button>
             </Link>
 
-            <Reserves />
             {clinicsDetails ?
             <div >
                 

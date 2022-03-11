@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { postLogin } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
@@ -69,7 +69,7 @@ export default function LogIn() {
                   <small className="reset">Olvidaste la Contraseña</small> 
                 </a> 
                 <br /> 
-                <Link to='/home'>
+                <Link to='/'>
                   <small className="reset">Volver a inicio</small>
                 </Link>
               </div>

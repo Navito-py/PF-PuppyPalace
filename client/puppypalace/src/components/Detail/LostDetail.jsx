@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { getLostDetail } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import vipets from '../../media/logoVIPetsTransparent.png';
@@ -17,7 +16,7 @@ export default function LostDetail(){
 
     return (
         <div>
-            <a href="http://localhost:3000/lostpets/">Volver</a>
+            <a style={{fontSize:'25px'}} href="http://localhost:3000/lostpets/">Volver</a>
             {
                 lostDetails ?
                 <div> 
