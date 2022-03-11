@@ -17,12 +17,6 @@ export default function LogIn() {
     password: "",
   });
 
-  const logindata = useSelector(state => state.token)
-  
-  React.useEffect(() => {console.log(logindata)} ,[logindata])
-  
-  console.log(logindata)
-
   function hanleOnChange(e) {
     e.preventDefault();
     setData({
