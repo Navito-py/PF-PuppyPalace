@@ -43,6 +43,7 @@ const postReserve = async (req, res) => {
         hourly,
         description,
         city,
+        //userId,
         clinicId
     } = req.body;
   
@@ -54,20 +55,24 @@ const postReserve = async (req, res) => {
                 hourly,
                 description,
                 city,
+                //userId,
                 clinicId
             })
             
             const userId = isAuthUser(req);
-            console.log("USERID" + userId)
             const user = await User.findByPk(userId);
-            console.log(user)
-
+            
             const clinic = await Clinic.findByPk(clinicId);
+            
+            await user.addReserve(newReserve)
+            await newReserve.addUser(user)
 
-            await user.setReserve(newReserve)
-            await clinic.setReserve(newReserve)
-
+            await clinic.addReserve(newReserve)
+            await newReserve.addClinic(clinic)
+            
             res.status(201).json(newReserve)
+            console.log(user)
+            console.log(clinic)
         } else {
             res.status(401).send({error: "Por favor complete todos los campos"})
         }
