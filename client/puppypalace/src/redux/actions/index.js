@@ -63,9 +63,9 @@ export function getLostDetail(id){
 }
 
 export function postUser(payload) {
-  return async function(dispatch){
+  return async function(){
       let user = await axios.post('http://localhost:3001/user/register', payload)
-      return user
+      return user.data
   }
 };
 
