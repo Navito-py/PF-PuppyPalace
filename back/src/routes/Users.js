@@ -15,7 +15,7 @@ router.use('/register', Register);
 router.use('/pets', Pets);
 router.use('/logout', Logout);
 router.use('/profile', isAuth , Profile);
-router.use('/reserves', isAuth, Reserves)
+router.use('/reserves', Reserves)
 
 module.exports = router;
 
