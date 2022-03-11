@@ -5,6 +5,7 @@ const initialState = {
   detail: [],
   pets: [],
   token: '',
+
 };
 
 function rootReducer(state = initialState, action) {
@@ -62,6 +63,7 @@ function rootReducer(state = initialState, action) {
         return{
           ...state,
           token: action.payload.accessToken
+
         }
 
       
