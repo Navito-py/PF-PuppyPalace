@@ -70,9 +70,13 @@ export function postUser(payload) {
 };
 
 export function postLogin(payload){
-  return async function(dispatck){
+  return async function(dispatch){
     let login = await axios.post('http://localhost:3001/user/login', payload)
-    return login
+    return dispatch(
+       {
+        type: "LOGIN_ANSWER",
+        payload: login.data
+      })
   }
 }
 
