@@ -65,7 +65,6 @@ function rootReducer(state = initialState, action) {
           token: action.payload.accessToken
 
         }
-
       
 
     default:

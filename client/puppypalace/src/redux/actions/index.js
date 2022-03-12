@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function getNameClinic(name) {
   return async function (dispatch) {
     try {
@@ -18,10 +17,14 @@ export function getNameClinic(name) {
 }
 
 
-export function getClinics() {
+export function getClinics(token) {
   return async function (dispatch) {
     try {
-      const responseClinics = await axios.get("http://localhost:3001/clinics");
+      const responseClinics = await axios.get("http://localhost:3001/clinics", {
+        headers:{
+          'Authorization': `Bearer ${token}`
+        }
+      });
       return dispatch({
         type: "GET_CLINICS",
         payload: responseClinics.data,
@@ -72,11 +75,14 @@ export function postUser(payload) {
 export function postLogin(payload){
   return async function(dispatch){
     let login = await axios.post('http://localhost:3001/user/login', payload)
-    return dispatch(
-       {
-        type: "LOGIN_ANSWER",
-        payload: login.data
-      })
+    if(login.data){
+      alert('Iniciaste sesion con exito!')
+      return dispatch(
+        {
+          type: "LOGIN_ANSWER",
+          payload: login.data
+        })
+      }
   }
 }
 
@@ -95,9 +101,13 @@ export function filterCity(payload){
   }
 }
 
-export function getPets(){
+export function getPets(token){
   return async function(dispatch){
-   const pets = await axios.get("http://localhost:3001/user/pets")
+   const pets = await axios.get("http://localhost:3001/user/pets", {
+    headers:{
+      'authorization': `Bearer ${token}`
+    }
+   })
    return dispatch({
      type: "GET_PETS",
      payload: pets.data,
