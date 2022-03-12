@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function getNameClinic(name) {
   return async function (dispatch) {
     try {
@@ -72,11 +71,14 @@ export function postUser(payload) {
 export function postLogin(payload){
   return async function(dispatch){
     let login = await axios.post('http://localhost:3001/user/login', payload)
-    return dispatch(
-       {
-        type: "LOGIN_ANSWER",
-        payload: login.data
-      })
+    if(login.data){
+      alert('Iniciaste sesion con exito!')
+      return dispatch(
+        {
+          type: "LOGIN_ANSWER",
+          payload: login.data
+        })
+      }
   }
 }
 
