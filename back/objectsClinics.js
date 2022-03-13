@@ -37,7 +37,7 @@ const clinicas = [
   "city": "Rosario",
   "activeHours": "24 hs",
   "phone" : 3414251035,
-  "image" : "https://cdn.pixabay.com/photo/2016/07/19/22/59/veterinary-1529191__340.jpg",
+  "image" : "https://images.pexels.com/photos/1084425/pexels-photo-1084425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 1
   },
  
@@ -48,7 +48,7 @@ const clinicas = [
   "city": "Rosario",
   "activeHours": "Lunes a Viernes 9:30 a 12:30 hs // 16 a 20 hs // Sábado 9 a 13 hs",
   "phone" : 3414226932,
-  "image" : "https://images.pexels.com/photos/6235647/pexels-photo-6235647.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/3631659/pexels-photo-3631659.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
   },
  {
@@ -58,7 +58,7 @@ const clinicas = [
   "city": "Rosario",
   "activeHours": "Lunes a Viernes 9:30 a 13 hs // 17 a 19 hs // Sábado 9 a 13 hs",
   "phone" : 3412419480,
-  "image" : "https://images.pexels.com/photos/5733422/pexels-photo-5733422.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
   },
  {
@@ -68,7 +68,7 @@ const clinicas = [
   "city": "Rosario",
   "activeHours": "Lunes a Viernes 9 a 12 hs // 17 a 20 hs // Sábado 9 a 13 hs",
   "phone" : 3413076530,
-  "image" : "https://images.pexels.com/photos/7474560/pexels-photo-7474560.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
   },
  
@@ -123,7 +123,7 @@ const clinicas = [
   "city": "Mendoza",
   "activeHours": "Lunes a Viernes 9:30 a 20 hs // Sábado 9 a 13 hs",
   "phone" : 2614233937,
-  "image" : "https://images.pexels.com/photos/4917820/pexels-photo-4917820.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/1452717/pexels-photo-1452717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
   },
  
@@ -155,7 +155,7 @@ const clinicas = [
   "city": "Mendoza",
   "activeHours": "24 hs",
   "phone" : 2614297168,
-  "image" : "https://images.pexels.com/photos/4580783/pexels-photo-4580783.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/1386422/pexels-photo-1386422.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 1
   },
  
@@ -177,7 +177,7 @@ const clinicas = [
   "city": "Córdoba",
   "activeHours": "Lunes a Viernes de 9:30 a 12:30 hs // 17 a 20 hs// Sábado 9 a 13 hs",
   "phone" : 3514842227,
-  "image" : "https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/160846/french-bulldog-summer-smile-joy-160846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
   },
  
@@ -188,7 +188,7 @@ const clinicas = [
   "city": "Córdoba",
   "activeHours": "Lunes a Viernes de 9:30 js // 17 a 20 hs hs // // Sábado 9 a 13 hs",
   "phone" : 3514791679,
-   "image" : "https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+   "image" : "https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
    "emergency": 0
   },
  
@@ -199,7 +199,7 @@ const clinicas = [
   "city": "Córdoba",
   "activeHours": "Lunes a Viernes 9:30 a 12:30 hs // 17 a 20 hs // Sábado 9 a 13 hs",
   "phone" : 3517631416,
-  "image" : "https://images.pexels.com/photos/825947/pexels-photo-825947.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "image" : "https://images.pexels.com/photos/160755/kittens-cats-foster-playing-160755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "emergency": 0
  },
  
@@ -210,7 +210,7 @@ const clinicas = [
   "city": "Córdoba",
   "activeHours": "Lunes a Viernes 9:30 a 12:30 hs // 17 a 20 hs // Sábado 9 a 13 hs",
   "phone" : 3514658784,
-   "image" : "https://images.pexels.com/photos/1612861/pexels-photo-1612861.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+   "image" : "https://images.pexels.com/photos/1938123/pexels-photo-1938123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
    "emergency": 0
   },
 
@@ -221,7 +221,7 @@ const clinicas = [
     "city": "Córdoba",
     "activeHours": "24 hs",
     "phone" :  3513651916,
-    "image" : "https://cdn.pixabay.com/photo/2021/02/01/00/52/dog-5969004__340.jpg",
+    "image" : "https://images.pexels.com/photos/257540/pexels-photo-257540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "emergency": 1
     },
      
@@ -232,7 +232,7 @@ const clinicas = [
     "city": "Córdoba",
     "activeHours": "24 hs",
     "phone" :  3514282426,
-    "image" : "https://cdn.pixabay.com/photo/2019/05/07/12/53/vet-4185908__340.jpg",
+    "image" : "https://images.pexels.com/photos/1404819/pexels-photo-1404819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "emergency": 1
     }
  ];

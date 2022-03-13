@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameClinic } from "../../redux/actions";
-
+import './SearchBar.css'
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -23,13 +23,14 @@ export default function SearchBar() {
     return (
         <div>
             <input
+            className="search-bar"
             type= "text"
             placeholder="Buscar Clinicas..."
             value= {name}
             autoComplete= "off"
             onChange={(e) => handleInputChange(e)}
             />
-            <button type= "submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <button className="btn-search" type= "submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
 
         </div>
     )

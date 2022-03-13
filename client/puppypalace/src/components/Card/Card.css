@@ -1,0 +1,57 @@
+.card-clinic{
+    margin: 5px;
+    box-shadow: 5px 5px 10px 5px darkgrey;
+}
+.card-clinic:hover{
+    transform:scale(1.1);
+    transition: all 1s ease;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-title{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.size-card{
+    background-color: rgba(215, 233, 248, 0.486);
+    height: 350px;
+    width: 300px;
+    margin-top: 0%;
+}
+.image-card{
+    width: 299px;
+    height: fit-content;
+}
+
+.reserve{
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    animation: glowing2 2500ms infinite;
+    border-radius: 20px;
+}
+
+@keyframes glowing2 {
+    0% {
+      background-color: white;
+      box-shadow: 0 0 5px 5px  rgba(185, 224, 255, 0.486);
+    }
+    50% {
+      box-shadow: 0 0 15px 5px lightblue;
+      background-color:  rgba(185, 224, 255, 0.486);
+    }
+    100% {
+      background-color: white;
+      box-shadow: 0 0 5px 5px  rgba(185, 224, 255, 0.486);
+    }
+}

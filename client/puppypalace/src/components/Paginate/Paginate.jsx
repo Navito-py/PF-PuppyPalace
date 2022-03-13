@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './Paginate.css';
 
 export default function Paginate({elementsPerPage, allElements, paginate}) {
 
@@ -9,11 +10,11 @@ export default function Paginate({elementsPerPage, allElements, paginate}) {
     }
 
     return (
-        <div>
+        <div className='paginate'>
             {
                 pagenumbers?.map((e,index) => {
                     return (
-                        <button key={index}onClick={() => paginate(e)}>{e}</button>
+                        <button className='btn-paginated' key={index}onClick={() => paginate(e)}>{e}</button>
                     )
                 })
             }
