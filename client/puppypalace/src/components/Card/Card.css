@@ -1,0 +1,14 @@
+.card-clinic{
+    margin: 5px;
+}
+
+.size-card{
+    height: 400px;
+    width: 300px;
+    margin-top: 0%;
+}
+
+.image-card{
+    width: 300px;
+    height: fit-content;
+}

@@ -7,13 +7,14 @@ import {
   MDBCardText,
   MDBCardImage,
 } from "mdb-react-ui-kit";
+import './Card.css';
 
 export default function Card({ name, image, schedule }) {
   return (
-    <div>
-      <MDBCard style={{ maxWidth: "22rem" }}>
-        <MDBCardImage src={image} position="top" alt="..." height='200px' whidth='' />
-        <MDBCardBody>
+    <div className="card-clinic">
+      <MDBCard className="size-card">
+        <MDBCardImage src={image} className='image-card' />
+        <MDBCardBody className="body-card">
           <MDBCardTitle>{name}</MDBCardTitle>
           <MDBCardText>{schedule}</MDBCardText>
         </MDBCardBody>

@@ -42,7 +42,7 @@ export default function LogIn() {
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
                   type="text"
-                  placeholder="Ingrese el Nombre de usuario"
+                  placeholder="Ingrese Usuario"
                   name="userName"
                 />
               </Form.Group>
@@ -51,7 +51,7 @@ export default function LogIn() {
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
                   type="password"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                   name="password"
                 />
               </Form.Group>
