@@ -3,6 +3,7 @@
 }
 
 body {
+  font-family: 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +11,12 @@ body {
 .blue-backg {
   background-color: white;
   color: black;
-  min-height: 100vh;
+  height: 280vh;
+  width: 100vw;
+}
+
+.lost-please{
+  color: black;
 }
 
 .barSearch {
@@ -24,13 +30,28 @@ body {
   justify-content: space-evenly;
 }
 
+.landingLink{
+color: #1761a0;
+margin-left: 10px;
+}
+
 .test-hide {
   display: none;
 }
 
 .title-cities {
-  display: table;
-  margin: 0 auto;
+  background-color: #d7ecff;
+  text-align: center;
+}
+
+.photo-cities{
+  box-shadow: 2px 2px 10px 5px grey;
+}
+
+.photo-cities:hover{
+  cursor: pointer;
+  transform: rotate(-10deg);
+  transition: all 1s ease;
 }
 
 .all-cities {
@@ -40,7 +61,10 @@ body {
 }
 
 .cards {
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  margin-top: 40px;
 }
 
 .navbar {
@@ -50,6 +74,11 @@ body {
   align-items: center;
   background-color: #d7ecff;
   color: #1761a0;
+}
+
+.SearchBar-Reserve{
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-title {
@@ -91,6 +120,11 @@ body {
   justify-content: space-between;
   width: 30px;
   height: 21px;
+}
+
+.Carousel-logo-searchbar{
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 600px) {

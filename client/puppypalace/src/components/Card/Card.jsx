@@ -15,11 +15,11 @@ export default function Card({ name, image, schedule }) {
       <MDBCard className="size-card">
         <MDBCardImage src={image} className='image-card' />
         <MDBCardBody className="body-card">
-          <MDBCardTitle>{name}</MDBCardTitle>
+          <MDBCardTitle className="card-title">{name}</MDBCardTitle>
           <MDBCardText>{schedule}</MDBCardText>
         </MDBCardBody>
         <Link to='/home/reserves'>
-          <button>Reservar</button>
+          <button className="reserve">Reservar</button>
         </Link>
       </MDBCard>
     </div>

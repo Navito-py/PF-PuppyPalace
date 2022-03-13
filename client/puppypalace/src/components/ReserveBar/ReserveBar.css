@@ -1,0 +1,29 @@
+.organizeReserve{
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    height: 300px;
+    width: 350px;
+}
+
+.cities{
+    margin: 2px;
+    width: 340px;
+}
+
+.fecha-horario{
+    margin: 5px;
+}
+
+.fechainput-horarioinput{
+    width: 280px
+}
+
+.btn-reserve{
+    margin-top: 2px;
+    margin-left: 35%;
+    border-radius: 20px;
+    border-color: #1761a0;
+    background-color: #d7ecff;
+    color: #1761a0;
+}
