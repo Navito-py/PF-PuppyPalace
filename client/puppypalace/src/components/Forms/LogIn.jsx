@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import { postLogin } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
 import uiImg from "../../media/uiImg.png";
@@ -17,13 +17,22 @@ export default function LogIn() {
     password: "",
   });
 
+/*   const tokenvalidate = useSelector(state => state.token)
+  
+  useEffect(()=> {
+    if(tokenvalidate.length === 0){
+      alert('no papa')
+    }
+  }, [tokenvalidate]) */
+
+  
   function hanleOnChange(e) {
     e.preventDefault();
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data )
+    console.log(data)
   }
 
   function handleSubmit(e) {
@@ -46,7 +55,6 @@ export default function LogIn() {
                   name="userName"
                 />
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
@@ -55,7 +63,6 @@ export default function LogIn() {
                   name="password"
                 />
               </Form.Group>
-
               <Button
                 onClick={(e) => handleSubmit(e)}
                 variant="primary btn-block"
@@ -63,19 +70,13 @@ export default function LogIn() {
               >
                 Login
               </Button>
-
               <div className="text-left mt-3">
-                <a href="#">
-                  <small className="reset">Olvidaste la Contraseña</small> 
-                </a> 
-                <br /> 
                 <Link to='/'>
                   <small className="reset">Volver a inicio</small>
                 </Link>
               </div>
             </Form>
           </Col>
-
           <Col lg={8} md={6} sm={12}>
             <img className="w-100" src={uiImg} alt="icon" />
           </Col>

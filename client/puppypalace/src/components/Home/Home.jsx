@@ -18,6 +18,7 @@ import '../LostPets/LostPets.css'
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);
+  const authtoken = useSelector(state => state.token)
   const [currentPage, setCurrentPage] = useState(1)
   const [elementsPerPage] = useState(3)
   const indexOfLastElement = currentPage * elementsPerPage
@@ -29,7 +30,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    dispatch(getClinics());
+    dispatch(getClinics(authtoken));
   }, [dispatch]);
 
   const handleCitySort = (e) => {
