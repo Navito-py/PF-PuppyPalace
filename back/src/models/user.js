@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
 
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
