@@ -61,7 +61,7 @@ export default function Register() {
 
   const validate = () => {
     const errors = {};
-    var validEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(info.email)
+    var validEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/.test(info.email)
 
     if (!info.name) {
       errors.name = "Ingrese su nombre";
