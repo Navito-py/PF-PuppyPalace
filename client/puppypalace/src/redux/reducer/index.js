@@ -5,7 +5,7 @@ const initialState = {
   detail: [],
   pets: [],
   token: '',
-
+  pet: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -25,7 +25,7 @@ function rootReducer(state = initialState, action) {
       case 'LOST_ID':
         return {
           ...state,
-          pets: action.payload
+          pet: action.payload
         }
 
     case "RESET":
@@ -63,9 +63,16 @@ function rootReducer(state = initialState, action) {
         return{
           ...state,
           token: action.payload.accessToken
-
+        };
+      case "LOGIN_FROM_STORAGE":
+        return{
+            ...state,
+            token: action.payload
+          }
+      case "RESET_STATUS":
+        return{
+          state : initialState
         }
-      
 
     default:
       return state;

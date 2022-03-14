@@ -8,15 +8,17 @@ import Card from "../Card/Card";
 import Paginate from "../Paginate/Paginate";
 import vipets from "../../media/logoVIPetsTransparent.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getClinics } from "../../redux/actions/index"
+import { getClinics, resetStatus } from "../../redux/actions/index"
 import { useEffect, useState } from "react";
 import { filterCity } from "../../redux/actions"
 import LostPets from "../LostPets/LostPets";
 import '../LostPets/LostPets.css'
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const allClinics = useSelector((state) => state.clinics);
   const authtoken = useSelector(state => state.token)
   const [currentPage, setCurrentPage] = useState(1)
@@ -38,6 +40,11 @@ export default function Home() {
     dispatch(filterCity(e.target.id))
   }
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("loginTokenInfo");
+    dispatch(resetStatus())
+    navigate("/");
+  }
 
   return (
     <div className="blue-backg">
@@ -48,6 +55,7 @@ export default function Home() {
         <div className="navbar-links">
           <ul>
             {/* <li><a href="http://localhost:3000/home">Pagina principal</a></li> */}
+            <button onClick={handleLogout}>Cerrar Sesion</button>
             <li><a href="http://localhost:3000/home/profile">Perfil</a></li>
             <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
           </ul>

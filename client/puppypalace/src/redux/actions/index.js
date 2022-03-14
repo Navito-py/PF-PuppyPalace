@@ -85,6 +85,16 @@ export function postLogin(payload){
   }
 }
 
+export function getLoginFromStorage(payload){
+  return async function(dispatch){
+      return dispatch(
+        {
+          type: "LOGIN_FROM_STORAGE",
+          payload
+        })
+      }
+  }
+
 
 export function cleanDetails() {
   return {
@@ -128,4 +138,9 @@ export function ReserveSubmit (payload){
   }
 }
 
-
+export function resetStatus() {
+  return {
+    type: "RESET_STATUS",
+    payload: null,
+  };
+}

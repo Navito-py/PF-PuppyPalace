@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postLogin } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
@@ -17,16 +17,8 @@ export default function LogIn() {
     password: "",
   });
 
-  const [success, setSuccess] = useState(false);
-
-  /*   const tokenvalidate = useSelector(state => state.token)
-  
-  useEffect(()=> {
-    if(tokenvalidate.length === 0){
-      alert('no papa')
-    }
-  }, [tokenvalidate]) */
-
+  const tokenvalidate = useSelector(state => state.token)
+ 
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -39,20 +31,26 @@ export default function LogIn() {
     });
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postLogin(data));
-    setSuccess(true);
+
+  }
+
+  if(tokenvalidate){
+    sessionStorage.setItem(
+      'loginTokenInfo', tokenvalidate
+    )
   }
 
   return (
     <>
-      {success ? (
+      {tokenvalidate ? (
         <div>
           <h1>Has iniciado sesión correctamente!!</h1>
           <p>
             <Link to="/home">
-              <button >Página principal</button>
+              <button>Página principal</button>
             </Link>
           </p>
         </div>
@@ -62,7 +60,7 @@ export default function LogIn() {
             <Row>
               <Col lg={4} md={6} sm={12} className="text-center mt-5 p-5">
                 <img className="icon-img" src={loginIcon} alt="icon" />
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control
                       onChange={(e) => hanleOnChange(e)}
@@ -81,7 +79,6 @@ export default function LogIn() {
                     />
                   </Form.Group>
                   <Button
-                    onClick={(e) => handleSubmit(e)}
                     variant="primary btn-block"
                     type="submit"
                   >

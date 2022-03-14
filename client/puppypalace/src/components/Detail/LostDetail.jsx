@@ -8,7 +8,7 @@ import vipets from '../../media/logoVIPetsTransparent.png';
 export default function LostDetail(){
     const dispatch = useDispatch();
     const { id } = useParams();
-    const lostDetails = useSelector((state)=> state.pets)
+    const lostDetails = useSelector((state)=> state.pet)
     
     useEffect(()=>{
         dispatch(getLostDetail(id))
