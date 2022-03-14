@@ -5,7 +5,7 @@ const initialState = {
   detail: [],
   pets: [],
   token: '',
-
+  user: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -60,11 +60,17 @@ function rootReducer(state = initialState, action) {
           pets: action.payload,
         };
       case "LOGIN_ANSWER":
+        localStorage.setItem('token', action.payload.accessToken)
         return{
           ...state,
           token: action.payload.accessToken
 
         }
+      case "GET_USER_PROFILE":
+        return {
+          ...state,
+          user: action.payload
+        }  
       
 
     default:

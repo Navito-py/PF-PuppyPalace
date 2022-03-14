@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import { postLogin } from "../../redux/actions";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
 import uiImg from "../../media/uiImg.png";
@@ -17,6 +17,7 @@ export default function LogIn() {
     password: "",
   });
 
+  const navigate = useNavigate();
 /*   const tokenvalidate = useSelector(state => state.token)
   
   useEffect(()=> {
@@ -38,6 +39,7 @@ export default function LogIn() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postLogin(data))
+    navigate('/');
   }
 
   return (

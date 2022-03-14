@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import { PetSubmit } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 export default function CreatePet() {
 
     const dispatch = useDispatch()
-
+    const navigate = useNavigate();
+    const token = localStorage.getItem('token');
     const [petdata, setPetdata] = useState({
         name:"",
         gender:"",
@@ -58,7 +60,7 @@ export default function CreatePet() {
         petdata.weight = parseInt(petdata.weight)
         petdata.age = parseInt(petdata.age)
         petdata.height = parseInt(petdata.height)
-        dispatch(PetSubmit(petdata))
+        dispatch(PetSubmit(petdata, token))
         setPetdata({
             name:"",
             gender:"",
@@ -71,6 +73,7 @@ export default function CreatePet() {
             history:"",
             status:"",
         })
+        // navigate('/profile')
     }
 
     return (

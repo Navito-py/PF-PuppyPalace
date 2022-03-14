@@ -6,7 +6,7 @@ import { getPets } from "../../redux/actions";
 export default function LostPets() {
   const dispatch = useDispatch();
   const allPets = useSelector((state) => state.pets);
-  const token = useSelector(state=> state.token)
+  const token = localStorage.getItem('token');
   const lost = allPets.filter((e)=> e.status === "Lost")
   
   useEffect(() => {
