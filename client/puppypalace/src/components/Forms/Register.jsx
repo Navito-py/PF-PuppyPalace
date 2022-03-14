@@ -1,12 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { postUser } from "../../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
-import './Register.css'
-
+import "./Register.css";
 
 export default function Register() {
   const navigate = useNavigate();
+  const userRef = useRef();
 
   const initialValues = {
     userName: "",
@@ -23,6 +23,10 @@ export default function Register() {
 
   const [info, setInfo] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +65,9 @@ export default function Register() {
 
   const validate = () => {
     const errors = {};
-    var validEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(info.email)
+    var validEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/.test(
+      info.email
+    );
 
     if (!info.name) {
       errors.name = "Ingrese su nombre";
@@ -86,7 +92,7 @@ export default function Register() {
       errors.phone = "Ingrese su telefono";
     } else if (info.phone.length !== 10) {
       errors.phone = "El telefono debe tener 10 numeros";
-    } 
+    }
     return errors;
   };
 
@@ -107,6 +113,7 @@ export default function Register() {
               placeholder="Juan"
               autoComplete="off"
               value={info.name}
+              ref={userRef}
             />
           </div>
           <p style={{ color: "red" }}>{formErrors.name}</p>
@@ -125,7 +132,7 @@ export default function Register() {
             />
           </div>
           <p style={{ color: "red" }}>{formErrors.lastName}</p>
-        
+
           <div className="col-md-4">
             <label htmlFor="username" className="form-label1">
               UserName
@@ -144,7 +151,6 @@ export default function Register() {
         </div>
 
         <div className="top1">
-            
           <div className="col-md-4">
             <label htmlFor="email" className="form-label1">
               E-mail
@@ -175,9 +181,8 @@ export default function Register() {
           </div>
           <p style={{ color: "red" }}>{formErrors.password}</p>
         </div>
-        
+
         <div className="Phone-adress">
-          
           <div className="col-md-4">
             <label htmlFor="phone" className="form-label2">
               Número de teléfono
@@ -209,11 +214,11 @@ export default function Register() {
           </div>
         </div>
 
-
         <div className="prov-ciudad">
-
           <div className="col-md-6">
-            <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la provincia</label>
+            <label htmlFor="floatingSelect" className="titleProv-city">
+              Selecciona la provincia
+            </label>
             <select
               className="form-select"
               id="floatingSelect"
@@ -227,7 +232,9 @@ export default function Register() {
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la ciudad</label>
+            <label htmlFor="floatingSelect" className="titleProv-city">
+              Selecciona la ciudad
+            </label>
             <select
               className="form-select"
               id="floatingSelect"
@@ -239,36 +246,34 @@ export default function Register() {
               <option value="cordoba">Córdoba</option>
             </select>
           </div>
-
         </div>
 
-      <div className="Photo-Register-inicio">
-        <div >
-           <label htmlFor="image" className="form-label-profile">
-             Foto de perfil
-           </label>
-           <input
-             type="text"
-             className="form-control-Img"
-             onChange={handleOnChange}
+        <div className="Photo-Register-inicio">
+          <div>
+            <label htmlFor="image" className="form-label-profile">
+              Foto de perfil
+            </label>
+            <input
+              type="text"
+              className="form-control-Img"
+              onChange={handleOnChange}
               placeholder="Load URL..."
               name="image"
-             value={info.image}
-           />
+              value={info.image}
+            />
           </div>
 
-           <div >
-             <button type="submit" className="btn-register">
-               Registrar
-             </button>
-           </div>
-            <Link to="/">
+          <div>
+            <button type="submit" className="btn-register">
+              Registrar
+            </button>
+          </div>
+          <Link to="/">
             <button className="btn-register">Inicio</button>
-            </Link>
-         </div>
+          </Link>
+        </div>
         <br />
       </form>
-      
     </div>
   );
 }
