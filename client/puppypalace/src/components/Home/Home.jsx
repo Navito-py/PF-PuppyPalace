@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
@@ -24,6 +24,7 @@ export default function Home() {
   const indexOfLastElement = currentPage * elementsPerPage
   const indexOfFirstElement = indexOfLastElement - elementsPerPage
   const currentElements = allClinics.slice(indexOfFirstElement, indexOfLastElement)
+  const navigate = useNavigate();
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -39,6 +40,11 @@ export default function Home() {
   }
 
 
+const handleLogout = () => {
+    localStorage.removeItem("loginTokenInfo");
+    navigate("/");
+  }
+
   return (
     <div className="blue-backg">
       <nav className="navbar">
@@ -49,9 +55,11 @@ export default function Home() {
           <ul>
             <li><a href="http://localhost:3000/home">Pagina principal</a></li>
             <li><a href="http://localhost:3000/home/profile">Perfil</a></li>
-            <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
+            {/* <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
             <li><a href="http://localhost:3000/login">Login</a></li>
-            <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
+          */}
+             <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
+          <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li>
           </ul>
         </div>
       </nav>
