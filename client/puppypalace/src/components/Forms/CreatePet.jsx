@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { PetSubmit } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import './CreatePets.css';
 
 export default function CreatePet() {
 
@@ -77,7 +78,10 @@ export default function CreatePet() {
     }
 
     return (
-        <div>
+        <div className='container-createpet'>
+            <Link to='/home/profile'>
+                <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+            </Link>
             <form onSubmit={e => handleSubmit(e)} >
                 <input onChange={e => handleOnChange(e)} placeholder='Nombre' name='name' type='text'/>
                 <select onChange={e => handleGender(e)}>
@@ -103,6 +107,7 @@ export default function CreatePet() {
                     <option value='Lost'>Perdido</option>
                 </select>
                 <button type='submit'>Crear</button>
+                
             </form>
         </div>
     )

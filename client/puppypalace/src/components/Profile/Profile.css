@@ -8,9 +8,32 @@
 
 .card-profile{
     display: flex;
+    height: 300px;
+    width: 100vh;
+    margin-left: 100px;
+}
+
+.container-info{
+    height: 350px;
+    width: 100vh;
+    background-color: rgba(255, 255, 255, 0.432);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
-    width: 200px;
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 3px 3px 15px 8px rgb(27, 26, 26);
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.btn-petscreate{
+border: none;
+background-color: white;
+border-radius: 20px;
+box-shadow: 3px 3px 12px 8px rgb(39, 37, 37);
+}
+.btn-petscreate:hover{
+    transition: all 1s ease;
+    transform: scale(1.1);
 }
