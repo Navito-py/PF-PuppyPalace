@@ -109,7 +109,7 @@ export default function Register() {
               value={info.name}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.name}</p>
+          <p style={{ color: "red" }} className='errors' >{formErrors.name}</p>
           <div className="col-md-4">
             <label htmlFor="lastName" className="form-label1">
               Apellido
@@ -124,7 +124,7 @@ export default function Register() {
               value={info.lastName}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.lastName}</p>
+          <p style={{ color: "red" }} className='errors'>{formErrors.lastName}</p>
         
           <div className="col-md-4">
             <label htmlFor="username" className="form-label1">
@@ -140,7 +140,7 @@ export default function Register() {
               value={info.userName}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.userName}</p>
+          <p style={{ color: "red" }} className='errors'>{formErrors.userName}</p>
         </div>
 
         <div className="top1">
@@ -159,7 +159,7 @@ export default function Register() {
               value={info.email}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.email}</p>
+          <p style={{ color: "red" }} className='errors'>{formErrors.email}</p>
           <div className="col-md-4">
             <label htmlFor="password" className="form-label1">
               Password
@@ -173,7 +173,7 @@ export default function Register() {
               value={info.password}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.password}</p>
+          <p style={{ color: "red" }} className='errors'>{formErrors.password}</p>
         </div>
         
         <div className="Phone-adress">
@@ -186,13 +186,13 @@ export default function Register() {
               type="text"
               className="form-control3"
               onChange={handleOnChange}
-              placeholder="1163632222"
+              placeholder="1122222222"
               name="phone"
               autoComplete="off"
               value={info.phone}
             />
           </div>
-          <p style={{ color: "red" }}>{formErrors.phone}</p>
+          <p style={{ color: "red" }} className='errors'>{formErrors.phone}</p>
           <div className="col-md-4">
             <label htmlFor="address" className="form-label-dir">
               Dirección
