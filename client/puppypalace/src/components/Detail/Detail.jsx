@@ -30,7 +30,7 @@ export default function Detail() {
             <div >
                 
                 <p>Nombre: {clinicsDetails.name}</p>
-                <p>Imagen: <img src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
+                <p><img src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
                 <p>Direccion: {clinicsDetails.address}</p>
                 <p>Provincia: {clinicsDetails.province}</p>
                 <p>Ciudad: {clinicsDetails.city}</p>
