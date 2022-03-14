@@ -17,11 +17,12 @@ export default function Profile() {
     return (
         <div className='profile'>
             <div className='card-profile'>
-                <img src={user.image} width = '100px' height='100px'/>
+                <img src={user.image} width = '100px' height='100px' alt='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'/>
                 <p>Nombre de Usuario: {user.userName}</p>
                 <p>Nombres: {user.name} {user.lastName}</p>
                 <p>Direccion: {user.address} </p>
                 <p>Teléfono: {user.phone}</p>
+
                 <Link to ='createPet'>
                 <button >Crear mascota</button>
                 </Link>

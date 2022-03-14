@@ -1,5 +1,3 @@
-
-
 .landing-back {
   background: url("../../media/cute.jpg");
   background-repeat: no-repeat;
@@ -15,6 +13,7 @@
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
   font-size: 60px;
+  text-align: center;
 }
 
 .welcome-text1 {

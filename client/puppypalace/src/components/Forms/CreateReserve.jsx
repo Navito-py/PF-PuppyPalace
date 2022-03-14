@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ReserveSubmit } from '../../redux/actions'
 import { Link,  } from 'react-router-dom'
 import Reserves from '../Reserves/Reserves'
+import './CreateReserve.css';
 
 
 
@@ -69,23 +70,47 @@ export default function CreateReserve() {
     }
 
     return (
-        <div>
-            <form action="https://mpago.la/1bfm6Un" onSubmit={e => handleSubmit(e)}>
-                <input onChange={e => hanleOnChange(e)} type='text' readOnly name='ammount' placeholder='1000$'/>
-                <input onChange={e => hanleOnChange(e)} type='date' name='date'/>
-                <input onChange={e => hanleOnChange(e)} type='time' name='hourly'/>
-                <input onChange={e => hanleOnChange(e)} type='text' name='description' placeholder='Descripcion'/>
-                <select onChange={e => handleSelectCity(e)}>
-                    <option hidden value=''>Ciudad</option>
-                    <option value='Cordoba'>Cordoba</option>
-                    <option value='Mendoza'>Mendoza</option>
-                    <option value='Rosario'>Rosario</option>
-                </select>
-                <button type='submit' >Crear</button>
-            </form>
-            <Link to='/home'>
-            <button>Volver</button>
-            </Link>
+        <div className='wrapper'> 
+        <h2 className='pe'>Pago Electronico</h2>   
+            <div className='payment'>
+                <form action="https://mpago.la/1bfm6Un" onSubmit={e => handleSubmit(e)}>
+                    
+                     <img className='cat' src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="100px" /><img className='cat' src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="100px" />
+
+                    <div className='center' >
+                        <input  className='display-size' onChange={e => hanleOnChange(e)} type='text' readOnly name='ammount' placeholder='1000$'/>
+                    </div>
+
+                    <div className='center'>
+                         <input className='display-size' onChange={e => hanleOnChange(e)} type='date' name='date'/>
+                    </div>
+
+                    <div className='center'>
+                        <input className='display-size' onChange={e => hanleOnChange(e)} type='time' name='hourly'/>
+                    </div>
+
+                    <div className='center'>
+                        <input className='display-size' onChange={e => hanleOnChange(e)} type='text' name='description' placeholder='Descripcion'/>
+                    </div>
+
+                    <div className='center'>
+                        <select className='display-size' onChange={e => handleSelectCity(e)}>
+                            <option className='option-size' hidden value=''>Ciudad</option>
+                            <option value='Cordoba'>Cordoba</option>
+                            <option value='Mendoza'>Mendoza</option>
+                            <option value='Rosario'>Rosario</option>
+                        </select>
+                    </div>
+                    <div className='center'>
+                        <Reserves />
+                    </div>
+
+                    {/* <button type='submit' >Crear</button> */}
+                </form>
+                <Link to='/home'>
+                  <button className='btn-center'>Volver</button>
+                </Link>
+            </div>
         </div>
     )
 }

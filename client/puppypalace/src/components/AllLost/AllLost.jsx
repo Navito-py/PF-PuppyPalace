@@ -18,24 +18,24 @@ export default function AllLost() {
   }, [dispatch]); 
   
 return (
-  
     <div className="lostCards">
-      <div>  
       <Link to='/home'>
-        <button>Volver</button>
+        <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
       </Link>
-      </div>
+      <div className="lostCards2" >
         {
             lost.map(e => {
               return (
                 <div key={e.id} >
-                  <Link to={`/lostpets/${e.id}`}>
-                  <LostCard name={e.name} image={e.image} type={e.type} />
-                  </Link>
+                  {/* <Link to={`/lostpets/${e.id}`}> */}
+                  <LostCard name={e.name} image={e.image} type={e.type} phone={e.phone} />
+                 {/*  </Link> */}
                 </div>
               )
             })
         }
+      </div>
+      
     </div>
 )
 }

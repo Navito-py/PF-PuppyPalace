@@ -29,6 +29,7 @@ export default function LostDetail(){
                 <p>Edad: {lostDetails.age}</p>
                 <p>Altura: {lostDetails.height}</p>
                 <p>Peso: {lostDetails.weight}</p>
+                <p>Teléfono: {lostDetails.phone}</p>
                </div>
                 </div> : <img src={vipets} alt="noInfo" /> 
             }

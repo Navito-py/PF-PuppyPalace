@@ -1,6 +1,19 @@
 .lostCards {
+    height: 250vh;
+    width: 100vw;
+    background-image: url("https://images.pexels.com/photos/160846/french-bulldog-summer-smile-joy-160846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");    
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+.lostCards2{
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 20px;
+}
+
+.buttonHome{
+    margin-left: 30px;
 }
