@@ -122,9 +122,7 @@ export function PetSubmit (payload, token){
         'authorization': `Bearer ${token}`
       }
      });
-    return dispatch({
-      type: 'PET_SUBMIT'
-    })
+    return pet
   }
 }
 
