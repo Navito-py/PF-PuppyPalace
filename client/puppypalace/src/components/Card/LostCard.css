@@ -1,0 +1,13 @@
+.card-lost{
+    border: none;
+    box-shadow: 3px 3px 10px 5px black;
+    height: 350px;
+    margin: 8px;
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+.body-lost{
+    text-align: center;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0.459);
+}

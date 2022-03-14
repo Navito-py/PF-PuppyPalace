@@ -60,6 +60,10 @@ module.exports = (sequelize) => {
         status: {
             type: DataTypes.ENUM("Alive", "Deceased", "Lost"),
             allowNull: false,
+        },
+
+        phone: {
+            type: DataTypes.STRING(1234),
         }
 
     }, {timestamps: false})
