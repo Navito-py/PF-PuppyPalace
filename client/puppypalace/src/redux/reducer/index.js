@@ -71,6 +71,16 @@ function rootReducer(state = initialState, action) {
           ...state,
           user: action.payload
         }  
+
+        case "LOGIN_FROM_STORAGE":
+          return{
+              ...state,
+              token: action.payload
+            }
+        case "RESET_STATUS":
+          return{
+            state : initialState
+          }
       
 
     default:
