@@ -115,10 +115,16 @@ export function getPets(token){
   }
 }
 
-export function PetSubmit (payload){
+export function PetSubmit (payload, token){
   return async function(dispatch){
-    let pet = await axios.post('http://localhost:3001/user/pets', payload)
-    return pet
+    let pet = await axios.post('http://localhost:3001/user/pets', payload, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+     });
+    return dispatch({
+      type: 'PET_SUBMIT'
+    })
   }
 }
 
@@ -129,4 +135,17 @@ export function ReserveSubmit (payload){
   }
 }
 
-
+export function getProfile (accesstoken){
+  return async function (dispatch){
+    let user= await axios.get('http://localhost:3001/user/profile', {
+      headers:{
+        'authorization': `Bearer ${accesstoken}`
+      } 
+  });
+  
+  return dispatch ({
+    type: "GET_USER_PROFILE",
+    payload: user.data 
+  })
+  }
+};
