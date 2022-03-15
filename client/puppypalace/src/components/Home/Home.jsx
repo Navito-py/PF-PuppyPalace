@@ -61,6 +61,7 @@ export default function Home() {
           */}
              <li><a href="https://vipets.vercel.app/emergencies">Emergencias</a></li>
          {/*  <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> */}
+
           </ul>
         </div>
       </nav>
