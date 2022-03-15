@@ -9,11 +9,13 @@
 const {Router} = require ('express');
 const Clinics = require ('./Clinics.js');
 const Users = require ('./Users.js');
-
+const Admin = require ('./Admin.js');
+const {isAuthAdmin} = require('../Utils/isAuth.js');
 
 const router = Router();
 
 router.use('/user', Users);
 router.use ('/clinics', Clinics);
+router.use('/admin',isAuthAdmin, Admin);
 
 module.exports = router;
