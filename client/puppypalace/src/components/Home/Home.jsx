@@ -59,7 +59,7 @@ const handleLogout = () => {
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
              <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
-         {/*  <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> */}
+           <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> 
           </ul>
         </div>
       </nav>
