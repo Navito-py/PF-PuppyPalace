@@ -4,6 +4,7 @@ const { conn } = require('./src/db.js');
 const { clinicas } = require("./objectsClinics.js");
 const { pets } = require('./objectsPets.js');
 const { users } = require('./Admin.js');
+const leeme = require('./src/NoMeAbras.js')
 
 
 const eraseDataBase = true;
@@ -20,6 +21,7 @@ conn.sync({ force: eraseDataBase }).then(() => {
 
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log(leeme)
   });
 });
 
