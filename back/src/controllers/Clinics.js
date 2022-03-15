@@ -105,7 +105,44 @@ const postClinic = async (req, res, next) => {
 
         }
 };
+const modifyClinic = async (req, res, next) => {
+    const {id} = req.params;
+    const { name, phone, image, address, activeHours, email, emergency ,hospitalization } = req.body;
+try{
+    const clinic = await Clinic.update({
+        name:typeof name === 'string' && name, 
+        address: typeof address === 'string' && address,
+        activeHours: typeof activeHours === 'string' && activeHours,
+        email: email && typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
+        phone: typeof phone === 'string' && phone,
+        image: image && typeof image === 'string' && image,
+        emergency: typeof emergency === 'boolean' && emergency,
+        hospitalization: typeof hospitalization === 'boolean' && hospitalization
+    },
+    {where:
+        {id}
+    });
 
+     res.json({success: `${clinic} La clínica fue modificada. Iván hacé el pull lpmqtrp!`})
+    
+
+
+}catch (e){
+ next(e)
+}
+}
+
+const deleteClinic = async (req, res, next) => {
+    const {id} = req.params;
+   try{
+
+    await Clinic.destroy({where: {id}});
+    res.json({success: 'Clínica eliminada'});
+
+   } catch (e){
+       next(e);
+   }
+};
 const postReserve = async (req, res) => {
     let {
         ammount,
@@ -144,4 +181,6 @@ const postReserve = async (req, res) => {
   postClinic,
   getClinicsId,
   postReserve,
+  modifyClinic,
+  deleteClinic
   }
