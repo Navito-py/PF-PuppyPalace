@@ -11,12 +11,12 @@ const server = express();
 
 server.name = 'API';
 
-// server.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//     credentials: true
-//   })
-// )
+server.use(
+  cors({
+    origin: 'https://vipets.vercel.app',
+    credentials: true
+  })
+)
 
 
 
