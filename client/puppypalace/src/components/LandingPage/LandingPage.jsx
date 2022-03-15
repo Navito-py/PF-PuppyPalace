@@ -61,7 +61,7 @@ export default function LandingPage() {
                   </button>
                 </Link>
                 
-                <Link to="/register">
+{/*                 <Link to="/register">
                   <button type="button" class="btn primary">
                     Nuevo Usuario
                   </button>
@@ -71,7 +71,7 @@ export default function LandingPage() {
                   <button type="button" class="btn primary">
                     Login
                   </button>
-                </Link>
+                </Link> */}
 
                 <Link to="/home">
                   <button type="button" class="btn primary">

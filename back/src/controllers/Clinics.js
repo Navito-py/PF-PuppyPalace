@@ -2,7 +2,8 @@
 // const {Sequelize} = require("sequelize");
 // const axios = require("axios");
 const {Clinic, Reserve} = require("../db.js");
-const {Op, Sequelize} = require("sequelize")
+const {Op, Sequelize} = require("sequelize");
+const e = require("express");
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Acá van las FUNCIONES
@@ -57,22 +58,53 @@ const getClinicsId = async (req, res) => {
     }
 }
 
-const postClinics = async (req, res) => {
-    const clinica = req.body;
+const postClinic = async (req, res, next) => {
+    const {name, 
+        address,
+        province, 
+        city,
+        activeHours,
+        email,
+        phone,
+        image,
+        emergency,
+        hospitalization    
+     } = req.body;
         try {
-            let c = await Clinic.findAll();
-            if (c.length > 0) {return res.json(c)} 
+            const clinic = await Clinic.findOne({
+                where:{
+                    name:name,
+                    phone: phone
+                }});
+            if (clinic){
+               return res.send('La clínica ya existe');
+            };
+            if(name && address && province && city && activeHours && phone){
+                const newClinic = await Clinic.create({
+                    name: typeof name === 'string' && name,
+                    address: typeof address === 'string' && address,
+                    province: (province === 'Santa Fe' || province ==='Mendoza' || province === 'Córdoba') && province,
+                    city: (city === 'Rosario' || city === 'Córdoba' || city === 'Mendoza') && city,
+                    activeHours: typeof activeHours === 'string' && activeHours,
+                    email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
+                    phone: typeof phone === 'string' && phone,
+                    image: typeof image === 'string' && image,
+                    emergency: typeof emergency === 'boolean' && emergency,
+                    hospitalization: typeof hospitalization === 'boolean' && hospitalization
+                });
 
-            let newClinics = await Clinic.bulkCreate(clinica)
+                res.json({success: 'La clínica ha sido creada'});
+            }else {
+                res.json({error: 'Complete los campos obligatorios'});
+            }
 
-            res.status(201).json(newClinics);
 
         } catch (error) {
 
-            console.log(error);
+            next(error)
 
         }
-}
+};
 
 const postReserve = async (req, res) => {
     let {
@@ -109,7 +141,7 @@ const postReserve = async (req, res) => {
   
   module.exports = {
   getClinics,
-  postClinics,
+  postClinic,
   getClinicsId,
   postReserve,
   }

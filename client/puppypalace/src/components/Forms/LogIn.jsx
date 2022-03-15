@@ -18,14 +18,7 @@ export default function LogIn() {
   });
 
   const navigate = useNavigate();
-/*   const tokenvalidate = useSelector(state => state.token)
-  
-  useEffect(()=> {
-    if(tokenvalidate.length === 0){
-      alert('no papa')
-    }
-  }, [tokenvalidate]) */
-
+  const token = useSelector(state => state.token)
   
   function hanleOnChange(e) {
     e.preventDefault();
@@ -44,6 +37,12 @@ export default function LogIn() {
     navigate('/'); 
   }
 
+
+  if(token){
+    sessionStorage.setItem(
+      'loginTokenInfo', token
+    )
+  }
 
   return (
     <div className="color-back">

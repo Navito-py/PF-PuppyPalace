@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 import Paginate from "../Paginate/Paginate";
 import vipets from "../../media/logoVIPetsTransparent.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getClinics } from "../../redux/actions/index"
+import { getClinics, resetStatus } from "../../redux/actions/index"
 import { useEffect, useState } from "react";
 import { filterCity } from "../../redux/actions"
 import LostPets from "../LostPets/LostPets";
@@ -40,8 +40,9 @@ export default function Home() {
   }
 
 
-const handleLogout = () => {
-    localStorage.removeItem("loginTokenInfo");
+  const handleLogout = () => {
+    sessionStorage.removeItem("loginTokenInfo");
+    dispatch(resetStatus())
     navigate("/");
   }
 
@@ -59,7 +60,7 @@ const handleLogout = () => {
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
              <li><a href="http://localhost:3000/emergencies">Emergencias</a></li>
-         {/*  <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> */}
+           <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> 
           </ul>
         </div>
       </nav>

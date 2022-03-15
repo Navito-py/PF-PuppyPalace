@@ -18,10 +18,17 @@ import CreatePet from './components/Forms/CreatePet';
 import CreateReserve from './components/Forms/CreateReserve';
 import LostDetail from './components/Detail/LostDetail';
 import AdminControls from './components/AdminControl/AdminControls';
+import { getLoginFromStorage } from './redux/actions'
+import { useDispatch } from "react-redux"
 
 
 
 export default function App() {
+  const dispatch = useDispatch();
+  const sessionToken = sessionStorage.getItem("loginTokenInfo")
+  if (sessionToken) {
+    dispatch(getLoginFromStorage(sessionToken))
+  }
   return (
     <BrowserRouter>
     <div>
