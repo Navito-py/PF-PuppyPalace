@@ -9,10 +9,14 @@
 }
 
 .btn-paginated{
-    border-radius: 50%;
-    border: none;
-    box-shadow: 4px 5px 10px 3px grey;
-    background-color: #d7ecff;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+background-color: #d7ecff;
+color: black;
+margin: 15px;
+text-transform: uppercase ;
+box-shadow: 3px 4px 10px 2px #1761a0;
+border: #1761a0;
 }
 
 .btn-paginated:hover{
