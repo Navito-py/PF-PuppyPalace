@@ -17,6 +17,7 @@ import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
 import CreateReserve from './components/Forms/CreateReserve';
 import LostDetail from './components/Detail/LostDetail';
+import AdminControls from './components/AdminControl/AdminControls';
 
 
 
@@ -40,6 +41,7 @@ export default function App() {
         <Route path='/lostpets' element={<AllLost/>}/>
         <Route path='/lostpets/:id' element={<LostDetail/>} />
         <Route path='/home/reserves' element={<CreateReserve/>} />
+        <Route path='/admin/controls' element={<AdminControls/>} />
       </Routes>
     </div>
     </BrowserRouter>
