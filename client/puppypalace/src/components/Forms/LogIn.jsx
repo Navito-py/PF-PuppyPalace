@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import { postLogin } from "../../redux/actions";
+import { postLogin, getProfile } from "../../redux/actions";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
@@ -29,11 +29,14 @@ export default function LogIn() {
     console.log(data)
   }
 
+  
+
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postLogin(data))
-    navigate('/');
+    navigate('/'); 
   }
+
 
   if(token){
     sessionStorage.setItem(
