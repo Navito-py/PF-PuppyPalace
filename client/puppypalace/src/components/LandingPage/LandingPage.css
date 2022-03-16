@@ -13,14 +13,16 @@
   }
 }
 
-h1{
+.h1-title{
 box-shadow: 3px 4px 10px 2px #1761a0;;
 font-weight: bold;
 font-family: 'Times New Roman', Times, serif;
-font-size: 60px;
+font-size: 80px;
+color: #1761a0;
+font-style: italic;
 text-align: center;
 background-color: #d7ecff;
-
+height: 100px;
 }
 
 .landing-back {
@@ -35,9 +37,7 @@ background-attachment: fixed;
 }
 
 .order-btns {
-flex-direction: row;
-position: absolute;
-top: 50px;
+width: 100vw;
 }
 
 .parent-button {
@@ -45,9 +45,12 @@ position: relative;
 display: flex;
 justify-content: space-around;
 cursor: pointer;
+margin-top: 10%;
+margin-left: 10%;
 }
 
 .primary{
+font-size: 23px;
 font-family: 'Times New Roman', Times, serif;
 font-weight: bold;
 background-color: #d7ecff;
@@ -55,9 +58,11 @@ color: black;
 padding: 15px 40px;
 margin: 15px;
 text-transform: uppercase ;
-height: 80px;
-width: 160px;
+height: 130px;
+width: 230px;
 box-shadow: 3px 4px 10px 2px #1761a0;
+margin-left: 5%;
+margin-right: 5%;
 }
   
 .primary:hover{
@@ -68,14 +73,17 @@ box-shadow: 3px 4px 10px 2px rgb(158, 158, 158);
 }
   
 .primary-emergency{
+font-size: 23px;
 font-family: 'Times New Roman', Times, serif;
 background-color: red;
 color: white;
-height: 80px;
-width: 160px;
+height: 130px;
+width: 230px;
 text-transform: uppercase ;
 font-weight: bold;
 animation: glowing 1300ms infinite;
+margin-left: 8%;
+margin-right: 5%;
 }
   
 .primary-emergency:hover{

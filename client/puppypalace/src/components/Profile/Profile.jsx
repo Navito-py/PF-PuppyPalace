@@ -1,10 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import { getProfile } from '../../redux/actions';
 import './Profile.css';
 import LostCard  from '../Card/LostCard.jsx';
+import { resetStatus } from "../../redux/actions/index"
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -14,8 +15,16 @@ export default function Profile() {
         dispatch(getProfile(token));
     }, [dispatch])
     
+    const navigate = useNavigate();
     const user = useSelector(state => state.user);
     const pets = user.pets;
+
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("loginTokenInfo");
+        dispatch(resetStatus())
+        navigate("/");
+      }
 
     return (
         <div className='profile'>
@@ -33,6 +42,8 @@ export default function Profile() {
                     <Link to ='createPet'>
                     <button className='btn-petscreate'>Crear mascota</button>
                     </Link>
+
+                    <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> 
                 </div>
                 <div>
                     {pets && pets.map(p => {

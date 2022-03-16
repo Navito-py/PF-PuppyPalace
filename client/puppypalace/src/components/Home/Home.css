@@ -2,21 +2,16 @@
   box-sizing: border-box;
 }
 
+.all-cities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 body {
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
-}
-
-.blue-backg {
-  background-color: white;
-  color: black;
-  height: 280vh;
-  width: 100vw;
-}
-
-.lost-please{
-  color: black;
 }
 
 .barSearch {
@@ -30,9 +25,106 @@ body {
   justify-content: space-evenly;
 }
 
+.blue-backg {
+  background-color: white;
+  color: black;
+  height: 280vh;
+  width: 100vw;
+}
+
+.break{
+  margin-top: 2%;
+  height: 50px;
+  background-color: #d7ecff;
+  font-size: 30px;
+  color: #1761a0;
+  font-weight: bolder;
+}
+
+.brand-title {
+  margin-top: 15px;
+  height: 55px;
+  font-size: 50px;
+  margin-right: 75%;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 30px;
+  margin-top: 40px;
+}
+
+.Carousel-logo-searchbar{
+  display: flex;
+  flex-direction: row;
+}
+
+.center-img{
+ margin-left: 45%;
+}
+
+.lost-please{
+  color: black;
+}
+
 .landingLink{
-color: #1761a0;
-margin-left: 10px;
+  color: #1761a0;
+}
+
+.navbar-links {
+  height: 30px;
+  margin-left: 65%;
+}
+
+.navbar-links ul {
+  display: flex;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links a {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+  text-decoration: none;
+  color: #1761a0;
+}
+
+.navbar-links li:hover {
+  background-color: #4590d1;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  z-index: 3; 
+  width: 100vw;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d7ecff;
+  color: #1761a0;
+}
+
+.photo-cities{
+  height: 250px;
+  width: 400px;
+  box-shadow: 2px 2px 10px 5px grey;
+}
+
+.photo-cities:hover{
+  cursor: pointer;
+  transform: rotate(-10deg);
+  transition: all 1s ease;
+}
+
+.SearchBar-Reserve{
+  display: flex;
+  flex-direction: column;
 }
 
 .test-hide {
@@ -43,74 +135,6 @@ margin-left: 10px;
   margin-top: 10px;
   background-color: #d7ecff;
   text-align: center;
-}
-
-.photo-cities{
-  box-shadow: 2px 2px 10px 5px grey;
-}
-
-.photo-cities:hover{
-  cursor: pointer;
-  transform: rotate(-10deg);
-  transition: all 1s ease;
-}
-
-.all-cities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.cards {
-  display: flex;
-  flex-direction: row;
-  margin: 30px;
-  margin-top: 40px;
-}
-
-
-.navbar {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #d7ecff;
-  color: #1761a0;
-}
-
-.SearchBar-Reserve{
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-size: 1.5rem;
-  margin: 0.5rem;
-}
-
-.navbar-links {
-  height: 100%;
-}
-
-.navbar-links ul {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li {
-  list-style: none;
-}
-
-.navbar-links li a {
-  display: block;
-  text-decoration: none;
-  color: #1761a0;
-  padding: 1rem;
-}
-
-.navbar-links li:hover {
-  background-color: #4590d1;
 }
 
 .toggle-button {
@@ -124,10 +148,6 @@ margin-left: 10px;
   height: 21px;
 }
 
-.Carousel-logo-searchbar{
-  display: flex;
-  flex-direction: row;
-}
 
 @media (max-width: 600px) {
   .navbar {
