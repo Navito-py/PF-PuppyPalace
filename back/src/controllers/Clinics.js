@@ -10,11 +10,16 @@ const e = require("express");
 
 const clinicsDB = async () => {
     return await Clinic.findAll({include:{model: Reserve}}); //me trae todo, no le especifico una sola cosa, porque quiero me traiga todos los datos
+
 }
 
 const idSearch = async(id) => {
     try {
-        const clinic = await Clinic.findByPk(id, {include:{model: Reserve}});
+
+        const clinic = await Clinic.findByPk(id,{include: {
+            model: Reserve,
+        }})
+
         return clinic;
     } catch (error) {
         return res.status(404).send(error)
