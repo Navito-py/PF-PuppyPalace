@@ -33,9 +33,9 @@ const admindModProfile = async (req, res) => {
             userName: typeof userName === 'string' && userName,
                 name: typeof name ==='string' && name,
                 lastName: typeof lastName === 'string' && lastName,
-                email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
-                password: password.length > 8 && password.length<20 && password,
-                phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
+                email,//: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
+                password,//: password.length > 8 && password.length<20 && password,
+                phone,//: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba') && province,
                 city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
@@ -46,7 +46,7 @@ const admindModProfile = async (req, res) => {
         {
             where: { id }
         });
-        res.status(200).json(modifiedProfile);
+        res.status(200).json(adminModifiedProfile);
     } catch (e) {
         console.log(e)
         res.status(400).send(e);

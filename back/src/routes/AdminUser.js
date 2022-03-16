@@ -4,6 +4,7 @@ const { admindModProfile , adminKillUser, admindGetProfile } = require("../contr
 const router = Router();
 
 router.get('/', admindGetProfile)
+router.get('/:id', /* RUTA ID */)
 router.put('/:id', admindModProfile);
 router.delete('/:id', adminKillUser);
 
