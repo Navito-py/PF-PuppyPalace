@@ -4,7 +4,7 @@ export function getNameClinic(name) {
   return async function (dispatch) {
     try {
       const responseName = await axios.get(
-        `http://localhost:3001/clinics?name=${name}`
+        `https://vipets.herokuapp.com/clinics?name=${name}`
       );
       return dispatch({
         type: "GET_CLINIC_NAME",
@@ -20,7 +20,7 @@ export function getNameClinic(name) {
 export function getClinics(token) {
   return async function (dispatch) {
     try {
-      const responseClinics = await axios.get("http://localhost:3001/clinics", {
+      const responseClinics = await axios.get("https://vipets.herokuapp.com/clinics", {
         headers:{
           'Authorization': `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ export function getDetail(id) {
   return async function (dispatch) {
     try {
       const responseDetail = await axios.get(
-        `http://localhost:3001/clinics/${id}`
+        `https://vipets.herokuapp.com/clinics/${id}`
       );
       return dispatch({
         type: "GET_DETAILS",
@@ -54,7 +54,7 @@ export function getDetail(id) {
 export function getLostDetail(id){
   return async function (dispatch){
     try {
-      const lostDetail = await axios.get(`http://localhost:3001/user/pets/${id}`)
+      const lostDetail = await axios.get(`https://vipets.herokuapp.com/user/pets/${id}`)
       return dispatch({
         type: 'LOST_ID',
         payload: lostDetail.data
@@ -67,14 +67,14 @@ export function getLostDetail(id){
 
 export function postUser(payload) {
   return async function(){
-      let user = await axios.post('http://localhost:3001/user/register', payload)
+      let user = await axios.post('https://vipets.herokuapp.com/user/register', payload)
       return user.data
   }
 };
 
 export function postLogin(payload){
   return async function(dispatch){
-    let login = await axios.post('http://localhost:3001/user/login', payload)
+    let login = await axios.post('https://vipets.herokuapp.com/user/login', payload)
     if(login.data){
       alert('Iniciaste sesion con exito!')
       return dispatch(
@@ -103,7 +103,7 @@ export function filterCity(payload){
 
 export function getPets(token){
   return async function(dispatch){
-   const pets = await axios.get("http://localhost:3001/user/pets", {
+   const pets = await axios.get("https://vipets.herokuapp.com/user/pets", {
     headers:{
       'authorization': `Bearer ${token}`
     }
@@ -117,7 +117,7 @@ export function getPets(token){
 
 export function PetSubmit (payload, token){
   return async function(dispatch){
-    let pet = await axios.post('http://localhost:3001/user/pets', payload, {
+    let pet = await axios.post('https://vipets.herokuapp.com/user/pets', payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -128,14 +128,14 @@ export function PetSubmit (payload, token){
 
 export function ReserveSubmit (payload){
   return async function(dispatch){
-    let reserve = await axios.post('http://localhost:3001/clinics/reserve', payload)
+    let reserve = await axios.post('https://vipets.herokuapp.com/clinics/reserve', payload)
     return reserve
   }
 }
 
 export function getProfile (accesstoken){
   return async function (dispatch){
-    let user= await axios.get('http://localhost:3001/user/profile', {
+    let user= await axios.get('https://vipets.herokuapp.com/user/profile', {
       headers:{
         'authorization': `Bearer ${accesstoken}`
       } 
