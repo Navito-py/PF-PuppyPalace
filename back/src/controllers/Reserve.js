@@ -1,4 +1,4 @@
-const { Reserve, User, Clinic } = require("../db.js");
+const { Reserve, User, Clinic, clinic_reserve } = require("../db.js");
 const { isAuthUser } = require('../Utils/isAuth.js');
 
 // ---------------------------- Funciones ---------------------------- \\
@@ -22,7 +22,26 @@ const getReserve = async (req, res) => {
         res.status(400).send(error)
     }
 }
+const getAvailableReserves = async (req, res, next) => {
+    const {clinicId} = req.params;
+    
+    try{
+        let reserves = await clinic_reserve.findAll({where:{
+            clinicId: clinicId
+        }});
+        
+        let reservesDetails = [];
+        let reserve ={};
+        for(let i=0; i<reserves.length; i++){
+            reserve = await Reserve.findByPk(reserves[i].reserveId)
+            reservesDetails.push(reserve);    
+        }
+        res.json(reservesDetails);
+    }catch(e){
+        next()
+    }
 
+}
 const getReserveId = async (req, res) => {
     try {
         const id = req.params.id;
@@ -65,11 +84,13 @@ const postReserve = async (req, res) => {
             const clinic = await Clinic.findByPk(clinicId);
             
             await user.addReserve(newReserve)
-            await newReserve.addUser(user)
+            await newReserve.setUser(user)
 
             await clinic.addReserve(newReserve)
-            await newReserve.addClinic(clinic)
-            
+            //await newReserve.addClinic(clinic)
+            await newReserve.setClinic(clinic);
+            //await clinic.setReserve(newReserve);
+
             res.status(201).json(newReserve)
             console.log(user)
             console.log(clinic)
@@ -85,5 +106,6 @@ const postReserve = async (req, res) => {
   module.exports = {
   postReserve,
   getReserve,
-  getReserveId
+  getReserveId, 
+  getAvailableReserves
   }
