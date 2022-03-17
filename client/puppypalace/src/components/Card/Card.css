@@ -1,19 +1,27 @@
-.card-clinic{
-    margin: 5px;
-    box-shadow: 5px 5px 10px 5px darkgrey;
-}
-.card-clinic:hover{
-    transform:scale(1.1);
-    transition: all 1s ease;
-}
-
 a{
     text-decoration: none;
-    color: black;
+    color: #1761a0;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+}
+
+.body-card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.card-clinic{
+    margin: 5px;
+    box-shadow: 5px 5px 10px 5px darkgrey;
+    border-radius: 10px;
+}
+
+.card-clinic:hover{
+    transform:scale(1.1);
+    transition: all 1s ease;
 }
 
 .card-title{
@@ -24,11 +32,15 @@ a{
 }
 
 .size-card{
+    border-radius: 10px;
     background-color: #d7ecff;
-    height: 510px;
-    width: 350px;
-    margin-top: 0%;
+    height: 550px;
+    width: 400px;
+    margin-top: 2%;
+    color: #1761a0;
+    align-items: center;
 }
+
 .image-card{
     width: 349px;
     height: fit-content;
