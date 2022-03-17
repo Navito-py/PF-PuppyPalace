@@ -17,13 +17,16 @@ module.exports = (sequelize) => {
         },
 
         date: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: false,
+            validate:{
+                isAfter: DataTypes.NOW
+            }
         }, 
 
         
         hourly: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('08','09','10','11','12','13','14','15','16'),
             allowNull: false
         },
 

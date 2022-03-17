@@ -1,6 +1,6 @@
 const { Reserve, User, Clinic, clinic_reserve } = require("../db.js");
 const { isAuthUser } = require('../Utils/isAuth.js');
-
+const moment = require('moment');
 // ---------------------------- Funciones ---------------------------- \\
 
 const reserveId = async(id) => {
@@ -53,8 +53,9 @@ const getReserveId = async (req, res) => {
     } catch (error) {
         res.status(404).send(error)
     }
-}
-
+};
+console.log(moment().locale('es').format('L'));
+console.log(moment('Mar 2 2030', 'MMM Do YYYY').locale('es-mx').format('L'))
 const postReserve = async (req, res) => {
     let {
         ammount,
@@ -65,13 +66,17 @@ const postReserve = async (req, res) => {
         //userId,
         clinicId
     } = req.body;
-  
+
+    const dateReserve = moment(date.slice(4,15),'MMM Do YYYY').locale('es-mx').format('L');
+    console.log(dateReserve);
+    const houlyReserve = hourly.slice(15,17);
+    console.log(houlyReserve);
     try{
         if( ammount, date, hourly, description, city ) {
             let newReserve = await Reserve.create({
                 ammount,
-                date,
-                hourly,
+                date: dateReserve > moment().locale('es-mx').format('L') && dateReserve,
+                hourly: parseInt(houlyReserve)> 8 && parseInt(houlyReserve)<16 && houlyReserve,
                 description,
                 city,
                 //userId,
