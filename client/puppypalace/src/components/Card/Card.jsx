@@ -19,9 +19,6 @@ export default function Card({ name, image, schedule, province }) {
           <MDBCardText >{province}</MDBCardText>
           <MDBCardText>{schedule}</MDBCardText>
         </MDBCardBody>
-        <Link to='/home/reserves'>
-          <button className="reserve">Reservar</button>
-        </Link>
       </MDBCard>
     </div>
   );

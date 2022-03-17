@@ -1,119 +1,131 @@
 * {
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
 .all-cities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
-  margin: 0;
-  padding: 0;
+font-family: 'Times New Roman', Times, serif;
+margin: 0;
+padding: 0;
 }
 
+
+
 .barSearch {
-  display: table;
-  margin: 0 auto;
+display: table;
+margin: 0 auto;
 }
 
 .barReserve {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
 }
 
 .blue-backg {
-  background-color: white;
-  color: black;
-  height: 280vh;
-  width: 100vw;
+background-color: white;
+color:#1761a0;
+height: 280vh;
+width: 100vw;
 }
 
 .break{
-  margin-top: 2%;
-  height: 50px;
-  background-color: #d7ecff;
-  font-size: 30px;
-  color: #1761a0;
-  font-weight: bolder;
+margin-top: 2%;
+height: 50px;
+background-color: #d7ecff;
+font-size: 30px;
+color: #1761a0;
+font-weight: bolder;
 }
 
 .brand-title {
-  margin-top: 15px;
-  height: 55px;
-  font-size: 50px;
-  margin-right: 75%;
+margin-top: 15px;
+height: 55px;
+font-size: 50px;
+margin-right: 75%;
 }
 
 .cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 30px;
-  margin-top: 40px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin: 30px;
+margin-top: 40px;
+}
+
+.carousel {
+width: 200px;
 }
 
 .Carousel-logo-searchbar{
-  display: flex;
-  flex-direction: row;
+display: flex;
+flex-direction: row;
 }
 
 .center-img{
- margin-left: 45%;
+margin-left: 45%;
 }
 
 .lost-please{
-  color: black;
+width: 1500px;
+text-align: center;
+font-size: 50px;
+margin-top: 20px;
+color: #1761a0;
+
 }
 
 .landingLink{
-  color: #1761a0;
+color: #1761a0;
 }
 
 .navbar-links {
-  height: 30px;
-  margin-left: 65%;
+height: 30px;
+margin-left: 65%;
 }
 
 .navbar-links ul {
-  display: flex;
+display: flex;
+
 }
 
 .navbar-links li {
-  list-style: none;
+list-style: none;
 }
 
 .navbar-links a {
-  display: flex;
-  flex-direction: row;
-  margin-left: 25px;
-  text-decoration: none;
-  color: #1761a0;
+display: flex;
+flex-direction: row;
+margin-left: 25px;
+text-decoration: none;
+color: #1761a0;
 }
 
 .navbar-links li:hover {
-  background-color: #4590d1;
+background-color: #4590d1;
 }
 
 .navbar {
-  display: flex;
-  position: fixed;
-  z-index: 3; 
-  width: 100vw;
-  top: 0;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #d7ecff;
-  color: #1761a0;
+display: flex;
+position: fixed;
+z-index: 3; 
+width: 100vw;
+top: 0;
+justify-content: space-between;
+color: #1761a0;
+align-items: center;
+background-color: #d7ecff;
 }
 
 .photo-cities{
-  height: 250px;
-  width: 400px;
-  box-shadow: 2px 2px 10px 5px grey;
+height: 150px;
+width: 300px;
+box-shadow: 2px 2px 10px 5px grey;
 }
 
 .photo-cities:hover{
@@ -123,29 +135,31 @@ body {
 }
 
 .SearchBar-Reserve{
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 .test-hide {
-  display: none;
+display: none;
 }
 
+
 .title-cities {
-  margin-top: 10px;
-  background-color: #d7ecff;
-  text-align: center;
+margin-top: 30px;
+margin-bottom: 20px;
+background-color: #d7ecff;
+text-align: center;
 }
 
 .toggle-button {
-  position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
+position: absolute;
+top: 0.75rem;
+right: 1rem;
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 30px;
+height: 21px;
 }
 
 

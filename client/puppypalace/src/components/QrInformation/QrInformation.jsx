@@ -22,10 +22,10 @@ export default function QrInformation() {
     <div className="qr-generator">
       <div className="topQr">
         <Link to='/'>
-        <button className="topQrButton"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+        <button className="topQrButton"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="60px"/></button>
         </Link>
-        <h1 className="h1">Generador de QR para tu mascota</h1>
       </div>
+       <h1 className="h1">Generador de QR para tu mascota</h1>
 
       <div className="input-box">
         <div className="gen">

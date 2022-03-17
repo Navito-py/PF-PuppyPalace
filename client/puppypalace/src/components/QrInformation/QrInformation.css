@@ -1,3 +1,35 @@
+.extra{
+padding-top: 20px;
+display: flex;
+justify-content: space-around;
+gap: 10px;
+}
+
+.gen input{
+height: 35px;
+width: 250px;
+font-size: 20px;
+padding-left: 5px;
+}
+
+.h5{
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+color: #1761a0;
+}
+
+.h1{
+font-family: 'Times New Roman', Times, serif;
+font-size: 50px;
+color: #1761a0;
+}
+
+.output-box{
+display: flex;
+flex-direction: column;
+align-items: center;
+} 
+
 .qr-generator{
 height: 140vh;
 width: 100vw;
@@ -9,47 +41,17 @@ align-items: center;
 font-family: 'Times New Roman', Times, serif;
 }
 
-.topQr{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px
-}
-
-.h1{
-font-family: 'Times New Roman', Times, serif;
-font-size: 50px;
-}
-
-
-.topQrButton{
-    margin-left: 0%;
-    border: none;
-    background-color: transparent;
-    margin-right: 50px
-}
-.gen input{
-height: 35px;
-width: 250px;
-font-size: 20px;
-padding-left: 5px;
-}
-
 .qr-btn{
-position: relative;
-height: 38px;
-width: 100px;
-top: -2px;
-font-size: 18px;
+font-size: 17px;
+font-family: 'Times New Roman', Times, serif;
 font-weight: bold;
-border: none;
-color: black;
-border-radius: 20px;
-background-color: rgba(255, 255, 255, 0.5);
-box-shadow: 4px 5px 8px 3px black;
-cursor: pointer;
-margin: 10px;
+background-color: #d7ecff;
+color: #1761a0;
+margin: 15px;
+text-transform: uppercase ;
+box-shadow: 3px 4px 10px 2px #1761a0;
+margin-left: 5%;
+margin-right: 5%;
 }
 
 .qr-btn:hover{
@@ -57,23 +59,29 @@ transform: scale(1.1);
 transition: all 1s ease;
 }
 
-.extra{
-padding-top: 20px;
-display: flex;
-justify-content: space-around;
-gap: 10px;
-}
-.h5{
-font-family: 'Times New Roman', Times, serif;
-font-weight: bold;
-}
-
 .qr-generador{
-    margin-bottom: 20px;
-}
-
-.output-box{
 display: flex;
 flex-direction: column;
 align-items: center;
-} 
+justify-content: space-around;
+margin: 10px;
+}
+
+.topQrButton{
+display: flex;
+flex-direction: row;
+border: none;
+background-color: transparent;
+margin: 10px 10px 0px 40px;
+}
+
+.topQr{
+width: 100vw;
+color: #1761a0;
+display: flex;
+flex-direction: row;
+justify-content: start;
+margin-top: 5px;
+margin-bottom: 5px
+}
+

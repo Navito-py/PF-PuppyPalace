@@ -49,6 +49,9 @@ export default function Detail() {
                     <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt=""  height="50px"/>
                     <p className='p'>Emergencia: {clinicsDetails.emergency}</p>
                     <p className='p'>Hospitalizacion: {clinicsDetails.hospitalization}</p>
+                    <Link to='/home/reserves'>
+                        <button className="reserve">Reservar</button>
+                    </Link>
                     </div>
                     
                 </div> : <img src={vipets} alt="noInfo" />
