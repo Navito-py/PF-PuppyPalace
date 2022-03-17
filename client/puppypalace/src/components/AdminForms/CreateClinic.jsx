@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { addClinic } from '../../redux/actions'
 
 
 export default function CreateClinic() {
 
     const dispatch = useDispatch()
+
+    const authToken = localStorage.getItem('token')
 
     const [info, setInfo] = useState({
         name: '',
@@ -46,14 +49,15 @@ export default function CreateClinic() {
 
     function handleSubmit(e){
         e.preventDefault()
+        dispatch(addClinic(info, authToken))
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Nombre' name='name'/>
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Direccion' name='address'/>
-                <select onChange={e => handleProvince(e)}>
+                <select onChange={(e) => handleProvince(e)}>
                     <option hidden>Provincia</option>
                     <option value='Córdoba'>Córdoba</option>
                     <option value='Mendoza'>Mendoza</option>
@@ -69,6 +73,7 @@ export default function CreateClinic() {
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Email' name='email'/>
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Telefono (10 caracteres)' name='phone'/>
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Imagen' name='image'/>
+                <button type='submit'>Crear</button>
             </form>
         </div>
     )

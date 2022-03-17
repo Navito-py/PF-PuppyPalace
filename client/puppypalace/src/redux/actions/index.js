@@ -175,3 +175,18 @@ export function DeleteClinic(id, token){
     return deletedClinic
   }
 }
+
+export function addClinic(payload, token) {
+  return async function(dispatch){
+    let newClinic = await axios.post(`https://vipets.herokuapp.com/admin/clinics/create`, payload, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(newClinic.data){
+      alert('Clinica creada correctamente')
+    }
+    
+  }
+
+}
