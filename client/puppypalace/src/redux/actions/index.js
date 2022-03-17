@@ -190,3 +190,34 @@ export function addClinic(payload, token) {
   }
 
 }
+
+export function getAllUsers(token){
+  return async function(dispatch){
+    let allusers = await axios.get(`https://vipets.herokuapp.com/admin/users`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(allusers){
+        return dispatch({
+        type: "GET_USERS",
+        payload: allusers.data,
+      });
+    }else{
+      alert('No se encontraron usuarios')
+    }
+  }
+}
+
+export function deleteUser(id, token){
+  return async function(dispatch){
+    let DeleteUser = await axios.delete(`https://vipets.herokuapp.com/admin/users/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(deleteUser){
+      alert('Usuario eliminado correctamente')
+    }
+  }
+}

@@ -5,7 +5,8 @@ const initialState = {
   detail: [],
   pets: [],
   token: '',
-  user: {}
+  user: {},
+  allUsers: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -80,6 +81,11 @@ function rootReducer(state = initialState, action) {
         case "RESET_STATUS":
           return{
             state : initialState
+          }
+        case "GET_USERS":
+          return{
+            ...state,
+            allUsers: action.payload
           }
       
 
