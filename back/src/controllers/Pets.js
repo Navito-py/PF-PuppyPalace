@@ -63,7 +63,7 @@ const getPets = async (req, res, next) => {
     }
 }
 
-    // POST
+    //--------------------- POST --------------------- \\
 
 const postPet = async (req, res) => {
     let {
@@ -114,8 +114,59 @@ const postPet = async (req, res) => {
     }
 }
 
+//  --------------------- PUT --------------------- \\
+
+const modPet = async (req, res) => {
+    let { id } = req.params
+    let {
+        name,
+        gender,
+        type,
+        breed,
+        age,
+        height,
+        weight,
+        image,
+        history,
+        status
+    } = req.body
+    
+    try {
+        const modifiedPet = await Pet.update({
+            name: typeof name === "string" && name,
+            gender: (gender === "Female" || gender === "Male") && gender,
+            type: (type === "Dog" || type === "Cat") && type,
+            breed: typeof breed === "string" && breed,
+            age: typeof age === "number" && age,
+            height: typeof height === "number" && height,
+            weight: typeof weight === "number" && weight,
+            image: typeof image === "string" && image,
+            history: typeof history === "string" && history,
+            status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
+        },
+        {
+            where: { id }
+        })
+        res.status(200).json(modifiedPet)
+    } catch (e) {
+        console.log(e)
+        res.status(400).send(e)
+    }
+}
+
+const killPet = async (req, res) => {
+    let { id } = req.params
+    await Pet.destroy({
+        where: { id }
+    })
+    res.status(200).send("Successfully destroyed Pet")
+}
+
+
 module.exports = {
     getPets,
     postPet,
-    getPetsId
+    getPetsId,
+    modPet,
+    killPet
 }

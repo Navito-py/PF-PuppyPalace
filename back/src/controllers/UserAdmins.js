@@ -1,18 +1,18 @@
 const {User, Pet, Vaccine, Reserve} = require ('../db.js');
 const {isAuthUser} = require('../Utils/isAuth.js');
 
-const getProfile = async (req, res, next) => {
-    const userId = isAuthUser(req);
+const admindGetProfile = async (req, res, next) => {
+    //const user = isAuthUser(req);
 
-    const user = await User.findByPk(userId, {
+    const user = await User.findAll( {
         include:[{model: Pet}, {model: Reserve}] 
     });
     res.json(user);
 }
 
-//  --------------------- PUT --------------------- \\
+//---------------------------------------------PUT----------------------------------------------------
 
-const modProfile = async (req, res) => {
+const admindModProfile = async (req, res) => {
     let { id } = req.params;
     let {
         name,
@@ -24,42 +24,46 @@ const modProfile = async (req, res) => {
         province,
         city,
         image,
+        isAdmin,
+        banned,
     } = req.body;
     
     try {
-        const modifiedProfile = await User.update({
+        const adminModifiedProfile = await User.update({
             userName: typeof userName === 'string' && userName,
                 name: typeof name ==='string' && name,
                 lastName: typeof lastName === 'string' && lastName,
-                email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
-                password: password.length > 8 && password.length<20 && password,
-                phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
+                email,//: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
+                password,//: password.length > 8 && password.length<20 && password,
+                phone,//: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba') && province,
                 city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
-                image: image !== ""? image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'
+                image: image !== ""? image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png',
+                isAdmin,
+                banned
         },
         {
             where: { id }
         });
-        res.status(200).json(modifiedProfile);
+        res.status(200).json(adminModifiedProfile);
     } catch (e) {
         console.log(e)
         res.status(400).send(e);
     };
 };
 
-const killProfile = async (req, res) => {
+const adminKillUser = async (req, res) => {
     let { id } = req.params
     await User.destroy({
         where: { id }
     })
-    res.status(200).send("Successfully destroyed User");
+    res.status(200).send("fuiste eliminado por gato");
 } ;
 
 
 module.exports = {
-    getProfile,
-    modProfile,
-    killProfile
+    admindGetProfile,
+    admindModProfile,
+    adminKillUser,
 }

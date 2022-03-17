@@ -100,8 +100,13 @@ module.exports = (sequelize) => {
 
         refreshToken: {
             type: DataTypes.STRING,
-            allowNull: true
-        }
+            allowNull: true,
+        },
+
+        banned: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
 
     })
 }

@@ -14,6 +14,8 @@ margin: 0;
 padding: 0;
 }
 
+
+
 .barSearch {
 display: table;
 margin: 0 auto;
@@ -89,6 +91,7 @@ margin-left: 65%;
 
 .navbar-links ul {
 display: flex;
+
 }
 
 .navbar-links li {
@@ -139,6 +142,7 @@ flex-direction: column;
 .test-hide {
 display: none;
 }
+
 
 .title-cities {
 margin-top: 30px;

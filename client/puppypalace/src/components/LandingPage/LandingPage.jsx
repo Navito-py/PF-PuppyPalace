@@ -1,14 +1,22 @@
-import React from "react";
+import {React, useEffect} from "react";
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import { getProfile } from "../../redux/actions";
 
 export default function LandingPage() {
 
-  
+  const dispatch = useDispatch()
+
   const token = useSelector(state => state.token)
+
+  const user = useSelector(state => state.user)
   
+  useEffect(() => {
+    dispatch(getProfile(token))
+  },[token])
+
+
   if(!token){
     return (
       <div className="landing-back">
@@ -35,13 +43,10 @@ export default function LandingPage() {
               Login
             </button>
           </Link>
-
-
         </div>
       </div>
     </div>
-  );
-  }else{
+  )}else if(token){
     return(
       <div>
         <div className="landing-back">
@@ -73,17 +78,23 @@ export default function LandingPage() {
                     Home
                   </button>
                 </Link>
-
-
                 <Link to="/qrcreator">
                   <button type="button" class="btn primary">
                     Creacion QR
                   </button>
                 </Link>
+                {
+                  user.isAdmin === true &&
+                  <Link to="/admin/controls">
+                  <button type="button" class="btn primary">
+                    Admin
+                  </button>
+                </Link>
+                }
               </div>
         </div>
     </div>
-      </div>
+    </div>
     )
   }
 }
