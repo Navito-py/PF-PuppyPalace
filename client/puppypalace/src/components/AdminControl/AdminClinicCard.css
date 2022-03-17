@@ -1,0 +1,15 @@
+.cardPrincipal{
+    border-style: solid;
+    height: 350px;
+    width: 280px;
+    margin: 10px ;
+}
+
+.imagen{
+    border-radius: 30px;
+    margin-left: 35px;
+}
+
+.dirandcity{
+    text-align: center;
+}

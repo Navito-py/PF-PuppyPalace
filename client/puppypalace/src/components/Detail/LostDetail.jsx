@@ -16,7 +16,7 @@ export default function LostDetail(){
 
     return (
         <div>
-            <a style={{fontSize:'25px'}} href="http://localhost:3000/lostpets/">Volver</a>
+            <a style={{fontSize:'25px'}} href="https://vipets.vercel.app/lostpets/">Volver</a>
             {
                 lostDetails ?
                 <div> 
