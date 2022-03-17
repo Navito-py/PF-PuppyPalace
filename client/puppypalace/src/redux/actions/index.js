@@ -158,9 +158,35 @@ export function getLoginFromStorage(payload){
       }
   }
 
-  export function resetStatus() {
-    return {
-      type: "RESET_STATUS",
-      payload: null,
-    };
+export function resetStatus() {
+  return {
+    type: "RESET_STATUS",
+    payload: null,
+  };
+}
+
+export function DeleteClinic(id, token){
+  return async function(dispatch){
+    let deletedClinic = await axios.delete(`https://vipets.herokuapp.com/admin/clinics/delete/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    return deletedClinic
   }
+}
+
+export function addClinic(payload, token) {
+  return async function(dispatch){
+    let newClinic = await axios.post(`https://vipets.herokuapp.com/admin/clinics/create`, payload, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(newClinic.data){
+      alert('Clinica creada correctamente')
+    }
+    
+  }
+
+}
