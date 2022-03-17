@@ -67,16 +67,16 @@ const postReserve = async (req, res) => {
         clinicId
     } = req.body;
 
-    const dateReserve = moment(date.slice(4,15),'MMM Do YYYY').locale('es-mx').format('L');
+    const dateReserve = moment(/*date.slice(4,15),*/'MMM Do YYYY').locale('pt-br').format('L');
     console.log(dateReserve);
-    const houlyReserve = hourly.slice(15,17);
+    const houlyReserve = date.slice(15,17);
     console.log(houlyReserve);
     try{
         if( ammount, date, hourly, description, city ) {
             let newReserve = await Reserve.create({
                 ammount,
-                date: dateReserve > moment().locale('es-mx').format('L') && dateReserve,
-                hourly: parseInt(houlyReserve)> 8 && parseInt(houlyReserve)<16 && houlyReserve,
+                date,//: dateReserve > moment().locale('es-mx').format('L') && dateReserve,
+                hourly,//: parseInt(houlyReserve)> 8 && parseInt(houlyReserve)<16 && houlyReserve,
                 description,
                 city,
                 //userId,
