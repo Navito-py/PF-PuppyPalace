@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 import Paginate from "../Paginate/Paginate";
 import vipets from "../../media/logoVIPetsTransparent.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getClinics, resetStatus } from "../../redux/actions/index"
+import { getClinics } from "../../redux/actions/index"
 import { useEffect, useState } from "react";
 import { filterCity } from "../../redux/actions"
 import LostPets from "../LostPets/LostPets";
@@ -24,7 +24,7 @@ export default function Home() {
   const indexOfLastElement = currentPage * elementsPerPage
   const indexOfFirstElement = indexOfLastElement - elementsPerPage
   const currentElements = allClinics.slice(indexOfFirstElement, indexOfLastElement)
-  const navigate = useNavigate();
+ 
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -39,32 +39,27 @@ export default function Home() {
     dispatch(filterCity(e.target.id))
   }
 
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("loginTokenInfo");
-    dispatch(resetStatus())
-    navigate("/");
-  }
-
   return (
     <div className="blue-backg">
       <nav className="navbar">
-        <Link to="/" className="landingLink"><div className="brand-title" >V.I.Pets<img src={vipets} alt="vipetslogo" width="80px" height="80px" /></div></Link>
-        
-        <div className="test-hide"><NavBar /></div>
+        <div className="test-hide">
+          <NavBar />
+          </div>
         <div className="navbar-links">
           <ul>
-            <li><a href="https://vipets.vercel.app/home">Pagina principal</a></li>
-            <li><a href="https://vipets.vercel.app/home/profile">Perfil</a></li>
+            <a href="https://vipets.vercel.app/home">Pagina principal</a>
+            <a href="https://vipets.vercel.app/home/profile">Perfil</a>
             {/* <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
-             <li><a href="https://vipets.vercel.app/emergencies">Emergencias</a></li>
+             <a href="https://vipets.vercel.app/emergencies">Emergencias</a>
          {/*  <li><button className="btn btn-primary" onClick={handleLogout}>Cerrar Sesion</button></li> */}
 
           </ul>
         </div>
       </nav>
+    <div className="landingLink1"><Link to="/" className="landingLink"><div className="brand-title" >V.I.Pets<img src={vipets} alt="vipetslogo" width="150px" height="150px"/></div></Link></div>
+      
        <div className="Carousel-logo-searchbar">
           <div className="carousel">
                 <h2 className="lost-please"><img src="https://i.pinimg.com/originals/38/2a/25/382a257e82075d16cec2a597b4ad6f23.gif" alt="" height="100px"/> Estoy perdido, ayudame a volver a casa</h2>
@@ -147,7 +142,9 @@ export default function Home() {
               <ReserveBar />
             </div> */}
         </div>
-
+       
+        <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+       
         <div
           className="cards"
         >
@@ -175,6 +172,8 @@ export default function Home() {
           />
         </div>
 
+      <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+      
       </div>
     </div>
   );

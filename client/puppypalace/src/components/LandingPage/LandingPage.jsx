@@ -21,7 +21,7 @@ export default function LandingPage() {
     return (
       <div className="landing-back">
       <div className="welcome-text">
-        <h1 className="h1">Bienvenidos a V.I.Pets</h1>
+        <h1 className="h1-title">Bienvenidos a V.I.Pets</h1>
 
       </div>
       <div className="parent-button">
@@ -51,7 +51,7 @@ export default function LandingPage() {
       <div>
         <div className="landing-back">
       <div className="welcome-text">
-        <h1 className="h1">Bienvenidos a V.I.Pets</h1>
+        <h1 className="h1-title">Bienvenidos a V.I.Pets</h1>
       </div>
         <div className="parent-button">
               <div className="order-btns">

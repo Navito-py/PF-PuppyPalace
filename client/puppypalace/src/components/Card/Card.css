@@ -12,23 +12,25 @@ a{
     color: black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    font-size: 20px;
     text-align: center;
 }
 
 .card-title{
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
 }
 
 .size-card{
-    background-color: rgba(215, 233, 248, 0.486);
-    height: 400px;
-    width: 300px;
+    background-color: #d7ecff;
+    height: 510px;
+    width: 350px;
     margin-top: 0%;
 }
 .image-card{
-    width: 299px;
+    width: 349px;
     height: fit-content;
 }
 
@@ -36,22 +38,22 @@ a{
     font-weight: bold;
     background-color: transparent;
     border: none;
-    padding: 5px;
-    animation: glowing2 2500ms infinite;
-    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 2px;
+    animation: glowing2 1500ms infinite;
 }
 
 @keyframes glowing2 {
     0% {
-      background-color: white;
-      box-shadow: 0 0 5px 5px  rgba(185, 224, 255, 0.486);
+      background-color: #d7ecff;
+      box-shadow: 0 0 10px 5px  #1761a0;
     }
     50% {
-      box-shadow: 0 0 15px 5px lightblue;
-      background-color:  rgba(185, 224, 255, 0.486);
+      box-shadow: 0 0 20px 8px white;
+      background-color:  #d7ecff;
     }
     100% {
-      background-color: white;
-      box-shadow: 0 0 5px 5px  rgba(185, 224, 255, 0.486);
+      background-color: #d7ecff;
+      box-shadow: 0 0 10px 5px  #1761a0;
     }
 }

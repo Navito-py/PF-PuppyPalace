@@ -1,13 +1,16 @@
 .search-bar{
     margin: 5px;
-    width: 370px;
-    margin-top: 30px;
+    width: 500px;
+    height: 50px;
+    margin-top: 50px;
 }
 
 .btn-search{
-    margin: 5px;
-    border-radius: 20px;
+    margin: 10px;
     border-color: #1761a0;
     background-color: #d7ecff;
     color: #1761a0;
+    height: 50px;
+    width: 80px;
+    font-size: 20px;
 }
