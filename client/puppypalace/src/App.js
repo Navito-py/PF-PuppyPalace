@@ -31,7 +31,6 @@ import BookDate from './components/Forms/BookDate';
 export default function App() {
   const dispatch = useDispatch();
   const sessionToken = sessionStorage.getItem("token")
-  console.log("sessionToken", sessionToken)
   if (sessionToken) {
     dispatch(getLoginFromStorage(sessionToken))
   }

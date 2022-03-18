@@ -1,10 +1,10 @@
 import { Calendar } from "@progress/kendo-react-dateinputs";
 import { useEffect, useRef, useState } from "react";
-import { getReserves } from "../../redux/actions"
-import { useParams } from 'react-router-dom'
+import { getReserves } from "../../redux/actions";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-const times = [
+/* const times = [
   "08:00 - 09:00",
   "09:00 - 10:00",
   "10:00 - 11:00",
@@ -14,9 +14,9 @@ const times = [
   "14:00 - 15:00",
   "15:00 - 16:00",
   "16:00 - 17:00", 
-];
+]; */
 
-/* const times = [
+const times = [
   { id: 8, name: "08:00 - 09:00" },
   { id: 9, name: "09:00 - 10:00" },
   { id: 10, name: "10:00 - 11:00" },
@@ -26,29 +26,13 @@ const times = [
   { id: 14, name: "14:00 - 15:00" },
   { id: 15, name: "15:00 - 16:00" },
   { id: 16, name: "16:00 - 17:00" },
-]; */
-
-/* const fechaBE = [new Date("03/17/2022 09:00"), new Date("03/17/2022 11:00")];
-
-
-const onDateChange2 = (e) => {
-  const horas = fechaBE.map((x) => x.getHours());
-  console.log("horas", horas);
-  const dispo = times.filter((x) => {
-    if (horas.includes(x.id)) {
-      return false;
-    }
-    return true;
-  });
-  console.log("dispo", dispo);
-}; */
+];
 
 const startDate = new Date();
 const todayDate = new Date();
 const endDate = new Date(todayDate.setMonth(todayDate.getMonth() + 1));
 
-
-const getRandomNumInRange = (min, max) => {
+/* const getRandomNumInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
@@ -71,28 +55,39 @@ const pickSlotTimes = (times) => {
   }
 
   return timesPicked.sort();
+}; */
+
+const pickSlotTimes = (id, token, reservedDates) => {
+  const dateFormated = reservedDates.map((e) => new Date(e));
+  console.log("dateFormated", dateFormated);
+  const hoursId = dateFormated.map((x) => x.getHours());
+  const availibleTurns = hoursId.filter((x) => {
+    if (hoursId.includes(x.id)) {
+      return false;
+    }
+    return true;
+  });
+  return availibleTurns.map((e) => e.name);
 };
 
 const BookDate = (props) => {
   const dispatch = useDispatch();
-  const { id } = useParams()
-  const token = useSelector((state) => state.token)
+  const { id } = useParams();
+  const token = useSelector((state) => state.token);
+  const reservedDates = useSelector((state) => state.reserves); // ["2022-03-18 15:00", "2022-03-18 16:00"]
+  console.log("reservedDates", reservedDates);
 
-/*   useEffect(() =>{
-    const timesPicked = dispatch(getReserves(id, token))
-    const dateFormated = timesPicked.map(e => new Date(e))
-    console.log("dateFormated", dateFormated)
-  }, [dispatch, id, token]) */
-  
+  useEffect(() => {
+    dispatch(getReserves(id, token));
+  }, [dispatch, id, token]);
+
   const [bookingDate, setBookingDate] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
   const [bookingTimes, setBookingTimes] = useState([]);
   const timeSlotCacheRef = useRef(new Map());
 
   useEffect(() => {
-
     if (!bookingDate) return;
-
 
     let newBookingTimes = timeSlotCacheRef.current.get(
       bookingDate.toDateString()
