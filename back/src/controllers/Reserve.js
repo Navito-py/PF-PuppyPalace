@@ -35,8 +35,10 @@ const getAvailableReserves = async (req, res, next) => {
         for(let i=0; i<reserves.length; i++){
             reserve = await Reserve.findByPk(reserves[i].reserveId)
             reservesDetails.push(reserve);    
-        }
-        res.json(reservesDetails);
+        };
+        let reservesDates = reservesDetails.map(r => r.date.concat(' ').concat(r.hourly));
+        
+        res.json({dates: reservesDates});
     }catch(e){
         next()
     }
