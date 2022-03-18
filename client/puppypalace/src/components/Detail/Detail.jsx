@@ -5,7 +5,7 @@ import { getDetail, cleanDetails } from '../../redux/actions'
 import { useParams } from 'react-router-dom'
 import Reserves from '../Reserves/Reserves'
 import vipets from "../../media/logoVIPetsTransparent.png";
-
+import './Detail.css';
 
 
 export default function Detail() {
@@ -21,28 +21,42 @@ export default function Detail() {
     }, [dispatch, id])
 
     return (
-        <div>
-            <Link to='/home'>
-                <button>Inicio</button>
-            </Link>
+        <div className='container'>
+            <div className='wrapper-card-clinic'>
+                <Link to='/home'>
+                    <button className='inicio-detailClinic'><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+                </Link>
 
-            <Reserves />
-            {clinicsDetails ?
-            <div >
-                
-                <p>Nombre: {clinicsDetails.name}</p>
-                <p>Imagen: <img src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
-                <p>Direccion: {clinicsDetails.address}</p>
-                <p>Provincia: {clinicsDetails.province}</p>
-                <p>Ciudad: {clinicsDetails.city}</p>
-                <p>Horarios de atencion: {clinicsDetails.activeHours}</p>
-                <p>Telefono: {clinicsDetails.phone}</p>
-                <p>Correo electronico: {clinicsDetails.email}</p>
-                <p>Emergencia: {clinicsDetails.emergency}</p>
-                <p>Hospitalizacion: {clinicsDetails.hospitalization}</p>
-                
-            </div> : <img src={vipets} alt="noInfo" />
-        }
+                {clinicsDetails ?
+                <div className='card-detail-clinic'>
+                    <div className='foto-nombre'>
+                    <p><img className='img-clinic' src={clinicsDetails.image} alt="vipetslogo" width="200px" height="200px" /></p>
+                    <p className='titleClinic'>{clinicsDetails.name}</p>
+                    </div>
+                    <div className='foto-nombre'>
+                    <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="50px" />
+                    <p className='p'>{clinicsDetails.address}</p>
+                    <p className='p'>{clinicsDetails.province}</p>
+                    <p className='p'>{clinicsDetails.city}</p>
+                    </div>
+                    <div className='foto-nombre'>
+                    <p className='p'>Horarios de atencion: {clinicsDetails.activeHours}</p>
+                    <p className='p'>Telefono: {clinicsDetails.phone}</p>
+                    {/* <p className='p'>Correo electronico: {clinicsDetails.email}</p> */}
+                    <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt=""  height="50px"/>
+                    </div>
+                    <div className='foto-nombre'>
+                    <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt=""  height="50px"/>
+                    <p className='p'>Emergencia: {clinicsDetails.emergency}</p>
+                    <p className='p'>Hospitalizacion: {clinicsDetails.hospitalization}</p>
+                    <Link to='/home/reserves'>
+                        <button className="reserve">Reservar</button>
+                    </Link>
+                    </div>
+                    
+                </div> : <img src={vipets} alt="noInfo" />
+            }
+            </div>
         </div>
     )
 }

@@ -1,15 +1,10 @@
-.qr-generator{
+.extra{
+padding-top: 20px;
 display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 50px;
-padding-top: 30px;
+justify-content: space-around;
+gap: 10px;
 }
-h1{
-font-family: 'Lilly', sans-serif;
-font-size: 50px;
-}
+
 .gen input{
 height: 35px;
 width: 250px;
@@ -17,32 +12,76 @@ font-size: 20px;
 padding-left: 5px;
 }
 
-.qr-btn{
-position: relative;
-height: 38px;
-width: 100px;
-top: -2px;
-font-size: 18px;
-border: none;
-color: whitesmoke;
-background-color: rgb(23, 96, 161);
-box-shadow: 2px 2px 5px rgb(23, 96, 161);
-cursor: pointer;
+.h5{
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+color: #1761a0;
 }
 
-.qr-btn:active{
-box-shadow: none;
+.h1{
+font-family: 'Times New Roman', Times, serif;
+font-size: 50px;
+color: #1761a0;
 }
 
-.extra{
-padding-top: 20px;
-display: flex;
-justify-content: space-around;
-gap: 10px;
-}
 .output-box{
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 40px;
+} 
+
+.qr-generator{
+height: 140vh;
+width: 100vw;
+background-image: url("../../media/cute.jpg");
+background-size: contain;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: 'Times New Roman', Times, serif;
 }
+
+.qr-btn{
+font-size: 17px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+background-color: #d7ecff;
+color: #1761a0;
+margin: 15px;
+text-transform: uppercase ;
+box-shadow: 3px 4px 10px 2px #1761a0;
+margin-left: 5%;
+margin-right: 5%;
+}
+
+.qr-btn:hover{
+transform: scale(1.1);
+transition: all 1s ease;
+}
+
+.qr-generador{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+margin: 10px;
+}
+
+.topQrButton{
+display: flex;
+flex-direction: row;
+border: none;
+background-color: transparent;
+margin: 10px 10px 0px 40px;
+}
+
+.topQr{
+width: 100vw;
+color: #1761a0;
+display: flex;
+flex-direction: row;
+justify-content: start;
+margin-top: 5px;
+margin-bottom: 5px
+}
+

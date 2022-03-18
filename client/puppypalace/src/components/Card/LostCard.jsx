@@ -1,4 +1,5 @@
 import React from "react";
+import './LostCard.css';
 import {
   MDBCard,
   MDBCardBody,
@@ -7,14 +8,15 @@ import {
   MDBCardImage,
 } from "mdb-react-ui-kit";
 
-export default function LostCard({ name, image, type }) {
+export default function LostCard({ name, image, type, phone }) {
   return (
-    <div>
-      <MDBCard style={{ maxWidth: "22rem" }}>
+    <div >
+      <MDBCard className="card-lost">
         <MDBCardImage src={image} position="top" alt="..." height='200px' whidth='' />
-        <MDBCardBody>
-          <MDBCardTitle>{name}</MDBCardTitle>
+        <MDBCardBody className="body-lost">
+          <MDBCardTitle className="name">{name}</MDBCardTitle>
           <MDBCardText>{type}</MDBCardText>
+          <MDBCardText>{phone}</MDBCardText>
         </MDBCardBody>
       </MDBCard>
     </div>

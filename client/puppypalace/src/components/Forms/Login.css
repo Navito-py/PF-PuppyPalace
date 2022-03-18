@@ -1,11 +1,14 @@
 .color-back{
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .btn-primary{
     color: #fff;
-    background-color: #1761A0 !important;
-    border-color: #1761A0 !important;
+    background-color: #1761A0 ;
+    border-color: #1761A0 ;
 }
 
 .icon-img{

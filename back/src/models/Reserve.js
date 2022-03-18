@@ -3,6 +3,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('reserve', {
+        
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -17,13 +18,16 @@ module.exports = (sequelize) => {
         },
 
         date: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATEONLY,
             allowNull: false,
+            validate:{
+                isAfter: DataTypes.NOW
+            }
         }, 
 
-        
         hourly: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('08:00', '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00', '15:00', '16:00'),
             allowNull: false
         },
 
@@ -31,11 +35,6 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-
-        city: {
-            type: DataTypes.ENUM("Cordoba", "Mendoza", "Rosario"),
-            allowNull: false,
-        }
 
     }, {timestamps: false})
 }

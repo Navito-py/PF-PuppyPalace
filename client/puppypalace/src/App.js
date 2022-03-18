@@ -1,4 +1,5 @@
 
+import '@progress/kendo-theme-default/dist/all.css'; 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home/Home';
 import React from 'react';
@@ -16,11 +17,23 @@ import QrInformation from './components/QrInformation/QrInformation';
 import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
 import CreateReserve from './components/Forms/CreateReserve';
+import CreateClinic from './components/AdminForms/CreateClinic';
 import LostDetail from './components/Detail/LostDetail';
+import AdminControls from './components/AdminControl/AdminControls';
+import AdminUsers from './components/AdminControl/AdminUsers';
+import AdminClinics from './components/AdminControl/AdminClinics';
+import { getLoginFromStorage } from './redux/actions'
+import { useDispatch } from "react-redux"
+import BookDate from './components/Forms/BookDate';
 
 
 
 export default function App() {
+  const dispatch = useDispatch();
+  const sessionToken = sessionStorage.getItem("loginTokenInfo")
+  if (sessionToken) {
+    dispatch(getLoginFromStorage(sessionToken))
+  }
   return (
     <BrowserRouter>
     <div>
@@ -40,6 +53,11 @@ export default function App() {
         <Route path='/lostpets' element={<AllLost/>}/>
         <Route path='/lostpets/:id' element={<LostDetail/>} />
         <Route path='/home/reserves' element={<CreateReserve/>} />
+        <Route path='/admin/controls' element={<AdminControls/>} />
+        <Route path='/book' element={<BookDate/>} />
+        <Route path='/admin/controls/users' element={<AdminUsers/>} />
+        <Route path='/admin/controls/clinics' element={<AdminClinics/>} />
+        <Route path='/admin/controls/clinics/create' element={<CreateClinic/>} />
       </Routes>
     </div>
     </BrowserRouter>

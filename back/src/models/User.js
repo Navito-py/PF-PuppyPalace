@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
 
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -95,8 +100,13 @@ module.exports = (sequelize) => {
 
         refreshToken: {
             type: DataTypes.STRING,
-            allowNull: true
-        }
+            allowNull: true,
+        },
+
+        banned: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
 
     })
 }

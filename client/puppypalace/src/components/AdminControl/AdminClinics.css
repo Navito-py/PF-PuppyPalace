@@ -1,0 +1,8 @@
+.cardsDiv{
+    width: 98vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}

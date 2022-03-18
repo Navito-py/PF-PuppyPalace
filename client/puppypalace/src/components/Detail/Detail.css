@@ -1,0 +1,58 @@
+body{
+    margin: 0%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    margin: 0%;
+}
+
+.wrapper-card-clinic{
+  width: 800px;
+  margin-left: 5%;
+  box-shadow: 5px 5px 12px 8px black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/3198001/pexels-photo-3198001.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.inicio-detailClinic{
+    background-color: transparent;
+    border: none;
+    margin: 2%;
+}
+
+.card-detail-clinic{
+    width: 500px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.foto-nombre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+    justify-content: space-around;
+}
+.titleClinic{
+    margin-left: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.img-clinic{
+    height: 250px;
+    width: auto;
+    box-shadow: 2px 2px 12px 8px black;
+}
+.p{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+}

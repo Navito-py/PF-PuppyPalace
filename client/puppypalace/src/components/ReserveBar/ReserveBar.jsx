@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterCity } from "../../redux/actions"
+import './ReserveBar.css'
 
 export default function ReserveBar() {
   const dispatch = useDispatch()
@@ -29,30 +30,34 @@ export default function ReserveBar() {
     <div>
       <div className="organizeReserve">
 
-
-          <select >
+        <div >
+          <select className="cities">
             <option >- Selecciona la ciudad -</option>
             <option >Cordoba</option>
             <option >Mendoza</option>
             <option >Rosario</option>
           </select>
+        </div>
 
+        <div className="date">
+          <label className="fecha-horario">Fecha</label>
+          <input type="date" className="fechainput-horarioinput"/>
+        </div>
 
-          <label>Fecha</label>
-          <input type="date" />
-
-
-
-          <select>
+        <div className="horarios">
+        <label className="fecha-horario">Horario</label>
+          <select className="fechainput-horarioinput">
             <option value="" disabled="">- Horarios -</option>
             {hours?.map((h,index) => (
               <div key={index}>
-              <option key={h.id}>{h}</option>
+              <option key={h.id} >{h}</option>
               </div>
             ))}
           </select>
+        <button className="btn-reserve"> Reservar</button>
+        </div>
+        <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="100px" /><img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="100px" /><img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="100px" />
 
-        <button>Reservar</button>
       </div>
     </div>
   );

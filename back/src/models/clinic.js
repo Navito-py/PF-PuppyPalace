@@ -14,9 +14,9 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate: {
-                isAlphanumeric: true
-            }
+            // validate: {
+            //     isAlphanumeric: true
+            // }
         },
 
         address: {
@@ -50,14 +50,14 @@ module.exports = (sequelize) => {
         }, 
 
         phone: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.STRING,
             unique: true,
             allowNull: false,
-            validate: {
-                isNumeric: true,
-                isInt: true,
-                len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
-            }
+            // validate: {
+            //     isNumeric: true,
+            //     isInt: true,
+            //     len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
+            // }
         },
 
         image: {
@@ -76,7 +76,17 @@ module.exports = (sequelize) => {
         hospitalization : {
             type: DataTypes.BOOLEAN,
            // allowNull: false,
-        }
+        },
+
+        reserveDay : {
+            type: DataTypes.ENUM("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"),
+           // allowNull: false,          
+        },
+
+        reserveTime : {
+            type: DataTypes.ENUM("8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"),
+           // allowNull: false,          
+        },
 
     }, {timestamps: false})
 };

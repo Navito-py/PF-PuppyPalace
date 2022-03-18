@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
-import {useDispatch} from 'react-redux'
-import { postLogin } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {useDispatch, useSelector} from 'react-redux'
+import { postLogin, getProfile } from "../../redux/actions";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Col, Container, Form, Button, Row } from "react-bootstrap";
 import loginIcon from "../../media/user.png";
 import uiImg from "../../media/uiImg.png";
@@ -17,18 +17,31 @@ export default function LogIn() {
     password: "",
   });
 
+  const navigate = useNavigate();
+  const token = useSelector(state => state.token)
+  
   function hanleOnChange(e) {
     e.preventDefault();
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data )
+    console.log(data)
   }
+
+  
 
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postLogin(data))
+    navigate('/'); 
+  }
+
+
+  if(token){
+    sessionStorage.setItem(
+      'loginTokenInfo', token
+    )
   }
 
   return (
@@ -42,20 +55,18 @@ export default function LogIn() {
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
                   type="text"
-                  placeholder="Ingrese el Nombre de usuario"
+                  placeholder="Ingrese Usuario"
                   name="userName"
                 />
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control
                   onChange={(e) => hanleOnChange(e)}
                   type="password"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                   name="password"
                 />
               </Form.Group>
-
               <Button
                 onClick={(e) => handleSubmit(e)}
                 variant="primary btn-block"
@@ -63,19 +74,13 @@ export default function LogIn() {
               >
                 Login
               </Button>
-
               <div className="text-left mt-3">
-                <a href="#">
-                  <small className="reset">Olvidaste la Contraseña</small> 
-                </a> 
-                <br /> 
-                <Link to='/home'>
+                <Link to='/'>
                   <small className="reset">Volver a inicio</small>
                 </Link>
               </div>
             </Form>
           </Col>
-
           <Col lg={8} md={6} sm={12}>
             <img className="w-100" src={uiImg} alt="icon" />
           </Col>
