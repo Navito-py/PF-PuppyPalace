@@ -13,7 +13,9 @@ const admindGetProfile = async (req, res, next) => {
 const adminGetProfileId = async (req, res) => {
     try {
         const id = req.params.id;
-        const idUser = await idSearch(id)
+        const idUser = await User.findByPk(id, {
+            include:[{model: Pet}, {model: Reserve}] 
+        });
         if(!idUser) {
             res.status(404).send("No hay usuario con ese ID")
         }
