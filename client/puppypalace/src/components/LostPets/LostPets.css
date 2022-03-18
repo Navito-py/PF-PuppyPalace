@@ -5,3 +5,10 @@
     margin: 0 auto;
     color: #fff;
   }
+
+  .inner{
+    color: rgb(23, 97, 160);
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }

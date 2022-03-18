@@ -18,7 +18,7 @@
 .card-profile{
     display: flex;
     width: 100vw;
-    margin-left: 100px;
+    justify-content: center;
 }
 
 .container-info{
