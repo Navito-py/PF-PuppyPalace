@@ -1,4 +1,5 @@
 
+import '@progress/kendo-theme-default/dist/all.css'; 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home/Home';
 import React from 'react';
@@ -20,6 +21,7 @@ import LostDetail from './components/Detail/LostDetail';
 import AdminControls from './components/AdminControl/AdminControls';
 import { getLoginFromStorage } from './redux/actions'
 import { useDispatch } from "react-redux"
+import BookDate from './components/Forms/BookDate';
 
 
 
@@ -49,6 +51,7 @@ export default function App() {
         <Route path='/lostpets/:id' element={<LostDetail/>} />
         <Route path='/home/reserves' element={<CreateReserve/>} />
         <Route path='/admin/controls' element={<AdminControls/>} />
+        <Route path='/book' element={<BookDate/>} />
       </Routes>
     </div>
     </BrowserRouter>

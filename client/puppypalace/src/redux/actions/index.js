@@ -126,8 +126,8 @@ export function PetSubmit (payload, token){
   }
 }
 
-export function ReserveSubmit (payload){
-  return async function(dispatch){
+export function reserveSubmit (payload){
+  return async function(){
     let reserve = await axios.post('https://vipets.herokuapp.com/clinics/reserve', payload)
     return reserve
   }
