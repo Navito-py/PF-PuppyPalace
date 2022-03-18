@@ -1,12 +1,12 @@
-
 const initialState = {
   clinics: [],
   allClinics: [],
   detail: [],
   pets: [],
-  token: '',
+  token: "",
   user: {},
-  allUsers: []
+  allUsers: [],
+  reserves: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -15,7 +15,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         clinics: action.payload,
-        allClinics: action.payload
+        allClinics: action.payload,
       };
     case "GET_DETAILS":
       return {
@@ -23,11 +23,11 @@ function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-      case 'LOST_ID':
-        return {
-          ...state,
-          pets: action.payload
-        }
+    case "LOST_ID":
+      return {
+        ...state,
+        pets: action.payload,
+      };
 
     case "RESET":
       return {
@@ -55,39 +55,47 @@ function rootReducer(state = initialState, action) {
         clinics: citiesFiltered,
       };
 
-      case "GET_PETS":
-        return{
-          ...state,
-          pets: action.payload,
-        };
-      case "LOGIN_ANSWER":
-        localStorage.setItem('token', action.payload.accessToken)
-        return{
-          ...state,
-          token: action.payload.accessToken
+    case "GET_PETS":
+      return {
+        ...state,
+        pets: action.payload,
+      };
+    case "LOGIN_ANSWER":
+      sessionStorage.setItem("token", action.payload.accessToken);
+      return {
+        ...state,
+        token: action.payload.accessToken,
+      };
+    case "GET_USER_PROFILE":
+      return {
+        ...state,
+        user: action.payload,
+      };
 
-        }
-      case "GET_USER_PROFILE":
-        return {
-          ...state,
-          user: action.payload
-        }  
-
-        case "LOGIN_FROM_STORAGE":
-          return{
-              ...state,
-              token: action.payload
-            }
-        case "RESET_STATUS":
-          return{
-            state : initialState
-          }
-        case "GET_USERS":
-          return{
-            ...state,
-            allUsers: action.payload
-          }
-      
+    case "LOGIN_FROM_STORAGE":
+      return {
+        ...state,
+        token: action.payload,
+      };
+    case "RESET_STATUS":
+      return {
+        state: initialState,
+      };
+    case "GET_USERS":
+      return {
+        ...state,
+        allUsers: action.payload,
+      };
+    case "RESERVE_ID":
+      return {
+        ...state,
+        reserves: action.payload,
+      };
+    case "POST_RESERVE":
+      return {
+        ...state,
+        reserves: action.payload,
+      };
 
     default:
       return state;

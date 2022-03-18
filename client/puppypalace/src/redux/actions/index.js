@@ -22,7 +22,7 @@ export function getClinics(token) {
     try {
       const responseClinics = await axios.get("https://vipets.herokuapp.com/clinics", {
         headers:{
-          'Authorization': `Bearer ${token}`
+          'authorization': `Bearer ${token}`
         }
       });
       return dispatch({
@@ -218,6 +218,38 @@ export function deleteUser(id, token){
     })
     if(deleteUser){
       alert('Usuario eliminado correctamente')
+    }
+  }
+}
+
+export function getReserves(id,token){
+  return async function (dispatch){
+    try{
+      const reserveID = await axios.get(`https://vipets.herokuapp.com/user/reserves/available/${id}`, {
+        headers:{
+          'authorization': `Bearer ${token}`
+        }
+      })
+      return dispatch({
+        type: 'RESERVE_ID',
+        payload: reserveID.data
+      })
+    } catch(error){
+      console.log(error)
+    }
+  }
+}
+
+export function postReserve(payload, id){
+  return async function(dispatch){
+    try{
+      let newReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload)
+      return dispatch({
+        type: 'POST_RESERVE',
+        payload: newReserve.data
+      })
+    } catch(error){
+      console.log(error)
     }
   }
 }

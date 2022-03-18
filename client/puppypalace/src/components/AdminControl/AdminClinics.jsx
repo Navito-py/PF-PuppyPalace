@@ -8,7 +8,7 @@ import './AdminClinics.css'
 
 export default function AdminClinics() {
     const dispatch = useDispatch()
-    const authToken = localStorage.getItem('token')
+    const authToken = sessionStorage.getItem('token')
     const allClinics = useSelector((state) => state.clinics);
 
     useEffect(() => {

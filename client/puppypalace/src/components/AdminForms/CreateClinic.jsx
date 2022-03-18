@@ -8,7 +8,7 @@ export default function CreateClinic() {
 
     const dispatch = useDispatch()
 
-    const authToken = localStorage.getItem('token')
+    const authToken = sessionStorage.getItem('token')
 
     const [info, setInfo] = useState({
         name: '',

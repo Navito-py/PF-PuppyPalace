@@ -4,7 +4,7 @@ import { useState } from "react";
 import { reserveSubmit } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
-import "./CreateReserve.css";
+/* import "./CreateReserve.css"; */
 import BookDate from './BookDate'
 
 function validate(info) {
@@ -116,7 +116,7 @@ export default function CreateReserve() {
             />
           </div>
 
-          <div className="center">
+{/*           <div className="center">
             <input
               className="display-size"
               onChange={(e) => hanleOnChange(e)}
@@ -132,9 +132,9 @@ export default function CreateReserve() {
               type="time"
               name="hourly"
             />
-          </div>
+          </div> */}
 
-         {/*  <BookDate /> */}
+         <BookDate /> 
 
           <div className="center">
             <input

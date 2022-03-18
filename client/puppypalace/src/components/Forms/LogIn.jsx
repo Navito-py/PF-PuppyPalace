@@ -40,7 +40,7 @@ export default function LogIn() {
 
   if(token){
     sessionStorage.setItem(
-      'loginTokenInfo', token
+      'token', token
     )
   }
 
