@@ -1,4 +1,5 @@
 const express = require ("express");
+const { MP_TOKEN } = process.env;
 //const app = express()
 //import mercadopago from "mercadopago";
 const mercadopago = require("mercadopago")
@@ -6,7 +7,7 @@ const mercadopago = require("mercadopago")
     //TEST-5736859326855984-030919-3068332c358350e3d695e7b80420eefc-1087039959 token del vendedor
     //APP_USR-3022421413110459-031119-f130ca07c75249aa9792eb6c277fd3c8-1087535925
     mercadopago.configure({
-        access_token: "TEST-5736859326855984-030919-3068332c358350e3d695e7b80420eefc-1087039959"
+        access_token: `${MP_TOKEN}`
     });
 
     var preference = {
