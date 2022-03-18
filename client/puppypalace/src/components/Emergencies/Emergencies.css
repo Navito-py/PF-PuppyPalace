@@ -1,6 +1,6 @@
 .emergencies{
     background-image: url("../../media/mapa.jpg");
-    height: 300vh;
+    height: 120vh;
     width: 100vw;
     background-repeat: repeat;
     background-size: contain;
@@ -10,16 +10,19 @@
 display: flex;
 flex-direction: row;
 justify-content: center;
-font-size: 45px;
+font-size: 60px;
 width: fit-content;
-margin-left: 30%;
-margin-right: 30%;
+/*margin-left: 30%;
+margin-right: 30%;*/
+margin-left: 30vw;
+margin-right: 30vw;
+text-align: center;
 margin-bottom: 2%;
 font-family: 'Times New Roman', Times, serif;
 background-color: red;
 color: white;
-height: 60px;
-width: 400px;
+height: 75px;
+width: 550px;
 text-transform: uppercase ;
 font-weight: bold;
 animation: glowing 1300ms infinite;
