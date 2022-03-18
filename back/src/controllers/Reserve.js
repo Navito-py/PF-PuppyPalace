@@ -1,6 +1,8 @@
 const { Reserve, User, Clinic, clinic_reserve } = require("../db.js");
 const { isAuthUser } = require('../Utils/isAuth.js');
 const moment = require('moment');
+const { transporter } = require('./NodeMailer');
+
 // ---------------------------- Funciones ---------------------------- \\
 
 const reserveId = async(id) => {
@@ -64,8 +66,6 @@ const postReserve = async (req, res) => {
         date,
         hourly,
         description,
-        city,
-        
         clinicId
     } = req.body;
 
@@ -75,13 +75,12 @@ const postReserve = async (req, res) => {
     console.log(houlyReserve);
 
     try{
-        if( ammount, date, hourly, description, city ) {
+        if( ammount, date, hourly, description ) {
             let newReserve = await Reserve.create({
                 ammount,
                 date,
                 hourly,
                 description,
-                city,
                 clinicId: id
             })
             
@@ -95,6 +94,13 @@ const postReserve = async (req, res) => {
 
             await clinic.addReserve(newReserve)
             await newReserve.setClinic(clinic);
+
+            await transporter.sendMail({
+                from: '"Reserva de Consulta Veterinaria" <vipets.soyhenry@gmail.com>', // sender address
+                to: user.email, // list of receivers
+                subject: "VIPets: Reserva Clinica Veterinaria", // Subject line
+                text: `Tu reserva para el día: ${newReserve.date} y horario: ${newReserve.hourly}, con un costo pago de: ${newReserve.ammount}, bajo la Descripción: ${newReserve.description}, Clinica: ${clinic.name}, ${clinic.address}` // plain text body
+                });
 
             res.status(201).json(newReserve)
             
