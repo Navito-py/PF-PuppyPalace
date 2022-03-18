@@ -54,51 +54,48 @@ const getReserveId = async (req, res) => {
         res.status(404).send(error)
     }
 };
-console.log(moment().locale('es').format('L'));
-console.log(moment('Mar 2 2030', 'MMM Do YYYY').locale('es-mx').format('L'))
+    
 const postReserve = async (req, res) => {
+    let {id} = req.params
     let {
         ammount,
         date,
         hourly,
         description,
         city,
-        //userId,
+        
         clinicId
     } = req.body;
 
-    const dateReserve = moment(/*date.slice(4,15),*/'MMM Do YYYY').locale('pt-br').format('L');
+    const dateReserve = moment('MMM Do YYYY').locale('pt-br').format('L');
     console.log(dateReserve);
     const houlyReserve = date.slice(15,17);
     console.log(houlyReserve);
+
     try{
         if( ammount, date, hourly, description, city ) {
             let newReserve = await Reserve.create({
                 ammount,
-                date,//: dateReserve > moment().locale('es-mx').format('L') && dateReserve,
-                hourly,//: parseInt(houlyReserve)> 8 && parseInt(houlyReserve)<16 && houlyReserve,
+                date,
+                hourly,
                 description,
                 city,
-                //userId,
-                clinicId
+                clinicId: id
             })
             
             const userId = isAuthUser(req);
             const user = await User.findByPk(userId);
             
-            const clinic = await Clinic.findByPk(clinicId);
+            const clinic = await Clinic.findByPk(id);
             
             await user.addReserve(newReserve)
             await newReserve.setUser(user)
 
             await clinic.addReserve(newReserve)
-            //await newReserve.addClinic(clinic)
             await newReserve.setClinic(clinic);
-            //await clinic.setReserve(newReserve);
 
             res.status(201).json(newReserve)
-            console.log(user)
-            console.log(clinic)
+            
         } else {
             res.status(401).send({error: "Por favor complete todos los campos"})
         }
