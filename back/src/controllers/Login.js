@@ -1,7 +1,6 @@
 const {User, Pet, Vaccine}= require ('../db.js');
 const {sign} =require('jsonwebtoken');
 const {hash, compare} = require('bcryptjs');
-const moment= require('moment')
 const {createAccessToken, 
     createRefreshToken, 
     sendAccessToken,
@@ -19,8 +18,7 @@ const login = async (req , res , next) =>{
 
         }
         =req.body;
-        console.log(moment().locale('es').format('L'));
-        console.log(moment('Mar 2 2030', 'MMM Do YYYY').locale('es-mx').format('L'))
+        
         const user = await User.findOne({
             where:{
                 userName,
