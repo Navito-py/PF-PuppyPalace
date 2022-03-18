@@ -1,6 +1,6 @@
 const { Reserve, User, Clinic, clinic_reserve } = require("../db.js");
 const { isAuthUser } = require('../Utils/isAuth.js');
-
+const moment = require('moment');
 // ---------------------------- Funciones ---------------------------- \\
 
 const reserveId = async(id) => {
@@ -35,8 +35,10 @@ const getAvailableReserves = async (req, res, next) => {
         for(let i=0; i<reserves.length; i++){
             reserve = await Reserve.findByPk(reserves[i].reserveId)
             reservesDetails.push(reserve);    
-        }
-        res.json(reservesDetails);
+        };
+        let reservesDates = reservesDetails.map(r => r.date.concat(' ').concat(r.hourly));
+        
+        res.json({dates: reservesDates});
     }catch(e){
         next()
     }
@@ -53,19 +55,25 @@ const getReserveId = async (req, res) => {
     } catch (error) {
         res.status(404).send(error)
     }
-}
-
+};
+    
 const postReserve = async (req, res) => {
+    let {id} = req.params
     let {
         ammount,
         date,
         hourly,
         description,
         city,
-        //userId,
+        
         clinicId
     } = req.body;
-  
+
+    const dateReserve = moment('MMM Do YYYY').locale('pt-br').format('L');
+    console.log(dateReserve);
+    const houlyReserve = date.slice(15,17);
+    console.log(houlyReserve);
+
     try{
         if( ammount, date, hourly, description, city ) {
             let newReserve = await Reserve.create({
@@ -74,26 +82,22 @@ const postReserve = async (req, res) => {
                 hourly,
                 description,
                 city,
-                //userId,
-                clinicId
+                clinicId: id
             })
             
             const userId = isAuthUser(req);
             const user = await User.findByPk(userId);
             
-            const clinic = await Clinic.findByPk(clinicId);
+            const clinic = await Clinic.findByPk(id);
             
             await user.addReserve(newReserve)
             await newReserve.setUser(user)
 
             await clinic.addReserve(newReserve)
-            //await newReserve.addClinic(clinic)
             await newReserve.setClinic(clinic);
-            //await clinic.setReserve(newReserve);
 
             res.status(201).json(newReserve)
-            console.log(user)
-            console.log(clinic)
+            
         } else {
             res.status(401).send({error: "Por favor complete todos los campos"})
         }

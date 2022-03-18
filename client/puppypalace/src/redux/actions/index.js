@@ -158,9 +158,66 @@ export function getLoginFromStorage(payload){
       }
   }
 
-  export function resetStatus() {
-    return {
-      type: "RESET_STATUS",
-      payload: null,
-    };
+export function resetStatus() {
+  return {
+    type: "RESET_STATUS",
+    payload: null,
+  };
+}
+
+export function DeleteClinic(id, token){
+  return async function(dispatch){
+    let deletedClinic = await axios.delete(`https://vipets.herokuapp.com/admin/clinics/delete/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    return deletedClinic
   }
+}
+
+export function addClinic(payload, token) {
+  return async function(dispatch){
+    let newClinic = await axios.post(`https://vipets.herokuapp.com/admin/clinics/create`, payload, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(newClinic.data){
+      alert('Clinica creada correctamente')
+    }
+    
+  }
+
+}
+
+export function getAllUsers(token){
+  return async function(dispatch){
+    let allusers = await axios.get(`https://vipets.herokuapp.com/admin/users`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(allusers){
+        return dispatch({
+        type: "GET_USERS",
+        payload: allusers.data,
+      });
+    }else{
+      alert('No se encontraron usuarios')
+    }
+  }
+}
+
+export function deleteUser(id, token){
+  return async function(dispatch){
+    let DeleteUser = await axios.delete(`https://vipets.herokuapp.com/admin/users/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(deleteUser){
+      alert('Usuario eliminado correctamente')
+    }
+  }
+}

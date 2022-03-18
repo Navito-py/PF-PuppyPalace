@@ -1,8 +1,9 @@
 .App {
-    text-align: center;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: none;
-    font-family: 'Times New Roman';
+  height: 100vh;
+  text-align: center;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  font-family: 'Times New Roman';
   }
   ::-webkit-scrollbar{
     display: none;

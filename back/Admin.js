@@ -82,7 +82,7 @@ const users = [
 "name":"Luciano",
 "lastName":"Staniszewski",
 "isAdmin": false,   
-"email":"lucjan@gmail.com",
+"email":"luciano.stani97@gmail.com",
 "password":"yuyu1997",
 "phone":"1133228899",
 "address":"Rio Santa Rosa 715",

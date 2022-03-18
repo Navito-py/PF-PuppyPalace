@@ -1,21 +1,24 @@
 .paginate{
-    width: 400px;
-    margin: 5px;
-    margin-left: 50%;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-
+width: 400px;
+margin: 5px;
+margin-left: 70%;
+align-items: center;
+display: flex;
+flex-direction: row;
+justify-content:space-between;
 }
 
 .btn-paginated{
-    border-radius: 50%;
-    border: none;
-    box-shadow: 4px 5px 10px 3px grey;
-    background-color: #d7ecff;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+background-color: #d7ecff;
+color: black;
+margin: 15px;
+text-transform: uppercase ;
+border-color: #1761a0;
 }
 
 .btn-paginated:hover{
-    transition: all 1s ease;
-    transform: scale(1.2);
+transition: all 1s ease;
+transform: scale(1.2);
 }

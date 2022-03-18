@@ -1,93 +1,94 @@
+@keyframes glowing {
+  0% {
+    background-color: red;
+    box-shadow: 0 0 5px 5px red;
+  }
+  50% {
+    box-shadow: 0 0 15px 5px red;
+    background-color: rgb(248, 72, 72);
+  }
+  100% {
+    background-color: red;
+    box-shadow: 0 0 5px 5px rgb(245, 107, 107);
+  }
+}
+
+.h1-title{
+box-shadow: 3px 4px 10px 2px #1761a0;;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
+font-size: 80px;
+color: #1761a0;
+font-style: italic;
+text-align: center;
+background-color: #d7ecff;
+height: 100px;
+}
+
 .landing-back {
-  background: url("../../media/cute.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-attachment: fixed;
-}
- 
-.h1{
-  font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 60px;
-  text-align: center;
-}
-
-.welcome-text1 {
-  color: black;
-  background-color: rgba(128, 128, 128, 0.281);
-  font-size: 3vw;
-  text-align: center;
-  padding: 10px;
-  
-}
-.parent-button {
-  position: relative; 
-  display: flex;
-  justify-content: space-around;
-  box-shadow: 3px 4px 10px 2px black;
-  cursor: pointer;
-
+background: url("../../media/cute.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: 100vh;
+top: 0;
+left: 0;
+background-attachment: fixed;
 }
 
 .order-btns {
-  flex-direction: row;
-  position: absolute;
-  top: 50px;
+width: 100vw;
+}
+
+.parent-button {
+position: relative; 
+display: flex;
+justify-content: space-around;
+cursor: pointer;
+margin-top: 10%;
+margin-left: 10%;
 }
 
 .primary{
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    background-color: rgba(153, 150, 150, 0.13);
-    color: black;
-    padding: 15px 40px;
-    margin: 15px;
-    text-transform: uppercase ;
-    height: 80px;
-    width: 160px;
-    box-shadow: 3px 4px 10px 2px black;
+font-size: 23px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+background-color: #d7ecff;
+color: #1761a0;
+padding: 15px 40px;
+margin: 15px;
+text-transform: uppercase ;
+height: 100px;
+width: 200px;
+box-shadow: 3px 4px 10px 2px #1761a0;
+margin-left: 5%;
+margin-right: 5%;
+}
+  
+.primary:hover{
+background: #1761a0;;
+color: white;
+transition: all 2s ease;
+box-shadow: 3px 4px 10px 2px rgb(158, 158, 158);
+}
+  
+.primary-emergency{
+font-size: 23px;
+font-family: 'Times New Roman', Times, serif;
+background-color: red;
+color: white;
+height: 130px;
+width: 230px;
+text-transform: uppercase ;
+font-weight: bold;
+animation: glowing 1300ms infinite;
+margin-left: 8%;
+margin-right: 5%;
+}
+  
+.primary-emergency:hover{
+transition: all 1s;
+transform: scale(1.2);
+color: white;
 }
 
-.primary:hover{
-    background: black;
-    color: white;
-    transition: all 2s ease;
-    box-shadow: 3px 4px 10px 2px darkgray;
-  }
-
-  @keyframes glowing {
-    0% {
-      background-color: red;
-      box-shadow: 0 0 5px 5px red;
-    }
-    50% {
-      box-shadow: 0 0 15px 5px red;
-      background-color: rgb(248, 72, 72);
-    }
-    100% {
-      background-color: red;
-      box-shadow: 0 0 5px 5px rgb(245, 107, 107);
-    }
-  }
-
-  .primary-emergency{
-    font-family: 'Times New Roman', Times, serif;
-    background-color: red;
-    color: white;
-    height: 80px;
-    width: 160px;
-    text-transform: uppercase ;
-    font-weight: bold;
-    animation: glowing 1300ms infinite;
-  }
-
-  .primary-emergency:hover{
-    transition: all 1s;
-    transform: scale(1.2);
-    color: white;
-    
-  }

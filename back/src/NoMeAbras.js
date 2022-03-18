@@ -1,7 +1,7 @@
-const letter = "Te dije que no me abras, ahora vas a tener que verme"
+const letter = "Iván Gato"
 
 /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//                                                      \\//                      El hacha más chota              \\
+//                                                      \\//                      El hacha más fiera              \\
 //                           /\                         \\//                          ________                    \\
 //                          |  |                        \\//                          |       \                   \\
 //                          |  |                        \\//                          |        \                  \\
@@ -16,8 +16,8 @@ const letter = "Te dije que no me abras, ahora vas a tener que verme"
 //                                                      \\//                                                      \\
 /////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-const pd = "Lo que sucede cuando uno esta aburrido"
+const pd = " dale media pila y ponete a laburar"
 
-const leeme = console.log(letter + "(investigar). " + pd + "Iván, dale media pila. Lauti" )
+const leeme = console.log(letter + pd )
 
 module.exports = leeme

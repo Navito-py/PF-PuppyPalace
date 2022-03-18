@@ -17,8 +17,11 @@ import QrInformation from './components/QrInformation/QrInformation';
 import AllLost from './components/AllLost/AllLost';
 import CreatePet from './components/Forms/CreatePet';
 import CreateReserve from './components/Forms/CreateReserve';
+import CreateClinic from './components/AdminForms/CreateClinic';
 import LostDetail from './components/Detail/LostDetail';
 import AdminControls from './components/AdminControl/AdminControls';
+import AdminUsers from './components/AdminControl/AdminUsers';
+import AdminClinics from './components/AdminControl/AdminClinics';
 import { getLoginFromStorage } from './redux/actions'
 import { useDispatch } from "react-redux"
 import BookDate from './components/Forms/BookDate';
@@ -52,6 +55,9 @@ export default function App() {
         <Route path='/home/reserves' element={<CreateReserve/>} />
         <Route path='/admin/controls' element={<AdminControls/>} />
         <Route path='/book' element={<BookDate/>} />
+        <Route path='/admin/controls/users' element={<AdminUsers/>} />
+        <Route path='/admin/controls/clinics' element={<AdminClinics/>} />
+        <Route path='/admin/controls/clinics/create' element={<CreateClinic/>} />
       </Routes>
     </div>
     </BrowserRouter>

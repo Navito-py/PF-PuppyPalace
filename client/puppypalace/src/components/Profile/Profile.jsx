@@ -1,10 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import { getProfile } from '../../redux/actions';
 import './Profile.css';
 import LostCard  from '../Card/LostCard.jsx';
+import { resetStatus } from "../../redux/actions/index"
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -14,25 +15,37 @@ export default function Profile() {
         dispatch(getProfile(token));
     }, [dispatch])
     
+    const navigate = useNavigate();
     const user = useSelector(state => state.user);
     const pets = user.pets;
 
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("loginTokenInfo");
+        dispatch(resetStatus())
+        navigate("/");
+      }
+
     return (
         <div className='profile'>
-                    <Link to='/home'>
-                        <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-                    </Link>
+            <div className='nav-bar-profile'>
+                <Link to='/home'>
+                    <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+                </Link>
+            </div>
             <div className='card-profile'>
                 <div className='container-info'>
-                    <img src={user.image} width = '100px' height='100px' alt='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'/>
-                    <p>Nombre de Usuario: {user.userName}</p>
-                    <p>Nombres: {user.name} {user.lastName}</p>
-                    <p>Direccion: {user.address} </p>
-                    <p>Teléfono: {user.phone}</p>
+                    <img className='image-card' src={user.image} width = '100px' height='100px' alt='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'/>
+                    <p className='pc'>{user.userName}</p>
+                    <p className='pc'>{user.name} {user.lastName}</p>
+                    <p className='pc'>{user.address} </p>
+                    <p className='pc'>{user.phone}</p>
 
-                    <Link to ='createPet'>
-                    <button className='btn-petscreate'>Crear mascota</button>
-                    </Link>
+
+                      <Link to ='createPet'>
+                        <button className='btn-petscreate'>Crear mascota</button>
+                      </Link>
+                    <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
                 </div>
                 <div>
                     {pets && pets.map(p => {
@@ -44,7 +57,7 @@ export default function Profile() {
                             phone={user.phone} /> 
                         </div>
                     })}
-            </div>
+                </div>
             </div>
         </div>
     )
