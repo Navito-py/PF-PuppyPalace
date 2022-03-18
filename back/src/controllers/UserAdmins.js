@@ -10,6 +10,21 @@ const admindGetProfile = async (req, res, next) => {
     res.json(user);
 }
 
+const adminGetProfileId = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const idUser = await User.findByPk(id, {
+            include:[{model: Pet}, {model: Reserve}] 
+        });
+        if(!idUser) {
+            res.status(404).send("No hay usuario con ese ID")
+        }
+        res.status(200).json(idUser)
+    } catch (error) {
+        res.status(404).send(error)
+    }
+}
+
 //---------------------------------------------PUT----------------------------------------------------
 
 const admindModProfile = async (req, res) => {
@@ -64,6 +79,7 @@ const adminKillUser = async (req, res) => {
 
 module.exports = {
     admindGetProfile,
+    adminGetProfileId,
     admindModProfile,
     adminKillUser,
 }
