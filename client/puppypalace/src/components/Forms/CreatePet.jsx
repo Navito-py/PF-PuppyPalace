@@ -9,7 +9,7 @@ export default function CreatePet() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     const [petdata, setPetdata] = useState({
         name:"",
         gender:"",

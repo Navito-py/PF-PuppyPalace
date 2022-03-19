@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function AdminUsers() {
 
     const dispatch = useDispatch()
-    const authToken = localStorage.getItem('token')
+    const authToken = sessionStorage.getItem('token')
     const users = useSelector(state => state.allUsers)
 
     useEffect(() => {

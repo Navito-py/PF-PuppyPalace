@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import Reserves from '../Reserves/Reserves'
 import vipets from "../../media/logoVIPetsTransparent.png";
 import './Detail.css';
+import BookDate from '../Forms/BookDate'
+import CreateReserve from '../Forms/CreateReserve'
 
 
 export default function Detail() {
@@ -55,8 +57,11 @@ export default function Detail() {
                     </div>
                     
                 </div> : <img src={vipets} alt="noInfo" />
-            }
+
+}
             </div>
+            {/* <BookDate /> */}
+            <CreateReserve />
         </div>
     )
 }
