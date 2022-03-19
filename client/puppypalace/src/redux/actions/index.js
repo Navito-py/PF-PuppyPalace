@@ -222,6 +222,7 @@ export function deleteUser(id, token){
   }
 }
 
+
 export function getReserves(id,token){
   return async function (dispatch){
     try{
@@ -268,3 +269,35 @@ export function postReserve(payload, id, token ){
       return postReserve.data
     }
   } */
+
+export function adminAUser(id, token){
+  return async function(dispatch){
+    let user = await axios.get(`https://vipets.herokuapp.com/admin/users/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    if(user){
+      if(user.isAdmin === false){
+        user.isAdmin = true
+        let newuser = await axios.put(`https://vipets.herokuapp.com/admin/users/${id}`, user, {
+          headers:{
+            'authorization': `Bearer ${token}`
+          }
+        })
+        if(newuser){alert('Se modificarlos los derechos correctamente')}
+      }else if(user.isAdmin === true){
+        user.isAdmin = false
+        let newuser2 = await axios.put(`https://vipets.herokuapp.com/admin/users/${id}`, user, {
+          headers:{
+            'authorization': `Bearer ${token}`
+          }
+        })
+        if(newuser2){alert('Se modificarlos los derechos correctamente')}
+      }
+    }else{
+      alert('Error')
+    }
+  }
+}
+
