@@ -6,7 +6,7 @@ export function getNameClinic(name) {
   return async function (dispatch) {
     try {
       const responseName = await axios.get(
-        `${url}/clinics?name=${name}`
+        `${url2}/clinics?name=${name}`
       );
       return dispatch({
         type: "GET_CLINIC_NAME",
@@ -22,7 +22,7 @@ export function getNameClinic(name) {
 export function getClinics(token) {
   return async function (dispatch) {
     try {
-      const responseClinics = await axios.get(`${url}/clinics`, {
+      const responseClinics = await axios.get(`${url2}/clinics`, {
         headers:{
           'Authorization': `Bearer ${token}`
         }
@@ -41,7 +41,7 @@ export function getDetail(id) {
   return async function (dispatch) {
     try {
       const responseDetail = await axios.get(
-        `${url}/clinics/${id}`
+        `${url2}/clinics/${id}`
       );
       return dispatch({
         type: "GET_DETAILS",
@@ -56,7 +56,7 @@ export function getDetail(id) {
 export function getLostDetail(id){
   return async function (dispatch){
     try {
-      const lostDetail = await axios.get(`${url}/user/pets/${id}`)
+      const lostDetail = await axios.get(`${url2}/user/pets/${id}`)
       return dispatch({
         type: 'LOST_ID',
         payload: lostDetail.data
@@ -69,14 +69,14 @@ export function getLostDetail(id){
 
 export function postUser(payload) {
   return async function(){
-      let user = await axios.post( `${url}/user/register`, payload)
+      let user = await axios.post( `${url2}/user/register`, payload)
       return user.data
   }
 };
 
 export function postLogin(payload){
   return async function(dispatch){
-    let login = await axios.post( `${url}/user/login` , payload)
+    let login = await axios.post( `${url2}/user/login` , payload)
     if(login.data){
       alert('Iniciaste sesion con exito!')
       return dispatch(
@@ -105,7 +105,7 @@ export function filterCity(payload){
 
 export function getPets(token){
   return async function(dispatch){
-   const pets = await axios.get(`${url}/user/pets`, {
+   const pets = await axios.get(`${url2}/user/pets`, {
     headers:{
       'authorization': `Bearer ${token}`
     }
@@ -119,7 +119,7 @@ export function getPets(token){
 
 export function PetSubmit (payload, token){
   return async function(dispatch){
-    let pet = await axios.post(`${url}/user/pets `, payload, {
+    let pet = await axios.post(`${url2}/user/pets `, payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -130,14 +130,14 @@ export function PetSubmit (payload, token){
 
 export function ReserveSubmit (payload){
   return async function(dispatch){
-    let reserve = await axios.post( `${url}/clinics/reserve`, payload)
+    let reserve = await axios.post( `${url2}/clinics/reserve`, payload)
     return reserve
   }
 }
 
 export function getProfile (accesstoken){
   return async function (dispatch){
-    let user= await axios.get( `${url}/user/profile`, {
+    let user= await axios.get( `${url2}/user/profile`, {
       headers:{
         'authorization': `Bearer ${accesstoken}`
       } 
@@ -169,7 +169,7 @@ export function resetStatus() {
 
 export function DeleteClinic(id, token){
   return async function(dispatch){
-    let deletedClinic = await axios.delete(`${url}/admin/clinics/delete/${id}`, {
+    let deletedClinic = await axios.delete(`${url2}/admin/clinics/delete/${id}`, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -180,7 +180,7 @@ export function DeleteClinic(id, token){
 
 export function addClinic(payload, token) {
   return async function(dispatch){
-    let newClinic = await axios.post(`${url}/admin/clinics/create`, payload, {
+    let newClinic = await axios.post(`${url2}/admin/clinics/create`, payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
