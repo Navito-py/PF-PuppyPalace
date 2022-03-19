@@ -36,7 +36,7 @@ const modProfile = async (req, res) => {
                 phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba' || province === 'Cordoba') && province,
-                city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
+                city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba' || city === 'Cordoba') && city,
                 image: image !== ""? image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'
         },
         {
