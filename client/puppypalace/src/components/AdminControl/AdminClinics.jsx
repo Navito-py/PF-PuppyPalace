@@ -31,7 +31,7 @@ export default function AdminClinics() {
                 {
                     allClinics?.map(e => {
                         return(
-                            <AdminClinicCard onDelete={HandleDelete} id={e.id} name={e.name} direction={e.address} image={e.image} city={e.city}/>
+                            <AdminClinicCard hours={e.activeHours}  onDelete={HandleDelete} id={e.id} name={e.name} direction={e.address} image={e.image} city={e.city}/>
                         )
                     })
                 }
