@@ -240,10 +240,14 @@ export function getReserves(id,token){
   }
 }
 
-export function postReserve(payload, id){
+export function postReserve(payload, id, token ){
   return async function(dispatch){
     try{
-      let newReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload)
+      let newReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
+        headers:{
+          'authorization': `Bearer ${token}`
+        }
+      })
       return dispatch({
         type: 'POST_RESERVE',
         payload: newReserve.data
@@ -253,3 +257,14 @@ export function postReserve(payload, id){
     }
   }
 }
+
+/* export function postReserve(payload, id, token ){
+  return async function(){
+      const postReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
+        headers:{
+          'authorization': `Bearer ${token}`
+        }
+      })
+      return postReserve.data
+    }
+  } */

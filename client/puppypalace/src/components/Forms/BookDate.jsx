@@ -1,20 +1,8 @@
 import { Calendar } from "@progress/kendo-react-dateinputs";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getReserves } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
-/* const times = [
-  "08:00 - 09:00",
-  "09:00 - 10:00",
-  "10:00 - 11:00",
-  "11:00 - 12:00",
-  "12:00 - 13:00",
-  "13:00 - 14:00",
-  "14:00 - 15:00",
-  "15:00 - 16:00",
-  "16:00 - 17:00", 
-]; */
 
 const times = [
   { id: 8, name: "08:00 - 09:00" },
@@ -32,95 +20,75 @@ const startDate = new Date();
 const todayDate = new Date();
 const endDate = new Date(todayDate.setMonth(todayDate.getMonth() + 1));
 
-/* const getRandomNumInRange = (min, max) => {
-  return Math.floor(Math.random() * (max - min) + min);
-};
-
-const pickSlotTimes = (times) => {
-  const timesToPick = getRandomNumInRange(0, times.length); //3
-
-  if (timesToPick === times.length - 1) {
-    return times;
-  }
-
-  let timesPicked = [];
-
-  while (timesToPick !== timesPicked.length - 1) {
-    const index = getRandomNumInRange(0, times.length);
-    const selectedTime = times[index];
-
-    if (timesPicked.includes(selectedTime)) continue;
-
-    timesPicked.push(selectedTime);
-  }
-
-  return timesPicked.sort();
-}; */
-
-const pickSlotTimes = (id, token, reservedDates) => {
-  const dateFormated = reservedDates.map((e) => new Date(e));
-  console.log("dateFormated", dateFormated);
-  const hoursId = dateFormated.map((x) => x.getHours());
-  const availibleTurns = hoursId.filter((x) => {
-    if (hoursId.includes(x.id)) {
-      return false;
-    }
-    return true;
-  });
-  return availibleTurns.map((e) => e.name);
-};
-
-const BookDate = (props) => {
+const BookDate = ({ dateAndHours }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const token = useSelector((state) => state.token);
-  const reservedDates = useSelector((state) => state.reserves); // ["2022-03-18 15:00", "2022-03-18 16:00"]
-  console.log("reservedDates", reservedDates);
+  const reservedDates = useSelector((state) => state.reserves);
+
+  const [bookingDate, setBookingDate] = useState(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
+  const [bookingTimes, setBookingTimes] = useState([]);
 
   useEffect(() => {
     dispatch(getReserves(id, token));
   }, [dispatch, id, token]);
 
-  const [bookingDate, setBookingDate] = useState(null);
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-  const [bookingTimes, setBookingTimes] = useState([]);
-  const timeSlotCacheRef = useRef(new Map());
-
-  useEffect(() => {
-    if (!bookingDate) return;
-
-    let newBookingTimes = timeSlotCacheRef.current.get(
-      bookingDate.toDateString()
-    );
-
-    if (!newBookingTimes) {
-      newBookingTimes = pickSlotTimes(times);
-
-      timeSlotCacheRef.current.set(bookingDate.toDateString(), newBookingTimes);
-    }
-
-    setBookingTimes(newBookingTimes);
-  }, [bookingDate]);
-
   const onDateChange = (e) => {
     setSelectedTimeSlot(null);
     setBookingDate(e.value);
+    
+    const { value } = e.target;
+
+    const actualDate = value.getDate();
+
+    const formated = reservedDates["dates"].map((e) => new Date(e));
+
+    const dateFormated = formated.map((e) => e.getDate());
+
+    const hoursFormated = formated.map((e) => e.getHours());
+
+    let timesPicked = [];
+
+    for (let i = 0; i < dateFormated.length; i++) {
+      if (actualDate === dateFormated[i]) {
+        timesPicked.push(hoursFormated[i]);
+      }
+    }
+    const availableTurns = times
+      .filter((e) => {
+        if (timesPicked.includes(e.id)) {
+          return false;
+        }
+        return true;
+      })
+      .map((e) => e.name);
+      
+    dateAndHours(bookingDate, selectedTimeSlot);
+    return setBookingTimes(availableTurns);
   };
 
-  const handleSubmit = () => {
-    console.log(bookingDate);
+  /*   const handleSubmit = () => {
+        console.log(bookingDate);
     console.log(bookingDate.toLocaleDateString("en-US"));
     const finalDate = `${bookingDate.toLocaleDateString(
       "en-US"
     )} ${selectedTimeSlot}`;
     console.log("finalDate", finalDate);
-  };
+
+    const allInfoReserve = {
+      id: id,
+      ammount: "2000",
+      date: finalDate,
+      description: "Consulta",
+      hourly: selectedTimeSlot,
+      city: "Rosario",
+    };
+  }; */
 
   return (
     <div className="k-my-8">
-      <div className="k-mb-4 k-font-weight-bold">
-        Seleccione su turno y proceda con el pago para reservar
-      </div>
+      <div className="k-mb-4 k-font-weight-bold">Seleccione su turno</div>
 
       <div className="k-flex k-display-flex k-mb-4">
         <Calendar
@@ -149,9 +117,6 @@ const BookDate = (props) => {
           Su turno es: {bookingDate.toDateString()} de {selectedTimeSlot}
         </div>
       ) : null}
-      <button type="submit" onClick={handleSubmit}>
-        Submit
-      </button>
     </div>
   );
 };

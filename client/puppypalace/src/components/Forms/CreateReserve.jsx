@@ -1,13 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { reserveSubmit } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { postReserve } from "../../redux/actions";
+import { Link, useParams } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
 /* import "./CreateReserve.css"; */
-import BookDate from './BookDate'
+import BookDate from "./BookDate";
 
-function validate(info) {
+/* function validate(info) {
   let errors = {};
   if (!info.ammount) {
     errors.name = "Debe introducir el monto";
@@ -24,11 +24,13 @@ function validate(info) {
   if (!info.city) {
     errors.city = "Debe introducir una ciudad";
   }
-}
+} */
 
 export default function CreateReserve() {
   const dispatch = useDispatch();
-  const [error, setError] = useState({});
+  const token = useSelector((state) => state.token);
+  const {id} = useParams()
+/*   const [error, setError] = useState({}); */
   const [info, setInfo] = useState({
     ammount: "",
     date: "",
@@ -38,7 +40,6 @@ export default function CreateReserve() {
   });
 
   function hanleOnChange(e) {
-    e.preventDefault();
     setInfo({
       ...info,
       [e.target.name]: e.target.value,
@@ -54,7 +55,7 @@ export default function CreateReserve() {
     });
   }
 
-  function handleSubmit(e) {
+  /* function handleSubmit(e) {
     if (
       !error.ammount &&
       !error.date &&
@@ -70,7 +71,7 @@ export default function CreateReserve() {
         })
       );
       info.ammount = parseInt(info.ammount);
-      dispatch(reserveSubmit(info));
+      dispatch(postReserve(info));
       setInfo({
         ammount: "1000",
         date: "",
@@ -83,13 +84,28 @@ export default function CreateReserve() {
       alert("Por favor complete todas las casillas correctamente");
     }
   }
+ */
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(postReserve(info, id, token));
+  }
+
+  function callDateAndHours(date, hour) {
+    setInfo({
+      ...info,
+      date: date,
+      hourly: hour,
+      ammount: 1000
+    });
+  }
 
   return (
     <div className="wrapper">
       <h2 className="pe">Pago Electronico</h2>
       <div className="payment">
         <form
-          action="https://mpago.la/1bfm6Un"
+          /* action="https://mpago.la/1bfm6Un" */
           onSubmit={(e) => handleSubmit(e)}
         >
           <img
@@ -116,25 +132,7 @@ export default function CreateReserve() {
             />
           </div>
 
-{/*           <div className="center">
-            <input
-              className="display-size"
-              onChange={(e) => hanleOnChange(e)}
-              type="date"
-              name="date"
-            />
-          </div>
-
-          <div className="center">
-            <input
-              className="display-size"
-              onChange={(e) => hanleOnChange(e)}
-              type="time"
-              name="hourly"
-            />
-          </div> */}
-
-         <BookDate /> 
+          <BookDate dateAndHours={callDateAndHours} />
 
           <div className="center">
             <input
@@ -163,7 +161,7 @@ export default function CreateReserve() {
             <Reserves />
           </div>
 
-          <button type='submit' >Crear</button>
+          <button type="submit">Crear</button>
         </form>
         <Link to="/home">
           <button className="btn-center">Volver</button>
