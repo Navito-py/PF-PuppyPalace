@@ -262,16 +262,16 @@ export function postReserve(payload, id, token ){
   }
 }
 
-/* export function postReserve(payload, id, token ){
+export function postReserve(payload, id, token ){
   return async function(){
-      const postReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
-        headers:{
-          'authorization': `Bearer ${token}`
-        }
-      })
-      return postReserve.data
-    }
-  } */
+    const postReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    return postReserve.data
+  }
+}
 
 export function adminAUser(id, token){
   return async function(dispatch){
