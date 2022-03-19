@@ -89,7 +89,7 @@ const postClinic = async (req, res, next) => {
                     name: typeof name === 'string' && name,
                     address: typeof address === 'string' && address,
                     province: (province === 'Santa Fe' || province ==='Mendoza' || province === 'Córdoba') && province,
-                    city: (city === 'Rosario' || city === 'Córdoba' || city === 'Mendoza') && city,
+                    city: (city === 'Rosario' || city === 'Córdoba' || city === 'Cordoba' || city === 'Mendoza' ) && city,
                     activeHours: typeof activeHours === 'string' && activeHours,
                     email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
                     phone: typeof phone === 'string' && phone,
