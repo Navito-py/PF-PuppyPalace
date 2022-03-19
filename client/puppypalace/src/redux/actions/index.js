@@ -224,11 +224,12 @@ export function deleteUser(id, token){
 
 export function adminAUser(id, token){
   return async function(dispatch){
-    let user = await axios.get(`https://vipets.herokuapp.com/admin/users/${id}`, {
+    let rawuser = await axios.get(`https://vipets.herokuapp.com/admin/users/${id}`, {
       headers:{
         'authorization': `Bearer ${token}`
       }
     })
+    const user = rawuser.data
     if(user){
       if(user.isAdmin === false){
         user.isAdmin = true
