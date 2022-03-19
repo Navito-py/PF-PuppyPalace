@@ -79,36 +79,48 @@ export default function CreatePet() {
 
     return (
         <div className='container-createpet'>
-            <Link to='/home/profile'>
+            <nav className='nav-createPet'>
+             <Link to='/home/profile'>
                 <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-            </Link>
-            <form onSubmit={e => handleSubmit(e)} >
-                <input onChange={e => handleOnChange(e)} placeholder='Nombre' name='name' type='text'/>
-                <select onChange={e => handleGender(e)}>
-                    <option hidden >Genero</option>
-                    <option value='Male'>Macho</option>
-                    <option value='Female'>Hembra</option>
-                </select>
-                <select onChange={e => handleType(e)}>
-                    <option hidden >Tipo</option>
-                    <option value='Dog'>Perro</option>
-                    <option value='Cat'>Gato</option>
-                </select>
-                <input onChange={e => handleOnChange(e)} placeholder='Raza (opcional)' name='breed' type='text'/>
-                <input onChange={e => handleOnChange(e)} placeholder='Edad (años)' name='age' type='text'/>
-                <input onChange={e => handleOnChange(e)} placeholder='Altura (Cm)' name='height' type='text'/>
-                <input onChange={e => handleOnChange(e)} placeholder='Peso (Kg)' name='weight' type='text'/>
-                <input onChange={e => handleOnChange(e)} placeholder='Imagen (Url)' name='image' type='text'/>
-                <input onChange={e => handleOnChange(e)} placeholder='Historial' name='history' type='text'/>
-                <select onChange={e => handleStatus(e)}>
-                    <option hidden >Estado</option>
-                    <option value='Alive'>Vivo</option>
-                    <option value='Deceased'>Muerto</option>
-                    <option value='Lost'>Perdido</option>
-                </select>
-                <button type='submit'>Crear</button>
-                
-            </form>
+             </Link>
+            </nav>
+            <div className='div-formPet'>
+                <form onSubmit={e => handleSubmit(e)} >
+                       <div className='n1'>
+                            <input onChange={e => handleOnChange(e)} placeholder='Nombre' name='name' type='text'/>
+                            <select className='selcts' onChange={e => handleGender(e)}>
+                                <option hidden >Genero</option>
+                                <option value='Male'>Macho</option>
+                                <option value='Female'>Hembra</option>
+                            </select>
+                            <select className='selcts' onChange={e => handleType(e)}>
+                                <option hidden >Tipo</option>
+                                <option value='Dog'>Perro</option>
+                                <option value='Cat'>Gato</option>
+                            </select>
+                            <input onChange={e => handleOnChange(e)} placeholder='Raza (opcional)' name='breed' type='text'/>
+                       </div>
+                       <div className='n1'>
+                            <input onChange={e => handleOnChange(e)} placeholder='Edad (años)' name='age' type='text'/>
+                            <input onChange={e => handleOnChange(e)} placeholder='Altura (Cm)' name='height' type='text'/>
+                            <input onChange={e => handleOnChange(e)} placeholder='Peso (Kg)' name='weight' type='text'/>
+                        </div>
+                        <div className='n1'>
+                            <input onChange={e => handleOnChange(e)} placeholder='Imagen (Url)' name='image' type='text'/>
+                            <input onChange={e => handleOnChange(e)} placeholder='Historial' name='history' type='text'/>
+                            <select className='selcts' onChange={e => handleStatus(e)}>
+                                <option hidden >Estado</option>
+                                <option value='Alive'>Vivo</option>
+                                <option value='Deceased'>Muerto</option>
+                                <option value='Lost'>Perdido</option>
+                            </select>
+                        </div>
+                        <div className='btn4'>
+                            <button className='btn-createPet' type='submit'>Crear</button>
+                        </div>
+                </form>
+            </div>
+            <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
         </div>
     )
 }

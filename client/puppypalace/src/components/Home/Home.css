@@ -29,7 +29,7 @@ justify-content: space-evenly;
 .blue-backg {
 background-color: white;
 color:#1761a0;
-height: 280vh;
+height: 210vh;
 width: 100vw;
 }
 
@@ -40,7 +40,10 @@ background-color: #d7ecff;
 font-size: 30px;
 color: #1761a0;
 font-weight: bolder;
+width: 100vw;
 }
+
+
 
 .brand-title {
 margin-top: 50px;
