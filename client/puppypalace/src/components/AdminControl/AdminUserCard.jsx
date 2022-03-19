@@ -1,15 +1,22 @@
 import React from 'react'
+import './AdminUserCard.css'
 
-export default function AdminUserCard({name, lastname, username, phone, direction, image, email}) {
+export default function AdminUserCard({changeAcount, isadmin, id ,name, onDelete, lastname, username, phone, direction, image, email}) {
     return (
-        <div style={{display: 'flex', justifyContent: 'space-around'}}>
-            <button>X</button>
+        <div className='cardDiv'>
+            {
+                username === 'Vipets'? <p>Superadmin</p> : <button onClick={() => onDelete(id)} className='eliminatebutton'>X</button>
+            }
             <p>{name} {lastname}</p>
             <p>{username}</p>
             <p>{phone}</p>
+            <button onClick={() => changeAcount(id)}>Cambiar Derechos</button>
             <p>{direction}</p>
             <p>{email}</p>
-            <img src={image} width='100px'/>
+            {
+                isadmin? <p>Admin</p> : <p>User</p>
+            }
+            <img className='img' src={image} width='100px'/>
         </div>
     )
 }

@@ -18,7 +18,10 @@
     "express": "^4.17.3",
     "express-openid-connect": "^2.7.1",
     "jsonwebtoken": "^8.5.1",
+    "mercadopago": "^1.5.12",
+    "moment": "^2.29.1",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.2",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "sequelize": "^6.17.0"

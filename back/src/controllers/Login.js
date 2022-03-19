@@ -18,7 +18,7 @@ const login = async (req , res , next) =>{
 
         }
         =req.body;
-
+        
         const user = await User.findOne({
             where:{
                 userName,

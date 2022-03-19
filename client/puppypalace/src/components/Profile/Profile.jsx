@@ -10,7 +10,7 @@ import { resetStatus } from "../../redux/actions/index"
 export default function Profile() {
     const dispatch = useDispatch();
     // const token = useSelector(state => state);
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     useEffect(() => {
         dispatch(getProfile(token));
     }, [dispatch])
@@ -21,7 +21,7 @@ export default function Profile() {
 
 
     const handleLogout = () => {
-        sessionStorage.removeItem("loginTokenInfo");
+        sessionStorage.removeItem("token");
         dispatch(resetStatus())
         navigate("/");
       }
