@@ -25,6 +25,9 @@ export default function AdminUsers() {
 
     return (
         <div>
+            <Link to='/admin/controls'>
+                <button>Volver</button>
+            </Link>
             {
                 users?.map(e => {
                     return(
