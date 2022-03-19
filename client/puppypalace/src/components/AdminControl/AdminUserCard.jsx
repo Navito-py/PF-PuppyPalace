@@ -10,9 +10,7 @@ export default function AdminUserCard({changeAcount, isadmin, id ,name, onDelete
             <p>{name} {lastname}</p>
             <p>{username}</p>
             <p>{phone}</p>
-            {
-                isadmin?  <button onClick={(e) => changeAcount(id)}>Quitar Derechos</button>  : <button onClick={(e) => changeAcount(id)}>Delegar Derechos</button>
-            }
+            <button onClick={() => changeAcount(id)}>Cambiar Derechos</button>
             <p>{direction}</p>
             <p>{email}</p>
             {
