@@ -32,11 +32,10 @@ export default function CreateReserve() {
   const {id} = useParams()
 /*   const [error, setError] = useState({}); */
   const [info, setInfo] = useState({
-    ammount: "",
+ /*    ammount: "",
     date: "",
-    hourly: "",
+    hourly: "", */
     description: "",
-    city: "",
   });
 
   function hanleOnChange(e) {
@@ -45,14 +44,6 @@ export default function CreateReserve() {
       [e.target.name]: e.target.value,
     });
     console.log(info);
-  }
-
-  function handleSelectCity(e) {
-    e.preventDefault();
-    setInfo({
-      ...info,
-      city: e.target.value,
-    });
   }
 
   /* function handleSubmit(e) {
@@ -87,15 +78,22 @@ export default function CreateReserve() {
  */
 
   function handleSubmit(e) {
+    console.log("e", e);
     e.preventDefault();
     dispatch(postReserve(info, id, token));
   }
 
-  function callDateAndHours(date, hour) {
+  function callDateAndHours (date, hour) {
+    if (!hour) {
+      return;
+    }
+    console.log("hour", hour)
+    const hourString = hour.slice(0,5)
+    console.log("hourString", hourString)
     setInfo({
       ...info,
       date: date,
-      hourly: hour,
+      hourly: hourString,
       ammount: 1000
     });
   }
@@ -108,7 +106,7 @@ export default function CreateReserve() {
           /* action="https://mpago.la/1bfm6Un" */
           onSubmit={(e) => handleSubmit(e)}
         >
-          <img
+{/*           <img
             className="cat"
             src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007"
             alt=""
@@ -119,7 +117,7 @@ export default function CreateReserve() {
             src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007"
             alt=""
             height="100px"
-          />
+          /> */}
 
           <div className="center">
             <input
@@ -144,22 +142,9 @@ export default function CreateReserve() {
             />
           </div>
 
-          <div className="center">
-            <select
-              className="display-size"
-              onChange={(e) => handleSelectCity(e)}
-            >
-              <option className="option-size" hidden value="">
-                Ciudad
-              </option>
-              <option value="Cordoba">Cordoba</option>
-              <option value="Mendoza">Mendoza</option>
-              <option value="Rosario">Rosario</option>
-            </select>
-          </div>
-          <div className="center">
+{/*           <div className="center">
             <Reserves />
-          </div>
+          </div> */}
 
           <button type="submit">Crear</button>
         </form>
