@@ -1,0 +1,43 @@
+.controlersAdmin{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.titleAdmin{
+    color :#1761a0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 80px;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.admins{
+    margin-left: 39%;
+}
+
+.btnAdmin{
+    margin: 30px;
+    background-color: #d7ecff;
+    color: #1761a0;
+    height: 80px;
+    width: 120px;
+    border-color: #1761a0;
+}
+
+.btnAdmin:hover{
+    transform: scale(1.1);
+    transition: all 1s ease;
+}
+
+.break{
+    margin-top: 80px;
+    height: 50px;
+    background-color: #d7ecff;
+    font-size: 30px;
+    color: #1761a0;
+    font-weight: bolder;
+    width: 100vw;
+    }

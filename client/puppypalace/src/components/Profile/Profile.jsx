@@ -31,6 +31,7 @@ export default function Profile() {
             <div className='nav-bar-profile'>
                 <Link to='/home'>
                     <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+                    
                 </Link>
                 <div className='btns-navBar'>
                    <Link to ='createPet'>
