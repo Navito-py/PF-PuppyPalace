@@ -1,10 +1,12 @@
 import axios from "axios";
+const url = "http://localhost:3001";
+const url2 = "https://vipets.herokuapp.com";
 
 export function getNameClinic(name) {
   return async function (dispatch) {
     try {
       const responseName = await axios.get(
-        `https://vipets.herokuapp.com/clinics?name=${name}`
+        `${url2}/clinics?name=${name}`
       );
       return dispatch({
         type: "GET_CLINIC_NAME",
@@ -20,7 +22,7 @@ export function getNameClinic(name) {
 export function getClinics(token) {
   return async function (dispatch) {
     try {
-      const responseClinics = await axios.get("https://vipets.herokuapp.com/clinics", {
+      const responseClinics = await axios.get(`${url2}/clinics`, {
         headers:{
           'authorization': `Bearer ${token}`
         }
@@ -39,7 +41,7 @@ export function getDetail(id) {
   return async function (dispatch) {
     try {
       const responseDetail = await axios.get(
-        `https://vipets.herokuapp.com/clinics/${id}`
+        `${url2}/clinics/${id}`
       );
       return dispatch({
         type: "GET_DETAILS",
@@ -54,7 +56,7 @@ export function getDetail(id) {
 export function getLostDetail(id){
   return async function (dispatch){
     try {
-      const lostDetail = await axios.get(`https://vipets.herokuapp.com/user/pets/${id}`)
+      const lostDetail = await axios.get(`${url2}/user/pets/${id}`)
       return dispatch({
         type: 'LOST_ID',
         payload: lostDetail.data
@@ -67,14 +69,14 @@ export function getLostDetail(id){
 
 export function postUser(payload) {
   return async function(){
-      let user = await axios.post('https://vipets.herokuapp.com/user/register', payload)
+      let user = await axios.post( `${url2}/user/register`, payload)
       return user.data
   }
 };
 
 export function postLogin(payload){
   return async function(dispatch){
-    let login = await axios.post('https://vipets.herokuapp.com/user/login', payload)
+    let login = await axios.post( `${url2}/user/login` , payload)
     if(login.data){
       alert('Iniciaste sesion con exito!')
       return dispatch(
@@ -103,7 +105,7 @@ export function filterCity(payload){
 
 export function getPets(token){
   return async function(dispatch){
-   const pets = await axios.get("https://vipets.herokuapp.com/user/pets", {
+   const pets = await axios.get(`${url2}/user/pets`, {
     headers:{
       'authorization': `Bearer ${token}`
     }
@@ -117,7 +119,7 @@ export function getPets(token){
 
 export function PetSubmit (payload, token){
   return async function(dispatch){
-    let pet = await axios.post('https://vipets.herokuapp.com/user/pets', payload, {
+    let pet = await axios.post(`${url2}/user/pets `, payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -126,16 +128,17 @@ export function PetSubmit (payload, token){
   }
 }
 
-export function reserveSubmit (payload){
+
+export function ReserveSubmit (payload){
   return async function(){
-    let reserve = await axios.post('https://vipets.herokuapp.com/clinics/reserve', payload)
+    let reserve = await axios.post( `${url2}/clinics/reserve`, payload)
     return reserve
   }
 }
 
 export function getProfile (accesstoken){
   return async function (dispatch){
-    let user= await axios.get('https://vipets.herokuapp.com/user/profile', {
+    let user= await axios.get( `${url2}/user/profile`, {
       headers:{
         'authorization': `Bearer ${accesstoken}`
       } 
@@ -167,7 +170,7 @@ export function resetStatus() {
 
 export function DeleteClinic(id, token){
   return async function(dispatch){
-    let deletedClinic = await axios.delete(`https://vipets.herokuapp.com/admin/clinics/delete/${id}`, {
+    let deletedClinic = await axios.delete(`${url2}/admin/clinics/delete/${id}`, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -178,7 +181,7 @@ export function DeleteClinic(id, token){
 
 export function addClinic(payload, token) {
   return async function(dispatch){
-    let newClinic = await axios.post(`https://vipets.herokuapp.com/admin/clinics/create`, payload, {
+    let newClinic = await axios.post(`${url2}/admin/clinics/create`, payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
@@ -261,22 +264,23 @@ export function postReserve(payload, id, token ){
 
 /* export function postReserve(payload, id, token ){
   return async function(){
-      const postReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
-        headers:{
-          'authorization': `Bearer ${token}`
-        }
-      })
-      return postReserve.data
-    }
-  } */
-
-export function adminAUser(id, token){
-  return async function(dispatch){
-    let user = await axios.get(`https://vipets.herokuapp.com/admin/users/${id}`, {
+    const postReserve = await axios.post(`https://vipets.herokuapp.com/user/reserves/${id}`, payload, {
       headers:{
         'authorization': `Bearer ${token}`
       }
     })
+    return postReserve.data
+  }
+} */
+
+export function adminAUser(id, token){
+  return async function(dispatch){
+    let rawuser = await axios.get(`https://vipets.herokuapp.com/admin/users/${id}`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    const user = rawuser.data
     if(user){
       if(user.isAdmin === false){
         user.isAdmin = true

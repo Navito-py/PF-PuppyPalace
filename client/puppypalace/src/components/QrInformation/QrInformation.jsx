@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./QrInformation.css"
 import { Link } from "react-router-dom";
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function QrInformation() {
   const [temp, setTemp] = useState("");
@@ -22,10 +23,11 @@ export default function QrInformation() {
     <div className="qr-generator">
       <div className="topQr">
         <Link to='/'>
-        <button className="topQrButton"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="60px"/></button>
+        <button className="topQrButton"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
         </Link>
       </div>
-       <h1 className="h1">Generador de QR para tu mascota</h1>
+      <div className="brand-title1" >V.I.Pets<img src={vipets} alt="vipetslogo" width="150px" height="150px"/></div>
+      <h1 className="h1">Generador de QR para tu mascota</h1>
 
       <div className="input-box">
         <div className="gen">
@@ -63,11 +65,12 @@ export default function QrInformation() {
         </div>
       </div>
       <div className="output-box">
-        <img src={qrCode} alt="" />
+        <img className="qr-img" src={qrCode} alt="" />
         <a href={qrCode} download="QRCode">
           <button className="qr-btn" type="button">Descargar</button>
         </a>
       </div>
+      <div className="break1"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
     </div>
   );
 }
