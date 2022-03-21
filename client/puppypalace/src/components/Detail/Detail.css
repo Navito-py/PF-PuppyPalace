@@ -7,35 +7,33 @@ body{
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-size: cover;
     margin: 0%;
 }
 
-.wrapper-card-clinic{
-  width: 800px;
-  margin-left: 5%;
-  box-shadow: 5px 5px 12px 8px black;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://images.pexels.com/photos/3198001/pexels-photo-3198001.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+.home-btn{
+    width: 100vw;
+    height: 60px;
+    background-color: #d7ecff;
+    margin-bottom: 30px;
+    position: fixed;
+    z-index: 1;
 }
 
 .inicio-detailClinic{
     background-color: transparent;
     border: none;
-    margin: 2%;
 }
 
 .card-detail-clinic{
-    width: 500px;
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
+    margin-top: 80px;
 }
 
 .foto-nombre{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin-left: 100px;
     justify-content: space-around;
@@ -44,15 +42,14 @@ body{
     margin-left: 50px;
     font-size: 30px;
     font-weight: bold;
+    color: #1761a0;
 }
 .img-clinic{
     height: 250px;
     width: auto;
-    box-shadow: 2px 2px 12px 8px black;
 }
 .p{
     font-size: 20px;
     font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
+    color: #1761a0;
 }

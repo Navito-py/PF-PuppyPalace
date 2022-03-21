@@ -23,11 +23,13 @@ export default function Detail() {
     }, [dispatch, id])
 
     return (
-        <div className='container'>
-            <div className='wrapper-card-clinic'>
+       <div> 
+            <div className='home-btn'>
                 <Link to='/home'>
                     <button className='inicio-detailClinic'><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
                 </Link>
+            </div>        
+            <div className='container'>
 
                 {clinicsDetails ?
                 <div className='card-detail-clinic'>
@@ -36,7 +38,6 @@ export default function Detail() {
                     <p className='titleClinic'>{clinicsDetails.name}</p>
                     </div>
                     <div className='foto-nombre'>
-                    <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt="" height="50px" />
                     <p className='p'>{clinicsDetails.address}</p>
                     <p className='p'>{clinicsDetails.province}</p>
                     <p className='p'>{clinicsDetails.city}</p>
@@ -48,7 +49,6 @@ export default function Detail() {
                     <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt=""  height="50px"/>
                     </div>
                     <div className='foto-nombre'>
-                    <img src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007" alt=""  height="50px"/>
                     <p className='p'>Emergencia: {clinicsDetails.emergency}</p>
                     <p className='p'>Hospitalizacion: {clinicsDetails.hospitalization}</p>
                     <Link to='/home/reserves'>
