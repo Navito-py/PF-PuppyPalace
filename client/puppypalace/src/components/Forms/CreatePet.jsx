@@ -74,7 +74,7 @@ export default function CreatePet() {
             history:"",
             status:"",
         })
-        // navigate('/profile')
+        navigate('/user/profile')
     }
 
     return (
@@ -116,7 +116,7 @@ export default function CreatePet() {
                             </select>
                         </div>
                         <div className='btn4'>
-                            <button className='btn-createPet' type='submit'>Crear</button>
+                            <button className='btn-createPet' type='submit' >Crear</button>
                         </div>
                 </form>
             </div>

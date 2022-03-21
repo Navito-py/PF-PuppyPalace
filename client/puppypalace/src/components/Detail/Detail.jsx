@@ -51,9 +51,9 @@ export default function Detail() {
                     <div className='foto-nombre'>
                     <p className='p'>Emergencia: {clinicsDetails.emergency}</p>
                     <p className='p'>Hospitalizacion: {clinicsDetails.hospitalization}</p>
-                    <Link to='/home/reserves'>
+                    {/* <Link to='/home/reserves'>
                         <button className="reserve">Reservar</button>
-                    </Link>
+                    </Link> */}
                     </div>
                     
                 </div> : <img src={vipets} alt="noInfo" />
