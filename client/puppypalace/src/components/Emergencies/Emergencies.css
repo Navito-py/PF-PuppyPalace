@@ -28,6 +28,14 @@ font-weight: bold;
 animation: glowing 1300ms infinite;
 }
 
+.break-emergency{
+  height: 50px;
+  background-color: #d7ecff;
+  font-size: 30px;
+  color: #1761a0;
+  font-weight: bolder;
+  }
+
 .buttonHome{
   background-color: transparent;
   border: none;
@@ -37,6 +45,12 @@ animation: glowing 1300ms infinite;
 .buttonHome:hover{
 transform: scale(1.2);
 transition: all 1.5s ease;
+}
+
+.TopBar-Emergencies{
+  height: 60px;
+  margin-bottom: 20px;
+  background-color: #d7ecff;
 }
 
 @keyframes glowing {
@@ -53,5 +67,3 @@ transition: all 1.5s ease;
       box-shadow: 0 0 5px 5px rgb(245, 107, 107);
     }
   }
-
-
