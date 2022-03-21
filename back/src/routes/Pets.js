@@ -5,7 +5,7 @@ const { isAuth } = require('../Utils/isAuth.js');
 
 const router = Router();
 
-router.get('/', isAuth, getPets);
+router.get('/', getPets);
 router.get('/:id', getPetsId);
 router.post('/', isAuth, postPet);
 router.put('/:id', isAuth, modPet);

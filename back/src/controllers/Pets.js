@@ -55,7 +55,6 @@ const getPetsId = async (req, res) => {
 
 const getPets = async (req, res, next) => {
     try {
-        const user = isAuthUser(req);
         let pets = await petsDb();
         res.status(200).json(pets)
     } catch (error) {
