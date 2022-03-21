@@ -6,7 +6,7 @@ import { getPets } from "../../redux/actions";
 export default function LostPets() {
   const dispatch = useDispatch();
   const allPets = useSelector((state) => state.pets);
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
   const lost = allPets.filter((e)=> e.status === "Lost")
   
   useEffect(() => {
@@ -24,22 +24,22 @@ export default function LostPets() {
       <div className="carousel-item active">
         <img src={lost[0]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{lost[0]?.name}</h5>
-          <p>{lost[0]?.type}</p>
+          <h5 className="inner">{lost[0]?.name}</h5>
+          <p className="inner">{lost[0]?.type}</p>
         </div>
       </div>
       <div className="carousel-item">
         <img src={lost[1]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{lost[1]?.name}</h5>
-          <p>{lost[1]?.type}</p>
+          <h5 className="inner">{lost[1]?.name}</h5>
+          <p className="inner">{lost[1]?.type}</p>
         </div>
       </div>
       <div className="carousel-item">
         <img src={lost[2]?.image} className="d-block w-100" alt="not found" width='640px' height='360px'/>
         <div className="carousel-caption d-none d-md-block">
-          <h5>{lost[2]?.name}</h5>
-          <p>{lost[2]?.type}</p>
+          <h5 className="inner">{lost[2]?.name}</h5>
+          <p className="inner">{lost[2]?.type}</p>
         </div>
       </div>
      </div>

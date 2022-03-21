@@ -1,4 +1,5 @@
 
+import '@progress/kendo-theme-default/dist/all.css'; 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home/Home';
 import React from 'react';
@@ -28,7 +29,7 @@ import { useDispatch } from "react-redux"
 
 export default function App() {
   const dispatch = useDispatch();
-  const sessionToken = sessionStorage.getItem("loginTokenInfo")
+  const sessionToken = sessionStorage.getItem("token")
   if (sessionToken) {
     dispatch(getLoginFromStorage(sessionToken))
   }

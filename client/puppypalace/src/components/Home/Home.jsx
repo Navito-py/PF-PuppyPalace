@@ -52,6 +52,7 @@ export default function Home() {
             {/* <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
+
             <a href="https://vipets.vercel.app/emergencies">Emergencias</a>
             
           </ul>
@@ -172,7 +173,6 @@ export default function Home() {
         </div>
 
       <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
-      
       </div>
     </div>
   );

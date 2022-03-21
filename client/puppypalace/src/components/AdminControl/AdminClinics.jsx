@@ -8,7 +8,7 @@ import './AdminClinics.css'
 
 export default function AdminClinics() {
     const dispatch = useDispatch()
-    const authToken = localStorage.getItem('token')
+    const authToken = sessionStorage.getItem('token')
     const allClinics = useSelector((state) => state.clinics);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function AdminClinics() {
                 {
                     allClinics?.map(e => {
                         return(
-                            <AdminClinicCard onDelete={HandleDelete} id={e.id} name={e.name} direction={e.address} image={e.image} city={e.city}/>
+                            <AdminClinicCard hours={e.activeHours}  onDelete={HandleDelete} id={e.id} name={e.name} direction={e.address} image={e.image} city={e.city}/>
                         )
                     })
                 }

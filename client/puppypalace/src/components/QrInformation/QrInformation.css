@@ -3,6 +3,25 @@ padding-top: 20px;
 display: flex;
 justify-content: space-around;
 gap: 10px;
+margin: 0px 20px 30px 20px;
+}
+
+.brand-title1 {
+height: 30px;
+font-size: 50px;
+font-weight: bold;
+margin-right: 75%;
+color: #1761a0;
+}
+
+.break1{
+margin: 20px 10px 30px 20px;
+width: 100vw;
+height: 50px;
+background-color: #d7ecff;
+font-size: 30px;
+color: #1761a0;
+font-weight: bolder;
 }
 
 .gen input{
@@ -10,6 +29,7 @@ height: 35px;
 width: 250px;
 font-size: 20px;
 padding-left: 5px;
+margin: 20px 10px 30px 20px;
 }
 
 .h5{
@@ -19,6 +39,7 @@ color: #1761a0;
 }
 
 .h1{
+margin: 15px 10px 30px 20px;
 font-family: 'Times New Roman', Times, serif;
 font-size: 50px;
 color: #1761a0;
@@ -28,13 +49,13 @@ color: #1761a0;
 display: flex;
 flex-direction: column;
 align-items: center;
+margin: 20px 10px 30px 20px;
 } 
 
 .qr-generator{
-height: 140vh;
+height: 100vh;
 width: 100vw;
-background-image: url("../../media/cute.jpg");
-background-size: contain;
+background-color: white;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -47,6 +68,7 @@ font-family: 'Times New Roman', Times, serif;
 font-weight: bold;
 background-color: #d7ecff;
 color: #1761a0;
+border-color: #1761a0;
 margin: 15px;
 text-transform: uppercase ;
 box-shadow: 3px 4px 10px 2px #1761a0;
@@ -57,6 +79,10 @@ margin-right: 5%;
 .qr-btn:hover{
 transform: scale(1.1);
 transition: all 1s ease;
+}
+
+.qr-img{
+    margin-bottom: 20px;
 }
 
 .qr-generador{
@@ -72,7 +98,7 @@ display: flex;
 flex-direction: row;
 border: none;
 background-color: transparent;
-margin: 10px 10px 0px 40px;
+margin: 10px 10px 10px 40px;
 }
 
 .topQr{
@@ -81,7 +107,8 @@ color: #1761a0;
 display: flex;
 flex-direction: row;
 justify-content: start;
-margin-top: 5px;
-margin-bottom: 5px
+margin-top: 0px;
+margin-bottom: 10px;
+background-color: #d7ecff;
 }
 

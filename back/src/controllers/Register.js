@@ -32,8 +32,8 @@ const createUser = async (req, res, next) => {
                 password: password.length > 8 && password.length<20 && password,
                 phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
                 address: typeof address === 'string' && address,
-                province: (province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba') && province,
-                city: (city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba') && city,
+                province: (province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba' || province === 'Cordoba') && province,
+                city: (city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba' || city === 'Cordoba') && city,
                 image: image !== ""? image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'
             })
             res.json(newUser);

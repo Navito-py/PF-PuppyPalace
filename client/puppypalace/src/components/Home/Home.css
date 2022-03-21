@@ -28,7 +28,7 @@ justify-content: space-evenly;
 .blue-backg {
 background-color: white;
 color:#1761a0;
-height: 280vh;
+height: 210vh;
 width: 100vw;
 }
 
@@ -39,10 +39,13 @@ background-color: #d7ecff;
 font-size: 30px;
 color: #1761a0;
 font-weight: bolder;
+width: 100vw;
 }
 
+
+
 .brand-title {
-margin-top: 15px;
+margin-top: 50px;
 height: 55px;
 font-size: 50px;
 margin-right: 75%;
@@ -113,6 +116,7 @@ display: flex;
 position: fixed;
 z-index: 3; 
 width: 100vw;
+height: 80px;
 top: 0;
 justify-content: space-between;
 color: #1761a0;

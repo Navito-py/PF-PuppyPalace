@@ -3,6 +3,7 @@ import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import { getProfile } from "../../redux/actions";
+import LostPets from "../LostPets/LostPets";
 
 export default function LandingPage() {
 
@@ -45,6 +46,16 @@ export default function LandingPage() {
           </Link>
         </div>
       </div>
+      <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+      <div className="Carousel-logo-searchbar">
+          <div className="carousel">
+                <h2 className="lost-please1">Estoy perdido, ayudame a volver a casa</h2>
+                <Link to="/lostpets" className="lost-pets">
+                <LostPets/>
+                </Link>
+          </div>
+        </div>
+        <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
     </div>
   )}else if(token){
     return(
@@ -93,7 +104,17 @@ export default function LandingPage() {
                 }
               </div>
         </div>
-    </div>
+         <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+           <div className="Carousel-logo-searchbar">
+              <div className="carousel">
+                    <h2 className="lost-please1">Estoy perdido, ayudame a volver a casa</h2>
+                    <Link to="/lostpets" className="lost-pets">
+                    <LostPets/>
+                    </Link>
+              </div>
+           </div>
+         <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+      </div>
     </div>
     )
   }
