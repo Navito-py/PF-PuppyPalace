@@ -5,7 +5,7 @@ const { isAuthUser } = require('../Utils/isAuth.js');
 
 const reviews = async() => {
     return await Visit.findAll()
-}
+};
 
 const reviewId = async(id) => {
     try {
@@ -14,8 +14,8 @@ const reviewId = async(id) => {
     } catch (error) {
         console.log(error);
         return res.status(404).send(error);
-    }
-}
+    };
+};
 
 // ------------------------------ Rutas ------------------------------ \\
 
@@ -26,8 +26,8 @@ const getReview = async (req, res) => {
     } catch (error) {
         console.log(error);
         return res.status(400).send(error);
-    }
-}
+    };
+};
 
 const getReviewId = async (req, res) => {
     try {
@@ -40,8 +40,8 @@ const getReviewId = async (req, res) => {
     } catch (error) {
         console.log(error);
         return res.status(400).send(error);
-    }
-}
+    };
+};
 
 const postReview = async (req, res) => {
     let { id } = req.params;
@@ -77,16 +77,43 @@ const postReview = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(400).send(error);
-    }
-}
+    };
+};
 
 const modReview = async (req, res) => {
+    let { id } = req.params;
+    let { 
+        review,
+        score
+    } = req.body;
 
-}
+    try {
+        const modifiedReview = await Visit.update({
+            review,
+            score
+        },
+        {
+            where: { id }
+        });
+        res.status(200).json(modifiedReview);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send(error);
+    };
+};
+
+const killReview = async (req, res) => {
+    let { id } = req.params;
+    await Visit.destroy({
+        where: { id }
+    });
+    res.status(200).send("Reseña Eliminada")
+};
 
 module.exports = {
     getReview,
     getReviewId,
     postReview,
-    modReview
+    modReview,
+    killReview
 }
