@@ -103,13 +103,9 @@ export function filterCity(payload){
   }
 }
 
-export function getPets(token){
+export function getPets(){
   return async function(dispatch){
-   const pets = await axios.get(`${url2}/user/pets`, {
-    headers:{
-      'authorization': `Bearer ${token}`
-    }
-   })
+   const pets = await axios.get(`${url2}/user/pets`);
    return dispatch({
      type: "GET_PETS",
      payload: pets.data,

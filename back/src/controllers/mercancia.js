@@ -11,12 +11,13 @@ const mercadopago = require("mercadopago")
     });
 
     var preference = {
+     // client_id:1088678026,
       items: [
         {
           title: 'consulta',
           quantity: 1,
           currency_id: 'ARS',
-          unit_price: 1
+          unit_price: 1000
         }
       ],
       notification_url:"http://localhost:3001/"
@@ -28,7 +29,7 @@ const mercadopago = require("mercadopago")
     }) 
 
     .catch((e)=>{
-        console.log("error")
+        console.log("error" + e)
     })
  
 }
@@ -61,6 +62,13 @@ module.exports = {prueba, notificacionprueba};
     "password": "qatest9216",
     "site_status": "active",
     "email": "test_user_53541193@testuser.com"
+}
+{
+  "id": 1093413326,
+  "nickname": "TETE1699534",
+  "password": "qatest3367",
+  "site_status": "active",
+  "email": "test_user_84692689@testuser.com"
 }
 
 Tarjetas de prueba
