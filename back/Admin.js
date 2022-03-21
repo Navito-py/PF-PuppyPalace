@@ -10,7 +10,7 @@ const users = [
  "address":"Rio Santa Rosa 1000",
  "province":"Cordoba",
  "city":"Cordoba",
- "image":"../client/puppypalace/src/media/logoVIPets2.png"
+ "image":"https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 },
 {
 "userName":"ValeAla",

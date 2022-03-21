@@ -1,7 +1,14 @@
 .eliminatebutton{
     width: 25px;
     height: 30px;
-    background-color: red;
+    background-color: #d7ecff;
+}
+
+.eliminatebutton1{
+    width: fit-content;
+    border-color: #1761a0;;
+    height: 30px;
+    background-color: #d7ecff;
 }
 
 .cardDiv{

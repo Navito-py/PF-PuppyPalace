@@ -22,10 +22,10 @@ export default function AdminClinics() {
     return (
         <div>
             <Link to='/admin/controls'>
-                <button>Volver</button>
+                <button className='back-create'>Volver</button>
             </Link>
             <Link to='/admin/controls/Clinics/create'>
-                <button>Crear</button>
+                <button className='back-create'>Crear</button>
             </Link>
             <div className='cardsDiv'>
                 {
