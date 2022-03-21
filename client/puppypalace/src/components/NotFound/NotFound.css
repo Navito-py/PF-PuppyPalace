@@ -1,0 +1,48 @@
+.container{
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #1761a0;
+}
+
+.break-404 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 120vw;
+    height: 50px;
+    background-color: #d7ecff;
+    font-size: 30px;
+    color: #1761a0;
+    font-weight: bolder;
+}
+
+.img404{
+    margin-left: 10vw;
+}
+
+.center-img1{
+    margin-left: 45vw;
+}
+
+.center-img2{
+    margin-left: 60vw;
+
+}
+
+.buttonHomeNotFound{
+  background-color:#1761a0;
+  border-radius: 100%;
+  border: none;
+  margin-right: 75vw;
+  width: fit-content;
+}
+
+.buttonHomeNotFound:hover{
+    transition: all 1s ease;
+    transform: scale(1.1);
+}
