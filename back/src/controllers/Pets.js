@@ -27,6 +27,7 @@ const idSearch = async(id) => {
     try {
         const pet = await Pet.findByPk(id, {include:{
             model: User,
+            model: Vaccine
         }
         })
         return pet;
@@ -76,6 +77,7 @@ const postPet = async (req, res) => {
         weight,
         image,
         history,
+        vaccine,
         status
     } = req.body
 
@@ -94,13 +96,16 @@ const postPet = async (req, res) => {
                 history: typeof history === "string" && history,
                 status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
             })
+
+            let vacums = await Vaccine.create(vaccine)
+            newPet.addVaccine(vacums)
+
             const userId = isAuthUser(req);
 
             const user = await User.findByPk(userId, {include:{model: Pet}});
         
             const pets = [...user.pets, newPet];
            
-            
             await user.setPets(pets);
             await newPet.setUser(user);
 
@@ -114,15 +119,22 @@ const postPet = async (req, res) => {
     }
 }
 
+const addVacum = async (req, res) => {
+    let { id } = req.params
+    let { vaccine } = req.body
+    const pet = await Pet.findByPk(id)
+    let newVaccine = await Vaccine.create(vaccine)
+    pet.addVaccine(newVaccine)
+    res.status(200).json(pet)
+}
+
 //  --------------------- PUT --------------------- \\
+
 
 const modPet = async (req, res) => {
     let { id } = req.params
     let {
         name,
-        gender,
-        type,
-        breed,
         age,
         height,
         weight,
@@ -134,15 +146,12 @@ const modPet = async (req, res) => {
     try {
         const modifiedPet = await Pet.update({
             name: typeof name === "string" && name,
-            gender: (gender === "Female" || gender === "Male") && gender,
-            type: (type === "Dog" || type === "Cat") && type,
-            breed: typeof breed === "string" && breed,
             age: typeof age === "number" && age,
             height: typeof height === "number" && height,
             weight: typeof weight === "number" && weight,
             image: typeof image === "string" && image,
             history: typeof history === "string" && history,
-            status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
+            status: (status === "Alive" || status === "Deceased" || status === "Lost") && status,
         },
         {
             where: { id }
@@ -168,5 +177,6 @@ module.exports = {
     postPet,
     getPetsId,
     modPet,
-    killPet
+    killPet,
+    addVacum
 }
