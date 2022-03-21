@@ -43,6 +43,20 @@ const getReviewId = async (req, res) => {
     };
 };
 
+const getClinicsReview = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const idDetails = await Clinic.findByPk({id, include: { model: Visit } } );
+        if(!idDetails) {
+            return res.status(404).send("La clinica no tiene reseñas");
+        };
+        res.status(200).json(idDetails)
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send(error);
+    };
+};
+
 const postReview = async (req, res) => {
     let { id } = req.params;
     let {
@@ -113,6 +127,7 @@ const killReview = async (req, res) => {
 module.exports = {
     getReview,
     getReviewId,
+    getClinicsReview,
     postReview,
     modReview,
     killReview
