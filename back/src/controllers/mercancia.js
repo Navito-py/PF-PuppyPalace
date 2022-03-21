@@ -20,12 +20,12 @@ const mercadopago = require("mercadopago")
           unit_price: 1000
         }
       ],
-      notification_url:"http://localhost:3001/"
+      notification_url:"https://vipets.herokuapp.com/mercado/notificacion"
     };
 
     mercadopago.preferences.create(preference)
     .then((r)=>{
-       res.json(r)
+       res.json(r.body)
     }) 
 
     .catch((e)=>{
