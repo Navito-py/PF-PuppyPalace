@@ -2,18 +2,24 @@ const {DataTypes} = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define ('vaccine', {
-      
-        name: {
-            type: DataTypes.ENUM("Moquillo canino", "Hepatitis infecciosa (Adenovirus)", "Parvovirus", 
-                                    "Rabia canina", "Leptospirosis", "Parainfluenza canina (Quintuple)", 
-                                        "Coronavirus (Quintuple + Coronavirus)"),
+
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             unique: true,
+            primaryKey: true,
+        },
+      
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            //unique: true,
         },
 
-        date: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-        },
+        // date: {
+        //     type: DataTypes.DATEONLY,
+        //     allowNull: false,
+        // },
 
     })}
