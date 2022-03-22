@@ -36,12 +36,55 @@ export default function Map() {
         ></iframe>
       );
     }
+    if (!city) {
+      return(
+        <iframe
+        className="size-maps"
+          src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d108976.30304076688!2d-64.2842367!3d-31.4000865!3m2!1i1024!2i768!4f13.1!2m1!1sveterinarias%2024%20hs%20%20Cordoba%2C%20cordoba!5e0!3m2!1ses-419!2sco!4v1646745215808!5m2!1ses-419!2sco"
+          allowfullscreen=""
+        //  loading="lazy"
+        />
+      )
+    }
   }
+  
   return (
     <div>
-      <h1 className="titleemergencies">Selecciona la ciudad para ver las clinicas 24h</h1>
       <div className="containerp-5">
-       
+        <div className="filter-column">
+          <h1 className="titleemergencies">Selecciona la ciudad para ver las clinicas 24h</h1>
+          <br />
+          <button className="emergencies-button"
+            aria-label="Default select example"
+            value="rosario"
+            onClick={(e) => {
+              const Rosario = e.target.value;
+              setCity(Rosario);
+            }}>
+              Rosario
+          </button>
+          
+          <button className="emergencies-button"
+            aria-label="Default select example"
+            value="cordoba"
+            onClick={(e) => {
+              const Cordoba = e.target.value;
+              setCity(Cordoba);
+            }}>
+              Córdoba
+          </button>
+
+          <button className="emergencies-button"
+            aria-label="Default select example"
+            value="mendoza"
+            onClick={(e) => {
+              const Mendoza = e.target.value;
+              setCity(Mendoza);
+            }}>
+              Mendoza
+          </button>
+        
+       {/*
         <select
           class="form-select" 
           aria-label="Default select example"
@@ -56,10 +99,10 @@ export default function Map() {
           <option value="rosario">Rosario</option>
           <option value="cordoba">Cordoba</option>
           <option value="mendoza">Mendoza</option>
-        </select>
+        </select>*/}
+        </div>
+      <div className="map-right">{mapsAllCities()}</div>
       </div>
-      <div>{mapsAllCities()}</div>
-
     </div>
   );
 }

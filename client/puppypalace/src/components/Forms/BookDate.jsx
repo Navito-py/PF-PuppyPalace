@@ -34,6 +34,10 @@ const BookDate = ({ dateAndHours }) => {
     dispatch(getReserves(id, token));
   }, [dispatch, id, token]);
 
+  useEffect(() => {
+    dateAndHours(bookingDate, selectedTimeSlot);
+  }, [bookingDate, selectedTimeSlot])
+
   const onDateChange = (e) => {
     setSelectedTimeSlot(null);
     setBookingDate(e.value);
@@ -44,15 +48,15 @@ const BookDate = ({ dateAndHours }) => {
 
     const formated = reservedDates["dates"].map((e) => new Date(e));
 
-    const dateFormated = formated.map((e) => e.getDate());
+    const dateFormated = formated.map((e) => e.getDate());      
 
-    const hoursFormated = formated.map((e) => e.getHours());
+    const hoursFormated = formated.map((e) => e.getHours()); 
 
-    let timesPicked = [];
+    let timesPicked = [];  
 
     for (let i = 0; i < dateFormated.length; i++) {
       if (actualDate === dateFormated[i]) {
-        timesPicked.push(hoursFormated[i]);
+        timesPicked.push(hoursFormated[i]); 
       }
     }
     const availableTurns = times
@@ -64,7 +68,6 @@ const BookDate = ({ dateAndHours }) => {
       })
       .map((e) => e.name);
       
-    dateAndHours(bookingDate, selectedTimeSlot);
     return setBookingTimes(availableTurns);
   };
 
@@ -103,7 +106,10 @@ const BookDate = ({ dateAndHours }) => {
               <button
                 key={time}
                 className="k-button k-mb-4"
-                onClick={(e) => setSelectedTimeSlot(time)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedTimeSlot(time)
+                }}
               >
                 {time}
               </button>
