@@ -8,6 +8,7 @@ const initialState = {
   allUsers: [],
   allUsers2: [],
   reserves: [],
+  paypal: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -68,6 +69,7 @@ function rootReducer(state = initialState, action) {
         token: action.payload.accessToken,
       };
     case "GET_USER_PROFILE":
+      console.log(action.payload)
       return {
         ...state,
         user: action.payload,
@@ -118,7 +120,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         clinics: clinicfilted
       }
-
+    case 'GET_PAYMENT_REDIR':
+      console.log(action.payload)
+      return {
+        ...state,
+        paypal: action.payload
+      }
     default:
       return state;
   }

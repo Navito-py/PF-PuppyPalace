@@ -1,11 +1,34 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { postReserve } from "../../redux/actions";
-import { useParams } from "react-router-dom";
+import { postReserve, getPaymentRedir } from "../../redux/actions";
+import { Link, useParams } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
 import "./CreateReserve.css";
 import BookDate from "./BookDate";
+
+
+/* function validate(info) {
+  let errors = {};
+  if (!info.ammount) {
+    errors.name = "Debe introducir el monto";
+  }
+  if (!info.date) {
+    errors.date = "Debe poner una fecha valida";
+  }
+  if (!info.hourly) {
+    errors.hourly = "Debe introducir una hora";
+  }
+  if (!info.description) {
+    errors.description = "Debe introducir una descripcion";
+  }
+  if (!info.city) {
+    errors.city = "Debe introducir una ciudad";
+  }
+} */
+
+
+
 
 export default function CreateReserve() {
   const dispatch = useDispatch();
@@ -14,8 +37,14 @@ export default function CreateReserve() {
   const [info, setInfo] = useState({
     description: "",
   });
+  React.useEffect(()=>{
+    dispatch (getPaymentRedir())
+  },[]);
+  const paypal = useSelector(state => state.paypal.data);
+ 
 
   const [formErrors, setFormErrors] = useState({});
+
 
   function hanleOnChange(e) {
     setInfo({
@@ -24,16 +53,15 @@ export default function CreateReserve() {
     });
   }
 
-  const handleSubmit = async (e) => {
+ function handleSubmit(e) {
     e.preventDefault();
-
     const errorsValidate = validate();
     setFormErrors(errorsValidate);
     if (Object.keys(errorsValidate).length === 0) {
       await dispatch(postReserve(info, id, token));
-      alert("Su reserva se ha creado correctamente")
-      window.location.reload();
+       window.location =paypal;
     }
+
   }
 
   function callDateAndHours (date, hour) {
@@ -70,8 +98,8 @@ export default function CreateReserve() {
       <h2 className="pe">Pago Electronico</h2>
       <div className="payment">
         <form
-          /* action="https://mpago.la/1bfm6Un" */
-          /* onSubmit={(e) => handleSubmit(e)} */
+
+          onSubmit={(e) => handleSubmit(e)}
         >
           <p>El valor de la reserva tendrá un costo de $1000</p>
           
