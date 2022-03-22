@@ -23,8 +23,7 @@ export default function Profile() {
     const handleLogout = (e) => {
         /* e.preventDefault() */
         sessionStorage.removeItem("token");
-        dispatch(resetStatus())
-         navigate("/"); 
+        dispatch(resetStatus()) && navigate("/"); 
       }
 
     return (

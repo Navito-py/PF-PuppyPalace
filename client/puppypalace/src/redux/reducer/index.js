@@ -80,7 +80,10 @@ function rootReducer(state = initialState, action) {
       };
     case "RESET_STATUS":
       return {
-        state: initialState,
+        ...state,
+        token:'',
+        user:{},
+        reserves: []
       };
     case "GET_USERS":
       return {
