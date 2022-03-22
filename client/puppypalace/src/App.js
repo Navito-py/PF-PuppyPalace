@@ -25,7 +25,7 @@ import AdminUsers from './components/AdminControl/AdminUsers';
 import AdminClinics from './components/AdminControl/AdminClinics';
 import { getLoginFromStorage } from './redux/actions'
 import { useDispatch } from "react-redux"
-
+import AboutUs from './components/AboutUs/AboutUs.jsx';
 
 
 export default function App() {
@@ -57,6 +57,7 @@ export default function App() {
         <Route path='/admin/controls/users' element={<AdminUsers/>} />
         <Route path='/admin/controls/clinics' element={<AdminClinics/>} />
         <Route path='/admin/controls/clinics/create' element={<CreateClinic/>} />
+        <Route path='/aboutus' element={<AboutUs/>} />
         <Route path='/admin/controls/clinics/:id' element={<ModifyClinic/>}/>
       </Routes>
     </div>
