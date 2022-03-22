@@ -11,7 +11,7 @@ export default function AdminUserCard({changeAcount, isadmin, id ,name, onDelete
             <p>{username}</p>
             <p>{phone}</p>
             {
-                username === 'Vipets'? <p>Inmodificable</p> : <button onClick={() => changeAcount(id)}>Cambiar Derechos</button>
+                username === 'Vipets'? <p>Inmodificable</p> : <button onClick={() => changeAcount(id)} className='eliminatebutton1'>Cambiar Derechos</button>
             }
             <p>{direction}</p>
             <p>{email}</p>

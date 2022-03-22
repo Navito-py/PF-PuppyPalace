@@ -1,26 +1,26 @@
 const pets = [
     {
         "name": "Chiquito",
-        "gender": "Male", // Ponele
+        "gender": "Male", 
         "type": "Dog",
         "breed": "Mastif",
         "age": 24,
         "height": 180,
         "weight": 59,
-        "status": "Alive", // Ta re perdido pobre
+        "status": "Alive", 
         "image": "https://aperrados.com/wp-content/uploads/2018/04/razas-de-perros-gigantes-300-300.png"
     },
 
     {
         "name": "Lauti",
-        "gender": "Male", // Ponele
+        "gender": "Male", 
         "type": "Cat",
-        "phone": "1145698236 (Mariano)",
+        "phone": "1145698236",
         "breed": "Tiger",
         "age": 20,
         "height": 170,
         "weight": 65,
-        "status": "Lost", // Ta re perdido pobre
+        "status": "Lost", 
         "image": "https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/01_%C2%BFQu%C3%A9-puedo-hacer-si-mi-gato-est%C3%A1-triste-.png?itok=w67Nhubc"
     },
 
@@ -28,7 +28,7 @@ const pets = [
         "name": "Pía",
         "gender": "Female",
         "type" : "Dog",
-        "phone": "116658974 Luciano",
+        "phone": "116658974",
         "breed": "Caniche",
         "age": 10,
         "height": 15,
@@ -41,7 +41,7 @@ const pets = [
         "name": "Amy",
         "gender": "Female",
         "type" : "Dog",
-        "phone": "3256878521 Silvina",
+        "phone": "3256878521",
         "breed": "Caniche",
         "age": 10,
         "height": 16,
@@ -54,7 +54,7 @@ const pets = [
         "name": "Simon",
         "gender": "Male",
         "type" : "Cat",
-        "phone": "3484512388 Ivan",
+        "phone": "3484512388",
         "breed": "Siames",
         "age": 8,
         "height": 10,
@@ -67,7 +67,7 @@ const pets = [
         "name": "Ella",
         "gender": "Female",
         "type" : "Cat",
-        "phone": "1133228899 Valeria",
+        "phone": "1133228899",
         "breed": "Gris",
         "age": 1,
         "height": 7,

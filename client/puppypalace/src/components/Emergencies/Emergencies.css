@@ -4,9 +4,11 @@
     width: 100vw;
     background-repeat: repeat;
     background-size: contain;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .title-emergencies{
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -18,8 +20,7 @@ margin-left: 30vw;
 margin-right: 30vw;
 text-align: center;
 margin-bottom: 2%;
-font-family: 'Times New Roman', Times, serif;
-background-color: red;
+background-color:  rgb(116, 0, 0);
 color: white;
 height: 75px;
 width: 550px;
@@ -34,6 +35,7 @@ animation: glowing 1300ms infinite;
   font-size: 30px;
   color: #1761a0;
   font-weight: bolder;
+
   }
 
 .buttonHome{
@@ -55,15 +57,15 @@ transition: all 1.5s ease;
 
 @keyframes glowing {
     0% {
-      background-color: red;
-      box-shadow: 0 0 5px 5px red;
+      background-color:  rgb(116, 0, 0);
+      box-shadow: 0 0 5px 5px  rgb(116, 0, 0);
     }
     50% {
-      box-shadow: 0 0 15px 5px red;
-      background-color: rgb(248, 72, 72);
+      box-shadow: 0 0 15px 5px  rgb(116, 0, 0);
+      background-color:  rgb(116, 0, 0);
     }
     100% {
-      background-color: red;
-      box-shadow: 0 0 5px 5px rgb(245, 107, 107);
+      background-color:  rgb(116, 0, 0);
+      box-shadow: 0 0 5px 5px  rgb(116, 0, 0);
     }
   }

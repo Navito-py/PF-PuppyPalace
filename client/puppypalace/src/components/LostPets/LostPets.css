@@ -7,8 +7,19 @@
   }
 
   .inner{
-    color:white;
+    color: #1761a0;
+    background-color: rgba(255, 255, 255, 0.582);
+    width: 100px;
+    display: flex;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 11vw;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+  }
+
+  img{
+    border-radius: 10px;
   }

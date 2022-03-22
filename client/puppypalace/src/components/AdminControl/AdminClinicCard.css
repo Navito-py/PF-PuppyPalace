@@ -1,5 +1,6 @@
 .cardPrincipal{
     border-style: solid;
+    border-color:#1761a0;
     height: 400px;
     width: 280px;
     margin: 10px ;
@@ -12,4 +13,9 @@
 
 .dirandcity{
     text-align: center;
+}
+
+.btn-clear{
+    background-color: #d7ecff;
+    border: none;
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import {getDetail, modifyClinic} from '../../redux/actions'
+
 
 export default function ModifyClinic() {
     const dispatch = useDispatch()
@@ -27,6 +29,7 @@ export default function ModifyClinic() {
     function handleSubmit(e){
         e.preventDefault()
         dispatch(modifyClinic(id, clinicmod, authToken))
+
     }
 
     return (

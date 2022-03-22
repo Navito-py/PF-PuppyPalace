@@ -103,13 +103,9 @@ export function filterCity(payload){
   }
 }
 
-export function getPets(token){
+export function getPets(){
   return async function(dispatch){
-   const pets = await axios.get(`${url2}/user/pets`, {
-    headers:{
-      'authorization': `Bearer ${token}`
-    }
-   })
+   const pets = await axios.get(`${url2}/user/pets`);
    return dispatch({
      type: "GET_PETS",
      payload: pets.data,
@@ -336,3 +332,12 @@ export function modifyClinic(id, newclinic, token){
   }
 }
 
+export function getPaymentRedir(){
+  return async function (dispatch){
+    const payPal = await axios.post(`${url}/payment/create`);
+    return dispatch({
+      type: 'GET_PAYMENT_REDIR',
+      payload: payPal.data
+    })
+  }
+}

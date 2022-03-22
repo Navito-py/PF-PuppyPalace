@@ -32,10 +32,10 @@ export default function AdminClinics() {
     return (
         <div>
             <Link to='/admin/controls'>
-                <button>Volver</button>
+                <button className='back-create'>Volver</button>
             </Link>
             <Link to='/admin/controls/Clinics/create'>
-                <button>Crear</button>
+                <button className='back-create'>Crear</button>
             </Link>
             <form onSubmit={e => HandleFilter(e)} >
                 <input onChange={e => handleChange(e)} type='text' placeholder='Nombre de la Clinica' name='clinic'/>

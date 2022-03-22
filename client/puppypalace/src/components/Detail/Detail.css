@@ -1,55 +1,52 @@
-body{
-    margin: 0%;
-}
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    margin: 0%;
+.home-allinfo {
+  background-color: #1761a0;
+  width: auto;
+  height: auto;
 }
 
-.home-btn{
-    width: 100vw;
-    height: 60px;
-    background-color: #d7ecff;
-    margin-bottom: 30px;
-    position: fixed;
-    z-index: 1;
+.home-text {
+  margin: 0;
+  padding: 0;
+  font-size: large;
+  text-align: center;
+  color: #d7ecff;
 }
 
-.inicio-detailClinic{
-    background-color: transparent;
-    border: none;
+.img-btn {
+  display: block;
+  margin: auto;
 }
 
-.card-detail-clinic{
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2%;
 }
 
 .foto-nombre{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 100px;
-    justify-content: space-around;
+  padding-top: 4%;
 }
-.titleClinic{
-    margin-left: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #1761a0;
+
+.img-clinic {
+  width: auto;
+  display: block;
+  margin: auto;
+  border-radius: 5%;
 }
-.img-clinic{
-    height: 250px;
-    width: auto;
+
+.titleClinic {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #1761a0;
 }
-.p{
-    font-size: 20px;
-    font-weight: bold;
-    color: #1761a0;
+
+.address{
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.rest-data{
+  text-align: center;
 }

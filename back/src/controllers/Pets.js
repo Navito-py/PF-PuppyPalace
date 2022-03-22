@@ -18,7 +18,7 @@ const petsDb = async () => {
         //     }
       
         // }
-        include:[{model: Vaccine}, {model: User}] 
+        include:[{model: User}] 
     } 
     );
 };
@@ -55,7 +55,6 @@ const getPetsId = async (req, res) => {
 
 const getPets = async (req, res, next) => {
     try {
-        const user = isAuthUser(req);
         let pets = await petsDb();
         res.status(200).json(pets)
     } catch (error) {
@@ -76,12 +75,13 @@ const postPet = async (req, res) => {
         weight,
         image,
         history,
+        vaccines,
         status
     } = req.body
 
 // -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
-        if (name, gender, type, breed, age, height, weight, image, history, status) {
+        if (name, gender, type, breed, age, height, weight, image, history, vaccines, status) {
             let newPet = await Pet.create({
                 name: typeof name === "string" && name,
                 gender: (gender === "Female" || gender === "Male") && gender,
@@ -92,15 +92,14 @@ const postPet = async (req, res) => {
                 weight: typeof weight === "number" && weight,
                 image: typeof image === "string" && image,
                 history: typeof history === "string" && history,
+                vaccines,
                 status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
             })
-            const userId = isAuthUser(req);
 
+            const userId = isAuthUser(req);
             const user = await User.findByPk(userId, {include:{model: Pet}});
         
             const pets = [...user.pets, newPet];
-           
-            
             await user.setPets(pets);
             await newPet.setUser(user);
 
@@ -116,33 +115,30 @@ const postPet = async (req, res) => {
 
 //  --------------------- PUT --------------------- \\
 
+
 const modPet = async (req, res) => {
     let { id } = req.params
     let {
         name,
-        gender,
-        type,
-        breed,
         age,
         height,
         weight,
         image,
         history,
+        vaccines,
         status
     } = req.body
     
     try {
         const modifiedPet = await Pet.update({
             name: typeof name === "string" && name,
-            gender: (gender === "Female" || gender === "Male") && gender,
-            type: (type === "Dog" || type === "Cat") && type,
-            breed: typeof breed === "string" && breed,
             age: typeof age === "number" && age,
             height: typeof height === "number" && height,
             weight: typeof weight === "number" && weight,
             image: typeof image === "string" && image,
             history: typeof history === "string" && history,
-            status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
+            vaccines,
+            status: (status === "Alive" || status === "Deceased" || status === "Lost") && status,
         },
         {
             where: { id }
@@ -168,5 +164,5 @@ module.exports = {
     postPet,
     getPetsId,
     modPet,
-    killPet
+    killPet,
 }

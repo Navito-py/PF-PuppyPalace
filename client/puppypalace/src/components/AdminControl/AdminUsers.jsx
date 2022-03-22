@@ -39,7 +39,7 @@ export default function AdminUsers() {
     return (
         <div>
             <Link to='/admin/controls'>
-                <button>Volver</button>
+                <button className='back-create'>Volver</button>
             </Link>
             <form onSubmit={e => HandleFilter(e)}>
                 <input onChange={e => handleChange(e)} type='text' placeholder='Nombre de usuario' name='username'/>

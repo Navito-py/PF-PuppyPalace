@@ -69,12 +69,12 @@ module.exports = (sequelize) => {
         },
 
         emergency: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             //allowNull: false,
         },
 
         hospitalization : {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
            // allowNull: false,
         },
 
