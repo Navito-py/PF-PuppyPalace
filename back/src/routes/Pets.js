@@ -9,7 +9,6 @@ router.get('/', getPets);
 router.get('/:id', getPetsId);
 router.post('/', isAuth, postPet);
 router.put('/:id', isAuth, modPet);
-router.post('/:id', isAuth, addVacum);
 router.delete('/:id', isAuth, killPet);
 
 module.exports = router;

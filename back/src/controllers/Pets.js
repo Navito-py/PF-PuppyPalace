@@ -76,13 +76,13 @@ const postPet = async (req, res) => {
         weight,
         image,
         history,
-        vaccine,
+        vaccines,
         status
     } = req.body
 
 // -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
-        if (name, gender, type, breed, age, height, weight, image, history, status) {
+        if (name, gender, type, breed, age, height, weight, image, history, vaccines, status) {
             let newPet = await Pet.create({
                 name: typeof name === "string" && name,
                 gender: (gender === "Female" || gender === "Male") && gender,
@@ -93,18 +93,14 @@ const postPet = async (req, res) => {
                 weight: typeof weight === "number" && weight,
                 image: typeof image === "string" && image,
                 history: typeof history === "string" && history,
+                vaccines,
                 status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
             })
 
-            let vacums = await Vaccine.create(vaccine)
-            newPet.addVaccine(vacums)
-
             const userId = isAuthUser(req);
-
             const user = await User.findByPk(userId, {include:{model: Pet}});
         
             const pets = [...user.pets, newPet];
-           
             await user.setPets(pets);
             await newPet.setUser(user);
 
@@ -116,15 +112,6 @@ const postPet = async (req, res) => {
         console.log(error)
         res.status(400).send(error)
     }
-}
-
-const addVacum = async (req, res) => {
-    let { id } = req.params
-    let { vaccine } = req.body
-    const pet = await Pet.findByPk(id)
-    let newVaccine = await Vaccine.create(vaccine)
-    pet.addVaccine(newVaccine)
-    res.status(200).json(pet)
 }
 
 //  --------------------- PUT --------------------- \\
@@ -139,6 +126,7 @@ const modPet = async (req, res) => {
         weight,
         image,
         history,
+        vaccines,
         status
     } = req.body
     
@@ -150,6 +138,7 @@ const modPet = async (req, res) => {
             weight: typeof weight === "number" && weight,
             image: typeof image === "string" && image,
             history: typeof history === "string" && history,
+            vaccines,
             status: (status === "Alive" || status === "Deceased" || status === "Lost") && status,
         },
         {
@@ -177,5 +166,4 @@ module.exports = {
     getPetsId,
     modPet,
     killPet,
-    addVacum
 }
