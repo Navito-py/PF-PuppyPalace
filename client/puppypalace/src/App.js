@@ -19,6 +19,7 @@ import CreatePet from './components/Forms/CreatePet';
 import CreateReserve from './components/Forms/CreateReserve';
 import CreateClinic from './components/AdminForms/CreateClinic';
 import LostDetail from './components/Detail/LostDetail';
+import ModifyClinic from './components/AdminForms/ModifyClinic';
 import AdminControls from './components/AdminControl/AdminControls';
 import AdminUsers from './components/AdminControl/AdminUsers';
 import AdminClinics from './components/AdminControl/AdminClinics';
@@ -56,6 +57,7 @@ export default function App() {
         <Route path='/admin/controls/users' element={<AdminUsers/>} />
         <Route path='/admin/controls/clinics' element={<AdminClinics/>} />
         <Route path='/admin/controls/clinics/create' element={<CreateClinic/>} />
+        <Route path='/admin/controls/clinics/:id' element={<ModifyClinic/>}/>
       </Routes>
     </div>
     </BrowserRouter>
