@@ -64,6 +64,11 @@ module.exports = (sequelize) => {
 
         phone: {
             type: DataTypes.STRING(1234),
+        },
+
+        vaccines: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true
         }
 
     }, {timestamps: false})
