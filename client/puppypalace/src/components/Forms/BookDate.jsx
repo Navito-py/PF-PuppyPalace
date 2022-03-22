@@ -17,6 +17,8 @@ const times = [
 ];
 
 const startDate = new Date();
+let tomorrow = new Date()
+tomorrow.setDate(startDate.getDate() + 1);
 const todayDate = new Date();
 const endDate = new Date(todayDate.setMonth(todayDate.getMonth() + 1));
 
@@ -37,6 +39,7 @@ const BookDate = ({ dateAndHours }) => {
   useEffect(() => {
     dateAndHours(bookingDate, selectedTimeSlot);
   }, [bookingDate, selectedTimeSlot])
+
 
   const onDateChange = (e) => {
     setSelectedTimeSlot(null);
@@ -71,33 +74,15 @@ const BookDate = ({ dateAndHours }) => {
     return setBookingTimes(availableTurns);
   };
 
-  /*   const handleSubmit = () => {
-        console.log(bookingDate);
-    console.log(bookingDate.toLocaleDateString("en-US"));
-    const finalDate = `${bookingDate.toLocaleDateString(
-      "en-US"
-    )} ${selectedTimeSlot}`;
-    console.log("finalDate", finalDate);
-
-    const allInfoReserve = {
-      id: id,
-      ammount: "2000",
-      date: finalDate,
-      description: "Consulta",
-      hourly: selectedTimeSlot,
-      city: "Rosario",
-    };
-  }; */
-
   return (
     <div className="k-my-8">
-      <div className="k-mb-4 k-font-weight-bold">Seleccione su turno</div>
+      <div className="k-mb-4 k-font-weight-bold">Seleccione el día y la hora</div>
 
       <div className="k-flex k-display-flex k-mb-4">
         <Calendar
           value={bookingDate}
           onChange={onDateChange}
-          min={startDate}
+          min={tomorrow}
           max={endDate}
         />
         <div className="k-ml-4 k-display-flex k-flex-col">

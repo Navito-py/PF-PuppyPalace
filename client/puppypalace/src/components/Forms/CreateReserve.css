@@ -1,4 +1,4 @@
-.wrapper{
+/* .wrapper{
     display: flex;
     background-image: url("https://images.pexels.com/photos/8938734/pexels-photo-8938734.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
@@ -48,4 +48,35 @@
     transform: scale(1.2);
     transition: all 1s ease ;
 }
+ */
 
+ .pe{
+    font-size: 25px;
+    font-weight: bold;
+    color: #1761a0;
+ }
+
+ .reserve-button{
+    padding: 15px 40px;
+    background: #1761a090;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+ }
+
+ .reserve-button:hover{
+    padding: 15px 70px;
+    background: #1761a0;
+  }
+
+  .formError{
+    color: red;
+    font-weight: bold;
+  }

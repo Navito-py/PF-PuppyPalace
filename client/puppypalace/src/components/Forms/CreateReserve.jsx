@@ -2,94 +2,45 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { postReserve } from "../../redux/actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
-/* import "./CreateReserve.css"; */
+import "./CreateReserve.css";
 import BookDate from "./BookDate";
-
-/* function validate(info) {
-  let errors = {};
-  if (!info.ammount) {
-    errors.name = "Debe introducir el monto";
-  }
-  if (!info.date) {
-    errors.date = "Debe poner una fecha valida";
-  }
-  if (!info.hourly) {
-    errors.hourly = "Debe introducir una hora";
-  }
-  if (!info.description) {
-    errors.description = "Debe introducir una descripcion";
-  }
-  if (!info.city) {
-    errors.city = "Debe introducir una ciudad";
-  }
-} */
 
 export default function CreateReserve() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const {id} = useParams()
-/*   const [error, setError] = useState({}); */
   const [info, setInfo] = useState({
- /*    ammount: "",
-    date: "",
-    hourly: "", */
     description: "",
   });
+
+  const [formErrors, setFormErrors] = useState({});
 
   function hanleOnChange(e) {
     setInfo({
       ...info,
       [e.target.name]: e.target.value,
     });
-    console.log(info);
   }
 
-  /* function handleSubmit(e) {
-    if (
-      !error.ammount &&
-      !error.date &&
-      !error.hourly &&
-      !error.description &&
-      !error.city
-    ) {
-      e.preventDefault();
-      setError(
-        validate({
-          ...info,
-          [e.target.value]: e.target.value,
-        })
-      );
-      info.ammount = parseInt(info.ammount);
-      dispatch(postReserve(info));
-      setInfo({
-        ammount: "1000",
-        date: "",
-        hourly: "",
-        description: "",
-        city: "",
-      });
-    } else {
-      e.preventDefault();
-      alert("Por favor complete todas las casillas correctamente");
-    }
-  }
- */
-
-  function handleSubmit(e) {
-    console.log("e", e);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(postReserve(info, id, token));
+
+    const errorsValidate = validate();
+    setFormErrors(errorsValidate);
+    if (Object.keys(errorsValidate).length === 0) {
+      await dispatch(postReserve(info, id, token));
+      alert("Su reserva se ha creado correctamente")
+      window.location.reload();
+    }
   }
 
   function callDateAndHours (date, hour) {
     if (!hour) {
       return;
     }
-    console.log("hour", hour)
     const hourString = hour.slice(0,5)
-    console.log("hourString", hourString)
     setInfo({
       ...info,
       date: date,
@@ -98,39 +49,35 @@ export default function CreateReserve() {
     });
   }
 
+  const validate = () => {
+    const errors = {};
+
+    if (!info.description) {
+      errors.description = "La razon de consulta es requerida";
+    } 
+    if (!info.date) {
+      errors.date = "La fecha es requerida";
+    } 
+    if (!info.hourly) {
+      errors.hourly = "La hora es requerida";
+    } 
+    return errors;
+  };
+
+
   return (
     <div className="wrapper">
       <h2 className="pe">Pago Electronico</h2>
       <div className="payment">
         <form
           /* action="https://mpago.la/1bfm6Un" */
-          onSubmit={(e) => handleSubmit(e)}
+          /* onSubmit={(e) => handleSubmit(e)} */
         >
-{/*           <img
-            className="cat"
-            src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007"
-            alt=""
-            height="100px"
-          />
-          <img
-            className="cat"
-            src="https://media.baamboozle.com/uploads/images/67969/1598325054_298007"
-            alt=""
-            height="100px"
-          /> */}
-
-          <div className="center">
-            <input
-              className="display-size"
-              onChange={(e) => hanleOnChange(e)}
-              type="text"
-              readOnly
-              name="ammount"
-              placeholder="1000$"
-            />
-          </div>
-
+          <p>El valor de la reserva tendrá un costo de $1000</p>
+          
           <BookDate dateAndHours={callDateAndHours} />
+          <p className="formError">{formErrors.date}</p>
+          <p className="formError">{formErrors.hourly}</p>
 
           <div className="center">
             <input
@@ -138,19 +85,19 @@ export default function CreateReserve() {
               onChange={(e) => hanleOnChange(e)}
               type="text"
               name="description"
-              placeholder="Descripcion"
+              placeholder="Razon de consulta"
+              autoComplete="off"
             />
           </div>
+          <p className="formError">{formErrors.description}</p>
 
 {/*           <div className="center">
             <Reserves />
           </div> */}
-
-          <button type="submit">Crear</button>
         </form>
-        <Link to="/home">
-          <button className="btn-center">Volver</button>
-        </Link>
+        <div className="reserva">
+          <button className="reserve-button" type="submit" onClick={handleSubmit}>Reservar</button>
+        </div>
       </div>
     </div>
   );
