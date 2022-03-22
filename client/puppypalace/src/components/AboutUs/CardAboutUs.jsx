@@ -1,7 +1,7 @@
 import React from 'react';
 import './CardAboutUs.css';
 
-export default function CardAboutUs({name, img, web, description, github, linkedin}) {
+export default function CardAboutUs({name, img, description, github, linkedin}) {
   return (
     <div className='Container'>
         <img src={img} alt="img not found" className='imagen-aboutus'/>
