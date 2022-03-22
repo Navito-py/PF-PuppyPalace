@@ -9,7 +9,6 @@
 const {Router} = require ('express');
 const Clinics = require ('./Clinics.js');
 const Users = require ('./Users.js');
-const mercado = require("./Mercancia.js")
 const Admin = require ('./Admin.js');
 const payPal = require('./PayPal.js');
 const {isAuthAdmin} = require('../Utils/isAuth.js');
