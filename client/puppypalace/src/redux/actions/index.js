@@ -325,3 +325,14 @@ export function filterByClinicAdmin(name){
 
 }
 
+export function modifyClinic(id, newclinic, token){
+  return async function(dispatch){
+    const clinicmodify = axios.put(`https://vipets.herokuapp.com/admin/clinics/update/${id}`, newclinic, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    clinicmodify? alert('clinca modificada correctamente') : alert('clinica no encontrada')
+  }
+}
+
