@@ -4,6 +4,7 @@ import { PetSubmit } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom';
 import './CreatePets.css';
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function CreatePet() {
 
@@ -80,9 +81,7 @@ export default function CreatePet() {
     return (
         <div className='container-createpet'>
             <nav className='nav-createPet'>
-             <Link to='/home/profile'>
-                <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-             </Link>
+            <Link to="/home/profile" className="landingLink"><div className="brand-title1" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
             </nav>
             <div className='div-formPet'>
                 <form onSubmit={e => handleSubmit(e)} >

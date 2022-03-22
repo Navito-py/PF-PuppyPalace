@@ -45,6 +45,7 @@ export default function Home() {
           <NavBar />
           </div>
             <Link to="/" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
+
         <div className="navbar-links">
           <ul>
             <a href="https://vipets.vercel.app/home">Pagina principal</a>

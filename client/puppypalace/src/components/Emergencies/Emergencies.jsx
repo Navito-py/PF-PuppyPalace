@@ -2,14 +2,13 @@ import React from "react";
 import "./Emergencies.css";
 import Map from "../Map/Map";
 import {Link} from 'react-router-dom'
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function Emergencies() {
   return (
     <div className="emergencies">
       <div className="TopBar-Emergencies">
-      <Link to='/'>
-        <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-      </Link>
+      <Link to="/" className="landingLink"><div className="brand-title1" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
       </div>
       <h1 className="title-emergencies">Emergencias</h1>
       <Map />
