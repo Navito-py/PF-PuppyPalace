@@ -14,7 +14,6 @@ import { filterCity } from "../../redux/actions"
 import LostPets from "../LostPets/LostPets";
 import '../LostPets/LostPets.css'
 
-
 export default function Home() {
   const dispatch = useDispatch();
   const allClinics = useSelector((state) => state.clinics);
@@ -54,6 +53,7 @@ export default function Home() {
           */}
 
             <a href="https://vipets.vercel.app/emergencies">Emergencias</a>
+            <a href="http://localhost:3000/aboutus">About Us</a>
             
           </ul>
         </div>

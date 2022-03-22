@@ -20,23 +20,25 @@ export default function Profile() {
     const pets = user.pets;
 
 
-    const handleLogout = () => {
+    const handleLogout = (e) => {
+        /* e.preventDefault() */
         sessionStorage.removeItem("token");
-        dispatch(resetStatus())
-        navigate("/");
+        dispatch(resetStatus()) && navigate("/"); 
       }
 
     return (
         <div className='profile'>
+             {/* <a style={{fontSize:'25px'}} href="https://vipets.vercel.app/lostpets/">Volver</a> */}
             <div className='nav-bar-profile'>
                 <Link to='/home'>
                     <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+                    
                 </Link>
                 <div className='btns-navBar'>
                    <Link to ='createPet'>
                      <button className='btn-petscreate'>Crear mascota</button>
                    </Link>
-                  <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
+                    <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
                 </div>
 
             </div>

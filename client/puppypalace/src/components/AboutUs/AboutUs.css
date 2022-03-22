@@ -1,0 +1,24 @@
+.AboutUs {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-family: 'Times New Roman', Times, serif;
+    height: 100%;
+    width: 100vw;
+    align-content: center;
+    align-items: center;
+}
+.home-btn-au{
+    background-color: yellow;
+}
+
+.title-AboutUs{
+    margin-top: 8vh;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}

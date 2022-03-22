@@ -1,4 +1,4 @@
-const {User, Pet, Vaccine, Reserve} = require ('../db.js');
+const {User, Pet, Vaccine, Reserve, Visit} = require ('../db.js');
 const {isAuthUser} = require('../Utils/isAuth.js');
 
 const admindGetProfile = async (req, res, next) => {
@@ -14,7 +14,7 @@ const adminGetProfileId = async (req, res) => {
     try {
         const id = req.params.id;
         const idUser = await User.findByPk(id, {
-            include:[{model: Pet}, {model: Reserve}] 
+            include:[{model: Pet}, {model: Reserve}, {model: Visit}] 
         });
         if(!idUser) {
             res.status(404).send("No hay usuario con ese ID")

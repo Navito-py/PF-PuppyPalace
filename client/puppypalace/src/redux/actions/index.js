@@ -103,13 +103,9 @@ export function filterCity(payload){
   }
 }
 
-export function getPets(token){
+export function getPets(){
   return async function(dispatch){
-   const pets = await axios.get(`${url2}/user/pets`, {
-    headers:{
-      'authorization': `Bearer ${token}`
-    }
-   })
+   const pets = await axios.get(`${url2}/user/pets`);
    return dispatch({
      type: "GET_PETS",
      payload: pets.data,
@@ -303,5 +299,25 @@ export function adminAUser(id, token){
       alert('Error')
     }
   }
+}
+
+export function filterByUsername(name){
+  return async function(dispatch){
+    return dispatch({
+      type: 'SEARCH_BY_USERNAME',
+      payload: name
+    })
+  }
+
+}
+
+export function filterByClinicAdmin(name){
+  return async function(dispatch){
+    return dispatch({
+      type: 'FILTER_ADMIN_CLINICS',
+      payload: name
+    })
+  }
+
 }
 

@@ -29,9 +29,10 @@
     background-color: #d7ecff;
     height: 550px;
     width: 400px;
-    margin-top: 5%;
+    margin-top: 15px;
     color: #1761a0;
     align-items: center;
+    box-shadow: 0px 0px 10px 5px #1761a0;
 }
 
 .image-card{

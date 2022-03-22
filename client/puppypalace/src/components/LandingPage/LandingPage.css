@@ -25,11 +25,18 @@ background-color: #d7ecff;
 height: 100px;
 }
 
-.landing-back {
-width: 100%;
+.landing-back-active{
+width: 100vw;
+height: 150vh;
+background-attachment: fixed;
+}
+
+.landing-back{
+width: 100vw;
 height: 100vh;
 background-attachment: fixed;
 }
+
 
 .lost-please1{
 margin: 15px 0px 15px 0px;
@@ -42,16 +49,19 @@ color: #1761a0;
 
 .order-btns {
 width: 100vw;
+justify-content: space-around;
+display: flex;
+flex-direction: row;
+flex-wrap:wrap;
 }
 
 .parent-button {
-position: relative; 
+width: 100vw;
 display: flex;
-justify-content: space-around;
+justify-content: space-evenly;
 cursor: pointer;
 margin-top: 30px;
 margin-bottom: 30px;
-margin-left: 10%;
 }
 
 .primary{
@@ -66,7 +76,6 @@ text-transform: uppercase ;
 height: 100px;
 width: 200px;
 box-shadow: 3px 4px 10px 2px #1761a0;
-margin-left: 5%;
 margin-right: 5%;
 }
   
@@ -87,7 +96,6 @@ width: 230px;
 text-transform: uppercase ;
 font-weight: bold;
 animation: glowing 1300ms infinite;
-margin-left: 8%;
 margin-right: 5%;
 }
   
