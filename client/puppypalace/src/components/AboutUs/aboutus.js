@@ -50,7 +50,7 @@
     {
         id: 7,
         name: "Lautaro Martin",
-        img: "https://images.pexels.com/photos/39369/baby-teddy-bear-cute-39369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        img: " https://avatars.githubusercontent.com/u/86445983?s=400&u=5f41b79fa4db411025800c5e5f9679be453bf1c1&v=4",
         description: "Full Satck Web Developer At Henry's Bootcamp. Skills del proyecto: Back End",
         github: "https://github.com/lautaro321",
         linkedin: "https://www.linkedin.com/in/lautaro-martin-128b2a219/ "

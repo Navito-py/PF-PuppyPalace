@@ -65,8 +65,7 @@ export default function LandingPage() {
           </Link>
         </div>
       </div>
-      <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
-      
+
       <div className="Carousel-logo-searchbar">
           <div className="carousel">
                 <h2 className="lost-please1">Estoy perdido, ayudame a volver a casa</h2>
@@ -75,7 +74,6 @@ export default function LandingPage() {
                 </Link>
           </div>
         </div>
-      <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
         {/*card clinicas*/}
         <div className="SearchBar-Reserve">
 
@@ -162,7 +160,6 @@ export default function LandingPage() {
                 }
               </div>
         </div>
-         <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
            <div className="Carousel-logo-searchbar">
               <div className="carousel">
                     <h2 className="lost-please1">Estoy perdido, ayudame a volver a casa</h2>

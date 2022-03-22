@@ -1,7 +1,7 @@
 a{
     text-decoration: none;
     color: #1761a0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -15,13 +15,13 @@ a{
 
 .card-clinic{
     margin: 5px;
-    box-shadow: 5px 5px 10px 5px darkgrey;
     border-radius: 10px;
 }
 
 .card-clinic:hover{
-    transform:scale(1.1);
+    transform:scale(1.01);
     transition: all 1s ease;
+    box-shadow: 5px 5px 10px 5px darkgrey;
 }
 
 

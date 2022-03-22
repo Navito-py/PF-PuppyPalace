@@ -4,6 +4,7 @@ import { aboutUs } from './aboutus.js';
 import { useState, useEffect } from 'react'
 import CardAboutUs from './CardAboutUs';
 import { Link } from 'react-router-dom';
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function AboutUs() {
   const [selected, setSelected] = useState("aboutUs");
@@ -21,10 +22,10 @@ export default function AboutUs() {
 
   return (
     <div className='all'>
-      <div className='home-btn-au'>
-              <Link to='/home'>
-                <button className='inicio-detailClinic'><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-              </Link>
+     <div className="topQr">
+        <Link to='/'>
+        <img  className="topQrButton" src={vipets} alt="Home" height="90px"/>
+        </Link>
       </div>
         <div className="AboutUs">
           <h1 className='title-AboutUs'>Grupo 10: Soy Henry Bootcamp</h1>
