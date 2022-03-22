@@ -18,7 +18,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const user = useSelector(state => state.user);
     const pets = user.pets;
-
+    const reserves = user.reserves;
 
     const handleLogout = (e) => {
         /* e.preventDefault() */
@@ -62,6 +62,15 @@ export default function Profile() {
                             type={p.type}
                             phone={user.phone} /> 
                         </div>
+                    })}
+                </div>
+                <div>
+                    {reserves && reserves.map(r => {
+                    return <div> 
+                                <p>{r.description}</p>
+                                <p>{r.date}</p>
+                                <p>{r.hourly}</p>
+                            </div>
                     })}
                 </div>
             </div>

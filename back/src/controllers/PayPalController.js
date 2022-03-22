@@ -46,7 +46,7 @@ const executePayment = (req, res) => {
     }, (err, response) => {
         paymentData = response.body;
         if(response.body.status === 'COMPLETED'){
-            res.redirect('https://vipets.vercel.app/home/profile')
+            res.redirect('http://localhost:3000/home/profile')
         } else {
             res.send('error');
         }

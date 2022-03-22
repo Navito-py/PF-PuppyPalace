@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { postReserve } from "../../redux/actions";
+import { postReserve, getPaymentRedir } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
 /* import "./CreateReserve.css"; */
@@ -26,6 +26,8 @@ import BookDate from "./BookDate";
   }
 } */
 
+
+
 export default function CreateReserve() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
@@ -37,7 +39,11 @@ export default function CreateReserve() {
     hourly: "", */
     description: "",
   });
-
+  React.useEffect(()=>{
+    dispatch (getPaymentRedir())
+  },[]);
+  const paypal = useSelector(state => state.paypal.data);
+  console.log(paypal)
   function hanleOnChange(e) {
     setInfo({
       ...info,
@@ -80,7 +86,8 @@ export default function CreateReserve() {
   function handleSubmit(e) {
     console.log("e", e);
     e.preventDefault();
-    dispatch(postReserve(info, id, token));
+    dispatch(postReserve(info, id, token))
+    window.location =paypal;
   }
 
   function callDateAndHours (date, hour) {
@@ -103,7 +110,6 @@ export default function CreateReserve() {
       <h2 className="pe">Pago Electronico</h2>
       <div className="payment">
         <form
-          /* action="https://mpago.la/1bfm6Un" */
           onSubmit={(e) => handleSubmit(e)}
         >
 {/*           <img
