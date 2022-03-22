@@ -6,6 +6,7 @@ const initialState = {
   token: "",
   user: {},
   allUsers: [],
+  allUsers2: [],
   reserves: [],
 };
 
@@ -85,6 +86,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allUsers: action.payload,
+        allUsers2: action.payload,
       };
     case "RESERVE_ID":
       return {
@@ -96,6 +98,23 @@ function rootReducer(state = initialState, action) {
         ...state,
         /* reserves: action.payload, */
       };
+    case 'SEARCH_BY_USERNAME':
+      const allusersfilted = state.allUsers2
+      const namefilted = action.payload === ''? allusersfilted : 
+      allusersfilted.filter(e => e.userName.toLowerCase().includes(action.payload.toLowerCase()))
+      return{
+        ...state,
+        allUsers: namefilted
+      }
+
+    case 'FILTER_ADMIN_CLINICS':
+      const allClinicsFilter = state.allClinics
+      const clinicfilted = action.payload === ''? allClinicsFilter : 
+      allClinicsFilter.filter(e => e.name.toLowerCase().includes(action.payload.toLowerCase()))
+      return{
+        ...state,
+        clinics: clinicfilted
+      }
 
     default:
       return state;

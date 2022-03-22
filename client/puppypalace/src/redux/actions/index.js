@@ -305,3 +305,23 @@ export function adminAUser(id, token){
   }
 }
 
+export function filterByUsername(name){
+  return async function(dispatch){
+    return dispatch({
+      type: 'SEARCH_BY_USERNAME',
+      payload: name
+    })
+  }
+
+}
+
+export function filterByClinicAdmin(name){
+  return async function(dispatch){
+    return dispatch({
+      type: 'FILTER_ADMIN_CLINICS',
+      payload: name
+    })
+  }
+
+}
+
