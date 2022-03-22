@@ -1,0 +1,45 @@
+.Container{
+    color: black;
+    width: 15rem; 
+    height: fit-content;
+    width: 50vw;
+    align-items: center;
+    border-style: none;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
+    background-color: yellow;
+    text-decoration: none;
+}
+
+.imagen-aboutus{
+    margin-top: 2px;
+    width: 20rem;
+    height: 200;
+    border-radius: 10px;
+}
+
+.description-aboutus{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;    
+    margin-top: 5px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    text-decoration: none;
+}
+
+.name-aboutus{
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.description{
+    font-weight: bold;
+    font-size: 20px;
+}

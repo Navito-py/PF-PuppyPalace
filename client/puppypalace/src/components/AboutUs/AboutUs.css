@@ -1,38 +1,24 @@
-.AboutUs{
-    background-color: white;
+.AboutUs {
+    background-color: black;
     display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     font-family: 'Times New Roman', Times, serif;
-}
-
-.container{
+    height: 100%;
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    align-content: center;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    color: #1761a0;
+}
+.home-btn-au{
+    background-color: yellow;
+}
+
+.title-AboutUs{
+    margin-top: 8vh;
+    margin-bottom: 15px;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-
-.item{
-    display: flex;
-    flex-direction: column;
-    height: 450px;
-    width: 350px;
-    margin: 10px;
-}
-
-.img-aboutus{
-    width: 349px;
-}
-
-.h3AboutUs{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
+    font-size: 60px;
     text-align: center;
-    color: #1761a0;
     font-weight: bold;
+    color: white;
 }

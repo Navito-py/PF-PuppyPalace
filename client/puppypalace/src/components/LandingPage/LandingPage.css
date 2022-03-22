@@ -25,11 +25,18 @@ background-color: #d7ecff;
 height: 100px;
 }
 
-.landing-back {
+.landing-back-active{
 width: 100vw;
-height: 200vh;
+height: 150vh;
 background-attachment: fixed;
 }
+
+.landing-back{
+width: 100vw;
+height: 100vh;
+background-attachment: fixed;
+}
+
 
 .lost-please1{
 margin: 15px 0px 15px 0px;

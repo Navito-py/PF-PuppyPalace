@@ -28,7 +28,7 @@ body{
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 30vh;
 }
 
 .foto-nombre{
@@ -44,8 +44,9 @@ body{
     font-weight: bold;
     color: #1761a0;
 }
+
 .img-clinic{
-    height: 250px;
+    height: 350px;
     width: auto;
 }
 .p{

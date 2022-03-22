@@ -39,7 +39,7 @@ export default function LandingPage() {
 
   if(!token){
     return (
-      <div className="landing-back">
+      <div className={!token ? "landing-back-active" : "landing-back" }>
       <div className="welcome-text">
         <h1 className="h1-title">Bienvenidos a VIPets</h1>
 
