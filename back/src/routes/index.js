@@ -18,7 +18,6 @@ const router = Router();
 
 router.use('/user', Users);
 router.use ('/clinics', Clinics);
-router.use("/mercado", mercado)
 router.use('/payment', payPal)
 router.use('/admin',isAuthAdmin, Admin);
 
