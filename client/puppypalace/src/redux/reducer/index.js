@@ -120,6 +120,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         clinics: clinicfilted
       }
+
+    case 'FILTER_ADMIN_CLINICS':
+      const allClinicsFilter = state.allClinics
+      const clinicfilted = action.payload === ''? allClinicsFilter : 
+      allClinicsFilter.filter(e => e.name.toLowerCase().includes(action.payload.toLowerCase()))
+      return{
+        ...state,
+        clinics: clinicfilted
+      }
     case 'GET_PAYMENT_REDIR':
       console.log(action.payload)
       return {
