@@ -65,14 +65,20 @@ const { Pet, User, Clinic, Rate, Vaccine, Visit, Reserve } = sequelize.models;
 // Product.hasMany(Reviews);
 User.belongsToMany(Pet, {through: 'user_pet'});
 Pet.hasOne(User, {through: 'user_pet'});
-Clinic.hasOne(Rate, {through: 'clinic_rate'});
-Rate.belongsToMany(Clinic, {through:'clinic_rate'});
+
 Pet.belongsToMany(Vaccine, {through: 'pet_vaccine'});
 Vaccine.belongsToMany(Pet, {through: 'pet_vaccine'});
+
 User.belongsToMany(Reserve, {through: 'user_reserve'});
 Reserve.hasOne(User, {through: 'user_reserve'});
 Reserve.hasOne(Clinic, {through: 'clinic_reserve'});
 Clinic.belongsToMany(Reserve, {through: 'clinic_reserve'});
+
+User.belongsToMany(Visit, {through: 'user_visit'});
+Visit.hasOne(User, {through: 'user_visit'});
+Clinic.belongsToMany(Visit, {through: 'visit_clinic'});
+Visit.hasOne(Clinic, {through: 'visit_clinic'});
+
 // User.belongsToMany(Clinic, {through: Visit});
 // Clinic.belongsToMany(User, {through: Visit});
 // User.belongsToMany(Clinic, {through: Reserve});

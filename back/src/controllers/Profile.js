@@ -1,11 +1,11 @@
-const {User, Pet, Vaccine, Reserve} = require ('../db.js');
+const {User, Pet, Vaccine, Reserve, Visit} = require ('../db.js');
 const {isAuthUser} = require('../Utils/isAuth.js');
 
 const getProfile = async (req, res, next) => {
     const userId = isAuthUser(req);
 
     const user = await User.findByPk(userId, {
-        include:[{model: Pet}, {model: Reserve}] 
+        include:[{model: Pet}, {model: Reserve}, {model: Visit}] 
     });
     res.json(user);
 }
