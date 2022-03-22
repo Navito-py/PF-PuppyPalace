@@ -18,7 +18,7 @@ const petsDb = async () => {
         //     }
       
         // }
-        include:[{model: Vaccine}, {model: User}] 
+        include:[{model: User}] 
     } 
     );
 };
@@ -27,7 +27,6 @@ const idSearch = async(id) => {
     try {
         const pet = await Pet.findByPk(id, {include:{
             model: User,
-            model: Vaccine
         }
         })
         return pet;
