@@ -44,6 +44,7 @@ export default function Home() {
         <div className="test-hide">
           <NavBar />
           </div>
+            <Link to="/" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
         <div className="navbar-links">
           <ul>
             <a href="https://vipets.vercel.app/home">Pagina principal</a>
@@ -51,14 +52,11 @@ export default function Home() {
             {/* <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
-
             <a href="https://vipets.vercel.app/emergencies">Emergencias</a>
-            <a href="http://localhost:3000/aboutus">About Us</a>
-            
+            <a href="http://localhost:3000/aboutus">Sobre Nosotros</a>
           </ul>
         </div>
       </nav>
-    <div className="landingLink1"><Link to="/" className="landingLink"><div className="brand-title" >V.I.Pets<img src={vipets} alt="vipetslogo" width="150px" height="150px"/></div></Link></div>
       
        <div className="Carousel-logo-searchbar">
           <div className="carousel">
@@ -142,8 +140,6 @@ export default function Home() {
               <ReserveBar />
             </div> */}
         </div>
-       
-        <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
        
         <div
           className="cards"

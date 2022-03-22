@@ -9,7 +9,7 @@ justify-content: space-evenly;
 }
 
 body {
-font-family: 'Times New Roman', Times, serif;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 margin: 0;
 padding: 0;
 }
@@ -43,10 +43,9 @@ width: 100vw;
 }
 
 .brand-title {
-margin-top: 50px;
-height: 55px;
-font-size: 50px;
-margin-right: 75%;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 40px;
+margin-left: 2vw;
 }
 
 .cards {
@@ -62,6 +61,7 @@ width: 200px;
 }
 
 .Carousel-logo-searchbar{
+margin-top: 17vh;
 display: flex;
 flex-direction: row;
 }
@@ -76,7 +76,7 @@ text-align: center;
 font-size: 50px;
 margin-top: 20px;
 color: #1761a0;
-
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .landingLink{
@@ -84,23 +84,24 @@ color: #1761a0;
 }
 
 .navbar-links {
-height: 30px;
-margin-left: 65%;
+  height: 30px;
 }
 
 .navbar-links ul {
-display: flex;
-
+  display: flex;
+  margin-right: 1vw;
 }
 
 .navbar-links li {
-list-style: none;
+  list-style: none;
 }
 
 .navbar-links a {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 18px;
 display: flex;
 flex-direction: row;
-margin-left: 25px;
+margin-left: 20px;
 text-decoration: none;
 color: #1761a0;
 }
@@ -114,7 +115,7 @@ display: flex;
 position: fixed;
 z-index: 3; 
 width: 100vw;
-height: 80px;
+height: 130px;
 top: 0;
 justify-content: space-between;
 color: #1761a0;
@@ -123,14 +124,15 @@ background-color: #d7ecff;
 }
 
 .photo-cities{
+border-radius: 15px;
 height: 150px;
 width: 300px;
-box-shadow: 2px 2px 10px 5px grey;
 }
 
 .photo-cities:hover{
+  box-shadow: 0px 0px 5px 3px grey;
   cursor: pointer;
-  transform: rotate(-10deg);
+  transform: rotate(-2deg);
   transition: all 1s ease;
 }
 
@@ -145,6 +147,7 @@ display: none;
 
 
 .title-cities {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 margin-top: 30px;
 margin-bottom: 20px;
 background-color: #d7ecff;
@@ -189,14 +192,5 @@ height: 21px;
 
   .navbar-links.active {
     display: flex;
-  }
-
-  .test-hide {
-    display: block;
-    position: absolute;
-    top: 0.75rem;
-    right: 3rem;
-    width: 30px;
-    height: 21px;
   }
 }

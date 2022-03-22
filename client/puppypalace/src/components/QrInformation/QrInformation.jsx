@@ -23,10 +23,9 @@ export default function QrInformation() {
     <div className="qr-generator">
       <div className="topQr">
         <Link to='/'>
-        <button className="topQrButton"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+        <img  className="topQrButton" src={vipets} alt="Home" height="90px"/>
         </Link>
       </div>
-      <div className="brand-title1" >V.I.Pets<img src={vipets} alt="vipetslogo" width="150px" height="150px"/></div>
       <h1 className="h1">Generador de QR para tu mascota</h1>
 
       <div className="input-box">
@@ -45,6 +44,7 @@ export default function QrInformation() {
         <div className="extra">
           <h5 className="h5">Color del fondo</h5>
           <input
+          className="color"
             type="color"
             onChange={(e) => {
               setBgColor(e.target.value.substring(1));
@@ -53,6 +53,7 @@ export default function QrInformation() {
           <h5 className="h5">Tamaño</h5>
           <div className="qr-generador">
               <input
+              className="range"
                 type="range"
                 min="200"
                 max="400"
