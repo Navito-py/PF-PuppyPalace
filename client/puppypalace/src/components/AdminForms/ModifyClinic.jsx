@@ -8,23 +8,27 @@ import vipets from "../../media/logoVIPetsTransparent.png";
 export default function ModifyClinic() {
     const dispatch = useDispatch()
     const { id } = useParams()
-    const clinicmod = useSelector((state) => state.detail)
+    const authToken = sessionStorage.getItem('token')
+    let clinicmod = useSelector((state) => state.detail)
 
     useEffect(() => {
         dispatch(getDetail(id))
-        console.log(data)
-    },[dispatch, id])
+    },[dispatch])
 
-    const [data, setData] = useState(clinicmod)
 
     function handleOnChange(e){
         e.preventDefault()
-        const { name, value } = e.target;
-        setData({
-            ...data,
-            [name] : value
-        })
-        console.log(data)
+        clinicmod = {
+            ...clinicmod,
+            [e.target.name] : e.target.value
+        }
+        console.log(clinicmod)
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        dispatch(modifyClinic(id, clinicmod, authToken))
+
     }
 
     return (
@@ -34,6 +38,7 @@ export default function ModifyClinic() {
             </Link>
             {
                 clinicmod.name?
+      
             <form className='form-admin-clinic'>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={clinicmod.name} name='name'/>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={clinicmod.address} name='address'/>
@@ -52,10 +57,15 @@ export default function ModifyClinic() {
                 <label style={{margin:'10px'}}>{clinicmod.province}</label>
                 <label>{clinicmod.city}</label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.activeHours} name='activeHours'/>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.email? clinicmod.email : 'No encontrado'} name='email'/>
+                <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.email? clinicmod.email : 'Email no encontrado'} name='email'/>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.phone} name='phone'/>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.image} name='image'/>
+
                 <button type='submit' className='btnAminClinic'>Modificar</button>
+
+                <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.emergency} name='emergency'/>
+                <input onChange={e => handleOnChange(e)} type='text' placeholder={clinicmod.hospitalization} name='hospitalization'/>
+                <button type='submit'>Modificar</button>
             </form> : <p>loading...</p>
             }
             <img src={vipets} alt="" className='logoVipets'/>

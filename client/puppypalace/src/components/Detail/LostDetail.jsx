@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLostDetail } from "../../redux/actions";
+import { getLostDetail, getProfile } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import vipets from '../../media/logoVIPetsTransparent.png';
 
@@ -9,10 +9,13 @@ export default function LostDetail(){
     const dispatch = useDispatch();
     const { id } = useParams();
     const lostDetails = useSelector((state)=> state.pets)
+    const user = useSelector(state => state.user);
+    const token = sessionStorage.getItem('token');
     
     useEffect(()=>{
         dispatch(getLostDetail(id))
-    }, [dispatch, id])
+        dispatch(getProfile(token));
+    }, [dispatch, id, token])
 
     return (
         <div>
@@ -29,7 +32,7 @@ export default function LostDetail(){
                 <p>Edad: {lostDetails.age}</p>
                 <p>Altura: {lostDetails.height}</p>
                 <p>Peso: {lostDetails.weight}</p>
-                <p>Teléfono: {lostDetails.phone}</p>
+                <p>Teléfono: {user.phone}</p>
                </div>
                 </div> : <img src={vipets} alt="noInfo" /> 
             }

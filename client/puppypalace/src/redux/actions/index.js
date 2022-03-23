@@ -321,6 +321,17 @@ export function filterByClinicAdmin(name){
 
 }
 
+export function modifyClinic(id, newclinic, token){
+  return async function(dispatch){
+    const clinicmodify = axios.put(`https://vipets.herokuapp.com/admin/clinics/update/${id}`, newclinic, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    clinicmodify? alert('clinca modificada correctamente') : alert('clinica no encontrada')
+  }
+}
+
 export function getPaymentRedir(){
   return async function (dispatch){
     const payPal = await axios.post(`${url}/payment/create`);
