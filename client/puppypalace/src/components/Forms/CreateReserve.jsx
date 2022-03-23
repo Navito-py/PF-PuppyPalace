@@ -81,7 +81,7 @@ export default function CreateReserve() {
     const errors = {};
 
     if (!info.description) {
-      errors.description = "La razon de consulta es requerida";
+      errors.description = "La razón de consulta es requerida";
     } 
     if (!info.date) {
       errors.date = "La fecha es requerida";
@@ -101,7 +101,7 @@ export default function CreateReserve() {
 
           onSubmit={(e) => handleSubmit(e)}
         >
-          <p>El valor de la reserva tendrá un costo de $1000</p>
+          <p>Deberá abonar el valor de la reserva</p>
           
           <BookDate dateAndHours={callDateAndHours} />
           <p className="formError">{formErrors.date}</p>
