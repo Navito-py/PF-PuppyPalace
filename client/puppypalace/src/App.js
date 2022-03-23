@@ -26,7 +26,7 @@ import AdminClinics from './components/AdminControl/AdminClinics';
 import { getLoginFromStorage } from './redux/actions'
 import { useDispatch } from "react-redux"
 import AboutUs from './components/AboutUs/AboutUs.jsx';
-
+import ModifyPet from './components/Forms/ModPet';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -45,6 +45,7 @@ export default function App() {
         <Route path="/clinics/:id" element={<Detail />}/>
         <Route path="/emergencies" element={<Emergencies />}/>
         <Route path='/home/profile' element={<Profile />}/>
+        <Route path='/home/profile/pet/:id' element={<ModifyPet />}/>
         <Route path='/home/profile/reserves' element={<Reserves/>}/>
         <Route path='/home/map' element={<BigMap/>}/>
         <Route path='/qrcreator' element={<QrInformation/>}/>

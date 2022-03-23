@@ -330,3 +330,41 @@ export function getPaymentRedir(){
     })
   }
 }
+
+export function getReservesFromUser (token){
+  return async function (dispatch){
+    const reserves = await axios.get(`${url}/user/reserves/`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    return dispatch({
+      type:'GET_RESERVES_USER',
+      payload: reserves.data
+    })
+  }
+}
+export function getPetDetail(id){
+  return async function (dispatch){
+    try {
+      const petDetail = await axios.get(`${url2}/user/pets/${id}`)
+      return dispatch({
+        type: 'GET_PET_ID',
+        payload: petDetail.data
+      });
+    } catch(error){
+      console.log(error)
+    }
+  }
+}
+
+export function modifyPet(id, petData ,token){
+  return async function (dispatch){
+    const petMod = await axios.put(`${url2}/user/pets/${id}`, petData,{
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+  })
+  petMod? alert('Mascota modificada correctamente') : alert('Mascota no encontrada')
+}
+}

@@ -2,10 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, useNavigate } from 'react-router-dom'
-import { getProfile } from '../../redux/actions';
+import { getProfile, getReservesFromUser } from '../../redux/actions';
 import './Profile.css';
-import LostCard  from '../Card/LostCard.jsx';
 import { resetStatus } from "../../redux/actions/index"
+import PetCard from '../Card/PetCard.jsx';
+import ReserveCard from '../Card/ReserveCard.jsx';
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -13,12 +14,14 @@ export default function Profile() {
     const token = sessionStorage.getItem('token');
     useEffect(() => {
         dispatch(getProfile(token));
+        dispatch(getReservesFromUser(token));
     }, [dispatch])
     
     const navigate = useNavigate();
     const user = useSelector(state => state.user);
+    const reserves = useSelector(state => state.reservesUser);
     const pets = user.pets;
-    const reserves = user.reserves;
+    //const reserves = user.reserves;
 
     const handleLogout = (e) => {
         /* e.preventDefault() */
@@ -56,20 +59,32 @@ export default function Profile() {
                 <div>
                     {pets && pets.map(p => {
                     return <div> 
-                        <LostCard
-                            name={p.name} 
-                            image={p.image}
-                            type={p.type}
-                            phone={user.phone} /> 
+                        <PetCard
+                            id={p.id}
+                            name={p.name}
+                            gender={p.gender} 
+                            // type={p.type} 
+                            // breed={p.breed}
+                            // age ={p.age}
+                            // height={p.height}
+                            // weight ={p.weight}
+                            // image ={p.image}
+                            // history ={p.history}
+                            // vaccines={p.vaccines}
+                            status={p.status} /> 
                         </div>
                     })}
                 </div>
                 <div>
                     {reserves && reserves.map(r => {
                     return <div> 
-                                <p>{r.description}</p>
-                                <p>{r.date}</p>
-                                <p>{r.hourly}</p>
+                               <ReserveCard 
+                               clinicName={r.clinic} 
+                               date={r.detail.date} 
+                               hourly={r.detail.hourly} 
+                               ammount={r.detail.ammount}
+                               description={r.detail.description}
+                               clinicPhone ={r.detail.hourly}/>
                             </div>
                     })}
                 </div>
