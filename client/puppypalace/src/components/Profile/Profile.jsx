@@ -70,9 +70,9 @@ export default function Profile() {
                             // age ={p.age}
                             // height={p.height}
                             // weight ={p.weight}
-                            // image ={p.image}
+                            image ={p.image}
                             // history ={p.history}
-                            // vaccines={p.vaccines}
+                            vaccines={p.vaccines}
                             status={p.status} /> 
                         </div>
                     })}
