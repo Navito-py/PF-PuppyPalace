@@ -58,7 +58,7 @@ export const aboutUs = [
     {
         id: 8,
         name: "Mariano Farrate",
-        img: "https://avatars.githubusercontent.com/u/86089479?v=4",
+        img: "https://www.youtube.com/watch?v=_UiJgTbYowQ",
         description: "Full Satck Web Developer At Henry's Bootcamp. Skills del proyecto: Front End",
         github: "https://github.com/marianofarrate",
         linkedin: "https://www.linkedin.com/in/marianofarratewebdeveloper/"
