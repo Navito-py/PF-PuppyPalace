@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getProfile, modifyUser} from '../../redux/actions'
 import './ModUser.css';
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function ModifyUser() {
     const dispatch = useDispatch()
@@ -43,12 +44,12 @@ export default function ModifyUser() {
     }
 
     return (
-        <div className='form-pet'>
+        <div className='form-UserModify'>
             <Link to='/home/profile'>
-                <button>Volver</button>
+                <button className="vipets-logoModifyUser">Home<img  src={vipets} alt="vipetslogo" width="100px" height="100px"/>VIPets</button>
             </Link>
                { user.name?
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => handleSubmit(e)} className='FormModUser'>
                 <label style={{margin:'10px'}}>Nombre de usuario: </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.userName} name='userName'/>
                 <label>Nombre y Apellido:  </label>
@@ -68,11 +69,11 @@ export default function ModifyUser() {
                 <div className="col-md-6">
                     <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la provincia</label>
                     <select
-                    className="form-select"
+                    className="prov"
                     id="floatingSelect"
                      onChange={(e) => handleSelectProvince(e)} 
                     >
-                    <option disabled="" hidden>{user.province}</option>
+                    <option className='prov' disabled="" hidden>{user.province}</option>
                     <option value="mendoza">Mendoza</option>
                     <option value="santaFe">Santa Fe</option>
                     <option value="cordoba">Córdoba</option>
@@ -82,7 +83,7 @@ export default function ModifyUser() {
                 <div className="col-md-6">
                     <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la ciudad</label>
                     <select
-                    className="form-select"
+                    className="prov"
                     id="floatingSelect"
                      onChange={(e) => handleSelectCity(e)} 
                     >
@@ -117,7 +118,7 @@ export default function ModifyUser() {
                     </div>)}
                 <label>Estado: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/> */}
-                <button className='form-btn' type='submit'>Modificar</button>
+                <button className='form-btn-modUser' type='submit'>Modificar</button>
             </form> : <p>loading...</p>
                }
         </div>

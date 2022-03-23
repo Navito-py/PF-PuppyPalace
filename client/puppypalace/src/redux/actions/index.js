@@ -1,6 +1,6 @@
 import axios from "axios";
-const url = "http://localhost:3001";
-const url2 = "https://vipets.herokuapp.com";
+const url2 = "http://localhost:3001";
+const url = "https://vipets.herokuapp.com";
 
 export function getNameClinic(name) {
   return async function (dispatch) {
