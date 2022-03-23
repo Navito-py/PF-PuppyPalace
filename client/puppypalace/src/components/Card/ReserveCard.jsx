@@ -14,7 +14,7 @@ export default function ReserveCard({ clinicName, date, hourly, clinicPhone, amm
     <div >
       <MDBCard className="card-reserve">
         <MDBCardBody className="body-reserve">
-          <MDBCardTitle className="name">-- {clinicName}</MDBCardTitle>
+          <MDBCardTitle className="name"> {clinicName}</MDBCardTitle>
           <MDBCardText>{date}</MDBCardText>
           <MDBCardText>{hourly}</MDBCardText>
           <MDBCardText>{ammount}</MDBCardText>
