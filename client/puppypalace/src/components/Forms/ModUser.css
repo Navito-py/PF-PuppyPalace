@@ -1,0 +1,48 @@
+.form-UserModify{
+    height: 110vh;
+    width: 100vw;
+}
+
+.vipets-logoModifyUser{
+    width: 100vw;
+    background-color:#d7ecff;
+    border: none;
+    font-size: 50px;
+    font-weight: bold;
+    color: #1761a0;
+}
+
+.FormModUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.prov-ciudad{
+    align-items: center;
+    justify-content: center;
+    margin-left: 180px;
+}
+.prov{
+    border-radius: 10px;
+    background-color: #d7ecff;
+    color: #1761a0;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+}
+
+.form-btn-modUser{
+    font-weight: bold;
+    margin: 15px;
+    background-color: #d7ecff;
+    border-color: #1761a0;
+    border-radius: 10px;
+    color: #1761a0;
+}
+.form-btn-modUser:hover{
+transform: scale(1.05);
+box-shadow: 0px 0px 5px 3px lightgrey;
+}

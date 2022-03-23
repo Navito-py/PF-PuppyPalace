@@ -81,8 +81,12 @@ const postPet = async (req, res) => {
 
 // -------------------------- FORMULARIO DE CREACIÓN Y VALIDACIONES -------------------------- \\
     try {
+        const userId = isAuthUser(req);
+        const user = await User.findByPk(userId, {include:{model: Pet}});
+
         if (name, gender, type, breed, age, height, weight, image, history, vaccines, status) {
             let newPet = await Pet.create({
+                phone: user.phone,
                 name: typeof name === "string" && name,
                 gender: (gender === "Female" || gender === "Male") && gender,
                 type: (type === "Dog" || type === "Cat") && type,
@@ -95,9 +99,7 @@ const postPet = async (req, res) => {
                 vaccines,
                 status: (status === "Alive" || status === "Deceased" || status === "Lost") && status
             })
-
-            const userId = isAuthUser(req);
-            const user = await User.findByPk(userId, {include:{model: Pet}});
+                console.log(user.phone)
         
             const pets = [...user.pets, newPet];
             await user.setPets(pets);
