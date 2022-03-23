@@ -65,14 +65,14 @@ export default function Profile() {
                             id={p.id}
                             name={p.name}
                             gender={p.gender} 
-                            // type={p.type} 
-                            // breed={p.breed}
-                            // age ={p.age}
-                            // height={p.height}
-                            // weight ={p.weight}
-                            // image ={p.image}
-                            // history ={p.history}
-                            // vaccines={p.vaccines}
+                            type={p.type} 
+                            breed={p.breed}
+                            age ={p.age}
+                            height={p.height}
+                            weight ={p.weight}
+                            image ={p.image}
+                            history ={p.history}
+                            vaccines={p.vaccines}
                             status={p.status} /> 
                         </div>
                     })}
