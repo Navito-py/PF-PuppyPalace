@@ -31,7 +31,7 @@ body{
 .container-info{
     border-radius: 10px;
     background-color: #d7ecff;
-    height: 550px;
+    height: 850px;
     width: 400px;
     margin-top: 15px;
     color: #1761a0;
@@ -68,4 +68,24 @@ body{
 .profile{
     width: 100vw;
     height: 100vh;
+}
+
+.cards-reserve{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.btn-mod-user{
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1761a0;
+    color:#d7ecff;
+    height: 50px;
+    width: 80px;
+    font-size: small;
+    font-weight:lighter;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    align-self: center;
 }

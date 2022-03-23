@@ -1,0 +1,22 @@
+.card-reserve{
+    border-radius: 10px;
+    background-color: #d7ecff;
+    height: 400px;
+    width: 350px;
+    margin-top: 2%;
+    color: #1761a0;
+    align-items: center;
+    margin: 5%;
+    box-shadow: 0px 0px 12px 5px #1761a0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.body-reserve{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}

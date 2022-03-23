@@ -1,4 +1,4 @@
-const { Reserve, User, Clinic, clinic_reserve } = require("../db.js");
+const { Reserve, User, Clinic, clinic_reserve, user_reserve } = require("../db.js");
 const { isAuthUser } = require('../Utils/isAuth.js');
 const moment = require('moment');
 const { transporter } = require('./NodeMailer');
@@ -23,6 +23,37 @@ const getReserve = async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
+}
+const getReserveFromUser = async (req, res, next) => {
+    const userId = await isAuthUser(req);
+    console.log(userId)
+    try{
+        let reservesFromUser = await user_reserve.findAll({where:{
+            userId: userId
+        }});
+        let reservesIds = reservesFromUser.map(r => r.reserveId);
+
+        let reserves = []
+        
+        for(let i=0; i<reservesIds.length; i++){
+            let detail = await Reserve.findByPk(reservesIds[i]);
+            let clinicReserve = await clinic_reserve.findOne({where:{
+                reserveId: reservesIds[i]
+            }});
+          
+            let clinic = await Clinic.findByPk(clinicReserve.clinicId);
+            
+            reserves.push({
+                ...detail.dataValues, 
+                clinicName: clinic.name, 
+                phone: clinic.phone});    
+        };
+        
+        res.json (reserves);
+    } catch (e){
+        next(e)
+    }
+
 }
 const getAvailableReserves = async (req, res, next) => {
     const {clinicId} = req.params;
@@ -69,10 +100,10 @@ const postReserve = async (req, res) => {
         clinicId
     } = req.body;
 
-    const dateReserve = moment('MMM Do YYYY').locale('pt-br').format('L');
-    console.log(dateReserve);
-    const houlyReserve = date.slice(15,17);
-    console.log(houlyReserve);
+    // const dateReserve = moment('MMM Do YYYY').locale('pt-br').format('L');
+    // console.log(dateReserve);
+    // const houlyReserve = date.slice(15,17);
+    // console.log(houlyReserve);
 
     try{
         if( ammount, date, hourly, description ) {
@@ -117,5 +148,6 @@ const postReserve = async (req, res) => {
   postReserve,
   getReserve,
   getReserveId, 
-  getAvailableReserves
+  getAvailableReserves,
+  getReserveFromUser
   }

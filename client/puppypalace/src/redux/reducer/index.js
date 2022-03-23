@@ -8,7 +8,9 @@ const initialState = {
   allUsers: [],
   allUsers2: [],
   reserves: [],
-  paypal: {}
+  reservesUser: [],
+  paypal: {},
+  pet:{}
 };
 
 function rootReducer(state = initialState, action) {
@@ -135,6 +137,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         paypal: action.payload
       }
+    case 'GET_RESERVES_USER':
+      return {
+        ...state,
+        reservesUser: action.payload
+      }  
+    case 'GET_PET_ID':
+      return {
+        ...state,
+        pet: action.payload
+      }  
     default:
       return state;
   }

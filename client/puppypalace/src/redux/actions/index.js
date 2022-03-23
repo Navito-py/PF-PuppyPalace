@@ -334,10 +334,60 @@ export function modifyClinic(id, newclinic, token){
 
 export function getPaymentRedir(){
   return async function (dispatch){
-    const payPal = await axios.post(`${url}/payment/create`);
+    const payPal = await axios.post(`${url2}/payment/create`);
     return dispatch({
       type: 'GET_PAYMENT_REDIR',
       payload: payPal.data
     })
   }
+}
+
+export function getReservesFromUser (token){
+  return async function (dispatch){
+    const reserves = await axios.get(`${url2}/user/reserves`, {
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+    })
+    console.log(reserves.data);
+    return dispatch({
+      type:'GET_RESERVES_USER',
+      payload: reserves.data
+    })
+  }
+}
+export function getPetDetail(id){
+  return async function (dispatch){
+    try {
+      const petDetail = await axios.get(`${url2}/user/pets/${id}`)
+      return dispatch({
+        type: 'GET_PET_ID',
+        payload: petDetail.data
+      });
+    } catch(error){
+      console.log(error)
+    }
+  }
+}
+
+export function modifyPet(id, petData ,token){
+  return async function (dispatch){
+    const petMod = await axios.put(`${url2}/user/pets/${id}`, petData,{
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+  })
+  petMod? alert('Mascota modificada correctamente') : alert('Mascota no encontrada')
+}
+}
+
+export function modifyUser(id, userData, token){
+  return async function (dispatch){
+    const userMod = await axios.put(`${url2}/user/profile/${id}`, userData,{
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+  })
+  userMod? alert('Usuario modificado correctamente') : alert('Usuario no encontrado')
+}
 }
