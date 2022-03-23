@@ -9,6 +9,7 @@
     color: #fff;
     background-color: #1761A0 ;
     border-color: #1761A0 ;
+    font-weight: bold;
 }
 
 .icon-img{
@@ -18,5 +19,6 @@
 }
 
 .reset{
-    color: black;
+    font-weight: bold;
+    color:#1761A0;
 }

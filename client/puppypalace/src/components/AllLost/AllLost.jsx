@@ -22,7 +22,9 @@ return (
     <div className="lostCards2">
       <div className="nav-lost">
         <Link to='/'>
-          <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+          <div>
+            <button className="buttonHome1"><img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/>VIPets<span className="lostIam"> Estoy perdido</span></button>
+            </div>
 
         </Link>
       </div>

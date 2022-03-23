@@ -10,6 +10,21 @@
     margin-top: 100px;
 }
 
+.lostIam{
+color:  #1761a0;
+margin-left: 280px;
+}
+
+.buttonHome1{
+    background-color: transparent;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    margin-right: 33vw;
+    color:  #1761a0;
+}
+
 .lostCards2{
     flex-wrap: wrap;
     display: flex;
