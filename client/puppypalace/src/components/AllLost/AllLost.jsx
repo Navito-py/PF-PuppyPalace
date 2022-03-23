@@ -5,6 +5,7 @@ import { getPets } from "../../redux/actions";
 import LostCard from "../Card/LostCard";
 import "./AllLost.css";
 import { Link } from "react-router-dom";
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function AllLost() {
   
@@ -21,7 +22,7 @@ return (
     <div className="lostCards2">
       <div className="nav-lost">
         <Link to='/home'>
-          <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+            <img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/>
         </Link>
       </div>
       <div className="lostCards" >
