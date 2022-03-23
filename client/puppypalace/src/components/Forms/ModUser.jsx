@@ -31,7 +31,17 @@ export default function ModifyUser() {
         dispatch(modifyUser(id, user, authToken))
         console.log(user);
     }
+
+    function handleSelectCity(e){
+        e.preventDefault()
+        user.city = e.target.value
+    }
     
+    function handleSelectProvince(e){
+        e.preventDefault()
+        user.province = e.target.value
+    }
+
     return (
         <div className='form-pet'>
             <Link to='/home/profile'>
@@ -50,10 +60,40 @@ export default function ModifyUser() {
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.email} name='email'/>
                 <label>Teléfono:  </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.phone} name='phone'/>
-                <label>Provincia:  </label>
+                {/* <label>Provincia:  </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.province} name='province'/>
                 <label>Ciudad:  </label>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.city} name='city'/>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.city} name='city'/> */}
+                <div className="prov-ciudad">
+                <div className="col-md-6">
+                    <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la provincia</label>
+                    <select
+                    className="form-select"
+                    id="floatingSelect"
+                     onChange={(e) => handleSelectProvince(e)} 
+                    >
+                    <option disabled="" hidden>{user.province}</option>
+                    <option value="mendoza">Mendoza</option>
+                    <option value="santaFe">Santa Fe</option>
+                    <option value="cordoba">Córdoba</option>
+                    </select>
+                </div>
+
+                <div className="col-md-6">
+                    <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la ciudad</label>
+                    <select
+                    className="form-select"
+                    id="floatingSelect"
+                     onChange={(e) => handleSelectCity(e)} 
+                    >
+                    <option disabled="" hidden>{user.city}</option>
+                    <option value="mendoza">Mendoza</option>
+                    <option value="rosario">Rosario</option>
+                    <option value="cordoba">Córdoba</option>
+                    </select>
+                </div>
+
+                </div>
                 {/* <label style={{margin:'10px'}}>{pet.type}</label>
                 <label>Raza: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/>
