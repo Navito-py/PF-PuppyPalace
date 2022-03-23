@@ -323,7 +323,7 @@ export function filterByClinicAdmin(name){
 
 export function getPaymentRedir(){
   return async function (dispatch){
-    const payPal = await axios.post(`${url}/payment/create`);
+    const payPal = await axios.post(`${url2}/payment/create`);
     return dispatch({
       type: 'GET_PAYMENT_REDIR',
       payload: payPal.data

@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/', isAuth, getReserveFromUser);
 router.post('/:id', isAuth, postReserve);
-router.get('/', isAuth, getReserve);
+//router.get('/', isAuth, getReserve);
 router.get('/:id', isAuth, getReserveId);
 router.get('/available/:clinicId', isAuth, getAvailableReserves);
 
