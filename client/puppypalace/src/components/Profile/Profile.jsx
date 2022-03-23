@@ -13,9 +13,10 @@ export default function Profile() {
     // const token = useSelector(state => state);
     const token = sessionStorage.getItem('token');
     useEffect(() => {
-        dispatch(getProfile(token));
         dispatch(getReservesFromUser(token));
+        dispatch(getProfile(token));
     }, [dispatch])
+    
     
     const navigate = useNavigate();
     const user = useSelector(state => state.user);
@@ -53,8 +54,6 @@ export default function Profile() {
                     <p className='pc'><img src="https://cdn-icons.flaticon.com/png/512/4321/premium/4321921.png?token=exp=1647722876~hmac=e0cc046469414f95942a3655d11d21f8" alt="" height="20px"/> {user.name} {user.lastName}</p>
                     <p className='pc'><img src="https://cdn-icons.flaticon.com/png/512/2163/premium/2163350.png?token=exp=1647722683~hmac=b40d746cc6da1b3cc1ab3e3e6993fb94" alt="" height="20px" /> {user.address} </p>
                     <p className='pc'><img src="https://cdn-icons.flaticon.com/png/512/2511/premium/2511894.png?token=exp=1647722747~hmac=2a1cdaed2e631b405092992275793255" alt="" height="20px"/> {user.phone}</p>
-
-
                 </div>
                 <div>
                     {pets && pets.map(p => {
@@ -75,20 +74,20 @@ export default function Profile() {
                         </div>
                     })}
                 </div>
+            </div>
                 <div>
-                    {reserves && reserves.map(r => {
+                    {reserves.length>0 && reserves.map(r => {
                     return <div> 
                                <ReserveCard 
-                               clinicName={r.clinic} 
-                               date={r.detail.date} 
-                               hourly={r.detail.hourly} 
-                               ammount={r.detail.ammount}
-                               description={r.detail.description}
-                               clinicPhone ={r.detail.hourly}/>
+                               clinicName={r.clinicName} 
+                               date={r.date} 
+                               hourly={r.hourly} 
+                               ammount={r.ammount}
+                               description={r.description}
+                               clinicPhone ={r.phone}/>
                             </div>
                     })}
                 </div>
-            </div>
         </div>
     )
 }

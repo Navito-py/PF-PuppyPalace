@@ -40,9 +40,13 @@ const getReserveFromUser = async (req, res, next) => {
             let clinicReserve = await clinic_reserve.findOne({where:{
                 reserveId: reservesIds[i]
             }});
-            console.log(clinicReserve)
+          
             let clinic = await Clinic.findByPk(clinicReserve.clinicId);
-            reserves.push({detail: detail, clinic: clinic.name});    
+            console.log(clinic);
+            reserves.push({
+                ...detail.dataValues, 
+                clinicName: clinic.name, 
+                phone: clinic.phone});    
         };
         
         res.json (reserves);

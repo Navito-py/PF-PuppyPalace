@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getPetDetail, modifyPet} from '../../redux/actions'
+import './ModPet.css';
 
 export default function ModifyPet() {
     const dispatch = useDispatch()
@@ -47,7 +48,7 @@ export default function ModifyPet() {
     }
 
     return (
-        <div>
+        <div className='form-pet'>
             <Link to='/home/profile'>
                 <button>Volver</button>
             </Link>
@@ -75,11 +76,11 @@ export default function ModifyPet() {
                 {vaccines.length>0 && vaccines.map(v =>
                     <div key={v}>
                         <span>{v}</span>
-                        <button id={v} onClick={(e) => handleDelete(e)}>X</button>
+                        <button id={v} className='vac-delete' onClick={(e) => handleDelete(e)}>X</button>
                     </div>)}
                 <label>Estado: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/>
-                <button type='submit'>Modificar</button>
+                <button className='form-btn' type='submit'>Modificar</button>
             </form> : <p>loading...</p>
                }
         </div>

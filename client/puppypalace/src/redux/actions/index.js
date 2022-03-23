@@ -333,7 +333,7 @@ export function getPaymentRedir(){
 
 export function getReservesFromUser (token){
   return async function (dispatch){
-    const reserves = await axios.get(`${url}/user/reserves/`, {
+    const reserves = await axios.get(`${url2}/user/reserves`, {
       headers:{
         'authorization': `Bearer ${token}`
       }

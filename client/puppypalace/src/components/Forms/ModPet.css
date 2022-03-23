@@ -1,0 +1,33 @@
+.form-pet{
+    background-image: url("../../media/cute.jpg");
+    background-size: cover;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.vac-delete{
+    width: 25px;
+    height: 30px;
+    background-color: #d7ecff;
+    border-radius: 5px;
+}
+
+.form-btn{
+    margin-left: 20px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: transparent;
+    border-color: black;
+    box-shadow: 4px 5px 8px 2px black;
+}
+
+.form-btn:hover{
+    transition: all 1s ease;
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.45);
+}
