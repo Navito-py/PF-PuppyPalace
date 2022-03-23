@@ -7,10 +7,13 @@ import {
     MDBCardTitle,
     MDBCardText,
     MDBCardImage,
-    MDBBtn
+    MDBBtn,
+    MDBListGroup,
+    MDBListGroupItem
   } from "mdb-react-ui-kit";
-
+  
   export default function PetCard({ name, gender, type, breed, age, height, weight, image, history, vaccines, status, handleClick, id}) {
+    let vacunas=['moquillo', 'antirrábica'];
     return (
       <div key={id} >
         <MDBCard className="card-pet">
@@ -18,13 +21,17 @@ import {
           <MDBCardBody className="body-pet">
             <MDBCardTitle className="name"><img src="https://cdn-icons.flaticon.com/png/512/804/premium/804762.png?token=exp=1647828976~hmac=4318917d3e360c43ba5e0107177eb17e" alt="" height="30px"/> {name}</MDBCardTitle>
             <MDBCardText> Género: {gender}</MDBCardText>
-            {/* <MDBCardText>Tipo: {type}</MDBCardText>
+            <MDBCardText>Tipo: {type}</MDBCardText>
             <MDBCardText>Raza: {breed}</MDBCardText>
             <MDBCardText>Edad: {age}</MDBCardText>
             <MDBCardText>Altura: {height}</MDBCardText>
             <MDBCardText>Peso: {weight}</MDBCardText>
             <MDBCardText>Historial clínico: {history}</MDBCardText>
-            <MDBCardText> Vacunas: {vaccines}</MDBCardText> */}
+            {/* <MDBListGroup>
+            {vacunas? vacunas.map( v =>{
+              <MDBListGroupItem>{v}</MDBListGroupItem>
+            }): 'No está vacunado.'}
+             </MDBListGroup> */}
             <MDBCardText>Estado: {status}</MDBCardText>
           </MDBCardBody>
         <Link to ={`/home/profile/pet/${id}`}><MDBBtn>Detalle</MDBBtn></Link>
