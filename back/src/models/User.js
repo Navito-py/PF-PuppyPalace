@@ -66,11 +66,6 @@ module.exports = (sequelize) => {
             type: DataTypes.BIGINT,
             unique: true,
             allowNull: false,
-            validate: {
-                isNumeric: true,
-                isInt: true,
-                len: [10] // longitud: solo de 10 números, Sin 0 y sin 15 (incluye caracteristica provincia)
-            }
         },
 
         address: {

@@ -7,13 +7,12 @@ import './ModUser.css';
 
 export default function ModifyUser() {
     const dispatch = useDispatch()
-    const { userId } = useParams()
+    const { id } = useParams()
     const authToken = sessionStorage.getItem('token')
     let user = useSelector((state) => state.user)
 
     useEffect(() => {
         dispatch(getProfile(authToken))
-       
     },[dispatch])
 
     
@@ -23,16 +22,15 @@ export default function ModifyUser() {
             ...user,
             [e.target.name] : e.target.value
         }
-        
+        console.log(user)
     }
+
     function handleSubmit(e){
         e.preventDefault()
+        dispatch(modifyUser(id, user, authToken))
         console.log(user);
-       dispatch(modifyUser(userId, user, authToken))
-
     }
     
-
     return (
         <div className='form-pet'>
             <Link to='/home/profile'>
