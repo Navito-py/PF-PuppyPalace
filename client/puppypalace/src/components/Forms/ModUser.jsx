@@ -9,28 +9,26 @@ export default function ModifyUser() {
     const dispatch = useDispatch()
     const { userId } = useParams()
     const authToken = sessionStorage.getItem('token')
-    const user = useSelector((state) => state.user)
+    let user = useSelector((state) => state.user)
 
     useEffect(() => {
         dispatch(getProfile(authToken))
-        console.log(data)
-    },[dispatch, userId])
+       
+    },[dispatch])
 
-    const [data, setData] = useState(user)
     
     function handleOnChange(e){
         e.preventDefault()
-        const { name, value } = e.target;
-        setData({
-            ...data,
-            [name] : value
-        })
-        console.log(data)
+        user = {
+            ...user,
+            [e.target.name] : e.target.value
+        }
+        
     }
     function handleSubmit(e){
         e.preventDefault()
-        
-        dispatch(modifyUser(userId, data, authToken))
+        console.log(user);
+       dispatch(modifyUser(userId, user, authToken))
 
     }
     
@@ -42,9 +40,21 @@ export default function ModifyUser() {
             </Link>
                { user.name?
             <form onSubmit={e => handleSubmit(e)}>
+                <label style={{margin:'10px'}}>Nombre de usuario: </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.userName} name='userName'/>
+                <label>Nombre y Apellido:  </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.name} name='name'/>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.lastName} name='type'/>
-               
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.lastName} name='lastName'/>
+                <label>Dirección:  </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.address} name='address'/>
+                <label>Email:  </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.address} name='email'/>
+                <label>Teléfono:  </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.phone} name='phone'/>
+                <label>Provincia:  </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.province} name='province'/>
+                <label>Ciudad:  </label>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.city} name='city'/>
                 {/* <label style={{margin:'10px'}}>{pet.type}</label>
                 <label>Raza: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/>

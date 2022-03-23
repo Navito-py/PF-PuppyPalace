@@ -42,7 +42,7 @@ const getReserveFromUser = async (req, res, next) => {
             }});
           
             let clinic = await Clinic.findByPk(clinicReserve.clinicId);
-            console.log(clinic);
+            
             reserves.push({
                 ...detail.dataValues, 
                 clinicName: clinic.name, 

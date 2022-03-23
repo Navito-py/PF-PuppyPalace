@@ -338,6 +338,7 @@ export function getReservesFromUser (token){
         'authorization': `Bearer ${token}`
       }
     })
+    console.log(reserves.data);
     return dispatch({
       type:'GET_RESERVES_USER',
       payload: reserves.data
