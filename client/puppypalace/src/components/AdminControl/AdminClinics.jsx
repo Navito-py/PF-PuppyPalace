@@ -39,7 +39,7 @@ export default function AdminClinics() {
             </Link>
             <form onSubmit={e => HandleFilter(e)} >
                 <input onChange={e => handleChange(e)} type='text' placeholder='Nombre de la Clinica' name='clinic'/>
-                <button type='submit'>buscar</button> 
+                <button type='submit' className='back-create'>buscar</button> 
             </form>
             <div className='cardsDiv'>
                 {
