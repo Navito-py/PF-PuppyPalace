@@ -63,6 +63,7 @@ export default function CreatePet() {
         petdata.age = parseInt(petdata.age)
         petdata.height = parseInt(petdata.height)
         dispatch(PetSubmit(petdata, token))
+        alert("Tu mascota ha sido creada!!!!")
         setPetdata({
             name:"",
             gender:"",
@@ -75,7 +76,7 @@ export default function CreatePet() {
             history:"",
             status:"",
         })
-        navigate('/user/profile')
+        navigate('/home/profile')
     }
 
     return (
