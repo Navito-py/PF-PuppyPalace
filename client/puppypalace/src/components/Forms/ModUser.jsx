@@ -2,23 +2,22 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getPetDetail, modifyPet} from '../../redux/actions'
-import './ModPet.css';
+import {getProfile, modifyUser} from '../../redux/actions'
+import './ModUser.css';
 
-export default function ModifyPet() {
+export default function ModifyUser() {
     const dispatch = useDispatch()
-    const { id } = useParams()
+    const { userId } = useParams()
     const authToken = sessionStorage.getItem('token')
-    const pet = useSelector((state) => state.pet)
+    const user = useSelector((state) => state.user)
 
     useEffect(() => {
-        dispatch(getPetDetail(id))
+        dispatch(getProfile(authToken))
         console.log(data)
-    },[dispatch, id])
+    },[dispatch, userId])
 
-    const [data, setData] = useState(pet)
-    const [vaccines, setVaccines]=useState([]);
-    const [vaccine, setVaccine] = useState('');
+    const [data, setData] = useState(user)
+    
     function handleOnChange(e){
         e.preventDefault()
         const { name, value } = e.target;
@@ -30,34 +29,23 @@ export default function ModifyPet() {
     }
     function handleSubmit(e){
         e.preventDefault()
-        setData({
-            ...data,
-            ['vaccines']: vaccines
-        })
-        dispatch(modifyPet(id, data, authToken))
+        
+        dispatch(modifyUser(userId, data, authToken))
 
     }
-    function handleChangeVaccines(e){
-        setVaccine(e.target.value);
-    }
-    function handleSubmitVaccine (e){
-        setVaccines([...vaccines, vaccine])
-    }
-    function handleDelete (e){
-        setVaccines(vaccines.filter(v => v !== e.target.id))
-    }
+    
 
     return (
         <div className='form-pet'>
             <Link to='/home/profile'>
                 <button>Volver</button>
             </Link>
-               { pet.name?
+               { user.name?
             <form onSubmit={e => handleSubmit(e)}>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.name} name='name'/>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.type} name='type'/>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.name} name='name'/>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.lastName} name='type'/>
                
-                <label style={{margin:'10px'}}>{pet.type}</label>
+                {/* <label style={{margin:'10px'}}>{pet.type}</label>
                 <label>Raza: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/>
                 <label>Edad: </label>
@@ -79,20 +67,10 @@ export default function ModifyPet() {
                         <button id={v} className='vac-delete' onClick={(e) => handleDelete(e)}>X</button>
                     </div>)}
                 <label>Estado: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/>
+                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/> */}
                 <button className='form-btn' type='submit'>Modificar</button>
             </form> : <p>loading...</p>
                }
         </div>
     )
 }
-// name:"",
-//             gender:"",
-//             type: "",
-//             breed:"",
-//             age:"",
-//             height:"",
-//             weight:"",
-//             image:"",
-//             history:"",
-//             status:"",

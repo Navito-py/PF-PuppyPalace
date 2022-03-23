@@ -368,3 +368,14 @@ export function modifyPet(id, petData ,token){
   petMod? alert('Mascota modificada correctamente') : alert('Mascota no encontrada')
 }
 }
+
+export function modifyUser(id, userData, token){
+  return async function (dispatch){
+    const userMod = await axios.put(`${url2}/user/profile/${id}`, userData,{
+      headers:{
+        'authorization': `Bearer ${token}`
+      }
+  })
+  userMod? alert('Usuario modificado correctamente') : alert('Usuario no encontrado')
+}
+}
