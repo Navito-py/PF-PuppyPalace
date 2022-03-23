@@ -26,7 +26,6 @@ export default function LogIn() {
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data)
   }
 
   
@@ -57,6 +56,7 @@ export default function LogIn() {
                   type="text"
                   placeholder="Ingrese Usuario"
                   name="userName"
+                  autoComplete="off"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -77,6 +77,11 @@ export default function LogIn() {
               <div className="text-left mt-3">
                 <Link to='/'>
                   <small className="reset">Volver a inicio</small>
+                </Link>
+              </div>
+              <div className="text-left mt-3">
+                <Link to='/register'>
+                <small className="reset">¿No tienes cuenta? ¡Regístrate aquí!</small>
                 </Link>
               </div>
             </Form>

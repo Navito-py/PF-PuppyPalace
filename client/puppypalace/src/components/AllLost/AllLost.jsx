@@ -21,8 +21,9 @@ export default function AllLost() {
 return (
     <div className="lostCards2">
       <div className="nav-lost">
-        <Link to='/home'>
-            <img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/>
+        <Link to='/'>
+          <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
+
         </Link>
       </div>
       <div className="lostCards" >
