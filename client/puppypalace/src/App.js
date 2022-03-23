@@ -46,7 +46,7 @@ export default function App() {
         <Route path="/clinics/:id" element={<Detail />}/>
         <Route path="/emergencies" element={<Emergencies />}/>
         <Route path='/home/profile' element={<Profile />}/>
-        <Route path='/home/profile/:userId' element={<ModifyUser />}/>
+        <Route path='/home/profile/:id' element={<ModifyUser />}/>
         <Route path='/home/profile/pet/:id' element={<ModifyPet />}/>
         <Route path='/home/profile/reserves' element={<Reserves/>}/>
         <Route path='/home/map' element={<BigMap/>}/>

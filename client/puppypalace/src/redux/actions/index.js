@@ -383,7 +383,7 @@ export function modifyPet(id, petData ,token){
 
 export function modifyUser(id, userData, token){
   return async function (dispatch){
-    const userMod = await axios.put(`${url2}/user/profile/${id}`, userData,{
+    const userMod = await axios.put(`${url2}/user/profile/${id}`, userData ,{
       headers:{
         'authorization': `Bearer ${token}`
       }
