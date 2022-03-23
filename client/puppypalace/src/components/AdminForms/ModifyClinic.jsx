@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getDetail} from '../../redux/actions'
+import {getDetail} from '../../redux/actions';
+import { modifyClinic } from '../../redux/actions';
 import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function ModifyClinic() {
