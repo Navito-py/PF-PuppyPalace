@@ -1,7 +1,7 @@
 import React from 'react';
 import './Paginate.css';
 
-export default function Paginate({elementsPerPage, allElements, paginate}) {
+export default function Paginate({elementsPerPage, allElements, paginate, currentPage}) {
 
     const pagenumbers = []
 
@@ -14,7 +14,7 @@ export default function Paginate({elementsPerPage, allElements, paginate}) {
             {
                 pagenumbers?.map((e,index) => {
                     return (
-                        <button className='btn-paginated' key={index}onClick={() => paginate(e)}>{e}</button>
+                        <button className={e===currentPage? 'active':'btn-paginated'} key={index}onClick={() => paginate(e)}>{e}</button>
                     )
                 })
             }
