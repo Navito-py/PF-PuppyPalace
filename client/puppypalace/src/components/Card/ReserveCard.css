@@ -1,15 +1,18 @@
 .card-reserve{
-    border-radius: 10px;
-    background-color: #d7ecff;
+    border-radius: 15px;
+    border-color: #1761a0;
+    border-width: 5px;
     height: 400px;
     width: 350px;
     margin-top: 2%;
     color: #1761a0;
     align-items: center;
     margin: 5%;
-    box-shadow: 0px 0px 12px 5px #1761a0;
     margin-left: 20px;
     margin-right: 20px;
+}
+.card-reserve:hover{
+box-shadow: 0px 0px 5px 2px lightgrey;
 }
 
 .body-reserve{
@@ -19,4 +22,8 @@
     align-items: center;
     font-weight: bold;
     font-size: 20px;
+}
+
+.nameT{
+    text-decoration: underline;
 }
