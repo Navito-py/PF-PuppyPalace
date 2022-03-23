@@ -71,7 +71,6 @@ function rootReducer(state = initialState, action) {
         token: action.payload.accessToken,
       };
     case "GET_USER_PROFILE":
-      console.log(action.payload)
       return {
         ...state,
         user: action.payload,
