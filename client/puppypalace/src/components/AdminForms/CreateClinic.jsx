@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addClinic } from '../../redux/actions'
 import {Link} from 'react-router-dom'
-
+import './CreateClinicAdmin.css'
 
 export default function CreateClinic() {
 
@@ -56,7 +56,7 @@ export default function CreateClinic() {
     return (
         <div>
             <Link to='/admin/controls/Clinics'>
-                <button>Volver</button>
+                <button className='btnAminClinic'>Volver</button>
             </Link>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input onChange={(e) => handleOnChange(e)} type='text' placeholder='Nombre' name='name'/>

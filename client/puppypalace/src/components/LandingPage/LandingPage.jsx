@@ -97,6 +97,8 @@ export default function LandingPage() {
                     image={e.image}
                     schedule={e.address}
                     province={e.province}
+                    phone={e.phone}
+                    emergency={e.emergency}
                   />
                 </Link>
               </div>
