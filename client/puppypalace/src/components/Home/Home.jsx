@@ -168,6 +168,7 @@ export default function Home() {
             elementsPerPage = {elementsPerPage}
             allElements = {allClinics.length}
             paginate = {paginate}
+            currentPage = {currentPage}
           />
         </div>
 
