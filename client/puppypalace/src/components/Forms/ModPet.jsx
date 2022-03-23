@@ -9,32 +9,32 @@ export default function ModifyPet() {
     const dispatch = useDispatch()
     const { id } = useParams()
     const authToken = sessionStorage.getItem('token')
-    const pet = useSelector((state) => state.pet)
+    let pet = useSelector((state) => state.pet)
 
     useEffect(() => {
         dispatch(getPetDetail(id))
-        console.log(data)
+        console.log(pet)
     },[dispatch, id])
 
-    const [data, setData] = useState(pet)
     const [vaccines, setVaccines]=useState([]);
     const [vaccine, setVaccine] = useState('');
+
+
     function handleOnChange(e){
         e.preventDefault()
-        const { name, value } = e.target;
-        setData({
-            ...data,
-            [name] : value
-        })
-        console.log(data)
+        pet = {
+            ...pet,
+            [e.target.name] : e.target.value
+        }
+        console.log(pet)
     }
     function handleSubmit(e){
         e.preventDefault()
-        setData({
-            ...data,
+         pet ={
+            ...pet,
             ['vaccines']: vaccines
-        })
-        dispatch(modifyPet(id, data, authToken))
+        }
+        dispatch(modifyPet(id, pet, authToken)) 
 
     }
     function handleChangeVaccines(e){
@@ -55,11 +55,10 @@ export default function ModifyPet() {
                { pet.name?
             <form onSubmit={e => handleSubmit(e)}>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.name} name='name'/>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.type} name='type'/>
-               
+                {/* <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.type} name='type'/>
                 <label style={{margin:'10px'}}>{pet.type}</label>
                 <label>Raza: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/>
+                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/> */}
                 <label>Edad: </label>
                 <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.age} name='age'/>
                 <label>Altura: </label>

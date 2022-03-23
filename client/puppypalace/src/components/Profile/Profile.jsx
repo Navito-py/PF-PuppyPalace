@@ -65,6 +65,7 @@ export default function Profile() {
                             id={p.id}
                             name={p.name}
                             gender={p.gender} 
+
                             type={p.type} 
                             breed={p.breed}
                             age ={p.age}

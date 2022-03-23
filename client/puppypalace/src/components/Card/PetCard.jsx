@@ -33,6 +33,9 @@ import {
             }): 'No está vacunado.'}
              </MDBListGroup> */}
             <MDBCardText>Estado: {status}</MDBCardText>
+            {
+            vaccines === null? <p>Sin vacunas</p> : <MDBCardText>Vacunas: {vaccines.map(e => { return (<p>{e}</p>)})}</MDBCardText>
+            }
           </MDBCardBody>
         <Link to ={`/home/profile/pet/${id}`}><MDBBtn>Detalle</MDBBtn></Link>
         </MDBCard>
