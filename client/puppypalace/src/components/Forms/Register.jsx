@@ -223,9 +223,9 @@ export default function Register() {
               onChange={(e) => handleSelectProvice(e)}
             >
               <option className="option" disabled="">Clic para abrir el menu</option>
-              <option value="mendoza">Mendoza</option>
-              <option value="santaFe">Santa Fe</option>
-              <option value="cordoba">Córdoba</option>
+              <option value="Mendoza">Mendoza</option>
+              <option value="Santa Fe">Santa Fe</option>
+              <option value="Cordoba">Córdoba</option>
             </select>
           </div>
 
@@ -237,9 +237,9 @@ export default function Register() {
               onChange={(e) => handleSelectCity(e)}
             >
               <option disabled="">Clic para abrir el menu</option>
-              <option value="mendoza">Mendoza</option>
-              <option value="rosario">Rosario</option>
-              <option value="cordoba">Córdoba</option>
+              <option value="Mendoza">Mendoza</option>
+              <option value="Rosario">Rosario</option>
+              <option value="Cordoba">Córdoba</option>
             </select>
           </div>
 

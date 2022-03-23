@@ -111,6 +111,7 @@ export default function LandingPage() {
             elementsPerPage = {elementsPerPage}
             allElements = {allClinics.length}
             paginate = {paginate}
+            currentPage = {currentPage}
           />
         </div>
         <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
