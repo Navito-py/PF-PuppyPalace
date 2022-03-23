@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getPetDetail, modifyPet} from '../../redux/actions'
 import './ModPet.css';
-
+import vipets from "../../media/logoVIPetsTransparent.png"; 
 export default function ModifyPet() {
     const dispatch = useDispatch()
     const { id } = useParams()
@@ -49,37 +49,51 @@ export default function ModifyPet() {
 
     return (
         <div className='form-pet'>
+
             <Link to='/home/profile'>
-                <button>Volver</button>
+                <div className="brand-title-modPet" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div>
             </Link>
                { pet.name?
-            <form onSubmit={e => handleSubmit(e)}>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.name} name='name'/>
-                {/* <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.type} name='type'/>
-                <label style={{margin:'10px'}}>{pet.type}</label>
-                <label>Raza: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/> */}
-                <label>Edad: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.age} name='age'/>
-                <label>Altura: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.height} name='height'/>
-                <label>Peso: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.weight} name='weight'/>
-                <label>Historial clínico: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.history} name='history'/>
-                <label>Imagen: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.image} name='image'/>
-                <label>Vacunas: </label>
-                <input onChange={e => handleChangeVaccines(e)} type='text' placeholder={pet.vaccines} name='vaccines'/>
-                <input type={'button'} value={'Add vaccine'} onClick ={(e) => handleSubmitVaccine(e)}/>
-                {vaccines.length>0 && vaccines.map(v =>
-                    <div key={v}>
-                        <span>{v}</span>
-                        <button id={v} className='vac-delete' onClick={(e) => handleDelete(e)}>X</button>
-                    </div>)}
-                <label>Estado: </label>
-                <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/>
-                <button className='form-btn' type='submit'>Modificar</button>
+            <form classname='form-form' onSubmit={e => handleSubmit(e)}>
+                <div classname='form-divs'>
+                    <label classname='form-label'>Nombre: </label>
+                    <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.name} name='name'/>
+                
+                    <label classname='form-label'>Tipo: </label>
+                    <input type='text' onChange={e => handleOnChange(e)} placeholder={pet.type} name='type'/>
+                
+                    <label classname='form-label'>Raza: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.breed} name='breed'/>
+                    <label classname='form-label'>Edad: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.age} name='age'/>
+                
+                    <label classname='form-label'>Altura: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.height} name='height'/>
+                
+                    <label classname='form-label'>Peso: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.weight} name='weight'/>
+                
+                    <label classname='form-label'>Historial clínico: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.history} name='history'/>
+                
+                    <label classname='form-label'>Imagen: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.image} name='image'/>
+                
+                    <label classname='form-label'>Vacunas: </label>
+                    <input onChange={e => handleChangeVaccines(e)} type='text' placeholder={pet.vaccines} name='vaccines'/>
+                
+                    <input type={'button'} className='vac-btn' value={'Add vaccine'} onClick ={(e) => handleSubmitVaccine(e)}/>
+                    {vaccines.length>0 && vaccines.map(v =>
+                        <div key={v}>
+                            <span>{v}</span>
+                            <button id={v} className='vac-delete' onClick={(e) => handleDelete(e)}>X</button>
+                        </div>)}
+                
+                    <label classname='form-label'>Estado: </label>
+                    <input onChange={e => handleOnChange(e)} type='text' placeholder={pet.status} name='status'/>
+                
+                    <button className='form-btn' type='submit'>Modificar</button>
+                </div>
             </form> : <p>loading...</p>
                }
         </div>
