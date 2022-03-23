@@ -15,6 +15,7 @@ const getProfile = async (req, res, next) => {
 const modProfile = async (req, res) => {
     let { id } = req.params;
     let {
+        userName,
         name,
         lastName,
         email,
@@ -33,7 +34,7 @@ const modProfile = async (req, res) => {
                 lastName: typeof lastName === 'string' && lastName,
                 email: typeof email === 'string'&& email.split('@').length === 2 && email.split('.')[1].length === 3 &&email,
                 password: password.length > 8 && password.length<20 && password,
-                phone: typeof parsedphone === 'number' && phone.length === 10 && parsedphone,
+                phone: typeof phone === 'number' && phone,
                 address:typeof address === 'string' && address,
                 province:(province === 'Mendoza' || province === 'Santa Fe' || province === 'Córdoba' || province === 'Cordoba') && province,
                 city:(city === 'Mendoza' || city === 'Rosario' || city === 'Córdoba' || city === 'Cordoba') && city,

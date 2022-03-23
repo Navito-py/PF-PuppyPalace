@@ -27,6 +27,7 @@ export default function ModifyUser() {
 
     function handleSubmit(e){
         e.preventDefault()
+        user.phone = parseInt(user.phone)
         dispatch(modifyUser(id, user, authToken))
         console.log(user);
     }
@@ -46,7 +47,7 @@ export default function ModifyUser() {
                 <label>Dirección:  </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.address} name='address'/>
                 <label>Email:  </label>
-                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.address} name='email'/>
+                <input type='text' onChange={e => handleOnChange(e)} placeholder={user.email} name='email'/>
                 <label>Teléfono:  </label>
                 <input type='text' onChange={e => handleOnChange(e)} placeholder={user.phone} name='phone'/>
                 <label>Provincia:  </label>
