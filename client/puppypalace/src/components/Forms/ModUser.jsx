@@ -73,9 +73,9 @@ export default function ModifyUser() {
                      onChange={(e) => handleSelectProvince(e)} 
                     >
                     <option disabled="" hidden>{user.province}</option>
-                    <option value="mendoza">Mendoza</option>
-                    <option value="santaFe">Santa Fe</option>
-                    <option value="cordoba">Córdoba</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Cordoba">Córdoba</option>
                     </select>
                 </div>
 
@@ -87,9 +87,9 @@ export default function ModifyUser() {
                      onChange={(e) => handleSelectCity(e)} 
                     >
                     <option disabled="" hidden>{user.city}</option>
-                    <option value="mendoza">Mendoza</option>
-                    <option value="rosario">Rosario</option>
-                    <option value="cordoba">Córdoba</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Rosario">Rosario</option>
+                    <option value="Cordoba">Córdoba</option>
                     </select>
                 </div>
 
