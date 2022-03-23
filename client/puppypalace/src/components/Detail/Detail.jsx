@@ -28,8 +28,6 @@ export default function Detail() {
           <img className="img-btn" src={vipets} alt="Home" height="100px" />
         </Link>
       </div>
-     
-
       <div className="container">
           {clinicsDetails ? (
             <div className="card-detail-clinic">

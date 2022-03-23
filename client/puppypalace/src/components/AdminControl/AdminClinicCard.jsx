@@ -12,7 +12,7 @@ export default function AdminClinicCard({id, hours, name, direction, onDelete, i
             <p className='dirandcity' >{city}</p>
             <p className='dirandcity' >{hours}</p>
             <Link to={`/admin/controls/Clinics/${id}`}>
-                <button>Modificar</button>
+                <button className='btnAdmin1'>Modificar</button>
             </Link>
         </div>
     )

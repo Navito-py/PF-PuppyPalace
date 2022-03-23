@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getAllUsers, deleteUser, adminAUser, filterByUsername } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import './AdminUsers.css'
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function AdminUsers() {
 
@@ -37,13 +39,13 @@ export default function AdminUsers() {
     }
 
     return (
-        <div>
+        <div className='fondo'>
             <Link to='/admin/controls'>
                 <button className='back-create'>Volver</button>
             </Link>
             <form onSubmit={e => HandleFilter(e)}>
                 <input onChange={e => handleChange(e)} type='text' placeholder='Nombre de usuario' name='username'/>
-                <button type='submit'>buscar</button> 
+                <button type='submit' className='back-create'>buscar</button> 
             </form>
             {
                 users?.map(e => {
@@ -52,6 +54,6 @@ export default function AdminUsers() {
                     )
                 })
             }
-        </div>
+             <img src={vipets} alt="" className='logoVipets'/>        </div>
     )
 }

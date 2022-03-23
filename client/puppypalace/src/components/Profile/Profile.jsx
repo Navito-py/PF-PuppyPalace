@@ -7,6 +7,7 @@ import './Profile.css';
 import { resetStatus } from "../../redux/actions/index"
 import PetCard from '../Card/PetCard.jsx';
 import ReserveCard from '../Card/ReserveCard.jsx';
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -34,10 +35,7 @@ export default function Profile() {
         <div className='profile'>
              {/* <a style={{fontSize:'25px'}} href="https://vipets.vercel.app/lostpets/">Volver</a> */}
             <div className='nav-bar-profile'>
-                <Link to='/home'>
-                    <button className="buttonHome"><img src="https://cdn-icons-png.flaticon.com/512/5100/5100262.png" alt="Home" height="50px"/></button>
-                    
-                </Link>
+            <Link to="/home" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
                 <div className='btns-navBar'>
                    <Link to ='createPet'>
                      <button className='btn-petscreate'>Crear mascota</button>

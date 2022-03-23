@@ -45,6 +45,7 @@ export default function Home() {
           <NavBar />
           </div>
             <Link to="/" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
+
         <div className="navbar-links">
           <ul>
             <a href="https://vipets.vercel.app/home">Pagina principal</a>
@@ -53,7 +54,7 @@ export default function Home() {
             <li><a href="http://localhost:3000/login">Login</a></li>
           */}
             <a href="https://vipets.vercel.app/emergencies">Emergencias</a>
-            <a href="http://localhost:3000/aboutus">Sobre Nosotros</a>
+            <a href="https://vipets.vercel.app/aboutus">Sobre Nosotros</a>
           </ul>
         </div>
       </nav>
@@ -153,6 +154,8 @@ export default function Home() {
                     image={e.image}
                     schedule={e.address}
                     province={e.province}
+                    phone={e.phone}
+                    emergency={e.emergency}
                   />
                 </Link>
               </div>
