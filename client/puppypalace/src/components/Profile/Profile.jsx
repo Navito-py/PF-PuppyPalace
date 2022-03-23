@@ -38,7 +38,10 @@ export default function Profile() {
             <Link to="/home" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
                 <div className='btns-navBar'>
                    <Link to ='createPet'>
-                     <button className='btn-petscreate'>Crear mascota</button>
+                     <button className='btn-petscreate'>Crear Mascota</button>
+                   </Link>
+                   <Link to ='/qrcreator'>
+                     <button className='btn-petscreate'>Crear Qr Mascota</button>
                    </Link>
                     <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
                 </div>

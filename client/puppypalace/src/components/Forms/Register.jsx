@@ -3,7 +3,7 @@ import { useState } from "react";
 import { postUser } from "../../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
 import './Register.css'
-
+import vipets from "../../media/logoVIPetsTransparent.png";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -92,8 +92,11 @@ export default function Register() {
 
   return (
     <div className="container-mt-5">
-      <h1 className="titleAcount">Crea una cuenta</h1>
+            <Link to="/">
+            <button className="btn-register-topNav"><img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/>Inicio</button>
+            </Link>
       <form onSubmit={handleSubmit} className="row-g-3">
+      <h1 className="titleAcount">Crea una cuenta</h1>
         <div className="top1">
           <div className="col-md-4">
             <label htmlFor="firstName" className="form-label1">
@@ -176,7 +179,7 @@ export default function Register() {
           <p style={{ color: "red" }} className='errors'>{formErrors.password}</p>
         </div>
         
-        <div className="Phone-adress">
+        <div className="top1">
           
           <div className="col-md-4">
             <label htmlFor="phone" className="form-label2">
@@ -210,7 +213,7 @@ export default function Register() {
         </div>
 
 
-        <div className="prov-ciudad">
+        <div className="top2">
 
           <div className="col-md-6">
             <label htmlFor="floatingSelect" className="titleProv-city">Selecciona la provincia</label>
@@ -219,7 +222,7 @@ export default function Register() {
               id="floatingSelect"
               onChange={(e) => handleSelectProvice(e)}
             >
-              <option disabled="">Clic para abrir el menu</option>
+              <option className="option" disabled="">Clic para abrir el menu</option>
               <option value="mendoza">Mendoza</option>
               <option value="santaFe">Santa Fe</option>
               <option value="cordoba">Córdoba</option>
@@ -262,9 +265,6 @@ export default function Register() {
                Registrar
              </button>
            </div>
-            <Link to="/">
-            <button className="btn-register">Inicio</button>
-            </Link>
          </div>
         <br />
       </form>

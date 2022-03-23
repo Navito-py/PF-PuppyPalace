@@ -61,7 +61,7 @@ export default function Home() {
       
        <div className="Carousel-logo-searchbar">
           <div className="carousel">
-                <h2 className="lost-please"><img src="https://i.pinimg.com/originals/38/2a/25/382a257e82075d16cec2a597b4ad6f23.gif" alt="" height="100px"/> Estoy perdido, ayudame a volver a casa</h2>
+                <h2 className="lost-please-home"><img src="https://i.pinimg.com/originals/38/2a/25/382a257e82075d16cec2a597b4ad6f23.gif" alt="" height="100px"/> Estoy perdido, ayudame a volver a casa</h2>
                 <Link to="/lostpets" className="lost-pets">
                 <LostPets/>
                 </Link>
