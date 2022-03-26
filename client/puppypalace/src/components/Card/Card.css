@@ -34,15 +34,15 @@ a{
 .size-card{
     border-radius: 10px;
     background-color: #d7ecff;
-    height: 550px;
-    width: 400px;
+    height:fit-content;
+    width: 300px;
     margin-top: 2%;
     color: #1761a0;
     align-items: center;
 }
 
 .image-card{
-    width: 349px;
+    width: 299px;
     height: fit-content;
 }
 

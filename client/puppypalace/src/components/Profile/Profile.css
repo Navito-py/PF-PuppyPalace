@@ -21,6 +21,10 @@ body{
     margin-top: 4vh;
 }
 
+.card-clinic{
+    height: fit-content;
+}
+
 .card-profile{
     display: flex;
     width: 100vw;
@@ -44,7 +48,7 @@ body{
 
 .image-card{
     border-radius: 10px 10px 0px 0px;
-    width: 399px;
+    width: 299px;
     height: 200;
 }
 
