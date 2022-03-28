@@ -5,7 +5,7 @@ import { getPets } from "../../redux/actions";
 import LostCard from "../Card/LostCard";
 import "./AllLost.css";
 import { Link } from "react-router-dom";
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from "../../media/VIPETS_LOGO.png";
 
 export default function AllLost() {
   
@@ -20,14 +20,18 @@ export default function AllLost() {
   
 return (
     <div className="lostCards2">
-      <div className="nav-lost">
-        <Link to='/'>
-          <div>
-            <button className="buttonHome1"><img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/>VIPets<span className="lostIam"> Estoy perdido</span></button>
-            </div>
-
-        </Link>
-      </div>
+      <div className="First">
+        <div className="Second">
+          <div className="welcome-text">
+            <Link to='/'>
+             <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+            </Link>
+            <div className="rigth">
+           </div>
+          </div>
+        </div>
+     </div>
+      
       <div className="lostCards" >
         {
             lost.map(e => {
