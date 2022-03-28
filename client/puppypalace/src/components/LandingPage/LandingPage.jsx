@@ -10,6 +10,7 @@ import { useState } from "react";
 import { getClinics } from "../../redux/actions/index"
 import '../LostPets/LostPets.css'
 import SearchBar from "../SearchBar/SearchBar";
+import logoVipets from '../../media/VIPETS_LOGO.png'
 
 export default function LandingPage() {
 
@@ -19,7 +20,7 @@ export default function LandingPage() {
   const allClinics = useSelector((state) => state.clinics);
   const user = useSelector(state => state.user)
   const [currentPage, setCurrentPage] = useState(1)
-  const [elementsPerPage] = useState(3)
+  const [elementsPerPage] = useState(4)
   const indexOfLastElement = currentPage * elementsPerPage
   const indexOfFirstElement = indexOfLastElement - elementsPerPage
   const currentElements = allClinics.slice(indexOfFirstElement, indexOfLastElement)
@@ -40,10 +41,24 @@ export default function LandingPage() {
   if(!token){
     return (
       <div className={!token ? "landing-back-active" : "landing-back" }>
-      <div className="welcome-text">
-        <h1 className="h1-title">Bienvenidos a VIPets</h1>
+        <div className="First">
+        <div className="Second">
 
-      </div>
+          <div className="welcome-text">
+            <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+            <div className="rigth">
+              <Link to="/register">
+                  Nuevo Usuario
+              </Link>
+              <a href="https://vipets.vercel.app/aboutus">Sobre Nosotros</a>
+              <Link to="/login">
+                  Login
+              </Link>
+
+            </div>
+          </div>
+        </div>
+     </div>
       <div className="parent-button">
         <div className="order-btns">
           <Link to="/emergencies">
@@ -52,17 +67,6 @@ export default function LandingPage() {
             </button>
           </Link>
           
-          <Link to="/register">
-            <button type="button" className="btn primary">
-              Nuevo Usuario
-            </button>
-          </Link>
-
-          <Link to="/login">
-            <button type="button" className="btn primary">
-              Login
-            </button>
-          </Link>
         </div>
       </div>
 
@@ -85,6 +89,8 @@ export default function LandingPage() {
         <ReserveBar />
         </div> */}
         </div>
+
+        <h3 className="vet-disp">Veterinarias Disponibles</h3>
         <div
           className="cards"
         >
@@ -106,7 +112,7 @@ export default function LandingPage() {
           })}
         </div>
 
-        <div>
+        <div className="altura">
           <Paginate 
             elementsPerPage = {elementsPerPage}
             allElements = {allClinics.length}
@@ -118,41 +124,31 @@ export default function LandingPage() {
     </div>
   )}else if(token){
     return(
-      <div>
-        <div className="landing-back">
-      <div className="welcome-text">
-        <h1 className="h1-title">Bienvenidos a VIPets</h1>
-      </div>
-        <div className="parent-button">
-              <div className="order-btns">
+      <div className="landing-back">
+       <div className="First">
+        <div className="Second">
+          <div className="welcome-text">
+            <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+            <div className="rigth">
+              <div className="emergencyBottom">
                 <Link to="/emergencies">
-                  <button type="button" className="btn primary-emergency">
-                    Emergencias
-                  </button>
-                </Link>
-                
-{/*                 <Link to="/register">
-                  <button type="button" class="btn primary">
-                    Nuevo Usuario
-                  </button>
-                </Link>
-
-                <Link to="/login">
-                  <button type="button" class="btn primary">
-                    Login
-                  </button>
-                </Link> */}
-
-                <Link to="/home">
+                      <button type="button" className="btn primary-emergency">
+                        Emergencias
+                      </button>
+                    </Link>                
+              </div>
+              <Link to="/home">
                   <button type="button" className="btn primary">
                     Home
                   </button>
                 </Link>
                 <Link to="/qrcreator">
                   <button type="button" className="btn primary">
-                    Creacion QR
+                    QR Collar Mascota
                   </button>
                 </Link>
+              <a href="https://vipets.vercel.app/aboutus">Sobre Nosotros</a>
+                <div>
                 {
                   user.isAdmin === true &&
                   <Link to="/admin/controls">
@@ -162,10 +158,13 @@ export default function LandingPage() {
                 </Link>
                 }
               </div>
+            </div>
+          </div>
         </div>
+     </div>
            <div className="Carousel-logo-searchbar">
               <div className="carousel">
-                    <h2 className="lost-please1">Estoy perdido, ayudame a volver a casa</h2>
+                    <h2 className="lost-pleasedown">Estoy perdido, ayudame a volver a casa</h2>
                     <Link to="/lostpets" className="lost-pets">
                     <LostPets/>
                     </Link>
@@ -173,7 +172,6 @@ export default function LandingPage() {
            </div>
          <div className="break2"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
       </div>
-    </div>
     )
   }
 }

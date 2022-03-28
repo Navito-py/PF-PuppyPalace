@@ -4,7 +4,7 @@ import { PetSubmit } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom';
 import './CreatePets.css';
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from "../../media/VIPETS_LOGO.png";
 
 export default function CreatePet() {
 
@@ -81,9 +81,13 @@ export default function CreatePet() {
 
     return (
         <div className='container-createpet'>
-            <nav className='nav-createPet'>
-            <Link to="/home/profile" className="landingLink"><div className="brand-title1" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
-            </nav>
+            <div className="First">
+              <div className="Second">
+                <div className="welcome-text">
+                  <Link to="/home/profile" className="landingLink"><h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1></Link>
+                </div>
+              </div>
+            </div> 
             <div className='div-formPet'>
                 <form onSubmit={e => handleSubmit(e)} >
                        <div className='n1'>
@@ -119,8 +123,8 @@ export default function CreatePet() {
                             <button className='btn-createPet' type='submit' >Crear</button>
                         </div>
                 </form>
-            </div>
             <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
+            </div>
         </div>
     )
 }

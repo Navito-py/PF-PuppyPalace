@@ -13,16 +13,54 @@ a{
     margin-top: 5%;
 }
 
+.flip-card-front, .flip-card-back {
+    width: 100%;
+    height: fit-content;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    background-color:#d7ecff;
+    color:#1761a0;
+    transform: rotateY(180deg);
+    height: 450px;
+    width: 300px;
+  }
+
+  .flip-card {
+    height:fit-content;
+    width: 300px;
+    border:none;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+
 .card-clinic{
+    border:none;
     margin: 5px;
     border-radius: 10px;
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    text-align: center;
+    transition: transform 1.5s;
+    transform-style: preserve-3d;
 }
 
 .card-clinic:hover{
-    transform:scale(1.01);
-    box-shadow: 0px 0px 10px 5px darkgrey;
+    transform: rotateY(180deg);
 }
 
+.flip-card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#d7ecff;
+    color:#1761a0;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+  }
 
 .card-title{
     font-size: 30px;
@@ -33,16 +71,19 @@ a{
 
 .size-card{
     border-radius: 10px;
+    border: none;
     background-color: #d7ecff;
-    height: 550px;
-    width: 400px;
     margin-top: 2%;
     color: #1761a0;
     align-items: center;
+    position:fixed;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    height: fit-content;
 }
 
 .image-card{
-    width: 349px;
+    width: 299px;
     height: fit-content;
 }
 
