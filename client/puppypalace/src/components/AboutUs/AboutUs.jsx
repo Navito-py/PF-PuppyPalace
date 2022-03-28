@@ -4,7 +4,7 @@ import { aboutUs } from './aboutus.js';
 import { useState, useEffect } from 'react'
 import CardAboutUs from './CardAboutUs';
 import { Link } from 'react-router-dom';
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from "../../media/VIPETS_LOGO.png";
 
 export default function AboutUs() {
   const [selected, setSelected] = useState("aboutUs");
@@ -22,11 +22,17 @@ export default function AboutUs() {
 
   return (
     <div className='all'>
-     <div className="topQr">
-        <Link to='/'>
-        <img  className="topQrButton" src={vipets} alt="Home" height="90px"/>
-        </Link>
-      </div>
+     <div className="First">
+        <div className="Second">
+          <div className="welcome-text">
+            <Link to='/'>
+             <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+            </Link>
+            <div className="rigth">
+           </div>
+          </div>
+        </div>
+     </div> 
         <div className="AboutUs">
           <h1 className='title-AboutUs'>Grupo 10: Soy Henry Bootcamp</h1>
                 {data.map((data)=>{ 

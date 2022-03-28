@@ -7,7 +7,7 @@ import './Profile.css';
 import { resetStatus } from "../../redux/actions/index"
 import PetCard from '../Card/PetCard.jsx';
 import ReserveCard from '../Card/ReserveCard.jsx';
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from "../../media/VIPETS_LOGO.png";
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -33,20 +33,25 @@ export default function Profile() {
 
     return (
         <div className='profile'>
+         <div className="First">
+          <div className="Second">
+            <div className="welcome-text">
+              <Link to='/home'>
+               <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+              </Link>
+              <div className="rigth">
+              <Link to ='createPet'>
+                <button className='btn-petscreate'>Crear Mascota</button>
+              </Link>
+              <Link to ='/qrcreator'>
+                <button className='btn-petscreate'>Crear Qr Mascota</button>
+              </Link>
+               <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
+           </div>
+          </div>
+        </div>
+     </div> 
              {/* <a style={{fontSize:'25px'}} href="https://vipets.vercel.app/lostpets/">Volver</a> */}
-            <div className='nav-bar-profile'>
-            <Link to="/home" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
-                <div className='btns-navBar'>
-                   <Link to ='createPet'>
-                     <button className='btn-petscreate'>Crear Mascota</button>
-                   </Link>
-                   <Link to ='/qrcreator'>
-                     <button className='btn-petscreate'>Crear Qr Mascota</button>
-                   </Link>
-                    <button className='btn-petscreate' onClick={handleLogout}>Cerrar Sesion</button>
-                </div>
-
-            </div>
             <div className='card-profile'>
                 <div className='container-info'>
                     <img className='image-card' src={user.image} width = '100px' height='100px' alt='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png'/>

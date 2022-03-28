@@ -101,7 +101,7 @@ export default function CreateReserve() {
 
           onSubmit={(e) => handleSubmit(e)}
         >
-          <p>Deberá abonar el valor de la reserva</p>
+          <p>Deberá abonar el valor de la reserva<span className="red">*</span></p>
           
           <BookDate dateAndHours={callDateAndHours} />
           <p className="formError">{formErrors.date}</p>

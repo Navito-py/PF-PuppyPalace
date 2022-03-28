@@ -51,7 +51,6 @@ export default function Home() {
 
         <div className="navbar-links">
           <ul>
-            <a href="https://vipets.vercel.app/home">Pagina principal</a>
             <a href="https://vipets.vercel.app/home/profile">Perfil</a>
             {/* <li><a href="http://localhost:3000/register">Nuevo Usuario</a></li>
             <li><a href="http://localhost:3000/login">Login</a></li>
@@ -60,6 +59,7 @@ export default function Home() {
             <a href="https://vipets.vercel.app/aboutus">Sobre Nosotros</a>
           </ul>
         </div>
+      </div>
       </div>
       </div>
    {/*  </nav> */}
@@ -167,8 +167,7 @@ export default function Home() {
             );
           })}
         </div>
-
-        <div>
+        <div className="paginadoHome">
           <Paginate 
             elementsPerPage = {elementsPerPage}
             allElements = {allClinics.length}
@@ -177,9 +176,8 @@ export default function Home() {
           />
         </div>
 
-      <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
       </div>
-    </div>
+      <div className="breakHome"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
   </div>
   );
 }

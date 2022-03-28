@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getDetail, cleanDetails } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import Reserves from "../Reserves/Reserves";
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from "../../media/VIPETS_LOGO.png";
 import "./Detail.css";
 import CreateReserve from "../Forms/CreateReserve";
 
@@ -22,12 +22,17 @@ export default function Detail() {
 
   return (
     <div className="content">
-      <div className="home-allinfo">
-        <p className="home-text">Regresar Home</p>
-        <Link to="/home">
-          <img className="img-btn" src={vipets} alt="Home" height="100px" />
-        </Link>
-      </div>
+      <div className="First">
+        <div className="Second">
+          <div className="welcome-text">
+            <Link to='/home'>
+             <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
+            </Link>
+            <div className="rigth">
+           </div>
+          </div>
+        </div>
+     </div> 
       <div className="container">
           {clinicsDetails ? (
             <div className="card-detail-clinic">
@@ -54,12 +59,14 @@ export default function Detail() {
               </div>
             </div>
           ) : (
-            <img src={vipets} alt="noInfo" />
+            <img src={logoVipets} alt="noInfo" />
           )}
         <div className="calendar-reserve">
           <CreateReserve />
         </div>
       </div>
+      <p className="red">*(El valor abonado es en concepto de SEÑA, para su exclusivo uso de reserva de espacio y tiempo en la clinica solicitada.</p>
+      <p className="red">La Clinica solicitada deberá cobrar la diferencia corresponidente al tratamiento brindado.)</p>
     </div>
   );
 }
