@@ -20,7 +20,7 @@ export default function LandingPage() {
   const allClinics = useSelector((state) => state.clinics);
   const user = useSelector(state => state.user)
   const [currentPage, setCurrentPage] = useState(1)
-  const [elementsPerPage] = useState(4)
+  const [elementsPerPage] = useState(3)
   const indexOfLastElement = currentPage * elementsPerPage
   const indexOfFirstElement = indexOfLastElement - elementsPerPage
   const currentElements = allClinics.slice(indexOfFirstElement, indexOfLastElement)
