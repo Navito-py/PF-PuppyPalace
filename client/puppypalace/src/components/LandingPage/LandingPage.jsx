@@ -43,6 +43,7 @@ export default function LandingPage() {
       <div className={!token ? "landing-back-active" : "landing-back" }>
         <div className="First">
         <div className="Second">
+
           <div className="welcome-text">
             <h1 className="h1-title">VIPets <img src={logoVipets} alt="" height='70px'/></h1>
             <div className="rigth">
@@ -111,7 +112,7 @@ export default function LandingPage() {
           })}
         </div>
 
-        <div>
+        <div className="altura">
           <Paginate 
             elementsPerPage = {elementsPerPage}
             allElements = {allClinics.length}

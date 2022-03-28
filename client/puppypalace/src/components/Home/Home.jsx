@@ -6,7 +6,7 @@ import ReserveBar from "../ReserveBar/ReserveBar";
 import "./Home.css";
 import Card from "../Card/Card";
 import Paginate from "../Paginate/Paginate";
-import vipets from "../../media/logoVIPetsTransparent.png";
+import logoVipets from '../../media/VIPETS_LOGO.png'
 import { useDispatch, useSelector } from "react-redux";
 import { getClinics } from "../../redux/actions/index"
 import { useEffect, useState } from "react";
@@ -40,11 +40,14 @@ export default function Home() {
 
   return (
     <div className="blue-backg">
-      <nav className="navbar">
-        <div className="test-hide">
+      <div className="First">
+      {/* <nav className="navbar"> */}
+        {/* <div className="test-hide">
           <NavBar />
-          </div>
-            <Link to="/" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={vipets} alt="vipetslogo" width="100px" height="100px"/></div></Link>
+          </div> */}
+          <div className="Second">
+          <div className="welcome-text">
+            <Link to="/" className="landingLink"><div className="brand-title" >VIPets<img className="vipets-logo" src={logoVipets} alt="vipetslogo" height="70px"/></div></Link>
 
         <div className="navbar-links">
           <ul>
@@ -57,7 +60,9 @@ export default function Home() {
             <a href="https://vipets.vercel.app/aboutus">Sobre Nosotros</a>
           </ul>
         </div>
-      </nav>
+      </div>
+      </div>
+   {/*  </nav> */}
       
        <div className="Carousel-logo-searchbar">
           <div className="carousel">
@@ -175,6 +180,7 @@ export default function Home() {
       <div className="break"><img className="center-img" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/> VIPets <img className="centerimg" src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" alt="" height="50px"/></div>
       </div>
     </div>
+  </div>
   );
 }
 

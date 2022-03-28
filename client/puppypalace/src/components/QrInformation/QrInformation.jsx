@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./QrInformation.css"
 import { Link } from "react-router-dom";
 import vipets from "../../media/logoVIPetsTransparent.png";
+import Chapita from '../../media/chapitaDog.jpg'
 
 export default function QrInformation() {
   const [temp, setTemp] = useState("");
@@ -25,8 +26,19 @@ export default function QrInformation() {
         <Link to='/'>
         <img  className="topQrButton" src={vipets} alt="Home" height="90px"/>
         </Link>
+      <div className="infoQr">
+        <h3>La importancia del identificador para tu mascota</h3>
+        <img src={Chapita} alt="" height='200' />
+        <p>La identificación de los animales de compañía es una de las principales estrategias para luchar contra el abandono y con ello, facilitar su recuperación en caso de pérdida.
+El factor clave en la recuperación de un animal extraviado, es la posibilidad de localizar a sus propietarios y para lograrlo, es fundamental que el animal esté correctamente identificado.
+
+Muchos animales que a diario vemos en la calle, son mascotas que alguna vez tuvieron un hogar, que tal vez no fueron abandonadas, sino que un día decidieron salir a dar un paseo por los alrededores de su casa, y que cuando trataron de volver, no pudieron hacerlo porque se desorientaron y jamás dieron con la dirección de sus dueños.
+
+Cuando una mascota se pierde y no está identificada de ninguna manera, es muy difícil que la persona que la encuentre pueda regresarla a su familia. Es aquí donde radica la importancia de ponerles una placa de identificación.
+Dichas placas, son aquellas que se encuentran colgadas del collar, y que debería llevar el nombre de la mascota y el de su propietario, con el respectivo teléfono de contacto. Esto es importante porque con ello se asume una responsabilidad por parte del dueño otorgado. Y es lo que justamente Grupo Mor propone a través de las chapitas My Family.</p>
       </div>
-      <h1 className="h1">Generador de QR para tu mascota</h1>
+      </div>
+      <h3 className="h1">Generador gratuito QR</h3>
 
       <div className="input-box">
         <div className="gen">

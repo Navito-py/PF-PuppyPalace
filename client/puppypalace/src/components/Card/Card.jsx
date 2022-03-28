@@ -11,19 +11,24 @@ import './Card.css';
 
 export default function Card({ name, image, schedule, province, emergency, phone }) {
   return (
+  <div class="flip-card">
     <div className="card-clinic">
       <MDBCard className="size-card">
-        <div className="card-front">
+        <div className="flip-card-front">
         <MDBCardImage src={image} className='image-card' />
-        </div>
-        <MDBCardBody className="body-card">
           <MDBCardTitle className="card-title">{name}</MDBCardTitle>
           <MDBCardText >{province}</MDBCardText>
+        <MDBCardBody className="body-card">
           <MDBCardText>{schedule}</MDBCardText>
           <MDBCardText>{phone}</MDBCardText>
           <MDBCardText>{emergency}</MDBCardText>
         </MDBCardBody>
+        </div>
       </MDBCard>
+        <div class="flip-card-back">
+         <h1>Más Info</h1>
+       </div>
     </div>
+  </div>
   );
 }

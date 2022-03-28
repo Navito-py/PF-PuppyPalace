@@ -130,3 +130,10 @@ background-color: #d7ecff;
     height: 20px;
     width:  100px;
 }
+
+.infoQr{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 300px;
+}
